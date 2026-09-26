@@ -1,0 +1,258 @@
+{
+  "schema_version": 2,
+  "path_base": "assets/",
+  "required_ids": [
+    "title-frame",
+    "map-node-home",
+    "map-node-stage",
+    "map-node-locked",
+    "map-node-complete",
+    "help-bubble",
+    "health",
+    "ammo",
+    "selection",
+    "world2-tease"
+  ],
+  "missing_required_ids": [],
+  "assets": [
+    {
+      "id": "map-node-home",
+      "path": "ui/map-node-home.png",
+      "file": "map-node-home.png",
+      "size": [
+        64,
+        32
+      ],
+      "anchor": [
+        32,
+        32
+      ],
+      "frames": 1,
+      "fps": 0,
+      "loop": false,
+      "alpha": "binary",
+      "provenance": "Nearest-neighbor reduction of PixelLab temple facade. Not a separately generated house icon.",
+      "width": 64,
+      "height": 32,
+      "sha256": "52630ffbf249117a0be60c14f32201f21eb8f29f0852e40659d8e96f26eb7e23",
+      "opaque_bbox": [
+        0,
+        2,
+        64,
+        30
+      ]
+    },
+    {
+      "id": "title-frame",
+      "path": "ui/title-frame.png",
+      "width": 256,
+      "height": 128,
+      "anchor": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        2,
+        4,
+        253,
+        122
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "text_safe_rect": [
+        30,
+        49,
+        226,
+        108
+      ],
+      "display_scale": 1.5,
+      "sha256": "c8120df1fdaa75e075904be5b0b74adb48a8b94331c75323608012bb0be842f4"
+    },
+    {
+      "id": "help-bubble",
+      "path": "ui/help-bubble.png",
+      "width": 192,
+      "height": 96,
+      "anchor": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        6,
+        11,
+        187,
+        85
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "text_safe_rect": [
+        17,
+        22,
+        171,
+        70
+      ],
+      "display_scale": 1.5,
+      "notes": "Ornamental dialogue bubble center is transparent: renderer supplies an explicit dark readability scrim behind text.",
+      "sha256": "96ce2cb5ea14e12d92757d9bcdb5c86de688d25a2ade1042a464a2be4063e196"
+    },
+    {
+      "id": "map-node-stage",
+      "path": "ui/map-node-stage.png",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        2,
+        2,
+        30,
+        30
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "sha256": "c9ff65dcc9f523a6a168a5d577da3f594eb0c1cac1d0a6311360868aa1aa8ddc"
+    },
+    {
+      "id": "map-node-locked",
+      "path": "ui/map-node-locked.png",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        2,
+        2,
+        30,
+        30
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "sha256": "4c38a51002b01ac31675c74ee5353ba011d0c3e720da616c04a4754e131cc99b"
+    },
+    {
+      "id": "map-node-complete",
+      "path": "ui/map-node-complete.png",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        3,
+        3,
+        29,
+        29
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "sha256": "1deeb846d04bb5c210ceedbe49178ac534e8cfd60f569011ec3defa49b1c8b7a"
+    },
+    {
+      "id": "health",
+      "path": "ui/health.png",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        3,
+        3,
+        29,
+        29
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "sha256": "ec3785809976db5ab3bfc18379157c1e592ef369e59a8a037006a8ed864cd7c4"
+    },
+    {
+      "id": "ammo",
+      "path": "ui/ammo.png",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        10,
+        2,
+        22,
+        30
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "sha256": "68437d4d9ebef8151eaad694c2a31201fe2529826a9a140610cb9529045dc5a6"
+    },
+    {
+      "id": "selection",
+      "path": "ui/selection.png",
+      "width": 32,
+      "height": 32,
+      "anchor": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        7,
+        6,
+        25,
+        26
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "sha256": "ea2e45b86678d131f14f8557b930b5f5d7094003c1a6442512a32b6537f4c360"
+    },
+    {
+      "id": "world2-tease",
+      "path": "ui/world2-tease.png",
+      "width": 160,
+      "height": 90,
+      "anchor": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        0,
+        0,
+        160,
+        90
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "display_scale": 2,
+      "sha256": "7ea58ff5164c2f424276fc3284d20761ae90b1402a47b97109e2ec506bd9005f"
+    },
+    {
+      "id": "menu-button-frame",
+      "path": "ui/menu-button-frame.png",
+      "width": 160,
+      "height": 40,
+      "anchor": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        0,
+        0,
+        160,
+        40
+      ],
+      "provenance": "Layout assembled from cropped generated title-plaque wood/bronze ornament; transparent center, not separately generated",
+      "text_safe_rect": [
+        14,
+        12,
+        146,
+        29
+      ],
+      "sha256": "e4831610de9ecc270fa1b96d2bb03206124cebc867e7a4ca19abf79aa3cfa863"
+    }
+  ]
+}

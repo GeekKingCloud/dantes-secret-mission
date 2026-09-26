@@ -1,0 +1,216 @@
+{
+  "logical_viewport": [
+    640,
+    360
+  ],
+  "stages": [
+    {
+      "stage": 1,
+      "name": "Moonlit eaves",
+      "layers": [
+        {
+          "asset": "sky",
+          "x": 0,
+          "y": 0,
+          "scale": 4,
+          "repeat_x": false
+        },
+        {
+          "asset": "moon",
+          "x": 431.07,
+          "y": 28,
+          "scale": 1,
+          "repeat_x": false
+        },
+        {
+          "asset": "far-mountains",
+          "x": -4.44,
+          "y": 118,
+          "scale": 2,
+          "repeat_x": true
+        },
+        {
+          "asset": "far-clouds",
+          "x": -2.04,
+          "y": 24,
+          "scale": 2,
+          "repeat_x": true
+        },
+        {
+          "asset": "distant-temples",
+          "x": -11.1,
+          "y": 86,
+          "scale": 2,
+          "repeat_x": true
+        },
+        {
+          "asset": "near-clouds",
+          "x": -91.4,
+          "y": 82,
+          "scale": 2,
+          "repeat_x": true
+        }
+      ],
+      "foreground_note": "low roofs with open sky",
+      "reference_hero_top_left": [
+        208,
+        193
+      ],
+      "reference_hero_height": 48,
+      "preview": "world/previews/stage-1.png"
+    },
+    {
+      "stage": 2,
+      "name": "Lantern ascent",
+      "layers": [
+        {
+          "asset": "sky",
+          "x": 0,
+          "y": 0,
+          "scale": 4,
+          "repeat_x": false
+        },
+        {
+          "asset": "moon",
+          "x": 320.15,
+          "y": 28,
+          "scale": 1,
+          "repeat_x": false
+        },
+        {
+          "asset": "far-mountains",
+          "x": -8.88,
+          "y": 118,
+          "scale": 2,
+          "repeat_x": true
+        },
+        {
+          "asset": "far-clouds",
+          "x": -4.07,
+          "y": 24,
+          "scale": 2,
+          "repeat_x": true
+        },
+        {
+          "asset": "distant-temples",
+          "x": -22.2,
+          "y": 86,
+          "scale": 2,
+          "repeat_x": true
+        },
+        {
+          "asset": "near-clouds",
+          "x": -98.8,
+          "y": 82,
+          "scale": 2,
+          "repeat_x": true
+        }
+      ],
+      "foreground_note": "high right roof and climb wall with twin lanterns",
+      "reference_hero_top_left": [
+        408,
+        136
+      ],
+      "reference_hero_height": 48,
+      "preview": "world/previews/stage-2.png"
+    },
+    {
+      "stage": 3,
+      "name": "Fortress approach",
+      "layers": [
+        {
+          "asset": "sky",
+          "x": 0,
+          "y": 0,
+          "scale": 4,
+          "repeat_x": false
+        },
+        {
+          "asset": "moon",
+          "x": 459.23,
+          "y": 28,
+          "scale": 1,
+          "repeat_x": false
+        },
+        {
+          "asset": "far-mountains",
+          "x": -13.32,
+          "y": 118,
+          "scale": 2,
+          "repeat_x": true
+        },
+        {
+          "asset": "far-clouds",
+          "x": -6.11,
+          "y": 24,
+          "scale": 2,
+          "repeat_x": true
+        },
+        {
+          "asset": "distant-temples",
+          "x": -33.3,
+          "y": 86,
+          "scale": 2,
+          "repeat_x": true
+        },
+        {
+          "asset": "near-clouds",
+          "x": -106.2,
+          "y": 62,
+          "scale": 2,
+          "repeat_x": true
+        }
+      ],
+      "foreground_note": "separated fortress roofs, spikes and portal",
+      "reference_hero_top_left": [
+        378,
+        214
+      ],
+      "reference_hero_height": 48,
+      "preview": "world/previews/stage-3.png"
+    }
+  ],
+  "map_nodes": [
+    {
+      "id": "home",
+      "xy": [
+        89,
+        273
+      ],
+      "asset": "map-node-home"
+    },
+    {
+      "id": "stage1",
+      "xy": [
+        216,
+        182
+      ],
+      "asset": "map-node-stage"
+    },
+    {
+      "id": "stage2",
+      "xy": [
+        350,
+        276
+      ],
+      "asset": "map-node-stage"
+    },
+    {
+      "id": "stage3",
+      "xy": [
+        441,
+        132
+      ],
+      "asset": "map-node-locked"
+    },
+    {
+      "id": "boss",
+      "xy": [
+        527,
+        70
+      ],
+      "asset": "map-node-locked"
+    }
+  ],
+  "compositing": "All assets independently loaded, alpha composited and nearest-neighbor scaled. Preview prior hero is scale reference only, not delivered as actor sprite."
+}
