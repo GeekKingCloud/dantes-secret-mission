@@ -1,133 +1,144 @@
-# Kagebot's Secret Mission — controller stage handoff
+# Kagebot’s Secret Mission — controller verification handoff
 
-## Status
+## Current checkpoint
 
-Bounded first-stage checkpoint, NOT full World 1 completion or publication.
-Schema ready; controller/combat/scenes/runtime implemented. Final verification
-was interrupted by the run budget. Parent should resume this same code-owner
-session, finish the pending checks below, then import other owners' outputs.
-No delegation, model launches, API jobs, account spend or public writes occurred.
-No asset-owner paths or designer-owned shipping level files were changed.
-Private task instructions/job records were not copied into the repository.
+Controller verification pass complete. This is NOT a completed campaign,
+finished-art preview, audio integration sign-off or publication. Keep this same
+controller owner for later parent-coordinated asset/level integration.
 
 Branch: `work/kagebot-world1`.
-Commits:
-- `229e1e7` — early level/PNG contracts and diagnostic example.
-- `d168281` — controller, combat, AI, scenes, runtime and tests checkpoint.
-- This HANDOFF is recorded in the subsequent documentation commit.
-Old procedural implementation is preserved in Git at `178eae6`; it is no longer
-imported. Original existing asset files are untouched.
+Local commits:
+- `229e1e7`: stable level/PNG contracts and diagnostic example.
+- `d168281`, `c0adb1d`: initial controller/scenes scaffold and checkpoint.
+- `4eda603`, `ce3740a`: parent-imported audio lane; left untouched this pass.
+- `f7cd0a1`: touch-test correction, high-refresh buffered combat proof, movement
+  measurement tool and measured documentation.
+- This handoff is recorded in the subsequent documentation commit.
 
-## Exact outputs (relative to this worktree root)
+No changes to movement constants, simulation/combat implementation, schemas,
+designer-owned `levels/` files or asset-owner paths. No external writes, account
+spend, delegation or other model launches. Private instructions/logs remain
+outside Git. No active executors or external job IDs remain.
 
-Ready designer interfaces:
-- `LEVEL-SCHEMA.md`
-- `ASSET-CONTRACT.md`
-- `tests/fixtures/controller.json` — example/diagnostic data, NOT a shipping level.
-- `level-schema.mjs`, `tools/validate-levels.mjs`
+## Touch blocker: actual cause and fix
 
-Controller/combat:
-- `player-controller.mjs`, `geometry.mjs`, `simulation.mjs`, `enemies.mjs`
-- `input.mjs` (extended browser source/edge handling), existing `gamepad.mjs`
-- `MOVEMENT-NOTES.md` — public provenance, units, feel/cancellation rules.
+The failing smoke dispatched a touch at viewport coordinate y=2153.3125 while
+viewport height was only 860. The diagnostic JSON pushed JUMP below the fold.
+`elementFromPoint` returned null; real touch pointerdown/up targeted HTML, not
+the button. The player correctly remained at y=300. This was test targeting,
+not a defective touch handler or a physics timing error.
 
-Runtime:
-- `asset-loader.mjs`, `renderer.mjs`, `scenes.mjs`, `runtime.mjs`
-- `index.html`, `style.css`, `audio.mjs`
+`tools/browser-smoke.mjs` now scrolls the button into view before measuring
+viewport coordinates, verifies hit-test target `jump`, and asserts actual
+`pointerType: touch` pointerdown/up arrive on that button. The original y<300
+acceptance remains unchanged. No keyboard substitute, player teleport, handler
+rewrite, arbitrary delay or weakened jump check.
 
-Checks and diagnostic play surfaces:
-- `tests/controller.test.mjs`, `tests/simulation.test.mjs`
-- `tests/combat-loop.test.mjs`, `tests/contracts.test.mjs`
-- `tests/input.test.mjs` (existing queue/pad regression retained)
-- `tests/controller.html`, `tests/fixture-runtime.mjs`, `tests/fixtures/labs.mjs`
-- `tools/browser-smoke.mjs` (written, NOT run yet)
+Verified result: y=296.5104166666667, vy=-418.75, grounded=false, pose=jump-rise,
+event=jump after one physics tick. Down/up/lostpointercapture all target JUMP.
 
-## Acceptance evidence — fresh local checks, not release proof
+## Fresh acceptance evidence
 
-Executed:
-1. Initial controller test invocation failed with missing module before its
-   implementation (red proof).
-2. `node --test tests/controller.test.mjs tests/simulation.test.mjs tests/input.test.mjs`
-   passed 16 tests at the earlier implementation checkpoint. Covers full versus
-   short jump, measured unobstructed 152px dash, no air-start dash, coyote and
-   buffer, wall climb/kick/regrab, body/ceiling invariance, combos, hitstop queue,
-   finisher/refund, wall sword/laser, lethal current-level reset, nonlethal
-   checkpoint recovery, four AI telegraphs, boss gate and geometry/projectiles.
-3. `node tools/validate-levels.mjs tests/fixtures/controller.json` passed.
-4. After applying the newer combat requirements,
-   `node --test tests/combat-loop.test.mjs tests/simulation.test.mjs`
-   ran 13 tests: 12 passed, one failed. Crucially, the complete input-only
-   three-hit bear combo → dash fully through → turn → rear execute → exact ammo
-   refund passed, as did active-attack dash crossings of zombie/bear and
-   occluded/front finisher refusal.
-   The sole failure asserted zombie turning before its documented recovery plus
-   .45s turn delay elapsed. The test's waiting budget was corrected to include
-   recovery plus turn delay; that correction has NOT been rerun.
+All checks below executed successfully on the code in `f7cd0a1`:
 
-Not checked on exact final code commit:
-- Entire current Node suite (contracts/scenes/PNG checks were added afterward).
-- `tools/browser-smoke.mjs` execution. No Chromium screenshots/video produced.
-  The script is intended to exercise CDP keyboard, 240Hz queue, touch, complete
-  bear combat input sequence, and explicit absent-PNG failure; do not report its
-  intended assertions as passed evidence.
-- Exact printed apex, airtime and wall-kick measurement report. Controller test
-  assertions passed earlier, but final numeric evidence still needs extraction.
-- Final imported PNG animation reach/feet/pixel quality, actual red-tint
-  appearance, audio manifest decoding/mix/scene transitions.
-- Physical gamepad (never claimed).
+- `node --test tests/*.test.mjs`: **27/27 pass**, no skipped tests.
+- `node tools/browser-smoke.mjs <private-evidence-directory>`: **PASS**.
+  Actual Chromium/CDP keyboard, queued 240Hz press, doubleflip, no air-start
+  dash, full input-only bear combo/dash-through/rear-execute/refund, actual
+  touch jump, and explicit shipping missing-PNG error. No runtime exceptions.
+- `node tools/measure-movement.mjs`: **PASS**, actual fixed-step trajectories
+  printed as JSON; no continuous-equation substitution.
+- `git diff --check`: **PASS**.
+- Source/asset/schema/level diff guard before commit: **unchanged**.
 
-## Implemented interactions and constraints
+Newest FAST combo requirements confirmed:
+- Early sword follow-up presses queue during the preceding strike; both queued
+  transitions start without an idle gap.
+- Recovery dash-cancel takes effect on the input tick, not at animation end.
+- Node checks run the full sequence at 120/144/240Hz render cadence.
+- Chromium uses actual keyboard events with two 1/240s render updates per
+  1/120s simulation tick. Each sword edge survives its first no-step frame.
+- Browser captures early buffers, sword-3 recovery, immediate dash cancellation,
+  fully crossed red/weak bear plus rear execute cue, and disappearance/refund.
+- Existing hitstop input retention, front/occluded finisher rejection, capped
+  refund/no duplicate, wall combat and current-level lethal reset checks pass.
 
-Dedicated controller: variable jump, coyote/buffer, one doubleflip, full-height
-wall contact, wall hold/climb, separation-lock wall jump/regrab. Ground-only
-152px dash with enemy iframes throughout .20s, .65s cooldown, edge carry permitted;
-spikes bypass dash immunity. Fixed collision/hurt/attack geometry; wide three-hit
-sword with buffered chaining and dash cancellation. Hitstop retains presses.
+No gameplay timing changes were necessary. Retain the existing short startup,
+.18s input buffer, .035s hitstop and authored phase timing. Final PNG animations
+must follow combat timing, not slow the controller to display all frames.
 
-New combat update was explicitly read and applied: proximity approach for zombie,
-committed facing during strikes/recovery, delayed pursuit turning; per-type weak
-thresholds; red-tinted PNG weak presentation; NO enemy or boss health bars;
-behind/range/facing/unobstructed finisher cue; capped one-ammo refund; distinct
-four-enemy attack poses and boss slash/burst, lower-health faster telegraph.
+## Measured motion (logical pixels; fixed step 1/120s)
 
-PNG-only actor/terrain rendering, nearest-neighbor native frame sizes, manifest
-anchors; missing assets throw an explicit development error. Diagnostic box
-renderer exists only under tests and is never imported by shipping runtime.
-Emission cores and HUD text are intentional procedural effects, not actor art.
-Independent background/cloud factors and drift; camera follows both axes.
+| Motion | Result |
+| --- | --- |
+| Full held jump | 66.9375px apex at .325s; airtime .625s |
+| Short hop, release after 3 steps | 20.8125px apex at .150s; airtime .300s |
+| Active dash | 152px in .200s / 24 steps |
+| Dash through neutral rest | 236.375px total; additional .233333s braking |
+| Wall kick first integrated velocity | −280px/s away, −398.75px/s vertical |
+| Wall kick at .133333s / 16 steps | 37.333333px separation; 41.916667px rise |
+| Opposite-wall regrab in measured corridor | .233333s / 28 steps; 61.958333px away, 57.604167px rise |
 
-Scene scaffold: title → home-intro (meditation/table/candle/butler, HELP,
-startled/run, drone departure; skippable) → selectable/unlocked map → stage/boss
-→ map portal → World2 tease. Replay selection, current-level death reset,
-pause/hidden suspension and per-scene audio/mute lifecycle are wired. Scene
-unit checks are not yet executed; no integrated campaign traversal is claimed.
+Important: 152px measures the active dash, NOT final neutral stopping distance.
+The measured rear-execute sequence turns/executes promptly within enemy facing
+commitment. Constants and schema remain stable for designers.
 
-## Missing imports and next bounded work
+Measurement assumptions and reproducible full-precision output:
+`tools/measure-movement.mjs`; summarized in `MOVEMENT-NOTES.md`.
 
-Required missing asset imports:
-- `assets/characters/manifest.json` and referenced PNGs.
-- `assets/world/manifest.json`, `assets/ui/manifest.json` and referenced PNGs.
-- `assets/audio/manifest.json` and referenced audio.
+## Output paths and inspected evidence
 
-Designer-owned files awaiting parent handoff:
-- `levels/stage1.json`, `levels/stage2.json`, `levels/stage3.json`.
-Do NOT fabricate/clone fixtures as these levels. The runtime requests those exact
-paths. Parent coordinates any manifest/schema reconciliation with asset owners.
+Repository outputs:
+- `tools/browser-smoke.mjs`
+- `tools/measure-movement.mjs`
+- `tests/combat-loop.test.mjs`
+- `tests/fixture-runtime.mjs`
+- `MOVEMENT-NOTES.md`, `HANDOFF.md`
 
-Resume in this order:
-1. Run `node --test tests/*.test.mjs`; resolve actual failures without weakening
-   contracts. Recheck the zombie timing correction and added scene/asset tests.
-2. Run browser smoke with an owner-only evidence output directory. Script owns
-   and retires its temporary Chromium profile and localhost server. Capture and
-   inspect screenshots; add simulated standard-pad and wall-route browser proof
-   as needed (existing Node pad regression is not physical-controller evidence).
-3. Print measured full/short jump apex + airtime, dash distance, wall kick at
-   actual fixed timestep; preserve exact output privately and summarize here.
-4. Import parent-provided PNG/audio/levels, validate referenced keys and frame
-   ranges. Inspect actual sword/attack phase alignment and feet anchors, home
-   staging, cloud visibility, vertical camera, weak tint and execute cue.
-5. Only after imports: actual full scene/campaign, input-only stage routes,
-   boss and portal browser/audio/visual acceptance. Parent owns public release.
+Private evidence is outside the repository, under the controller's established
+owner-only log directory. Exact absolute paths are in its private evidence index
+and the owner-facing completion; no raw logs/screenshots were committed.
+- `touch-red/browser-evidence.json`: reproduced failure and wrong hit target.
+- `verified-browser/browser-evidence.json`: successful final assertions/trace.
+- `verified-browser/combat-{0,22,52,60,104,105,116,130,145}.png`.
+- `verified-browser/touch-before.png`, `touch-jump.png`, `missing-assets.png`.
+- `verified-browser/cleanup.json`: Chromium exit, server closure/profile removal.
+- `node-suite.txt`, `movement-measurements.json`.
 
-No persistent executors or external job IDs exist from this code stage. Browser
-runner was not launched. No waiting or polling of other workers was performed.
+Inspected final screenshot evidence: weakened red bear fully behind player with
+F/RB execute cue; post-execute target absent; touch rise and printed coordinates;
+shipping entry explicitly says missing integration assets/no vector fallback.
+All combat images prominently label diagnostic hitboxes, NOT shipping game art.
+No video or physical-controller test is claimed.
+
+Cleanup verified: runner awaited Chromium exit, closed its localhost server,
+removed its private disposable profile. PID and profile absence subsequently
+confirmed; no persistent test server/browser left running. Evidence directories
+are mode0700; evidence files mode0600.
+
+## Remaining integration boundaries
+
+Character/world/UI manifests and designer-authored stage imports remain pending.
+Do not clone diagnostic fixtures into shipping stage files. The runtime must
+continue to fail explicitly without real PNG assets; browser smoke currently
+expects that deliberate absent-characters error and must be updated when the
+parent supplies real imports.
+
+Audio is physically imported, not yet wired to the runtime's one final format.
+Actual `assets/audio/manifest.json` uses `schema_version`, per-entry `file`, rich
+production metadata and `loop_start_s`/`loop_end_s` (plus frame markers).
+The scaffold/example expects `version`, `src`, gain and camelCase loop keys.
+This pass deliberately adds NO compatibility aliases or format fallback. Later
+integration must choose and implement one production format with the audio
+owner's metadata/mix intent, then test actual decode, gesture unlock, looping,
+scene transitions, mute and suspension. Audio runtime not exercised here.
+
+Next parent-coordinated controller stage:
+1. Accept the three designer-owned level data/routes without schema drift.
+2. Import real characters/world/UI and reconcile one final manifest contract.
+3. Exercise actual PNG feet anchors, blade coverage, enemy attack phases,
+   red weakness tint and execute cues; diagnostic proofs do not certify art.
+4. Exercise home→map→three stages→boss→portal/World2, actual audio and complete
+   routes in browser; capture final-art screenshots/video and inspect camera,
+   parallax and wall sections. Keep physical gamepad status explicit.
+5. Parent alone coordinates independent review and public release.
