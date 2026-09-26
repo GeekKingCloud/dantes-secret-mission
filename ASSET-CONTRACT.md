@@ -1,9 +1,33 @@
 # Runtime asset contracts
 
 Manifest locations: `assets/characters/manifest.json`, `assets/world/manifest.json`,
-`assets/ui/manifest.json`, `assets/audio/manifest.json`. Asset workers own these
-paths and their contents. Runtime never synthesizes missing character/world art.
+`assets/ui/manifest.json`, `assets/audio/manifest.json`. Actor workers own their
+named atlas directories and source manifests; the integrator assembles the single
+canonical character manifest. Runtime never synthesizes missing character/world art.
 Missing manifest, sprite or animation is a visible development error.
+
+## Canonical character assembly
+
+Run `node tools/assemble-characters.mjs assets/characters/hero-manifest.json`
+with each explicitly accepted source manifest as a separate argument. This is
+the only assembly mechanism. It preserves schema-v1 actor metadata and rejects
+duplicate actors; every source and PNG path is relative to `assets/characters`.
+Once accepted, the enemy source is added to the same command, not a second runtime
+reader or action alias. Runtime reads only `assets/characters/manifest.json`.
+
+The current accepted source is `a219c36ccb70deefe2d06e46f5b4e4b21db0bc31`:
+Kagebot 18 actions / 72 native frames, butler 2 / 5, drone 2 / 5. Hero cells are
+192×96 at feet [64,80], not rescaled. The assembly is intentionally incomplete:
+`AssetLibrary.requireCharacters()` rejects the 29 absent enemy actions before
+shipping can start. Only the labeled `tests/hero.html` audition omits enemy
+drawing; simulation is real and no enemy placeholders or idle aliases are used.
+
+Sword timelines retain 20 slots / seven physical poses. Production renderer maps
+startup/active/recovery to their corresponding slots without changing the
+.240/.260/.375-second combat durations. Wall grip uses native frame bounds to
+place the furthest hand pixel on the existing body contact; collision is unchanged.
+Opening departure uses a shared native hand/rail point, not independently moving
+hero/drone tracks. Source cutout frontflip frames are played without redesign.
 
 ## Actor atlas contract (unchanged v1)
 

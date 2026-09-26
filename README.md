@@ -2,12 +2,21 @@
 
 This branch is an incomplete local integration candidate, not a published full
 campaign. Accepted world/UI PNGs and the full PCM palette are imported and wired.
-Character atlases are still pending: the shipping entry intentionally displays
-an explicit missing-actor error, never a vector actor fallback. All three
+Accepted hero/butler/drone atlases and the real opening are integrated. Enemy
+atlases remain pending: shipping intentionally displays an explicit missing-enemy
+error, never a vector actor fallback. All three
 accepted designer-authored levels now occupy the production loading paths.
 `tests/levels.html` and `tools/levels-smoke.mjs` exercise their actual campaign
 inputs and real PNG scenery without actors. This is not final actor/cinematic
-acceptance. See HANDOFF for the final boss-fix verification still outstanding.
+acceptance. See HANDOFF for current final-candidate verification.
+
+`tests/hero.html` is a clearly labeled isolated partial audition, not a playable
+release: accepted native PNG hero/support actors, production cinematic/controller /
+renderer/audio, with simulated enemies deliberately not drawn. Run
+`node tools/hero-smoke.mjs /path/to/private/evidence` for timed opening and native
+controller-motion recordings, actual authored-stage traversal, wall/strike/hurt
+frames and the explicit missing-enemy shipping check. Canonical actor assembly
+is documented in ASSET-CONTRACT; no alternate runtime manifest reader is used.
 
 Start a local static server, then open `tests/controller.html` for the explicitly
 labelled controller/collision lab, or `tests/controller.html?scenario=combat` for

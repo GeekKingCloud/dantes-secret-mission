@@ -1,3 +1,4 @@
+import {missingCharacterActions} from './character-contract.mjs';
 export class MissingAssetError extends Error {}
 export function relativeAssetURL(src,manifestURL,extension=/\.png$/i) {
   if(typeof src!=='string'||!extension.test(src)||src.startsWith('/')||src.includes('..')||src.includes(':')||src.includes('\\'))
@@ -70,6 +71,10 @@ export class AssetLibrary {
     if(!asset)throw new MissingAssetError(`Missing PNG asset: ${group}/${id}`);
     if(!asset.animations[animation])throw new MissingAssetError(`Missing PNG animation: ${group}/${id}/${animation}`);
     return asset;
+  }
+  requireCharacters() {
+    const missing=missingCharacterActions(Object.fromEntries(this.groups.get('characters')||[]));
+    if(missing.length)throw new MissingAssetError(`Missing accepted character animations: ${missing.join(', ')}. No actor fallback.`);
   }
   draw(ctx,group,id,animation,x,y,{time=0,face=1,alpha=1,weak=false,scale}={}) {
     const asset=this.get(group,id,animation),a=asset.animations[animation];

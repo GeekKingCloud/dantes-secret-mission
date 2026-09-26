@@ -1,7 +1,8 @@
-import {VIEW, MAP_NODES, introBeat} from './scenes.mjs';
+import {VIEW, MAP_NODES, introBlocking} from './scenes.mjs';
 import {clamp} from './geometry.mjs';
 import {canFinish,COMBO} from './simulation.mjs';
 import {isWeak,ENEMY_TYPES} from './enemies.mjs';
+import {BODY} from './player-controller.mjs';
 export function layerOffset(layer,camera,time,width) {
   let x=layer.x-camera.x*layer.factorX+time*layer.driftX;
   if(layer.repeatX)x=((x%width)+width)%width-width;
@@ -77,17 +78,13 @@ export class Renderer {
   homeScenery(t) {
     this.image('world','home-interior',0,0,t);
     this.image('world','table-candle',318,298,t);
-    if(t>=2)this.panel('help-bubble',330,20,['HELP!'],t);
+    if(t>=2){this.panel('help-bubble',330,20,[],t);this.text('HELP!',375,85,38,'#fff1c4');}
   }
   home(d) {
-    const t=d.time,beat=introBeat(t);this.homeScenery(t);
-    const x=beat==='run'?275+(t-3.25)*185:beat==='departure'?442+(t-4.15)*110:275;
-    const y=beat==='departure'?292-(t-4.15)*140:292;
-    const pose=beat==='meditate'||beat==='help'?'meditate':beat==='startled'?'startled':beat==='run'?'run-low':'drone-depart';
-    this.actor('intro-hero','kagebot',pose,x,y,t);
-    this.actor('butler','robot-butler',t>=2?'eyes-widen':'idle',390,292,t,-1);
-
-    if(t>=3.25)this.actor('drone','jetpack-drone',beat==='departure'?'boost':'idle',beat==='departure'?x:442,beat==='departure'?y-45:220,t);
+    const t=d.time,{hero,drone,butlerTime}=introBlocking(t);this.homeScenery(t);
+    this.image('characters','robot-butler',365,292,butlerTime,t>=4.15?'eyes-widen':'idle',t>=4.15?1:-1);
+    this.image('characters','kagebot',hero.x,hero.y,hero.time,hero.pose);
+    this.image('characters','jetpack-drone',drone.x,drone.y,drone.time,drone.pose);
     this.text('ENTER / A / TAP — SKIP OPENING',16,345,10);
   }
   map(d) {
@@ -134,6 +131,12 @@ export class Renderer {
       this.actor(e.id,e.type,e.pose,e.x,e.y,g.time,e.face,1,isWeak(e),progress);
       if(canFinish(p,e,g.level))this.text('F / RB · EXECUTE',e.x-44,e.y-tuning.h-12,10,'#ffabb2');
     }
+    this.player(g);
+    c.restore();
+    this.hud(g);
+  }
+  player(g) {
+    const p=g.p,c=this.ctx;
     for(const b of g.projectiles) {
       // Emissive shot core, not a replacement for character/terrain artwork.
       c.fillStyle=b.kind==='venom'?'#b6dd65':'#c8fff5';c.fillRect(Math.round(b.x)-3,Math.round(b.y)-2,b.kind==='venom'?6:12,4);
@@ -141,9 +144,17 @@ export class Renderer {
     if(p.dash)for(let n=3;n>0;n--)this.image('characters','kagebot',p.x-p.face*n*16,p.y,g.time,'dash',p.face,.1*(4-n));
     const swing=g.attackTime?COMBO[g.combo-1]:null;
     const progress=swing?(g.attackTime<swing.windup?.15*g.attackTime/swing.windup:g.attackTime<swing.windup+swing.active?.15+.7*(g.attackTime-swing.windup)/swing.active:.85+.15*(g.attackTime-swing.windup-swing.active)/swing.recovery):null;
-    this.actor('player','kagebot',p.pose,p.x,p.y,g.time,p.face,p.inv&&Math.floor(g.time*18)%2?.4:1,false,progress);
-    c.restore();
-    this.hud(g);
+    let x=p.x,face=p.face;
+    if(p.wall&&['wall-hold','wall-climb'].includes(p.pose)){
+      face=p.wall;
+      const a=this.assets.get('characters','kagebot',p.pose),anim=a.animations[p.pose];
+      const clock=this.clocks.get('player');
+      const elapsed=clock?.pose===p.pose?Math.max(0,g.time-clock.time):0;
+      const frame=anim.frames[Math.floor(elapsed*anim.fps)%anim.frames.length];
+      const right=a.frameMetadata[frame].bounds[2]-1;
+      x+=face*(BODY.w/2-(right-a.anchor[0]));
+    }
+    this.actor('player','kagebot',p.pose,x,p.y,g.time,face,p.inv&&Math.floor(g.time*18)%2?.4:1,false,progress);
   }
   hud(g) {
     const p=g.p;

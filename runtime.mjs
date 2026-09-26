@@ -64,6 +64,7 @@ function frame(ms){
 }
 try {
   for(const group of ['characters','world','ui'])await assets.loadGroup(group,`assets/${group}/manifest.json`);
+  assets.requireCharacters();
   ready=true;status.textContent='WORLD 1 · LOCAL CANDIDATE';menuUI();
 }catch(error){reportError(error);}
 requestAnimationFrame(frame);

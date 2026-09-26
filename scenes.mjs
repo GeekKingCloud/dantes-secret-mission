@@ -18,6 +18,20 @@ export function introBeat(time) {
   if(time<4.15)return 'run';
   return 'departure';
 }
+// Native-pixel blocking: the departure hand and drone grab rail share one point.
+export function introBlocking(t) {
+  const beat=introBeat(t),depart=Math.max(0,t-4.15);
+  const hero={x:beat==='run'?275+(t-3.25)*(167/.9):beat==='departure'?442+depart*150:275,
+    y:beat==='departure'?292-depart*140:292,
+    pose:beat==='meditate'||beat==='help'?'meditate':beat==='startled'?'startled':beat==='run'?'run-low':'drone-depart',
+    time:beat==='startled'?t-2.7:beat==='run'?t-3.25:depart};
+  const frame=Math.floor(depart*10)%3;
+  const hand=[24+frame,-43-(frame===1?1:0)],grab=[-14,6];
+  const drone={x:beat==='departure'?hero.x+hand[0]-grab[0]:480,
+    y:beat==='departure'?hero.y+hand[1]-grab[1]:243,
+    pose:beat==='departure'?'boost':'idle',time:beat==='departure'?depart:t};
+  return {beat,hero,drone,hand,grab,butlerTime:t>=4.15?t-4.15:t};
+}
 export class SceneDirector {
   constructor(){this.state='title';this.time=0;this.completed=new Set();this.selection=0;this.game=null;this.requestedLevel=null;this.paused=false;this.camera=new Camera();this.events=[];this.error=null;}
   enter(state){this.state=state;this.time=0;this.events.push('menu');}

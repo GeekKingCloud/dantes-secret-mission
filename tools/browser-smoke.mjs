@@ -74,7 +74,7 @@ try{
  assert(trace.at(-1).events.some(e=>e.type==='pointerup'&&e.pointerType==='touch'&&e.target==='jump'));
  await evaluate('scrollTo(0,0)');await screenshot('touch-jump.png');
  await navigate('/index.html');await waitFor('document.querySelector("#status")?.textContent.includes("DEVELOPMENT ERROR")');
- const error=await evaluate('document.querySelector("#message").textContent');assert.match(error,/Missing characters manifest/);trace.push({check:'shipping entry rejects absent PNG manifest',error});await screenshot('missing-assets.png');
+ const error=await evaluate('document.querySelector("#message").textContent');assert.match(error,/Missing accepted character animations: zombie\/idle/);trace.push({check:'shipping entry rejects absent enemy animations',error});await screenshot('missing-assets.png');
  assert.deepEqual(exceptions,[]);await writeFile(join(output,'browser-evidence.json'),JSON.stringify({passed:true,trace,exceptions},null,2),{mode:0o600});
  console.log(`PASS: keyboard, 240Hz queue, doubleflip, no air dash, input-only combo/dash/finisher/refund, touch, explicit missing-assets error. Evidence: ${output}`);
 }catch(error){
