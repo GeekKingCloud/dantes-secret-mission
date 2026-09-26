@@ -1,152 +1,121 @@
-# Kagebot’s Secret Mission — environment/audio integration handoff
+# Kagebot’s Secret Mission — three-level integration checkpoint
 
-## Current checkpoint
+## Status
 
-Bounded environment/audio integration stage complete; NOT campaign or release
-acceptance. Branch `work/kagebot-world1`. Sole controller/code integrator remains
-this session. No other worktree was edited, no mutable actor/level work imported,
-no publication, remote writes, paid operations or model delegation.
+Bounded stage preserved; **not full campaign/release acceptance**. Three real
+levels are integrated. Actor-free browser campaign passed before a final narrow
+boss-interruption fix. That final fix passed the exact stage3 route, but the run
+budget ended before its strengthened pressure probe and intersecting campaign /
+broad suite could be rerun. Do not describe the final candidate as fully green.
 
-Local commits:
-- `a0f119a`: exact accepted environment/UI import, 64 files, only
-  `assets/world/**` and `assets/ui/**` from tree
-  `30e3a3c6ee6b9a632bd2362918d0e34c3b8dcb28`.
-- `16fa42a`: production media readers, renderer/audio hooks, mobile fix and proof.
-- `d8c0b4f`: explicit no-scroll jump/sword touch and stale asynchronous music-load
-  cancellation proof; bounded profile-delete retry for Chromium's late writes.
-- This handoff is the following documentation checkpoint.
+Branch: `work/kagebot-world1`.
 
-Prior baseline: `db80c05`; audio import `4eda603` / `ce3740a` preserved unchanged.
-Level designers retain their files. `player-controller.mjs`, `level-schema.mjs`,
-`LEVEL-SCHEMA.md`, all movement constants and existing authored level files were
-unchanged. World/UI manifests and PNGs remain byte-identical to the accepted tree.
+- `7aaacd4`: accepted nine-file designer import, with private absolute worktree
+  references removed from stage2/stage3 notes.
+- `6368ed6`: integration proof, ghost collision correction, scenery corrections,
+  and final boss-interruption correction with input-only evasive route policy.
+- This document is committed separately after those implementation commits.
 
-## Production changes and outputs
+## Immutable level provenance
 
-- `asset-loader.mjs`: strict accepted world/UI schema 2 arrays with `path_base:
-  assets/`; width/height authoritative, stale descriptive size ignored. Resolves
-  current `path` fields, checks decoded PNG dimensions and draws explicit scale
-  with nearest-neighbor/integer placement. Actor v1 contract unchanged. No legacy
-  reader, path alias, generated substitute or missing-animation fallback.
-- `renderer.mjs`: real room/table/candle and HELP scrim/text; overworld markers,
-  completion/lock/selection, eight-frame portal, title and World2 scene; six
-  independent parallax PNGs and authored camera factors/drift. Near-cloud band
-  alpha .22 and high y placement (at most -35), not a replacement image. Anchored
-  roof rows over full walls; spike art fits fixed hazard rectangles without
-  changing collision. Arena backdrop is decorative, not a perspective collider.
-  Production HUD renders delivered health/ammo PNGs; no enemy/boss health bars.
-- `audio.mjs`: the single imported production manifest format, using `file`,
-  `schema_version`, PCM metadata and end-exclusive frame markers. No src alias.
-  Short cues preload after gesture; long music decodes on demand. Manifest bus
-  gains .65 music / .8 SFX, master .68, compressor; max eight effect voices plus
-  one music source. Pause/hidden/both-muted suspend actual context; independent
-  mute buses and resume preserve existing music position. Tokens discard stale
-  asynchronous track loads. Completed non-looping music never restarts each RAF.
-- `runtime.mjs`, `scenes.mjs`, `simulation.mjs`, `enemies.mjs`: shared visibility
-  lifecycle, event routing, navigation/checkpoint/windup/impact/portal cues.
-  Changes in simulation/enemies are audio events only, not feel/AI constants.
-  Spider spit no longer incorrectly emits an extra sword sound.
-- `style.css`: observed landscape failure repaired in actual shipping layout.
-  At 844×390, original canvas extended below viewport and controls were below
-  y=575. Landscape now puts controls beside a fully visible canvas, without
-  scroll; portrait controls have usable minimum sizes. Input semantics unchanged.
-- `ASSET-CONTRACT.md`: current, separate actor/environment/audio contracts.
-- `tests/media.html`, `tests/media-runtime.mjs`: clearly labelled media-only
-  harness. Uses shipping DOM/CSS/control handlers and production modules. Calls
-  scenery/HUD rendering explicitly, never replaces missing actors with geometry
-  or aliases. Synthetic scene arrangements and HUD values are test-only, not
-  any designer's campaign data.
-- `tests/media.test.mjs`, `tools/media-smoke.mjs`: format/preservation/event tests
-  and real Chromium PNG/Web Audio/mobile evidence runner.
+Only each designer's JSON, design document and route test were imported:
 
-Shipping `index.html` still fails explicitly at missing characters. The media
-harness is NOT the game and is never imported by the shipping entry.
+- stage1: `6c6230eedb3a75f0d1a34eb3fc31fcf6ee6562b8`
+- stage2: `9b99353eb424e02357bb43b3c4f237c77deda405`
+- stage3: `00f529de67bd278404ed9a9be21b70a1aa1ad0a0`
 
-## Fresh acceptance evidence on the integration candidate
+`levels/stage1.json`, `levels/stage2.json`, `levels/stage3.json` remain byte-identical
+to those sources. They occupy the existing production `runtime.mjs` loading paths
+and SceneDirector map progression, not fixture aliases. Existing schema and player
+physics are unchanged. No actor assets or other worker files were imported.
 
-Commands executed successfully:
+Stage1 contains nine enemies. Stage2 is the genuine 2,940px ascent with alternating
+transfers/spike strips and eight enemies; its route defeats six and evades both
+ghosts. Stage3 contains fifteen ordinary enemies plus the masked boss.
 
-- `node --test tests/*.test.mjs`: **31/31 PASS**, no skipped/todo tests. Includes
-  earlier controller/combat invariants plus current production format, inventory,
-  decoded-size scaling, immutable approved audio hash and event-entry cue checks.
-- `node tools/media-smoke.mjs <private-output>/final-proof`: **PASS**.
-- `node tools/browser-smoke.mjs <private-output>/controller-regression`: **PASS**.
-- `git diff --check`: PASS. Exact source-tree comparisons for world/UI and
-  unchanged movement/schema/audio paths produced no differences.
+## Runtime changes
 
-Browser media proof, not mocked AudioContext or synthetic media:
+- `enemies.mjs`: input-only late-interrupt probing reproduced a third ghost dive
+  crossing the ghost-court solid at y280.974851. Swept movement now protects dive
+  and recovery with a four-pixel air gap. On collision the ghost recovers; existing
+  windup/recovery timing and player movement remain unchanged. No terrain easing.
+- `renderer.mjs`: vertical side spikes repeat along height at authored thickness,
+  flipping outward according to the attaching wall. Previously the entire strip
+  was stretched by height, cropping away readable points. Arena backdrop now draws
+  once behind terrain, aligned to the collision floor, not again as a giant prop.
+  Boss label no longer overlaps the level title. No enemy HP bars were introduced.
+- `simulation.mjs`: sustained sword pressure was found to suppress attacks after
+  the first hit (an earlier slash before contact was a misleading positive).
+  The final correction permits one interrupt per completed boss pattern; later
+  hits still damage it but cannot repeatedly erase its telegraph. Ordinary enemy
+  interruption, weakness, normal boss damage and non-finisher boss defeat remain.
+- `tests/routes/stage3.mjs`: final boss-only input policy reads windup/attack,
+  ground-dashes through, turns and continues ordinary attacks. Existing HP4,
+  no-unintended-retry, live-gate denial, both-pattern and roster assertions were
+  retained. No teleports, HP writes or victory injection.
 
-- All **44** world/UI PNG entries loaded and dimension-checked. Captured and
-  inspected home, map, rooftop, arena and mobile composites. Title, completed
-  map/portal and World2 screenshots also captured. Portal frames exercised.
-- Six actual PNG layer calls verified; camera x/y changes and unequal cloud
-  drift exercised. Native frame draws use nearest-neighbor scaling. Rooftop
-  remains legible below the subdued upper ornamental cloud band.
-- Shipping DOM/CSS at **390×844 portrait** and **844×390 landscape**: complete
-  game canvas and every action button in the viewport simultaneously. Real CDP
-  touch pointer events on jump/sword without scrolling; no keyboard substitution.
-- Actual user click unlocks native AudioContext. All **29** delivered PCM files
-  decoded and started through native buffer sources (10 music/stings, 19 SFX).
-  Approved stage1 WAV SHA-256 remains
-  `2d182f7a8194b231352ee80bbeac0dbefa634b085f0749134a6436dac0dd8a85`.
-- Instrumented native source activity: maximum **one** music source, repeated
-  sync did not duplicate starts. Six loop flags/markers checked against source
-  frame metadata. Representative music routing, rapid transition cancellation,
-  separate/both mute, pause clock freeze/resume and real background-tab hiding
-  tested. Full victory one-shot ends into map music; World2 one-shot completes
-  without restarting. Help/jetpack and every effect use delivered PCM.
-- **Zero network misses and zero unhandled exceptions in the media harness.**
-  Shipping-entry missing-character request is an intentional, separately tested
-  failure, not hidden inside that zero-miss claim.
-- Browser captured `audio-lifecycle.webm`: real stereo Opus recording of the
-  AudioContext output, about 12 seconds; ffmpeg decoded successfully. This
-  excerpt decodes successfully and has measured headroom, not a claim about every
-  possible gameplay mix. Exact final inspection is in the private evidence index.
-  No human listening/phone-speaker acceptance is claimed.
-- Controller regression retained real high-refresh keyboard/touch proof and the
-  buffered three-hit → recovery dash-cancel → cross bear → turn → rear execute
-  → capped refund sequence. Existing missing-actor failure remains visible.
-- Test servers closed, Chromium processes exited and temporary profiles removed;
-  cleanup receipts retained and absence checked. No live executor remains.
+## Verification actually executed
 
-Evidence is private and external to git. Relative to the stage's private evidence
-root, inspect `node-suite.txt`, `final-proof/evidence.json`,
-`final-proof/audio-lifecycle.webm`, `final-proof/cleanup.json`,
-`final-proof/{home,map,rooftop,arena,mobile-portrait,mobile-landscape}.png`, and
-`controller-regression/{browser-evidence,cleanup}.json`. The private evidence
-index gives exact host paths. `first-proof` preserves the real landscape failure;
-`second-proof` is intermediate, not the final candidate receipt.
+Before the final boss-interruption change:
 
-## Explicit pending gates — do not delete or treat as passed
+- All three exact validator commands and individual route commands passed against
+  the integrated engine, including the ghost fix.
+- `node --test tests/*.test.mjs`: **34/34 pass**, zero skipped.
+- Input-only ghost probe: no solid overlaps, up to seven dives, fourteen observed
+  late hits across bounded authored-route branches. Initial failing evidence kept.
+- `node tools/levels-smoke.mjs <private-output>`: real Chromium PASS, no network
+  misses or unhandled exceptions. One persistent director progressed title →
+  complete timed home intro → map → stage1 → stage2 → stage3 → boss → map portal →
+  World2 through real inputs and production JSON loading.
+- Same campaign exercised three nonlethal stage2 pits preserving defeated enemies,
+  then a lethal fourth pit resetting **stage2**, while completed stage1 remained
+  completed. Afterwards stage2 and stage3 completed normally; no recovery shortcut
+  was used to skip their traversal or combat.
+- Fourteen authored-level scenery snapshots: spawn, tall walls, spike decisions,
+  high crown climb, ghost telegraph camera and arena. Actual PNGs only, no actors.
+- Inspected stage1 spawn/ghost courtyard, stage2 wall/spike/crown and stage3 arena.
+  Visible landing lips, continuous walls, outward spikes and unobscured arena floor
+  were checked. Camera coordinates are NOT final sprite visibility proof.
+- Existing real-media smoke and controller browser regression both passed again.
+  This reused no physical-device or human-audition claim.
 
-1. **ACTOR-INTEGRATION:** Accepted hero/enemy/butler/drone atlases, all required
-   action/attack clips, fixed feet/anchors, visible sword coverage, red weak tint,
-   finisher cue, animation-state/hitbox alignment. No mutable actor files imported.
-2. **HOME-CINEMATIC:** Real cross-legged meditation, butler eyes, reaction/run,
-   drone boarding/departure with the existing scene/audio timeline. Scenery and
-   HELP are verified; character animation is not.
-3. **THREE-DESIGNER-ROUTES:** Import only parent-accepted level JSON/routes after
-   handoff. Full distinct stage1/2/3, meaningful vertical/horizontal traversal,
-   spikes/climb/hazard alignment, checkpoints, current-level lethal restart,
-   boss arena/defeat/portal and World2 reachable by inputs. Fixture proof is not
-   campaign route proof.
-4. **CAMPAIGN-BROWSER:** Complete home→map→three stages→boss→portal→World2 with
-   final assets, music and actual keyboard/controller/touch input. Current media
-   harness tests scene rendering/audio states independently, not that playthrough.
-5. **AUDIO-LISTENING:** Human audition, actual speakers/phone, integrated combat
-   balance and subjective loop seams. Loop metadata and native source lifecycle
-   passed; entire real-time repeated loops were not listened to here.
-6. **DEVICES:** Physical controller, actual mobile hardware and non-Chromium
-   browser acceptance. CDP emulation is not hardware testing.
-7. **RELEASE:** Parent integration, independent review, full named campaign/art
-   acceptance and live verification before any public release. Nothing published.
+**After the final boss correction:**
 
-## Controller continuity
+- `node tests/routes/stage3.mjs`: PASS (`boss-trial.txt` private evidence).
+- Strengthened `node tests/routes/ai-probes.mjs --assert`: **NOT RERUN**; now requires
+  both slash and burst after sword pressure begins, not merely an initial attack.
+- Full suite, all-three integrated route recheck and browser campaign on that exact
+  final change: **PENDING**. Earlier evidence is not represented as fresh for it.
 
-Sole controller owner remains this session. Previous movement measurements remain
-valid because physics is unchanged: full jump 66.9375px/.625s airtime; short hop
-20.8125px/.300s; active dash 152px/.200s, neutral total-to-rest236.375px; wall-kick
-37.3333px away after .1333s. Reproduce with `node tools/measure-movement.mjs`.
-The stable designer contract remains `LEVEL-SCHEMA.md` from the established
-schema handoff. Do not solve actor/level delivery mismatches by adding guessed
-legacy aliases, changing movement or substituting a scenery test for shipping.
+## Output paths / next exact proof
+
+- Production levels/designs: `levels/stage{1,2,3}.json`, matching `-DESIGN.md`.
+- Authored routes: `tests/routes/stage{1,2,3}.mjs`; only input recording exports were
+  added to stage1/2; stage3 also has the boss-only evasive policy described above.
+- Shared input replay: `tests/routes/campaign.mjs`.
+- AI residual/regression probe: `tests/routes/ai-probes.mjs`.
+- PNG-only actual-level harness: `tests/levels.html`, `tests/levels-runtime.mjs`.
+- Browser driver: `tools/levels-smoke.mjs` (requires explicit private output path).
+- Renderer/loading regressions: `tests/levels.test.mjs`.
+
+Resume first with `node tests/routes/ai-probes.mjs --assert`. If it fails, diagnose
+that bounded boss pressure case without weakening assertions or changing player
+physics/level terrain. Then run all three `node tools/validate-levels.mjs
+levels/stageN.json` and `node tests/routes/stageN.mjs` commands, the full Node suite,
+and the actor-free campaign browser driver against the final candidate. No need
+to redo unchanged media provenance or invent physical-hardware approval gates.
+
+## Remaining acceptance boundaries
+
+- Accepted hero/enemy sheets, action contracts, animated home meditation/butler /
+  HELP/departure cinematic and final sprite/hitbox/weakness/ghost-margin visibility.
+- Full actor-rendered browser campaign, independent review and parent-authorized
+  final live test build/publication. Shipping still deliberately stops on missing
+  character assets; no geometric actor fallback was added.
+- Human first-time duration/playfeel/audio audition and physical gamepad/mobile
+  hardware are untested limits, not newly imposed release approval gates.
+
+Private evidence is indexed outside the repository; no private logs/master files
+were copied into source. Disposable browsers, servers and profiles from completed
+smokes were retired. No delegation, asset jobs, other worktree writes or public
+writes occurred.
