@@ -67,11 +67,12 @@ try {
  const end=await evaluate('probe.run([{confirmPressed:true}])');assert.equal(end.scene,'world2');await screenshot('world2.png');
  assert(allCaptures.some(c=>c.label.endsWith('rear-cue')));assert(allCaptures.some(c=>c.label.endsWith('execution')));assert(allCaptures.some(c=>c.label.endsWith('dash-through')));
  const focused=[];
- for(const type of ['zombie','bear','ghost','spider']){
+ for(const type of ['zombie','bear','ghost','spider','masked-mutant-boss']){
   await evaluate('probe.record({audio:false})');
   focused.push(...await evaluate(`import('/tests/enemy-qa.mjs').then(m=>m.inspect(probe.game,{paced:true,only:${JSON.stringify(type)}}))`));
   await writeFile(join(output,`focused-qa-${type}.webm`),Buffer.from(await evaluate('probe.endRecord()'),'base64'),{mode:0o600});
  }
+ const missingDraws=await evaluate(`(()=>{const drawn=new Set(probe.proof().drawn);return [...probe.game.assets.groups.get('characters')].flatMap(([id,a])=>Object.keys(a.animations).map(pose=>'characters/'+id+'/'+pose)).filter(key=>!drawn.has(key))})()`);assert.deepEqual(missingDraws,[],'every required actor action actually drawn');
  for(const c of focused){await writeFile(join(output,`${c.label}.png`),Buffer.from(c.png,'base64'),{mode:0o600});delete c.png;}
  for(const type of ['zombie','bear','ghost','spider','masked-mutant-boss'])assert([...allCaptures,...focused].some(c=>c.label.includes(type)&&c.label.includes('active')),`${type} active pixels`);
  assert(focused.some(c=>c.label==='focused-qa-wall-held-sword'));assert(focused.some(c=>c.label==='focused-qa-wall-held-laser'));
