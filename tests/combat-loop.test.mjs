@@ -1,10 +1,43 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {LevelSimulation,canFinish} from '../simulation.mjs';
+import {LevelSimulation,canFinish,COMBO,STEP} from '../simulation.mjs';
+import {runSteps} from '../input.mjs';
 import {enemyBox,isWeak,ENEMY_TYPES} from '../enemies.mjs';
 import {combatFixture,bearSequence} from './fixtures/labs.mjs';
 const base=JSON.parse(readFileSync(new URL('./fixtures/controller.json',import.meta.url)));
+test('early buffered sword chain and recovery dash-cancel survive 120/144/240Hz',()=>{
+  for(const hz of [120,144,240]){
+    const g=new LevelSimulation(combatFixture(base)),pending=new Set(),schedule=[...bearSequence],heldUntil=new Map();
+    const queued=new Set(),chained=new Set();let acc=0,eventIndex=0,dashCancelledRecovery=false;
+    for(let frame=0;frame<Math.ceil(1.5*hz);frame++){
+      // Direction taps remain physically held for a physics quantum; action
+      // edges can be shorter and must survive render frames with no step.
+      const held=Object.fromEntries([...heldUntil].filter(([,until])=>frame/hz<until-1e-9).map(([key])=>[key,true]));
+      while(eventIndex<schedule.length&&schedule[eventIndex][0]*STEP<=frame/hz+1e-9){
+        for(const [key,value] of Object.entries(schedule[eventIndex++][1])){
+          if(key.endsWith('Pressed')&&value)pending.add(key);
+          else {held[key]=value;heldUntil.set(key,frame/hz+STEP);}
+        }
+      }
+      acc=runSteps(acc+1/hz,pending,edges=>{
+        const input={...held};for(const key of edges)input[key]=true;
+        const priorCombo=g.combo,priorSwing=g.swing,priorTime=g.attackTime;
+        g.update(input);
+        if(input.attackPressed&&g.attackQueue>0)queued.add(g.combo);
+        if(g.swing>priorSwing&&priorSwing>0){assert(priorTime>0,'next strike must start without an idle gap');chained.add(g.combo);}
+        if(g.p.events.includes('dash')){
+          const phase=COMBO[priorCombo-1];
+          assert(priorTime>=phase.windup+phase.active&&priorTime<phase.windup+phase.active+phase.recovery,'dash pressed during recovery');
+          assert.equal(g.attackTime,0);assert(g.p.dash>0);dashCancelledRecovery=true;
+        }
+      });
+    }
+    assert.deepEqual([...queued],[1,2],`${hz}Hz early press buffers both followups`);
+    assert.deepEqual([...chained],[2,3],`${hz}Hz no combo gaps`);assert(dashCancelledRecovery,`${hz}Hz recovery cancel`);
+    assert(!g.enemies[0].alive,`${hz}Hz complete sequence`);assert.equal(g.p.ammo,4);assert.equal(g.p.hp,4);
+  }
+});
 test('input-only three-hit chain, ground dash through bear, turn, rear execute, refund',()=>{
   const g=new LevelSimulation(combatFixture(base)),schedule=new Map(bearSequence),e=g.enemies[0];
   const seen=new Set();let weak=false,dashHP;

@@ -7,7 +7,7 @@ const params=new URLSearchParams(location.search),base=await(await fetch('fixtur
 const g=new LevelSimulation(params.get('scenario')==='combat'?combatFixture(base):base);
 const input=new BrowserInput(),camera=new Camera(),canvas=document.querySelector('canvas'),c=canvas.getContext('2d');
 let acc=0,last=0,ticks=0;const poses=new Set();
-function snapshot(){return {ticks,x:g.p.x,y:g.p.y,vx:g.p.vx,vy:g.p.vy,on:g.p.on,wall:g.p.wall,dash:g.p.dash,hp:g.p.hp,ammo:g.p.ammo,combo:g.combo,pose:g.p.pose,poses:[...poses],enemies:g.enemies.map(e=>({id:e.id,x:e.x,y:e.y,hp:e.hp,face:e.face,alive:e.alive,weak:isWeak(e),state:e.state,pose:e.pose,finish:canFinish(g.p,e,g.level)}))};}
+function snapshot(){return {ticks,x:g.p.x,y:g.p.y,vx:g.p.vx,vy:g.p.vy,on:g.p.on,wall:g.p.wall,dash:g.p.dash,hp:g.p.hp,ammo:g.p.ammo,combo:g.combo,pose:g.p.pose,poses:[...poses],swing:g.swing,attackTime:g.attackTime,attackQueue:g.attackQueue,hitstop:g.hitstop,events:g.events,enemies:g.enemies.map(e=>({id:e.id,x:e.x,y:e.y,hp:e.hp,face:e.face,alive:e.alive,weak:isWeak(e),state:e.state,pose:e.pose,finish:canFinish(g.p,e,g.level)}))};}
 function draw(){camera.follow(g.p,g.level.camera,STEP);c.fillStyle='#101b2e';c.fillRect(0,0,640,360);c.save();c.translate(-camera.x,-camera.y);
  const box=(r,color)=>{c.fillStyle=color;c.fillRect(r.x,r.y,r.w,r.h);};
  for(const s of g.level.surfaces)box(s,'#39516a');for(const w of g.level.walls)box(w,'#617889');for(const h of g.level.hazards)box(h,'#8a404f');
