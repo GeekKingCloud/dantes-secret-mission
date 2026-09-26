@@ -54,15 +54,23 @@ try {
   trace.push({check:`mobile ${name} no-scroll viewport + touch buttons`,layout});
   assert(layout.canvas.y>=0&&layout.canvas.bottom<=height,`${name} entire game viewport visible`);
   for(const b of layout.buttons)assert(b.y>=0&&b.bottom<=height&&b.x>=0&&b.right<=width&&b.h>=38,`${name} ${b.key} visible and usable`);
-  const b=layout.buttons.find(b=>b.key==='attack');await cdp('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:b.x+b.w/2,y:b.y+b.h/2,id:1}]});
-  assert((await evaluate('media.input()')).held.includes('attack'));await cdp('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});assert(!(await evaluate('media.input()')).held.includes('attack'));
+  for(const action of ['jump','attack']){
+   const b=layout.buttons.find(b=>b.key===action);await cdp('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:b.x+b.w/2,y:b.y+b.h/2,id:1}]});
+   assert((await evaluate('media.input()')).held.includes(action));await cdp('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});assert(!(await evaluate('media.input()')).held.includes(action));
+   assert.equal(await evaluate('scrollY'),0,'game actions must not need scrolling');
+  }
  }
  await cdp('Emulation.setDeviceMetricsOverride',{width:1100,height:850,deviceScaleFactor:1,mobile:false});await cdp('Emulation.setTouchEmulationEnabled',{enabled:false});
  // Observe native BufferSource nodes; no mock AudioContext or synthesized PCM.
  await evaluate(`window.audioProbe={active:new Set(),max:0,played:[]};const create=AudioContext.prototype.createBufferSource;AudioContext.prototype.createBufferSource=function(){const s=create.call(this),connect=s.connect.bind(s),start=s.start.bind(s),stop=s.stop.bind(s);let music=false;s.connect=(to,...a)=>{music=to===media.audio.musicBus;return connect(to,...a)};s.start=(...a)=>{if(music){audioProbe.active.add(s);audioProbe.max=Math.max(audioProbe.max,audioProbe.active.size)}audioProbe.played.push([...media.audio.buffers].find(([,e])=>e.buffer===s.buffer)?.[0]);return start(...a)};s.stop=(...a)=>{audioProbe.active.delete(s);return stop(...a)};s.addEventListener('ended',()=>audioProbe.active.delete(s));return s;}`);
  assert.equal(await evaluate('media.audio.ctx'),null);
  await click('#sound');await waitFor('media.state().context==="running"&&media.state().musicSources===1');assert(!await evaluate('window.mediaError'));
+ const rapidStarts=(await evaluate('media.state()')).starts;
+ await evaluate("media.track('stage2');media.track('stage3');media.track('boss')");
+ await waitFor('media.state().music==="boss"&&!!media.audio.music');
  await evaluate('media.decodeAll()');assert.equal((await evaluate('media.state()')).decoded,29);
+ assert.equal((await evaluate('media.state()')).starts,rapidStarts+1,'stale async track decodes cannot start music');
+ assert(await evaluate('media.audio.music.buffer===media.audio.buffers.get("music/boss").buffer'));
  await evaluate(`window.captureChunks=[];const dest=media.audio.ctx.createMediaStreamDestination();media.audio.limiter.connect(dest);window.recorder=new MediaRecorder(dest.stream);recorder.ondataavailable=e=>captureChunks.push(e.data);recorder.start();`);
  for(const track of ['home','overworld','stage1-approved','stage2','stage3','boss']){
   await evaluate(`media.track(${JSON.stringify(track)})`);await waitFor(`media.state().music===${JSON.stringify(track)}&&!!media.audio.music`);
@@ -90,4 +98,4 @@ try {
  await evaluate('media.stop()');assert.deepEqual(exceptions,[]);assert.deepEqual(networkMisses,[]);
  await writeFile(join(output,'evidence.json'),JSON.stringify({passed:true,trace,exceptions,networkMisses},null,2),{mode:0o600});console.log(`PASS: 44 real PNGs, scene composites, parallax, no-scroll mobile touch, 29 real PCM decodes/sources, gesture, loop/one-shot, transitions, mute/pause/visibility, no duplicate music. ${output}`);
 }catch(error){await writeFile(join(output,'evidence.json'),JSON.stringify({passed:false,error:error.message,trace,exceptions,networkMisses},null,2),{mode:0o600});throw error;}
-finally{ws?.close();chrome.kill('SIGTERM');await new Promise(r=>chrome.exitCode!==null?r():chrome.once('exit',r));await new Promise(r=>server.close(r));await rm(profile,{recursive:true,force:true});await writeFile(join(output,'cleanup.json'),JSON.stringify({pid:chrome.pid,exitCode:chrome.exitCode,serverClosed:!server.listening,removedProfile:profile}),{mode:0o600});}
+finally{ws?.close();chrome.kill('SIGTERM');await new Promise(r=>chrome.exitCode!==null?r():chrome.once('exit',r));await new Promise(r=>server.close(r));await rm(profile,{recursive:true,force:true,maxRetries:5,retryDelay:100});await writeFile(join(output,'cleanup.json'),JSON.stringify({pid:chrome.pid,exitCode:chrome.exitCode,serverClosed:!server.listening,removedProfile:profile}),{mode:0o600});}
