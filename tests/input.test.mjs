@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {runSteps} from '../input.mjs';
+import {Pad} from '../gamepad.mjs';
+let pending=new Set(['jump']), seen=[], acc=0;
+for(let frame=0;frame<3;frame++)acc=runSteps(acc+1/240,pending,edges=>seen.push([...edges]));
+assert.deepEqual(seen,[['jump']],'edge survives a no-step 240Hz frame');
+assert.equal(pending.size,0);
+pending.add('attack');acc=runSteps(acc+3/120,pending,edges=>seen.push([...edges]));
+assert.deepEqual(seen.slice(1),[['attack'],[],[]],'one edge only on first catch-up step');
+const pad=new Pad(),buttons=Array.from({length:16},()=>({pressed:false})),poll=()=>pad.poll([{mapping:'standard',buttons,axes:[0,0]}]);
+poll();buttons[0].pressed=true;for(const key of poll().pressed)pending.add(key);
+acc=runSteps(1/240,pending,()=>assert.fail('no physics step yet'));
+assert(pending.has('jump'),'pad edge retained between physics steps');
+acc=runSteps(acc+1/240,pending,edges=>assert(edges.has('jump')));
+assert(!pending.has('jump'));
+pending.add('laser');pending.clear();assert.equal(pending.size,0,'pause/blur discards pending actions');
+console.log('high-refresh keyboard and simulated pad queue: PASS');

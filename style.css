@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/font-0.ttf) format('truetype');
+}@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/font-1.ttf) format('truetype');
+}@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(assets/font-2.ttf) format('truetype');
+}@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/font-3.ttf) format('truetype');
+}@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(assets/font-4.ttf) format('truetype');
+}*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#070b12;color:#d4e3e5;font-family:'IBM Plex Mono',monospace}body{background:radial-gradient(ellipse at 50% 0%,#1d3540 0%,#0d1720 40%,#070b12 78%)}main{max-width:1240px;margin:auto;padding:16px 20px 24px}header,.bottom{display:flex;justify-content:space-between;align-items:center;gap:12px}header{margin:0 0 14px}.brand{display:flex;gap:12px;align-items:center}.mark{font-size:26px;color:#8ae3da;border:1px solid #4e8083;padding:4px 9px}.brand b{font:800 30px/1 'Barlow Condensed',sans-serif;letter-spacing:.14em}.brand small{display:block;color:#81b7b8;letter-spacing:.14em;font-size:9px;margin-top:4px}.actions{display:flex;gap:8px}button{cursor:pointer;color:#d7eeee;background:#14262e;border:1px solid #427071;padding:9px 12px;font:600 12px 'IBM Plex Mono',monospace;letter-spacing:.04em;touch-action:none}button:hover,button:focus-visible{background:#24606a;outline:1px solid #80dad3}.stage{position:relative;border:1px solid #3a5f66;box-shadow:0 18px 60px #0009,0 0 0 5px #0c1820;background:#0b1722;overflow:hidden}canvas{display:block;width:100%;height:auto;aspect-ratio:16/9;image-rendering:pixelated}.overlay[hidden]{display:none}.overlay{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(90deg,#07101de8,#07101d9b 67%,#07101d42);padding:24px}.overlay.hidden{display:none}.panel{max-width:540px;margin-right:auto;margin-left:7%;border-left:2px solid #75c8c1;padding:8px 0 10px 25px}.eyebrow{font-size:11px;letter-spacing:.2em;color:#8ed8ce}.panel h1{font:800 clamp(38px,6vw,76px)/.93 'Barlow Condensed',sans-serif;letter-spacing:.035em;text-transform:uppercase;margin:16px 0;color:#e2f0e9;text-shadow:0 3px 0 #476b6f}.panel p:not(.eyebrow){line-height:1.7;font-size:13px;color:#b2c9ca}.primary{padding:15px 24px;margin:16px 0;background:#87d6c7;color:#08232b;border:0;font-size:13px}.primary:hover{background:#d1f7e9;color:#08232b}.panel .hint{font-size:10px!important;color:#86aeb2!important}.bottom{font-size:10px;letter-spacing:.09em;color:#729ca2;margin-top:12px}.bottom span:last-child{text-align:right}#touch{display:none;justify-content:space-between;gap:12px;margin-top:15px}.touch-group{display:flex;gap:5px;flex-wrap:wrap;align-items:center}.touch-group button{min-width:48px;min-height:52px;user-select:none;-webkit-user-select:none}.touch-group button.active{background:#75c9bd;color:#0d2228}@media (pointer:coarse),(max-width:720px){main{padding:8px}#touch{display:flex}.brand b{font-size:23px}.bottom span:last-child{display:none}.panel{margin-left:1%;padding-left:15px}.panel .hint{display:none}.panel h1{font-size:clamp(30px,9vw,62px)}.panel p:not(.eyebrow){font-size:11px}.touch-group button{font-size:10px;padding:8px;min-width:43px}}@media(max-width:450px){.mark{display:none}.touch-group{max-width:49%}.touch-group button{flex:1;min-width:38px}.brand small{font-size:7px}.actions button{font-size:10px;padding:6px}.overlay{padding:8px}.panel{padding:0 0 0 12px}.panel h1{font-size:34px;margin:7px 0}.panel p:not(.eyebrow){display:none}.panel .eyebrow{font-size:8px;margin:0}.panel .primary{padding:9px 12px;margin:8px 0 0;font-size:11px}}
