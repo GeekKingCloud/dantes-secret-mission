@@ -75,7 +75,7 @@ export class Renderer {
       this.text('The signal reaches beyond the mountains.',100,200);this.text('ENTER / A / TAP TO RETURN',155,310);
     } else this.text(d.state==='loading'?'LOADING LEVEL DATA…':'DEVELOPMENT ERROR',30,60,20);
     if(d.paused){c.fillStyle='#061020df';c.fillRect(0,0,VIEW.w,VIEW.h);this.text('PAUSED',260,160,24);this.text('ENTER / A / MENU TO RESUME',170,200);}
-    this.text('PROVISIONAL HERO · CONSISTENCY CORRECTION PENDING',12,357,10,'#ffe1a0');
+
   }
   homeScenery(t) {
     this.image('world','home-interior',0,0,t);
@@ -83,7 +83,7 @@ export class Renderer {
     if(t>=2){this.panel('help-bubble',330,20,[],t);this.text('HELP!',375,85,38,'#fff1c4');}
   }
   home(d) {
-    const t=d.time,{hero,drone,butlerTime}=introBlocking(t);this.homeScenery(t);
+    const t=d.time,{hero,drone,butlerTime}=introBlocking(t,this.assets.get('characters','kagebot').anchor,this.assets.get('characters','jetpack-drone').anchor);this.homeScenery(t);
     this.image('characters','robot-butler',365,292,butlerTime,t>=4.15?'eyes-widen':'idle',t>=4.15?1:-1);
     this.image('characters','kagebot',hero.x,hero.y,hero.time,hero.pose);
     this.image('characters','jetpack-drone',drone.x,drone.y,drone.time,drone.pose);
@@ -109,7 +109,9 @@ export class Renderer {
     for(const layer of g.level.background) {
       const a=this.assets.get('world',layer.asset),width=a.frameWidth*(a.scale??1);
       const presentation=layer.asset==='near-clouds'?{...layer,y:Math.min(layer.y,-35)}:layer;
-      const pos=layerOffset(presentation,cam,g.time,width),alpha=layer.asset==='near-clouds'?.22:layer.asset==='far-clouds'?.7:1;
+      // Quiet the dense distant roof/mountain texture behind the native actors;
+      // collision architecture remains fully opaque and unmodified.
+      const pos=layerOffset(presentation,cam,g.time,width),alpha=layer.asset==='near-clouds'?.22:layer.asset==='far-clouds'?.7:layer.asset==='far-mountains'?.4:layer.asset==='distant-temples'?.5:1;
       if(layer.repeatX)for(let x=pos.x;x<VIEW.w;x+=width)this.image('world',layer.asset,x,pos.y,g.time,'idle',1,alpha);
       else this.image('world',layer.asset,pos.x,pos.y,g.time);
     }

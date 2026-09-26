@@ -77,6 +77,6 @@ function frame(ms){
 try {
   for(const group of ['characters','world','ui'])await assets.loadGroup(group,`assets/${group}/manifest.json`);
   assets.requireCharacters();
-  ready=true;status.textContent='LOCAL CANDIDATE · HERO CONSISTENCY CORRECTION PENDING';menuUI();
+  ready=true;status.textContent='WORLD 1 · READY';menuUI();
 }catch(error){reportError(error);}
 requestAnimationFrame(frame);

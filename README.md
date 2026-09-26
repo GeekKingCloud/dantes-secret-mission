@@ -1,22 +1,52 @@
-# Kagebot's Secret Mission — World 1 scaffold
+# Kagebot’s Secret Mission
 
-This branch is an incomplete local integration candidate, not a published full
-campaign. Accepted world/UI PNGs and the full PCM palette are imported and wired.
-Accepted hero/butler/drone atlases and the real opening are integrated. Enemy
-atlases remain pending: shipping intentionally displays an explicit missing-enemy
-error, never a vector actor fallback. All three
-accepted designer-authored levels now occupy the production loading paths.
-`tests/levels.html` and `tools/levels-smoke.mjs` exercise their actual campaign
-inputs and real PNG scenery without actors. This is not final actor/cinematic
-acceptance. See HANDOFF for current final-candidate verification.
+A fast, non-gory robot-ninja action platformer. This checkout contains the full
+World 1 campaign: a skippable home opening, unlockable overworld, three distinct
+authored stages, four enemy types, an original masked mutant boss and the portal
+to **World 2 — Coming soon**. World 2 is a teaser, not a playable level.
 
-`tests/hero.html` is a clearly labeled isolated partial audition, not a playable
-release: accepted native PNG hero/support actors, production cinematic/controller /
-renderer/audio, with simulated enemies deliberately not drawn. Run
-`node tools/hero-smoke.mjs /path/to/private/evidence` for timed opening and native
-controller-motion recordings, actual authored-stage traversal, wall/strike/hurt
-frames and the explicit missing-enemy shipping check. Canonical actor assembly
-is documented in ASSET-CONTRACT; no alternate runtime manifest reader is used.
+Run `python3 -m http.server 8000` from this directory and open
+`http://localhost:8000/`. No build, login, runtime credentials or external service
+is needed. All PNG atlases, PCM audio and licensed fonts are local. Deployment
+status is separate from this local checkout; see [HANDOFF.md](HANDOFF.md) for
+candidate verification and review boundaries.
+
+## Play
+
+A/D or ←/→ move; W/↑ climb; Space jumps, double-jumps into a frontflip, or kicks
+away from a wall. J buffers the three-strike sword combo; K starts a grounded
+dash and can cancel attack recovery. L fires a limited laser. F executes an
+eligible weak enemy from behind and refunds one charge, capped at four. Weak
+enemies turn red; the rear/in-range cue tells you when execution is available.
+Enemy health bars are intentionally hidden. The boss does not require a finisher.
+
+Enter confirms menus/skips the opening; Esc/P pauses. Standard gamepad: stick or
+D-pad moves/climbs, A/Cross jumps/confirms, X/Square swords, B/Circle dashes,
+Y/Triangle lasers, RB/R1 executes, Menu/Options pauses. Touch buttons remain
+alongside the visible viewport. Four integrity units, unlimited retries: a
+nonlethal pit returns you to the current checkpoint; lethal damage resets the
+current level, not completed stages. Completed stages can be replayed from the map.
+
+The shared native hero model retains one hood/armor/scarf and physical katana.
+Darker cyan air-cuts depict the combo's longer reach without lengthening the
+metal blade. Art is authored cutout animation on PNG atlases, drawn nearest-neighbor.
+Physics and fixed hit/hurt shapes are independent of sprite alpha. Enemy attacks
+use explicit windup/active/recovery tracks, including both normal/enraged boss
+patterns. Music starts on player gesture and respects pause, mute and visibility.
+
+## Verification and development
+
+`node tools/shipping-smoke.mjs /path/to/private/evidence` exercises the actual
+`index.html` loader, actors, renderer, audio, input transports and full campaign.
+It also records normal-speed opening/combat/boss clips and explicitly labeled
+focused enemy QA. There are no state/HP/position shortcuts in the campaign replay.
+Keyboard, browser-emulated touch and simulated standard-pad evidence is not a
+physical hardware or human timing/audio-audition claim.
+
+`tests/hero.html` is an isolated hero-layer diagnostic: simulated enemies are
+deliberately not drawn. `tests/levels.html` is an actor-free scenery diagnostic.
+Neither substitutes for shipping campaign proof. Canonical actor assembly is
+documented in ASSET-CONTRACT; there is one runtime manifest reader.
 
 Start a local static server, then open `tests/controller.html` for the explicitly
 labelled controller/collision lab, or `tests/controller.html?scenario=combat` for
@@ -38,22 +68,9 @@ Run `node --test tests/*.test.mjs`; browser smoke command is
 See HANDOFF for actual executed versus pending proof; commands alone are not
 claims that the current candidate passed.
 
-## Historical published prototype (superseded, retained for reference)
+## Provenance and history
 
-The following describes the older published prototype, not this branch's runtime.
-
-[Play the browser preview](https://geekkingcloud.github.io/dantes-secret-mission/)
-
-![Original Kagebot character reference](assets/kagebot-cover.jpg)
-
-*Original character reference above; the current playtest uses provisional, lean canvas-rendered artwork. This is one rooftop section, not the completed World 1 campaign.*
-
-A self-contained, playable preview of **Kagebot's Secret Mission**. Open `index.html` through any static HTTP server; no build, login, key or network dependency. For example, from this folder: `python3 -m http.server 8000`. The broader campaign is preserved in [GAME-DESIGN.md](GAME-DESIGN.md), not presented as unfinished menus.
-
-**Controls:** A/D or ←/→ move; W/↑ climb full-height walls; Space jump, jump again for a frontflip, or wall-jump; J sword (three-hit sequence); K dash (brief invulnerability, cooldown); L limited laser; F finish a one-health mutant from behind and refund one laser charge; Esc/P pause. Standard Xbox/PlayStation mapping: left stick/D-pad move and climb, A/Cross jump, X/Square sword, B/Circle dash, Y/Triangle laser, RB/R1 finisher, Menu/Options pause. Touch controls appear on small/coarse screens. Four integrity units; nonlethal pits recover at the last roof checkpoint, while defeat restarts the **section start** with full health and ammo and no retry limit.
-
-**Art direction:** custom canvas silhouettes, long articulated robot limbs, dark hood and sparse cyan visor/scarf, in layered moonlit temple roofs and plaster/wood architecture. A local lean pixel-art run pilot was reviewed but not shipped: its later frames drift upright, foot contacts wander, and its seam jumps. This build keeps one coherent authored vector/pixel direction across all actions and the mutant instead of mixing that incomplete loop with unrelated poses. Collision, hurt and slash geometry are fixed in `physics.mjs`, independent of the drawings.
-
-**Audio:** approved rooftop music and selected original heavy SFX are local WAV files. Web Audio starts on gesture, decodes once, keeps at most one music loop, limits output, and suspends on mute, pause and hidden tab. Fonts are local with bundled OFL licenses. `preview.png` is a real Chromium gameplay screenshot.
-
-**Verification:** `node --test tests/*.test.mjs` covers input-only section completion, wall contact/climb below a lip, jump/frontflip/dash, multi-hit combo/behind-only finisher and ammo cap, lethal spike/pit section reset, nonlethal pit checkpoint recovery, 240Hz input queuing and simulated standard gamepad edges. Chromium confirmed keyboard begin/pause/resume, simulated standard-pad A begin and Menu/A pause-resume, local WAV requests and queued high-refresh edges. A physical controller has **not** been tested.
+[GAME-DESIGN.md](GAME-DESIGN.md) describes the current campaign and mechanics.
+The original cover, prototype sources, tests, asset provenance and licenses are
+preserved. The older single-rooftop/vector prototype is not the current shipping
+renderer; its historical screenshots should not be presented as this build.

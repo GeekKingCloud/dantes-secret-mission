@@ -19,16 +19,17 @@ export function introBeat(time) {
   return 'departure';
 }
 // Native-pixel blocking: the departure hand and drone grab rail share one point.
-export function introBlocking(t) {
+export function introBlocking(t,heroAnchor,droneAnchor) {
   const beat=introBeat(t),depart=Math.max(0,t-4.15);
   const hero={x:beat==='run'?275+(t-3.25)*(167/.9):beat==='departure'?442+depart*150:275,
     y:beat==='departure'?292-depart*140:292,
     pose:beat==='meditate'||beat==='help'?'meditate':beat==='startled'?'startled':beat==='run'?'run-low':'drone-depart',
     time:beat==='startled'?t-2.7:beat==='run'?t-3.25:depart};
-  const frame=Math.floor(depart*10)%3;
-  const hand=[24+frame,-43-(frame===1?1:0)],grab=[-14,6];
-  const drone={x:beat==='departure'?hero.x+hand[0]-grab[0]:480,
-    y:beat==='departure'?hero.y+hand[1]-grab[1]:243,
+  // Revised native gauntlet [73,61] is identical across all three departure
+  // frames. The drone's outer rail is [34,54]; anchors come from the manifest.
+  const hand=[73-heroAnchor[0],61-heroAnchor[1]],grab=[34-droneAnchor[0],54-droneAnchor[1]];
+  const drone={x:(beat==='departure'?hero.x:442)+hand[0]-grab[0],
+    y:(beat==='departure'?hero.y:292)+hand[1]-grab[1],
     pose:beat==='departure'?'boost':'idle',time:beat==='departure'?depart:t};
   return {beat,hero,drone,hand,grab,butlerTime:t>=4.15?t-4.15:t};
 }

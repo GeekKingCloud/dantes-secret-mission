@@ -8,19 +8,21 @@ Missing manifest, sprite or animation is a visible development error.
 
 ## Canonical character assembly
 
-Run `node tools/assemble-characters.mjs assets/characters/hero-manifest.json`
+Run `node tools/assemble-characters.mjs assets/characters/hero-manifest.json assets/characters/enemies-manifest.json`
 with each explicitly accepted source manifest as a separate argument. This is
 the only assembly mechanism. It preserves schema-v1 actor metadata and rejects
 duplicate actors; every source and PNG path is relative to `assets/characters`.
-Once accepted, the enemy source is added to the same command, not a second runtime
-reader or action alias. Runtime reads only `assets/characters/manifest.json`.
+Runtime reads only `assets/characters/manifest.json`, never a second reader or
+action alias.
 
-The current accepted source is `a219c36ccb70deefe2d06e46f5b4e4b21db0bc31`:
+The revised hero source is `5e4443b69e43a8dd4ef5e534d73fdfa4c633eb2b`:
 Kagebot 18 actions / 72 native frames, butler 2 / 5, drone 2 / 5. Hero cells are
-192×96 at feet [64,80], not rescaled. The assembly is intentionally incomplete:
-`AssetLibrary.requireCharacters()` rejects the 29 absent enemy actions before
-shipping can start. Only the labeled `tests/hero.html` audition omits enemy
-drawing; simulation is real and no enemy placeholders or idle aliases are used.
+192×128 at feet [64,104], not rescaled. Enemy source
+`e431a6eb875f55c70f64895de59820d3a1676a27` adds 29 actions / 201 native actor frames.
+The complete assembly has eight actors / 51 required actions; runtime requires
+all of them. Missing data still fails explicitly, never substitutes an idle pose.
+The older isolated hero-layer diagnostic deliberately excludes enemy drawing;
+it is not the full-actor shipping campaign proof.
 
 Sword timelines retain 20 slots / seven physical poses. Production renderer maps
 startup/active/recovery to their corresponding slots without changing the
@@ -28,6 +30,18 @@ startup/active/recovery to their corresponding slots without changing the
 place the furthest hand pixel on the existing body contact; collision is unchanged.
 Opening departure uses a shared native hand/rail point, not independently moving
 hero/drone tracks. Source cutout frontflip frames are played without redesign.
+Revised hero gauntlet [73,61] and drone rail [34,54] are stable native contact
+points; runtime subtracts the actual manifest anchors. One 40-column physical
+blade/hilt is carried through all strikes, with darker cyan air-cuts showing the
+74/82/94-pixel gameplay reach. No limb, blade or collision rescaling.
+
+Enemy `combatPhases` contain eight explicit windup/active/recovery tracks.
+`enemy-animation.mjs` selects each subrange from state elapsed time, including
+interrupted recovery, rather than restarting a whole action sheet. Defeat plays
+after simulation death without damage or repeat rewards. Spider `projectileVisual`
+loads the real three-frame venom sheet; attachment root[32,48]/wall x10 fixes
+claw position, while emission is enemy+(face×16,-23). Ghost damage remains moving
+30×35 contact, and boss burst is 330px/s melee. No enemy health bars.
 
 ## Actor atlas contract (unchanged v1)
 
@@ -108,7 +122,8 @@ PNG dimensions are checked on decode. Missing assets never become vector art.
 
 Level background factors/drift remain designer-owned schema v1. Renderer uses
 the delivered display scale and puts near-clouds high at at most y=-35 with
-alpha .22, keeping their actual PNG silhouettes quieter than the foreground.
+alpha .22. Dense distant mountains/temples use .4/.5 opacity so their texture
+does not compete with small native actors or imply foreground collision planes.
 Rooftops are anchored single rows above full walls. Hazard opaque bounds fit
 the authored hazard rectangle; art never changes collision geometry.
 
@@ -136,4 +151,5 @@ on demand; short cues preload after gesture unlock. Separate mutes use bus gain;
 both-muted, pause and hidden-tab states suspend the actual context. Resume keeps
 the existing source/position. Non-looping music never repeats once per frame.
 The stage1-approved WAV remains byte-identical. Human mix/phone-speaker audition
-and complete campaign audio acceptance remain later integration gates.
+is an untested limitation, not a new release gate. Shipping proof exercises real
+scene music, gesture start and pause/resume; see HANDOFF for current evidence.

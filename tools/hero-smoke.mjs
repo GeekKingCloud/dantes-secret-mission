@@ -83,11 +83,11 @@ try {
  await evaluate('heroLab.audio.musicMuted=true;heroLab.audio.sfxMuted=true;heroLab.tick({})');await waitFor("heroLab.state().context==='suspended'");
  await evaluate('heroLab.audio.musicMuted=false;heroLab.audio.sfxMuted=false;heroLab.tick({})');await waitFor("heroLab.state().context==='running'");
  await evaluate('heroLab.stop()');
- // Shipping must fail explicitly at the missing-enemy boundary, not silently run.
- await cdp('Page.navigate',{url:base+'/index.html'});await waitFor("document.querySelector('#status')?.textContent.includes('DEVELOPMENT ERROR')");await screenshot('shipping-missing-enemies.png');
- const missing=await evaluate("document.querySelector('#message').textContent");assert(missing.includes('zombie/idle'));assert(missing.includes('No actor fallback'));
+ // This isolated layer is not shipping proof; complete inventory must still load.
+ await cdp('Page.navigate',{url:base+'/index.html'});await waitFor("document.querySelector('#status')?.textContent.includes('WORLD 1 · READY')");await screenshot('shipping-inventory-loaded.png');
+ const shippingStatus=await evaluate("document.querySelector('#status').textContent");assert(shippingStatus.includes('READY'));
  assert.deepEqual(exceptions,[]);assert.deepEqual(networkMisses,[]);
- await writeFile(join(output,'evidence.json'),JSON.stringify({passed:true,trace,missing,exceptions,networkMisses},null,2),{mode:0o600});
+ await writeFile(join(output,'evidence.json'),JSON.stringify({passed:true,trace,shippingStatus,exceptions,networkMisses},null,2),{mode:0o600});
  console.log('PASS real hero/cinematic/audio audition; enemies explicitly absent, not final game');
 }catch(error){await writeFile(join(output,'evidence.json'),JSON.stringify({passed:false,error:error.message,trace,exceptions,networkMisses},null,2),{mode:0o600});throw error;}
 finally{ws?.close();chrome.kill('SIGTERM');await new Promise(r=>chrome.exitCode!==null?r():chrome.once('exit',r));await new Promise(r=>server.close(r));await rm(profile,{recursive:true,force:true,maxRetries:5,retryDelay:100});await writeFile(join(output,'cleanup.json'),JSON.stringify({pid:chrome.pid,exitCode:chrome.exitCode,serverClosed:!server.listening,removedProfile:profile}),{mode:0o600});}

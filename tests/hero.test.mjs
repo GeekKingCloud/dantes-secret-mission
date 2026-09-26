@@ -9,9 +9,9 @@ import {missingCharacterActions} from '../character-contract.mjs';
 const m=JSON.parse(await readFile(new URL('../assets/characters/hero-manifest.json',import.meta.url)));
 const hero=m.assets.kagebot;
 function rig(){const lib=new AssetLibrary();lib.groups.set('characters',new Map(Object.entries(m.assets)));const calls=[];lib.draw=(ctx,group,id,pose,x,y,o)=>{const a=lib.get(group,id,pose),anim=a.animations[pose],n=Math.floor(o.time*anim.fps);calls.push({id,pose,x,y,...o,frame:anim.frames[anim.loop?n%anim.frames.length:Math.min(n,anim.frames.length-1)]});};return {r:new Renderer({getContext:()=>({})},lib),lib,calls};}
-test('preserved provisional hero fixture; incomplete inventories still reject absent enemies',()=>{
+test('reviewed revised hero dimensions; incomplete inventories still reject absent enemies',()=>{
  validateAtlasManifest(m);assert.deepEqual(Object.keys(m.assets),['kagebot','robot-butler','jetpack-drone']);
- assert.equal(Object.keys(hero.animations).length,18);assert.equal(hero.frameMetadata.length,72);assert.deepEqual(hero.anchor,[64,80]);assert.equal(hero.frameWidth,192);assert.equal(hero.frameHeight,96);
+ assert.equal(Object.keys(hero.animations).length,18);assert.equal(hero.frameMetadata.length,72);assert.deepEqual(hero.anchor,[64,104]);assert.equal(hero.frameWidth,192);assert.equal(hero.frameHeight,128);
  assert.equal(m.assets['robot-butler'].frameMetadata.length,5);assert.equal(m.assets['jetpack-drone'].frameMetadata.length,5);
  assert(missingCharacterActions(m.assets).includes('ghost/dive'));assert.throws(()=>rig().lib.requireCharacters(),/Missing accepted character animations/);
  assert.throws(()=>rig().lib.get('characters','kagebot','missing-action'),/Missing PNG animation/);
@@ -42,7 +42,8 @@ test('wall-grip raster bounds align with fixed body contact without atlas rescal
 });
 test('opening native shared grip remains attached; pause/skip preserve ordered scene progression',()=>{
  for(let n=498;n<696;n++){
-  const b=introBlocking(n/120);assert.equal(b.hero.pose,'drone-depart');
+  const b=introBlocking(n/120,hero.anchor,m.assets['jetpack-drone'].anchor);assert.equal(b.hero.pose,'drone-depart');
+  assert.deepEqual(b.hand,[9,-43]);assert.deepEqual(b.grab,[-14,6]);
   assert(Math.abs(b.hero.x+b.hand[0]-b.drone.x-b.grab[0])<1e-8);
   assert(Math.abs(b.hero.y+b.hand[1]-b.drone.y-b.grab[1])<1e-8);
  }

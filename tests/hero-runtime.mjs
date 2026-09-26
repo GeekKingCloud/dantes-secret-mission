@@ -1,4 +1,4 @@
-// Isolated accepted-hero audition. Production simulation/render/audio; enemies
+// Isolated hero-layer audition. Production simulation/render/audio; enemies
 // remain real in simulation but deliberately NOT depicted or substituted here.
 import {AssetLibrary} from '../asset-loader.mjs';
 import {Renderer} from '../renderer.mjs';
@@ -23,7 +23,7 @@ assets.draw=(ctx,group,id,pose,x,y,options)=>{
  draw(ctx,group,id,pose,x,y,options);
 };
 document.querySelector('.brand b').textContent='HERO INTEGRATION LAB';
-document.querySelector('.brand small').textContent='PARTIAL: ENEMY ART NOT ACCEPTED · NOT FINAL GAME';
+document.querySelector('.brand small').textContent='ISOLATED HERO LAYER · NOT CAMPAIGN PROOF';
 document.querySelector('#overlay').classList.add('hidden');
 document.querySelector('#status').textContent='TEST ONLY — SIMULATED FOES ARE NOT DRAWN — NO ACTOR SUBSTITUTES';
 function sync(){audio.sync(visibility.visible&&!d.paused,d.music);}
@@ -43,7 +43,7 @@ function tick(i={}){
 function state(){return {scene:d.state,time:d.time,music:audio.musicName,context:audio.ctx?.state,paused:d.paused,
  p:d.game?{x:d.game.p.x,y:d.game.p.y,pose:d.game.p.pose,face:d.game.p.face,wall:d.game.p.wall,hp:d.game.p.hp,ammo:d.game.p.ammo,box:d.game.p.box}:null,
  camera:{x:d.camera.x,y:d.camera.y},combo:d.game?.combo,attackTime:d.game?.attackTime,level:d.game?.level.id,retries:d.game?.retries,
- calls,completed:[...d.completed],events,error:audio.error?.message,blocking:d.state==='home-intro'?introBlocking(d.time):null};}
+ calls,completed:[...d.completed],events,error:audio.error?.message,blocking:d.state==='home-intro'?introBlocking(d.time,assets.get('characters','kagebot').anchor,assets.get('characters','jetpack-drone').anchor):null};}
 async function unlock(){await audio.start('../assets/audio/manifest.json');sync();}
 document.querySelector('#sound').textContent='UNLOCK AUDIO';
 document.querySelector('#sound').onclick=async()=>{await unlock();};
