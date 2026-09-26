@@ -1,14 +1,22 @@
 # Kagebot's Secret Mission — World 1 scaffold
 
 This branch is an incomplete local integration candidate, not a published full
-campaign. The entry point now loads PNG manifests; without the separate asset
-imports it intentionally displays a missing-assets error. No vector actor
-fallback. Three designer-owned shipping levels have not been imported.
+campaign. Accepted world/UI PNGs and the full PCM palette are imported and wired.
+Character atlases are still pending: the shipping entry intentionally displays
+an explicit missing-actor error, never a vector actor fallback. Three
+designer-owned shipping levels have not been imported.
 
 Start a local static server, then open `tests/controller.html` for the explicitly
 labelled controller/collision lab, or `tests/controller.html?scenario=combat` for
 the combat lab. Diagnostic rectangles are NOT final artwork or campaign levels.
 The shipping `index.html` never imports these fixtures.
+
+`tests/media.html` exercises the delivered environment/UI and real Web Audio
+through production modules with NO actors, clearly labelled NOT FINAL GAME.
+Its controls use the shipping DOM/CSS and input handlers. Run
+`node tools/media-smoke.mjs /path/to/private/evidence` for PNG/parallax, portrait
+and landscape no-scroll touch layout, and real gesture/PCM lifecycle proof.
+This is not campaign traversal or actor-animation acceptance.
 
 Contracts: [LEVEL-SCHEMA.md](LEVEL-SCHEMA.md),
 [ASSET-CONTRACT.md](ASSET-CONTRACT.md). Current checkpoint:

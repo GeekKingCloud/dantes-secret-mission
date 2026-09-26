@@ -3,7 +3,7 @@ import {Renderer} from './renderer.mjs';
 import {SceneDirector} from './scenes.mjs';
 import {loadLevel} from './level-schema.mjs';
 import {BrowserInput,runSteps} from './input.mjs';
-import {AudioEngine} from './audio.mjs';
+import {AudioEngine,bindAudioVisibility} from './audio.mjs';
 import {STEP} from './simulation.mjs';
 
 const canvas=document.querySelector('canvas'),overlay=document.querySelector('#overlay');
@@ -12,7 +12,8 @@ const start=document.querySelector('#start'),status=document.querySelector('#sta
 const pause=document.querySelector('#pause'),music=document.querySelector('#sound'),sfx=document.querySelector('#sfx');
 const assets=new AssetLibrary(),director=new SceneDirector(),renderer=new Renderer(canvas,assets);
 const input=new BrowserInput(),audio=new AudioEngine();
-let ready=false,last=0,acc=0,levelLoading=false,focused=true;
+let ready=false,last=0,acc=0,levelLoading=false;
+const visibility=bindAudioVisibility(audio,()=>{input.clear();acc=0;if(['stage','boss','home-intro'].includes(director.state))director.paused=true;});
 function reportError(error){director.state='error';director.error=error.message;overlay.classList.remove('hidden');title.textContent='Missing integration assets';message.textContent=error.message;start.hidden=true;status.textContent='DEVELOPMENT ERROR · NO PLACEHOLDER ART';audio.sync(false,null);}
 function audioGesture(){audio.start().catch(error=>{status.textContent=`AUDIO UNAVAILABLE: ${error.message}`;});}
 function confirm(){audioGesture();input.pending.add('confirm');}
@@ -22,9 +23,7 @@ music.addEventListener('click',()=>{audioGesture();audio.musicMuted=!audio.music
 sfx.addEventListener('click',()=>{audioGesture();audio.sfxMuted=!audio.sfxMuted;sfx.textContent=audio.sfxMuted?'SFX OFF':'SFX ON';});
 canvas.addEventListener('pointerdown',()=>{if(!['stage','boss','loading','error'].includes(director.state))confirm();});
 window.addEventListener('keydown',event=>{if(['Enter','Space'].includes(event.code)&&!event.repeat)audioGesture();});
-function suspend(){input.clear();acc=0;focused=false;if(['stage','boss','home-intro'].includes(director.state))director.paused=true;audio.sync(false,null);}
-window.addEventListener('blur',suspend);window.addEventListener('focus',()=>{focused=true;});
-document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();else focused=true;});
+
 window.addEventListener('pagehide',()=>audio.stop());
 async function importLevel(id){
   levelLoading=true;
@@ -45,7 +44,7 @@ function menuUI(){
 function frame(ms){
   const dt=Math.min(.05,(ms-last)/1000||0);last=ms;
   const held=input.poll(navigator.getGamepads?.());
-  if(ready&&director.state!=='error'&&!document.hidden&&focused){
+  if(ready&&director.state!=='error'&&!document.hidden&&visibility.visible){
     acc+=dt;
     acc=runSteps(acc,input.pending,edges=>{
       const i=input.snapshot(held,edges);
@@ -53,13 +52,14 @@ function frame(ms){
       if(director.state==='home-intro'&&i.jumpPressed)i.confirmPressed=true;
       if(menu&&(i.jumpPressed||i.pausePressed)){i.confirmPressed=true;i.pausePressed=false;audioGesture();}
       director.update(i,STEP);
-      for(const event of director.events)audio.cue(event);
+      for(const event of director.events)audio.cue(event).catch(error=>{status.textContent=`AUDIO ERROR: ${error.message}`;});
       if(director.requestedLevel&&!levelLoading)importLevel(director.requestedLevel);
     });
     try{renderer.draw(director);}catch(error){reportError(error);}
     menuUI();
   }else acc=0;
-  audio.sync(ready&&focused&&!document.hidden&&!director.paused&&director.state!=='error',director.music);
+  audio.sync(ready&&visibility.visible&&!document.hidden&&!director.paused&&director.state!=='error',director.music);
+  if(audio.error)status.textContent=`AUDIO ERROR: ${audio.error.message}`;
   requestAnimationFrame(frame);
 }
 try {

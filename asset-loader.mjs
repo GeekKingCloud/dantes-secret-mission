@@ -30,15 +30,36 @@ export async function loadImage(url) {
   try{await image.decode();}catch{throw new MissingAssetError(`Missing PNG: ${url}`);}
   return image;
 }
+// World/UI have one accepted production schema. Actor atlases retain their
+// separately owned established contract; neither reader accepts legacy aliases.
+export function environmentEntries(manifest) {
+  if(manifest?.schema_version!==2||manifest.path_base!=='assets/'||!Array.isArray(manifest.assets))throw new MissingAssetError('Expected environment manifest schema 2, assets-root paths');
+  const ids=new Set();
+  const entries=manifest.assets.map(a=>{
+    if(typeof a.id!=='string'||ids.has(a.id))throw new MissingAssetError('Duplicate/invalid environment ID');ids.add(a.id);
+    const count=a.frame_count??1,w=a.frame_width??a.width,h=a.frame_height??a.height;
+    const meta={src:a.path,width:a.width,height:a.height,frameWidth:w,frameHeight:h,columns:a.width/w,anchor:a.anchor,
+      scale:a.display_scale??1,opaqueBounds:a.opaque_bbox,textSafe:a.text_safe_rect,
+      animations:{idle:{frames:Array.from({length:count},(_,n)=>n),fps:count===1?1:a.fps,loop:count>1?a.loop:false}}};
+    if(!(meta.scale>0)||!Number.isFinite(meta.scale)||!Number.isInteger(count)||count<1)throw new MissingAssetError(`${a.id}: invalid scale/frame count`);
+    validateAtlasManifest({version:1,assets:{[a.id]:meta}});
+    return [a.id,meta];
+  });
+  for(const id of manifest.required_ids||[])if(!ids.has(id))throw new MissingAssetError(`Missing environment asset ${id}`);
+  return entries;
+}
 export class AssetLibrary {
   constructor(){this.groups=new Map();}
   async loadGroup(group,url,{fetcher=fetch,imageLoader=loadImage}={}) {
     const manifestURL=new URL(url,globalThis.location?.href||'http://localhost/').href;
     const response=await fetcher(manifestURL);
     if(!response.ok)throw new MissingAssetError(`Missing ${group} manifest: ${url} (${response.status}). Import real PNG assets; no vector fallback.`);
-    const manifest=validateAtlasManifest(await response.json());
-    const entries=await Promise.all(Object.entries(manifest.assets).map(async([id,meta])=>{
-      const image=await imageLoader(relativeAssetURL(meta.src,manifestURL));
+    const manifest=await response.json();
+    const environment=group==='world'||group==='ui';
+    const records=environment?environmentEntries(manifest):Object.entries(validateAtlasManifest(manifest).assets);
+    const base=environment?new URL('../',manifestURL).href:manifestURL;
+    const entries=await Promise.all(records.map(async([id,meta])=>{
+      const image=await imageLoader(relativeAssetURL(meta.src,base));
       if(image.naturalWidth!==meta.width||image.naturalHeight!==meta.height)throw new MissingAssetError(`${group}/${id}: PNG dimensions disagree with manifest`);
       return [id,{...meta,image}];
     }));
@@ -50,8 +71,9 @@ export class AssetLibrary {
     if(!asset.animations[animation])throw new MissingAssetError(`Missing PNG animation: ${group}/${id}/${animation}`);
     return asset;
   }
-  draw(ctx,group,id,animation,x,y,{time=0,face=1,alpha=1,weak=false}={}) {
+  draw(ctx,group,id,animation,x,y,{time=0,face=1,alpha=1,weak=false,scale}={}) {
     const asset=this.get(group,id,animation),a=asset.animations[animation];
+    scale??=asset.scale??1;
     const index=Math.max(0,Math.floor(time*a.fps));
     const frame=a.frames[a.loop?index%a.frames.length:Math.min(index,a.frames.length-1)];
     const anchor=a.anchor||asset.anchor;
@@ -63,7 +85,7 @@ export class AssetLibrary {
       red.fillStyle='rgba(255,40,48,.6)';red.fillRect(0,0,asset.width,asset.height);asset.redImage=layer;
     }
     ctx.drawImage(weak?asset.redImage:asset.image,(frame%asset.columns)*asset.frameWidth,Math.floor(frame/asset.columns)*asset.frameHeight,
-      asset.frameWidth,asset.frameHeight,-Math.round(anchor[0]),-Math.round(anchor[1]),asset.frameWidth,asset.frameHeight);
+      asset.frameWidth,asset.frameHeight,-Math.round(anchor[0]*scale),-Math.round(anchor[1]*scale),Math.round(asset.frameWidth*scale),Math.round(asset.frameHeight*scale));
     ctx.restore();
   }
 }

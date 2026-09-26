@@ -49,6 +49,7 @@ export class SceneDirector {
       if(oldTime<4.15&&this.time>=4.15)this.events.push('jetpack');
       if(this.time>=5.8){this.selection=1;this.enter('map');}
     } else if(this.state==='map') {
+      if(input.leftPressed||input.rightPressed)this.events.push('menu');
       if(input.leftPressed)this.selection=(this.selection+MAP_NODES.length-1)%MAP_NODES.length;
       if(input.rightPressed)this.selection=(this.selection+1)%MAP_NODES.length;
     } else if(['stage','boss'].includes(this.state)) {

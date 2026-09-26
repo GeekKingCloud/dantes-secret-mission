@@ -53,7 +53,7 @@ export class LevelSimulation {
     // Hurt interrupts the strike, leaving a real committed-facing rear window.
     e.state='recover';e.timer=.55;e.turnWait=.45;
     this.events.push('combo_impact');this.hitstop=Math.max(this.hitstop,.035);
-    if(!e.hp){e.alive=false;e.pose='defeat';e.defeatTime=0;this.events.push('defeat');}
+    if(!e.hp){e.alive=false;e.pose='defeat';e.defeatTime=0;this.events.push('defeat');if(e.type==='masked-mutant-boss')this.events.push('portal-open');}
   }
   startAttack() {
     this.combo=this.comboWindow>0?this.combo%3+1:1;
@@ -101,7 +101,7 @@ export class LevelSimulation {
     const p=this.p;p.update(i,this.level,dt);this.events.push(...p.events);
     this.combat(i,dt);
     p.pose=p.hurt?'hurt':p.dash?'dash':this.attackTime?`sword-${this.combo}`:this.actionTime?this.actionPose:p.pose;
-    for(const cp of this.level.checkpoints)if(overlap(p.box,cp)){this.checkpoint=cp.spawn;this.checkpointId=cp.id;}
+    for(const cp of this.level.checkpoints)if(overlap(p.box,cp)){if(this.checkpointId!==cp.id)this.events.push('checkpoint');this.checkpoint=cp.spawn;this.checkpointId=cp.id;}
     for(const h of this.level.hazards)if(overlap(p.box,h)) {
       this.damagePlayer(h.damage,h.x+h.w/2,{pit:h.type==='pit',spikes:h.type==='spikes'});
       if(this.p!==p||h.type==='pit')return;
@@ -114,10 +114,10 @@ export class LevelSimulation {
     for(const b of this.projectiles) {
       const oldX=b.x,oldY=b.y;b.x+=b.vx*dt;b.y+=b.vy*dt;b.life-=dt;
       const swept=rect(Math.min(oldX,b.x)-3,Math.min(oldY,b.y)-3,Math.abs(b.x-oldX)+6,Math.abs(b.y-oldY)+6);
-      if(solids(this.level).some(s=>overlap(swept,s))){b.life=0;continue;}
+      if(solids(this.level).some(s=>overlap(swept,s))){b.life=0;if(b.kind==='venom')this.events.push('venom-impact');continue;}
       if(b.owner==='player') {
         for(const e of this.enemies)if(b.life>0&&e.alive&&e.active&&overlap(swept,enemyBox(e))){this.hitEnemy(e,2);b.life=0;}
-      } else if(b.life>0&&overlap(swept,p.box)){this.damagePlayer(1,b.x);b.life=0;if(this.p!==p)return;}
+      } else if(b.life>0&&overlap(swept,p.box)){this.damagePlayer(1,b.x);b.life=0;if(this.p!==p)return;this.events.push('venom-impact');}
     }
     this.projectiles=this.projectiles.filter(b=>b.life>0);
     if(overlap(p.box,this.level.exit)&&(!this.level.exit.requiresBoss||!this.boss?.alive)) {

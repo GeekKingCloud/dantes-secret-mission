@@ -59,6 +59,7 @@ export function updateEnemy(e,g,dt) {
     e.state=noticed?'approach':'patrol';
     if(distance<trigger&&verticalOK&&(facing||e.type==='ghost'||e.type==='spider')) {
       e.target={x:p.x,y:p.y};enter(e,'windup',boss&&e.hp<=e.maxHp/2?.58:t.windup);
+      if(boss||e.type==='spider')g.events.push(boss?'boss-windup':'spider-windup');
       e.pose=boss?'windup':e.type==='bear'?'slash-windup':e.type==='ghost'?'dive-windup':e.type==='spider'?'venom-windup':'attack';
     }else if(!noticed||facing)patrol(e,g.level,dt);
     else e.pose=e.type==='ghost'?'hover':e.type==='spider'?'wall-idle':'idle';
@@ -68,7 +69,7 @@ export function updateEnemy(e,g,dt) {
       enter(e,'attack',boss&&e.pattern%2===1?.42:t.active);
       const dx=e.target.x-e.x,dy=e.target.y-e.y,len=Math.hypot(dx,dy)||1;
       e.vx=dx/len*380;e.vy=dy/len*380;
-      g.events.push(e.type==='ghost'?'ghost-dive':e.type==='bear'?'bear-slash':'sword');
+      if(e.type!=='spider')g.events.push(e.type==='ghost'?'ghost-dive':e.type==='bear'?'bear-slash':'sword');
     }
   } else if(e.state==='attack') {
     if(e.type==='spider') {
