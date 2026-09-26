@@ -1,0 +1,46 @@
+{
+  "motif_intervals": [
+    0,
+    1,
+    3,
+    7,
+    6,
+    3,
+    1,
+    0
+  ],
+  "tonal_center": "D with Phrygian/minor color",
+  "scores": {
+    "home": {
+      "title": "Candle in the Machine",
+      "bpm": 88,
+      "bars": 16,
+      "direction": "Sparse dark FM meditation, low drone and muted metal motif."
+    },
+    "overworld": {
+      "title": "Paths under Iron Moon",
+      "bpm": 128,
+      "bars": 16,
+      "direction": "Measured industrial march; motif answered by low fifths."
+    },
+    "stage2": {
+      "title": "Climb the Black Spire",
+      "bpm": 184,
+      "bars": 24,
+      "direction": "Galloping pedal riff, climbing responses and syncopated tom fills."
+    },
+    "stage3": {
+      "title": "Venom Circuit",
+      "bpm": 188,
+      "bars": 28,
+      "direction": "Sixteenth-note chains, clipped rests and descending counter-riff."
+    },
+    "boss": {
+      "title": "Behind the Hollow Mask",
+      "bpm": 192,
+      "bars": 32,
+      "direction": "Low 3+3+2 accents, double-kick assaults and half-time threat section."
+    }
+  },
+  "synthesis": "Original deterministic FM-inspired synthesis; no samples; not YM2612 emulation"
+}
