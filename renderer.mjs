@@ -3,6 +3,7 @@ import {clamp} from './geometry.mjs';
 import {canFinish,COMBO} from './simulation.mjs';
 import {isWeak,ENEMY_TYPES} from './enemies.mjs';
 import {BODY} from './player-controller.mjs';
+import {enemyVisual} from './enemy-animation.mjs';
 export function layerOffset(layer,camera,time,width) {
   let x=layer.x-camera.x*layer.factorX+time*layer.driftX;
   if(layer.repeatX)x=((x%width)+width)%width-width;
@@ -74,6 +75,7 @@ export class Renderer {
       this.text('The signal reaches beyond the mountains.',100,200);this.text('ENTER / A / TAP TO RETURN',155,310);
     } else this.text(d.state==='loading'?'LOADING LEVEL DATA…':'DEVELOPMENT ERROR',30,60,20);
     if(d.paused){c.fillStyle='#061020df';c.fillRect(0,0,VIEW.w,VIEW.h);this.text('PAUSED',260,160,24);this.text('ENTER / A / MENU TO RESUME',170,200);}
+    this.text('PROVISIONAL HERO · CONSISTENCY CORRECTION PENDING',12,357,10,'#ffe1a0');
   }
   homeScenery(t) {
     this.image('world','home-interior',0,0,t);
@@ -124,11 +126,10 @@ export class Renderer {
   stage(d) {
     const g=d.game,c=this.ctx,cam=d.camera,p=g.p;this.stageScenery(g,cam);
     c.save();c.translate(-Math.round(cam.x),-Math.round(cam.y));
-    for(const e of g.enemies)if(e.alive||e.defeatTime<.5){
-      const tuning=ENEMY_TYPES[e.type];
-      const duration=e.state==='windup'?tuning.windup:e.state==='attack'?tuning.active:0;
-      const progress=e.stun?null:e.state==='windup'&&e.type==='zombie'?0:duration?1-e.timer/duration:null;
-      this.actor(e.id,e.type,e.pose,e.x,e.y,g.time,e.face,1,isWeak(e),progress);
+    for(const e of g.enemies){
+      const tuning=ENEMY_TYPES[e.type],asset=this.assets.get('characters',e.type,e.pose),visual=enemyVisual(e,asset);
+      if(!visual.visible)continue;
+      this.assets.draw(this.ctx,'characters',e.type,visual.animation,e.x,e.y,{frame:visual.frame,face:e.face,alpha:visual.alpha,weak:isWeak(e)});
       if(canFinish(p,e,g.level))this.text('F / RB · EXECUTE',e.x-44,e.y-tuning.h-12,10,'#ffabb2');
     }
     this.player(g);
@@ -138,8 +139,8 @@ export class Renderer {
   player(g) {
     const p=g.p,c=this.ctx;
     for(const b of g.projectiles) {
-      // Emissive shot core, not a replacement for character/terrain artwork.
-      c.fillStyle=b.kind==='venom'?'#b6dd65':'#c8fff5';c.fillRect(Math.round(b.x)-3,Math.round(b.y)-2,b.kind==='venom'?6:12,4);
+      if(b.kind==='venom')this.assets.drawProjectile(c,'spider',b.x,b.y,b.age);
+      else {c.fillStyle='#c8fff5';c.fillRect(Math.round(b.x)-3,Math.round(b.y)-2,12,4);}
     }
     if(p.dash)for(let n=3;n>0;n--)this.image('characters','kagebot',p.x-p.face*n*16,p.y,g.time,'dash',p.face,.1*(4-n));
     const swing=g.attackTime?COMBO[g.combo-1]:null;

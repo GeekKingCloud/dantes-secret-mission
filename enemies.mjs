@@ -8,13 +8,21 @@ export const ENEMY_TYPES = Object.freeze({
 });
 export const enemyBox = e => bodyBox(e,ENEMY_TYPES[e.type]);
 export const isWeak = e => e.alive&&e.hp<=ENEMY_TYPES[e.type].weakAt;
-export function createEnemy(spec) {
-  return {...structuredClone(spec),homeX:spec.x,homeY:spec.y,hp:ENEMY_TYPES[spec.type].hp,
+export function createEnemy(spec,level) {
+  const e={...structuredClone(spec),homeX:spec.x,homeY:spec.y,hp:ENEMY_TYPES[spec.type].hp,
     maxHp:ENEMY_TYPES[spec.type].hp,alive:true,state:'patrol',timer:0,stun:0,hitSwing:-1,
     pose:spec.type==='ghost'?'hover':spec.type==='spider'?'wall-idle':'idle',
-    active:spec.type!=='masked-mutant-boss',pattern:0,vx:0,vy:0,fired:false,defeatTime:0,turnWait:.4,weak:false};
+    active:spec.type!=='masked-mutant-boss',pattern:0,vx:0,vy:0,fired:false,defeatTime:0,turnWait:.4,weak:false,
+    climbDirection:spec.face,stateDuration:0,attackTrack:null,recoveryVisualStart:0,animationTime:0};
+  if(e.type==='spider'&&level){
+    const wall=level.walls.find(w=>w.id===e.wallId);
+    e.face=e.x<wall.x+wall.w/2?-1:1;
+    // Source attachment: root x32, wall plane x10. Keep body size unchanged.
+    e.x=(e.face<0?wall.x:wall.x+wall.w)+e.face*22;
+  }
+  return e;
 }
-function enter(e,state,duration) {e.state=state;e.timer=duration;e.fired=false;}
+function enter(e,state,duration) {e.state=state;e.timer=duration;e.stateDuration=duration;e.recoveryVisualStart=0;e.fired=false;}
 function facePlayer(e,p) {e.face=Math.sign(p.x-e.x)||e.face;}
 // Keep a small air gap at masonry; interrupted dives may begin off their home.
 function fly(e,level,dx,dy) {
@@ -29,8 +37,8 @@ export function enemyAttackBox(e) {
 function patrol(e,level,dt) {
   const t=ENEMY_TYPES[e.type];
   if(e.type==='spider') {
-    e.y+=e.face*t.speed*dt;
-    if(e.y<=e.patrol.min||e.y>=e.patrol.max){e.y=clamp(e.y,e.patrol.min,e.patrol.max);e.face*=-1;}
+    e.y+=e.climbDirection*t.speed*dt;
+    if(e.y<=e.patrol.min||e.y>=e.patrol.max){e.y=clamp(e.y,e.patrol.min,e.patrol.max);e.climbDirection*=-1;}
     e.pose='climb';return;
   }
   const min=e.arena?e.arena.x+t.w/2:e.patrol.min, max=e.arena?e.arena.x+e.arena.w-t.w/2:e.patrol.max;
@@ -48,6 +56,7 @@ function patrol(e,level,dt) {
   e.x=clamp(e.x,min,max);e.pose=e.type==='masked-mutant-boss'?'move':'walk';
 }
 export function updateEnemy(e,g,dt) {
+  e.animationTime+=dt;
   if(!e.alive){e.defeatTime+=dt;e.pose='defeat';return;}
   if(!e.active)return;
   e.weak=isWeak(e);
@@ -60,10 +69,12 @@ export function updateEnemy(e,g,dt) {
     const trigger=e.type==='zombie'||e.type==='bear'?t.reach+18:t.notice;
     const noticed=distance<t.notice&&verticalOK;
     const facing=Math.sign(p.x-e.x)===e.face;
-    if(noticed&&!facing){e.turnWait-=dt;if(e.turnWait<=0){facePlayer(e,p);e.turnWait=.45;}}
+    if(noticed&&!facing&&e.type!=='spider'){e.turnWait-=dt;if(e.turnWait<=0){facePlayer(e,p);e.turnWait=.45;}}
     else e.turnWait=.45;
     e.state=noticed?'approach':'patrol';
     if(distance<trigger&&verticalOK&&(facing||e.type==='ghost'||e.type==='spider')) {
+      if(e.type==='ghost')facePlayer(e,p);
+      e.attackTrack=boss?(e.pattern%2?'burst':'slash')+(e.hp<=e.maxHp/2?'-enraged':''):e.type==='ghost'?'dive':e.type==='spider'?'venom':'melee';
       e.target={x:p.x,y:p.y};enter(e,'windup',boss&&e.hp<=e.maxHp/2?.58:t.windup);
       if(boss||e.type==='spider')g.events.push(boss?'boss-windup':'spider-windup');
       e.pose=boss?'windup':e.type==='bear'?'slash-windup':e.type==='ghost'?'dive-windup':e.type==='spider'?'venom-windup':'attack';
@@ -80,7 +91,7 @@ export function updateEnemy(e,g,dt) {
   } else if(e.state==='attack') {
     if(e.type==='spider') {
       e.pose='spit';
-      if(!e.fired){e.fired=true;g.projectiles.push({owner:'enemy',kind:'venom',x:e.x,y:e.y-14,vx:e.vx*.55,vy:e.vy*.55,life:2.5});g.events.push('venom');}
+      if(!e.fired){e.fired=true;const x=e.x+e.face*16,y=e.y-23;g.projectiles.push({owner:'enemy',kind:'venom',x,y,origin:{x,y},age:0,vx:e.vx*.55,vy:e.vy*.55,life:2.5});g.events.push('venom');}
     } else if(e.type==='ghost') {
       e.pose='dive';const hit=fly(e,g.level,e.vx*dt,e.vy*dt);
       if(overlap(enemyBox(e),p.box))g.damagePlayer(1,e.x);

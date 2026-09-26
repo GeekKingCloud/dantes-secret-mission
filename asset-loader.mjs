@@ -62,6 +62,11 @@ export class AssetLibrary {
     const entries=await Promise.all(records.map(async([id,meta])=>{
       const image=await imageLoader(relativeAssetURL(meta.src,base));
       if(image.naturalWidth!==meta.width||image.naturalHeight!==meta.height)throw new MissingAssetError(`${group}/${id}: PNG dimensions disagree with manifest`);
+      if(meta.projectileVisual){
+        const v=meta.projectileVisual;validateAtlasManifest({version:1,assets:{projectile:v}});
+        v.image=await imageLoader(relativeAssetURL(v.src,base));
+        if(v.image.naturalWidth!==v.width||v.image.naturalHeight!==v.height)throw new MissingAssetError(`${id}: projectile dimensions disagree`);
+      }
       return [id,{...meta,image}];
     }));
     this.groups.set(group,new Map(entries));
@@ -76,11 +81,14 @@ export class AssetLibrary {
     const missing=missingCharacterActions(Object.fromEntries(this.groups.get('characters')||[]));
     if(missing.length)throw new MissingAssetError(`Missing accepted character animations: ${missing.join(', ')}. No actor fallback.`);
   }
-  draw(ctx,group,id,animation,x,y,{time=0,face=1,alpha=1,weak=false,scale}={}) {
-    const asset=this.get(group,id,animation),a=asset.animations[animation];
+  draw(ctx,group,id,animation,x,y,options={}) {this.drawAsset(ctx,this.get(group,id,animation),animation,x,y,options);}
+  drawProjectile(ctx,id,x,y,time){this.drawAsset(ctx,this.get('characters',id,'spit').projectileVisual,'fly',x,y,{time});}
+  drawAsset(ctx,asset,animation,x,y,{time=0,face=1,alpha=1,weak=false,scale,frame:selectedFrame}={}) {
+    const a=asset.animations[animation];
     scale??=asset.scale??1;
     const index=Math.max(0,Math.floor(time*a.fps));
-    const frame=a.frames[a.loop?index%a.frames.length:Math.min(index,a.frames.length-1)];
+    const frame=selectedFrame??a.frames[a.loop?index%a.frames.length:Math.min(index,a.frames.length-1)];
+    if(!Number.isInteger(frame)||frame<0||frame>=asset.columns*asset.height/asset.frameHeight)throw new MissingAssetError('Invalid selected atlas frame');
     const anchor=a.anchor||asset.anchor;
     ctx.save();ctx.imageSmoothingEnabled=false;ctx.globalAlpha*=alpha;
     ctx.translate(Math.round(x),Math.round(y));ctx.scale(face,1);

@@ -12,7 +12,7 @@ const start=document.querySelector('#start'),status=document.querySelector('#sta
 const pause=document.querySelector('#pause'),music=document.querySelector('#sound'),sfx=document.querySelector('#sfx');
 const assets=new AssetLibrary(),director=new SceneDirector(),renderer=new Renderer(canvas,assets);
 const input=new BrowserInput(),audio=new AudioEngine();
-let ready=false,last=0,acc=0,levelLoading=false;
+let ready=false,last=0,acc=0,levelLoading=false,replayMode=false,loadingPromise=null;
 const visibility=bindAudioVisibility(audio,()=>{input.clear();acc=0;if(['stage','boss','home-intro'].includes(director.state))director.paused=true;});
 function reportError(error){director.state='error';director.error=error.message;overlay.classList.remove('hidden');title.textContent='Missing integration assets';message.textContent=error.message;start.hidden=true;status.textContent='DEVELOPMENT ERROR · NO PLACEHOLDER ART';audio.sync(false,null);}
 function audioGesture(){audio.start().catch(error=>{status.textContent=`AUDIO UNAVAILABLE: ${error.message}`;});}
@@ -41,19 +41,31 @@ function menuUI(){
   start.textContent=director.paused?'RESUME':director.state==='title'?'BEGIN MISSION':director.state==='map'?'PLAY SELECTED':'RETURN TO MAP';
   pause.textContent=director.paused?'RESUME':'PAUSE';
 }
+function updateInput(i){
+  const menu=['title','map','world2'].includes(director.state)||director.paused;
+  if(director.state==='home-intro'&&i.jumpPressed)i.confirmPressed=true;
+  if(menu&&(i.jumpPressed||i.pausePressed)){i.confirmPressed=true;i.pausePressed=false;audioGesture();}
+  director.update(i,STEP);
+  for(const event of director.events)audio.cue(event).catch(error=>{status.textContent=`AUDIO ERROR: ${error.message}`;});
+  if(director.requestedLevel&&!levelLoading)loadingPromise=importLevel(director.requestedLevel);
+}
+// Deterministic input replay uses this same shipping controller/loader/render path.
+// Test drivers may supply input edges, never replace state, assets or the renderer.
+export function setReplayMode(value){replayMode=value;acc=0;input.clear();}
+export async function advance(i,{render=true}={}){
+  if(!ready||director.state==='error')throw new Error('Runtime is not ready');
+  updateInput({...i});if(loadingPromise){await loadingPromise;loadingPromise=null;}
+  if(render)renderer.draw(director);menuUI();audio.sync(!director.paused&&visibility.visible,director.music);
+}
+export {director,renderer,assets,audio,input};
 function frame(ms){
   const dt=Math.min(.05,(ms-last)/1000||0);last=ms;
   const held=input.poll(navigator.getGamepads?.());
-  if(ready&&director.state!=='error'&&!document.hidden&&visibility.visible){
+  if(ready&&!replayMode&&director.state!=='error'&&!document.hidden&&visibility.visible){
     acc+=dt;
     acc=runSteps(acc,input.pending,edges=>{
       const i=input.snapshot(held,edges);
-      const menu=['title','map','world2'].includes(director.state)||director.paused;
-      if(director.state==='home-intro'&&i.jumpPressed)i.confirmPressed=true;
-      if(menu&&(i.jumpPressed||i.pausePressed)){i.confirmPressed=true;i.pausePressed=false;audioGesture();}
-      director.update(i,STEP);
-      for(const event of director.events)audio.cue(event).catch(error=>{status.textContent=`AUDIO ERROR: ${error.message}`;});
-      if(director.requestedLevel&&!levelLoading)importLevel(director.requestedLevel);
+      updateInput(i);
     });
     try{renderer.draw(director);}catch(error){reportError(error);}
     menuUI();
@@ -65,6 +77,6 @@ function frame(ms){
 try {
   for(const group of ['characters','world','ui'])await assets.loadGroup(group,`assets/${group}/manifest.json`);
   assets.requireCharacters();
-  ready=true;status.textContent='WORLD 1 · LOCAL CANDIDATE';menuUI();
+  ready=true;status.textContent='LOCAL CANDIDATE · HERO CONSISTENCY CORRECTION PENDING';menuUI();
 }catch(error){reportError(error);}
 requestAnimationFrame(frame);

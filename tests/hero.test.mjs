@@ -6,10 +6,10 @@ import {Renderer} from '../renderer.mjs';
 import {COMBO} from '../simulation.mjs';
 import {introBlocking,SceneDirector} from '../scenes.mjs';
 import {missingCharacterActions} from '../character-contract.mjs';
-const m=JSON.parse(await readFile(new URL('../assets/characters/manifest.json',import.meta.url)));
+const m=JSON.parse(await readFile(new URL('../assets/characters/hero-manifest.json',import.meta.url)));
 const hero=m.assets.kagebot;
 function rig(){const lib=new AssetLibrary();lib.groups.set('characters',new Map(Object.entries(m.assets)));const calls=[];lib.draw=(ctx,group,id,pose,x,y,o)=>{const a=lib.get(group,id,pose),anim=a.animations[pose],n=Math.floor(o.time*anim.fps);calls.push({id,pose,x,y,...o,frame:anim.frames[anim.loop?n%anim.frames.length:Math.min(n,anim.frames.length-1)]});};return {r:new Renderer({getContext:()=>({})},lib),lib,calls};}
-test('one canonical accepted hero inventory, exact native frame/action counts; missing enemies stay errors',()=>{
+test('preserved provisional hero fixture; incomplete inventories still reject absent enemies',()=>{
  validateAtlasManifest(m);assert.deepEqual(Object.keys(m.assets),['kagebot','robot-butler','jetpack-drone']);
  assert.equal(Object.keys(hero.animations).length,18);assert.equal(hero.frameMetadata.length,72);assert.deepEqual(hero.anchor,[64,80]);assert.equal(hero.frameWidth,192);assert.equal(hero.frameHeight,96);
  assert.equal(m.assets['robot-butler'].frameMetadata.length,5);assert.equal(m.assets['jetpack-drone'].frameMetadata.length,5);

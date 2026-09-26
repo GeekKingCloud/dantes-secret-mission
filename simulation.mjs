@@ -26,7 +26,7 @@ export class LevelSimulation {
   }
   reset() {
     this.p=new PlayerController(this.level.spawn);this.p.update({},this.level,STEP);
-    this.enemies=this.level.enemies.map(createEnemy);
+    this.enemies=this.level.enemies.map(spec=>createEnemy(spec,this.level));
     this.boss=this.level.boss?createEnemy(this.level.boss):null;
     if(this.boss)this.enemies.push(this.boss);
     this.projectiles=[];this.checkpoint=this.level.spawn;this.checkpointId=null;
@@ -54,7 +54,8 @@ export class LevelSimulation {
     // One boss stagger per committed pattern: damage always lands, but repeated
     // buffered hits cannot erase every telegraph and active attack indefinitely.
     if(e.type!=='masked-mutant-boss'||!e.interrupted){
-      e.stun=.17;e.state='recover';e.timer=.55;e.turnWait=.45;
+      e.stun=.17;e.state='recover';e.timer=.55;e.stateDuration=.55;e.recoveryVisualStart=.17;e.turnWait=.45;
+      e.attackTrack??=e.type==='masked-mutant-boss'?'slash':e.type==='ghost'?'dive':e.type==='spider'?'venom':'melee';
       if(e.type==='masked-mutant-boss')e.interrupted=true;
     }
     this.events.push('combo_impact');this.hitstop=Math.max(this.hitstop,.035);
@@ -117,7 +118,7 @@ export class LevelSimulation {
     }
     for(const e of this.enemies){updateEnemy(e,this,dt);if(this.p!==p)return;}
     for(const b of this.projectiles) {
-      const oldX=b.x,oldY=b.y;b.x+=b.vx*dt;b.y+=b.vy*dt;b.life-=dt;
+      const oldX=b.x,oldY=b.y;b.x+=b.vx*dt;b.y+=b.vy*dt;b.life-=dt;b.age=(b.age||0)+dt;
       const swept=rect(Math.min(oldX,b.x)-3,Math.min(oldY,b.y)-3,Math.abs(b.x-oldX)+6,Math.abs(b.y-oldY)+6);
       if(solids(this.level).some(s=>overlap(swept,s))){b.life=0;if(b.kind==='venom')this.events.push('venom-impact');continue;}
       if(b.owner==='player') {

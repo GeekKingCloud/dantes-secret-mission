@@ -1,141 +1,98 @@
-# Kagebot’s Secret Mission — hero/support integration checkpoint
+# Kagebot’s Secret Mission — enemy integration checkpoint
 
-## Status and commits
+## Scope and release hold
 
-Bounded accepted-hero/opening stage complete. **Not a complete playable campaign
-or release candidate acceptance.** Shipping still rejects missing enemy actions;
-no placeholder enemies or partial public release were introduced.
+This is a local runtime-integration candidate, NOT release approval.
+All five enemy actors were imported from immutable tree
+`e431a6eb875f55c70f64895de59820d3a1676a27`, restricted to their five directories,
+`enemies-manifest.json` and a sanitized root `ENEMIES-HANDOFF.md`.
+Enemy pixels/source metadata were not edited. Source acceptance was for integration.
 
-Branch: `work/kagebot-world1`.
+The preserved hero/support source `a219c36ccb70deefe2d06e46f5b4e4b21db0bc31`
+is VISUALLY SUPERSEDED. It is provisional, NOT currently visually accepted.
+The owner's new hero-consistency requirement remains OPEN: one costume/scarf,
+proportions and blade identity across all actions; no unexplained growing blade.
+No mutable replacement hero files were read or imported. A later explicit parent
+handoff must supply the repaired immutable hero candidate. All new production
+captures display the provisional-hero consistency warning. Older hero handoff
+and audition acceptance wording describes historical evidence only.
 
-- `4826525`: immutable accepted hero/support import.
-- `5e30dabba388b60a67708f35f8edebc2dade90ec`: production integration, cinematic,
-  canonical assembly/completeness gate, tests and browser audition.
-- This handoff is committed separately after implementation.
+## Runtime mapping
 
-## Inventory actually integrated
+`tools/assemble-characters.mjs` remains the single canonical manifest assembler:
 
-Accepted source: `a219c36ccb70deefe2d06e46f5b4e4b21db0bc31`, supplied artifact
-`dcd87a6272487dfd08fe13dca62a2d3fa9150708`. Only these source-owned paths imported:
+    node tools/assemble-characters.mjs assets/characters/hero-manifest.json assets/characters/enemies-manifest.json
 
-- `assets/characters/kagebot/**`: 18 actions, 72 physical frames.
-- `assets/characters/robot-butler/**`: 2 actions, 5 frames.
-- `assets/characters/jetpack-drone/**`: 2 actions, 5 frames.
-- `assets/characters/hero-manifest.json` and `HERO-HANDOFF.md`.
+Runtime inventory has eight actors and zero missing required actions. The enemy
+source has 29 required actions and 201 native actor frames, plus the three-frame
+12×12 venom sprite. No aliases, inherited enemy stills or idle substitutions.
 
-The imported paths remain byte-identical to the accepted tree. No old shared
-manifest, old enemy stills, mutable enemy files or unrelated contact sheets were
-imported. Hero stays native 192×96 cells / feet [64,80]; no global scaling or
-frontflip redesign. World/UI/audio and authored level JSON are unchanged.
+`enemy-animation.mjs` selects explicit phase frame indices from `phaseTracks`,
+using state elapsed time/duration. It does not restart whole clips per phase.
 
-One assembly mechanism: `node tools/assemble-characters.mjs
-assets/characters/hero-manifest.json`. It creates the canonical schema-v1
-`assets/characters/manifest.json`. On the next accepted enemy handoff, append its
-source manifest to the same command. Do not introduce a second runtime reader,
-idle-action aliases, or consume a mutable worktree manifest.
+- Zombie: idle/walk, melee windup/active/recovery, hurt/defeat; reach 33.
+- Bear: idle/walk, melee windup/active/recovery, hurt/defeat; reach 82.
+- Ghost: hover, dive coil/windup, directed moving contact, braking/recovery,
+  hurt/defeat. Contact stays 30×35; swept movement retains its four-pixel margin.
+- Spider: wall-idle/climb, venom windup/emission/recovery, hurt/defeat. Vertical
+  climb direction is separate from fixed wall-facing. Native root-to-wall offset
+  22 aligns local claw plane x10 with actual wall, including mirroring. Enemy
+  collision dimensions and authored level JSON are unchanged. Production venom
+  emits at `(enemy.x + face*16, enemy.y - 23)` and uses the real PNG, not circles.
+- Boss: idle/walk/hurt/defeat plus exact slash, burst, slash-enraged and
+  burst-enraged tracks. Track selection is committed at windup. Burst remains
+  330px/s rushing melee, not projectiles; slash reach remains 110.
 
-`character-contract.mjs` owns the complete required action inventory.
-`AssetLibrary.requireCharacters()` currently reports 29 missing enemy actions
-before shipping can start. The explicit development error was browser-tested.
-The missing-enemy assertions describe the current partial candidate; update that
-boundary deliberately when the exact complete enemy inventory is accepted.
+The eight attack tracks each use their own windup/active/recovery subranges.
+Hurt has its own elapsed clock. Interrupted recovery is visually timed to its
+remaining actual recovery. Defeat plays its complete native clip after simulation
+removal; dead enemies cannot damage, receive further hits or grant more rewards.
+No enemy/boss health bars. Weak red rendering and rear/in-range execute cue use
+actual simulation eligibility. Existing attack feel, level geometry, rewards and
+capped ammo remain intact.
 
-## Production behavior
+## Executed verification
 
-- `renderer.mjs`: extracted production `player(g)` rendering, reused directly by
-  the isolated audition. Native anchors/mirroring and phase-mapped fast sword
-  timelines are retained. Each sword uses 20 slots/seven physical poses; timing
-  stays .240/.260/.375 seconds and reach stays 74/82/94 pixels.
-- Wall hold/climb use native frame bounds to put the leading hand pixel at the
-  fixed wall contact. This is a render-only offset, not a collision/physics edit.
-  Wall laser and sword still use the actual simulation and fixed attack geometry.
-- `scenes.mjs` supplies native cinematic blocking. Hero meditation and butler idle
-  play in the real room/table/candle scene; large alarming HELP appears at 2s;
-  native startled/standing sequence begins 2.7s; low run begins 3.25s; grab/boost
-  and visibly widened butler eyes begin 4.15s. At 5.8s the scene reaches the map.
-- Departure hand and drone rail share a single point, including native frame
-  motion, rather than floating on unrelated trajectories. Drone is above/ahead
-  of the hero; its exhaust is away from the hero body. Butler turns toward them.
-- Existing scene events drive delivered help/jetpack PCM and home/map music.
-  Pause, separate mutes and gesture unlock remain native AudioContext behavior.
-- Existing production keyboard/pad/tap skip remains available. The audition also
-  passed a real browser pointer skip through BrowserInput’s edge queue, not merely
-  a direct director-state change.
+- Targeted enemy/hero Node tests: PASS.
+- Complete intersecting Node suite: PASS (exact totals in private node-suite.txt).
+- All three level validators and authored input routes: PASS.
+- `tools/shipping-smoke.mjs`, final `verified-shipping` run: PASS.
+  Actual `/index.html` imports the shipping loader, production renderer, all
+  actors, audio and scene director. A persistent input-only replay visits
+  home → map → all three levels → live boss gate → portal → World2.
+  It also exercises stage2 checkpoint damage versus lethal current-level reset.
+  There are no HP/position/victory mutations in campaign replay.
+- Real CDP keyboard entry/pause/resume, simulated standard-pad map/replay and
+  pause/resume, real touch resume/jump in landscape with canvas visible and no
+  page scrolling: PASS in that shipping run. No physical hardware claim.
+- Normal-speed combat recording: 640×360 VP8/60fps with Opus, about 18.3 seconds.
+  It includes actual early-stage combat, weak/rear execution and dash behavior.
+- Focused bear/spider fixtures are explicitly distinct from the campaign. They
+  supply visible bear attack phases and wall-held sword/laser observations where
+  a successful campaign route alone does not guarantee the desired art sample.
+- Parent/source native contact sheets and representative production captures
+  were visually inspected: boss active slash, wall-spider mouth/attachment,
+  airborne ghost in vertical scenery, weak red bear and rear execution cue.
 
-No changes were made to player physics, combat/ghost/boss fixes, level schema,
-three authored level JSONs or route policies in this stage.
+Fast campaign traversal samples actual rendered states while every input physics
+step still runs; the normal-speed recorded segment renders continuously. It is not
+an alternate diagnostic renderer or a missing-actor-exclusion harness.
 
-## Verification at the stable handoff
+## Honest remaining gates
 
-Fresh local evidence:
+The shipping automated proof is green. A complete integrator visual review of
+all eight phase tracks at normal speed, and exhaustive native/viewport continuity
+inspection, was not finished within the bounded stage. Do not treat automated
+phase selection tests or source-owner reviews as that missing in-game judgment.
+The earlier isolated hero harness remains historical partial evidence, not the
+current shipping campaign proof. Prior audio-file provenance was reused unchanged.
 
-- `node --test tests/*.test.mjs`: **38/38 PASS**, zero skipped.
-- All three `node tools/validate-levels.mjs levels/stageN.json`: PASS.
-- All three `node tests/routes/stageN.mjs`: PASS with the final boss correction.
-- `node tools/levels-smoke.mjs <private-output>`: **PASS** persistent input-only
-  campaign with production level loader/director, real PNG scenery, no actors.
-  Title → timed opening → map → stage1 → stage2 → stage3 → boss → map portal →
-  World2; live boss exit denial and both slash/burst observed.
-- Same campaign proves three nonlethal stage2 checkpoint recoveries, followed by
-  lethal **current-stage2** reset while completed stage1 survives. Full stage2
-  traversal then completes normally; no teleport/HP/victory writes or combat skip.
-- Final campaign route results: stage1 6,211 steps, HP4, 9 defeated; stage2 6,221
-  route steps after the deliberate retry branch, HP4, six defeated/two ghosts
-  evaded; stage3 11,132 steps, HP4, all fifteen enemies plus boss defeated.
-  Step counts are scripted feasibility, not human completion-time claims.
-- `node tools/hero-smoke.mjs <private-output>`: **PASS** real native hero/support
-  PNGs through production renderer, controller, scenes and audio. Latest run adds
-  real pointer opening skip; no network misses or unhandled runtime exceptions.
-- Hero proof contains 27 actual stage1 pose/phase captures and 56 distinct gameplay
-  frames observed in its authored-route replay. A separate actual-enemy-damage
-  branch exercises all four hurt frames. Opening records the remaining cinematic
-  actions; action inventory metadata is not substituted for those runtime checks.
-- Native opening, normal-speed controller input segment and wall-action videos
-  recorded from browser canvas plus actual Web Audio, not manufactured footage.
-  Inspected temporal filmstrips for startled-rise/run/grab, attached flight,
-  widened eyes, sword startup/active/recovery, native flip and wall attack.
-- Actual left-facing second strike, native feet/roof lip, wall hand contact and
-  private overlaid fixed hurt/slash shapes inspected. Player collision remains
-  the intentionally smaller 18×42 inner shape, not an alpha-mask silhouette;
-  wall-pose artwork is shifted to the contact. Final foe-contact/visual cue
-  acceptance still requires accepted enemy sprites.
-- `node tools/browser-smoke.mjs <private-output>`: PASS controller/input regression
-  plus updated explicit missing-enemy shipping gate.
-- `git diff --check`: PASS. Protected physics/schema/level and accepted asset
-  comparisons were empty. Disposable browsers/servers/profiles retired.
+Next: parent supplies revised immutable hero, integrator imports only its approved
+paths, reruns affected art/cinematic/controller proof and closes remaining visual
+review, then parent independently accepts the combined full-art candidate before
+any publication. Physical gamepad/mobile, first-time human timing and human audio
+audition remain untested limitations, not newly imposed release approval gates.
 
-Reused parent evidence, not gratuitously rerun: the strengthened boss/ghost
-pressure probe passed at `724550b` with both boss patterns, 17 hits, no ghost
-solid overlap, max seven dives and fourteen late hits. This stage did not edit
-those owners. Fresh full routes and persistent campaign now close the previously
-pending intersecting candidate proof.
-
-## Outputs and evidence boundaries
-
-Production: `character-contract.mjs`, `asset-loader.mjs`, `renderer.mjs`,
-`scenes.mjs`, `runtime.mjs`, canonical character manifest and accepted actor paths.
-Assembly: `tools/assemble-characters.mjs`; details in `ASSET-CONTRACT.md`.
-Tests: `tests/hero.test.mjs`, `tests/hero.html`, `tests/hero-runtime.mjs`,
-`tools/hero-smoke.mjs`, updated `tools/browser-smoke.mjs` missing-enemy assertion.
-
-The hero audition is prominently labeled PARTIAL / ENEMIES NOT RENDERED / NOT FINAL
-GAME. Real foes still exist in simulation; it is deliberately not a playable
-reduced-scope release. The campaign proof remains actor-free, not a claim of final
-all-actor campaign animation acceptance. Private videos/screenshots/logs and the
-actual-output index stay outside the game repository.
-
-## Remaining parent-owned integration gates
-
-- Exact accepted enemy animation import and canonical assembly; all required
-  action/state mapping, attack timing, weakness red tint and genuinely actionable
-  rear finisher cue checked with real enemy pixels. None of that is fabricated by
-  the hero-only audition.
-- Full all-actor browser campaign and final hero/enemy collision/readability,
-  ghost sprite camera margin, complete cinematic/campaign acceptance together.
-- Independent review and parent acceptance before an authorized live test build
-  or publication. This checkpoint performs no public write.
-- Physical pad/mobile, human first-time duration/playfeel and human audio audition
-  remain explicitly untested limits, **not new hardware approval gates**.
-
-No delegation, alternate model, asset jobs, purchases, other-worktree mutations,
-configuration changes, polling of the enemy lane or owner-facing sends occurred.
+No public writes, asset/API jobs, subdelegation, alternate model, runtime config
+changes or other-worktree edits were performed. Private proof stays outside git.
+Disposable browser/server/profile cleanup is recorded by the shipping tool.
