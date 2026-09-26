@@ -1,4 +1,26 @@
-# Kagebot · Rooftop Run
+# Kagebot's Secret Mission — World 1 scaffold
+
+This branch is an incomplete local integration candidate, not a published full
+campaign. The entry point now loads PNG manifests; without the separate asset
+imports it intentionally displays a missing-assets error. No vector actor
+fallback. Three designer-owned shipping levels have not been imported.
+
+Start a local static server, then open `tests/controller.html` for the explicitly
+labelled controller/collision lab, or `tests/controller.html?scenario=combat` for
+the combat lab. Diagnostic rectangles are NOT final artwork or campaign levels.
+The shipping `index.html` never imports these fixtures.
+
+Contracts: [LEVEL-SCHEMA.md](LEVEL-SCHEMA.md),
+[ASSET-CONTRACT.md](ASSET-CONTRACT.md). Current checkpoint:
+[HANDOFF.md](HANDOFF.md). Rationale: [MOVEMENT-NOTES.md](MOVEMENT-NOTES.md).
+Run `node --test tests/*.test.mjs`; browser smoke command is
+`node tools/browser-smoke.mjs /path/to/private/evidence`.
+See HANDOFF for actual executed versus pending proof; commands alone are not
+claims that the current candidate passed.
+
+## Historical published prototype (superseded, retained for reference)
+
+The following describes the older published prototype, not this branch's runtime.
 
 [Play the browser preview](https://geekkingcloud.github.io/dantes-secret-mission/)
 

@@ -1,3 +1,10 @@
+.overlay.scene-menu{inset:auto 0 0;background:#07101ddd;padding:10px;display:block}
+.overlay.scene-menu .panel{max-width:none;border:0;margin:0;padding:0;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.overlay.scene-menu .eyebrow,.overlay.scene-menu .hint{display:none}
+.overlay.scene-menu .panel h1{font-size:24px;margin:0;letter-spacing:0}
+.overlay.scene-menu .panel p{font-size:10px;margin:0}
+.overlay.scene-menu .primary{padding:10px;margin:0;font-size:11px}
+@media(max-width:640px){.overlay.scene-menu .panel h1{display:none}.actions button{font-size:9px;padding:6px}.brand small{display:none}}
 @font-face {
   font-family: 'Barlow Condensed';
   font-style: normal;
