@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "id": "stage1",
+  "title": "Lantern Eaves — The First Cry",
+  "bounds": {"x": 0, "y": -260, "w": 8640, "h": 1060},
+  "camera": {"x": 0, "y": -220, "w": 8640, "h": 600},
+  "spawn": {"x": 100, "y": 300, "face": 1},
+  "surfaces": [
+    {"id":"home-eave","x":0,"y":300,"w":1040,"h":24,"kind":"solid","art":"roof-center"},
+    {"id":"practice-eave","x":1120,"y":260,"w":1040,"h":24,"kind":"solid","art":"roof-center"},
+    {"id":"bell-court","x":2160,"y":340,"w":560,"h":24,"kind":"solid","art":"stone"},
+    {"id":"bell-roof","x":2720,"y":160,"w":1120,"h":24,"kind":"solid","art":"roof-center"},
+    {"id":"moon-eave","x":3960,"y":120,"w":640,"h":24,"kind":"solid","art":"roof-center"},
+    {"id":"ghost-court","x":4600,"y":280,"w":880,"h":24,"kind":"solid","art":"stone"},
+    {"id":"garden-eave","x":5480,"y":200,"w":540,"h":24,"kind":"solid","art":"roof-center"},
+    {"id":"broken-eave","x":6040,"y":304,"w":60,"h":24,"kind":"solid","art":"roof-center"},
+    {"id":"outer-hall","x":6120,"y":120,"w":880,"h":24,"kind":"solid","art":"roof-center"},
+    {"id":"silk-court","x":7000,"y":240,"w":560,"h":24,"kind":"solid","art":"stone"},
+    {"id":"silk-perch","x":7260,"y":160,"w":160,"h":16,"kind":"oneWay","art":"eave"},
+    {"id":"silk-roof","x":7560,"y":40,"w":400,"h":24,"kind":"solid","art":"roof-center"},
+    {"id":"departure-eave","x":7960,"y":120,"w":680,"h":24,"kind":"solid","art":"roof-center"}
+  ],
+  "walls": [
+    {"id":"home-wall","x":0,"y":324,"w":1040,"h":476,"climbable":true,"art":"wall"},
+    {"id":"practice-wall","x":1120,"y":284,"w":1040,"h":516,"climbable":true,"art":"wall"},
+    {"id":"bell-court-wall","x":2160,"y":364,"w":560,"h":436,"climbable":true,"art":"wall"},
+    {"id":"bell-tower-wall","x":2720,"y":184,"w":1120,"h":616,"climbable":true,"art":"wall"},
+    {"id":"moon-wall","x":3960,"y":144,"w":640,"h":656,"climbable":true,"art":"wall"},
+    {"id":"ghost-court-wall","x":4600,"y":304,"w":880,"h":496,"climbable":true,"art":"wall"},
+    {"id":"garden-wall","x":5480,"y":224,"w":540,"h":576,"climbable":true,"art":"wall"},
+    {"id":"broken-wall","x":6040,"y":328,"w":60,"h":472,"climbable":true,"art":"wall"},
+    {"id":"outer-hall-wall","x":6120,"y":144,"w":880,"h":656,"climbable":true,"art":"wall"},
+    {"id":"silk-court-wall","x":7000,"y":264,"w":560,"h":536,"climbable":true,"art":"wall"},
+    {"id":"silk-tower-wall","x":7560,"y":64,"w":400,"h":736,"climbable":true,"art":"wall"},
+    {"id":"departure-wall","x":7960,"y":144,"w":680,"h":656,"climbable":true,"art":"wall"}
+  ],
+  "hazards": [
+    {"id":"first-gutter","x":1040,"y":660,"w":80,"h":140,"type":"pit","damage":1},
+    {"id":"moon-gutter","x":3840,"y":660,"w":120,"h":140,"type":"pit","damage":1},
+    {"id":"broken-gutter-left","x":6020,"y":660,"w":20,"h":140,"type":"pit","damage":1},
+    {"id":"broken-gutter-right","x":6100,"y":660,"w":20,"h":140,"type":"pit","damage":1},
+    {"id":"broken-tiles","x":6048,"y":292,"w":44,"h":12,"type":"spikes","damage":1,"art":"spikes-top"}
+  ],
+  "enemies": [
+    {"id":"lantern-sentry","type":"zombie","x":650,"y":300,"face":-1,"patrol":{"min":560,"max":760}},
+    {"id":"practice-sentry","type":"zombie","x":1580,"y":260,"face":-1,"patrol":{"min":1480,"max":1780}},
+    {"id":"bell-keeper","type":"bear","x":3290,"y":160,"face":-1,"patrol":{"min":3160,"max":3480}},
+    {"id":"moon-sentry","type":"zombie","x":4320,"y":120,"face":-1,"patrol":{"min":4200,"max":4430}},
+    {"id":"courtyard-wisp","type":"ghost","x":5100,"y":80,"face":-1,"patrol":{"min":5040,"max":5160}},
+    {"id":"garden-sentry","type":"zombie","x":5770,"y":200,"face":-1,"patrol":{"min":5690,"max":5840}},
+    {"id":"hall-keeper","type":"bear","x":6580,"y":120,"face":-1,"patrol":{"min":6490,"max":6680}},
+    {"id":"silk-lookout","type":"spider","x":7544,"y":150,"face":-1,"patrol":{"min":120,"max":180},"wallId":"silk-tower-wall"},
+    {"id":"departure-sentry","type":"zombie","x":8250,"y":120,"face":-1,"patrol":{"min":8150,"max":8330}}
+  ],
+  "checkpoints": [
+    {"id":"cp-first-gap","x":890,"y":244,"w":100,"h":56,"spawn":{"x":920,"y":300,"face":1}},
+    {"id":"cp-bell-court","x":2400,"y":284,"w":100,"h":56,"spawn":{"x":2440,"y":340,"face":1}},
+    {"id":"cp-moon-gap","x":3670,"y":104,"w":100,"h":56,"spawn":{"x":3710,"y":160,"face":1}},
+    {"id":"cp-broken-gap","x":5900,"y":144,"w":80,"h":56,"spawn":{"x":5930,"y":200,"face":1}},
+    {"id":"cp-silk-court","x":7050,"y":184,"w":100,"h":56,"spawn":{"x":7080,"y":240,"face":1}}
+  ],
+  "boss": null,
+  "exit": {"x":8520,"y":56,"w":64,"h":64,"requiresBoss":false},
+  "background": [
+    {"asset":"sky","factorX":0,"factorY":0,"driftX":0,"x":0,"y":0,"repeatX":true},
+    {"asset":"moon","factorX":0.015,"factorY":0.015,"driftX":0,"x":410,"y":24,"repeatX":false},
+    {"asset":"far-mountains","factorX":0.06,"factorY":0.04,"driftX":0,"x":0,"y":100,"repeatX":true},
+    {"asset":"distant-temples","factorX":0.14,"factorY":0.09,"driftX":0,"x":0,"y":144,"repeatX":true},
+    {"asset":"far-clouds","factorX":0.025,"factorY":0.02,"driftX":3,"x":0,"y":40,"repeatX":true},
+    {"asset":"near-clouds","factorX":0.2,"factorY":0.12,"driftX":-8,"x":0,"y":76,"repeatX":true}
+  ],
+  "decor": [
+    {"asset":"lantern","x":180,"y":265},
+    {"asset":"lantern","x":920,"y":265},
+    {"asset":"lantern","x":1210,"y":225},
+    {"asset":"lantern","x":2440,"y":305},
+    {"asset":"lantern","x":2870,"y":125},
+    {"asset":"lantern","x":3710,"y":125},
+    {"asset":"lantern","x":4060,"y":85},
+    {"asset":"lantern","x":4660,"y":245},
+    {"asset":"lantern","x":5530,"y":165},
+    {"asset":"lantern","x":5930,"y":165},
+    {"asset":"lantern","x":6220,"y":85},
+    {"asset":"lantern","x":7080,"y":205},
+    {"asset":"lantern","x":7740,"y":5},
+    {"asset":"lantern","x":8440,"y":85}
+  ],
+  "music": "stage1-approved"
+}
