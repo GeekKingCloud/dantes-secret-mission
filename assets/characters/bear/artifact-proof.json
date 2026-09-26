@@ -1,0 +1,113 @@
+{
+  "scope": "Asset artifacts only; not game/browser integration",
+  "atlasSHA256": "1a4388bb23271810e7dd2e4d1c35caf5aabd846f543bb7aba116ad58c748aa25",
+  "actions": [
+    {
+      "action": "idle",
+      "frames": 5,
+      "distinctFrames": 5,
+      "frameRGBAsha256": [
+        "85904e33318a3f01736d5464ef8a42eee8df0a4019c8a1b032290fd7acfd8336",
+        "10980e39828a675668fa3f735a4695771295d94b76d5970dfe5a09a0fbd7952c",
+        "a919e9053e9b9039dcb3f50c0005ecc8a3b9cda93d872612613d4863eab7a8e1",
+        "232d905a7525a97ce91570586c73daed9ce19bca4501c49c6d56606a6315754f",
+        "aa145008755bc8c2fb311e0bbfa0222e5b4ca1886b004196b908da5bcdf6df83"
+      ],
+      "nativeAtlasSHA256": "e4a4ef9a7bd64fdd29b76ca4e5554e920eeae5cbf009c8a03675cdbe2bc74248",
+      "canonicalMatch": true,
+      "binaryAlpha": true,
+      "previewFrames": 5
+    },
+    {
+      "action": "walk",
+      "frames": 8,
+      "distinctFrames": 8,
+      "frameRGBAsha256": [
+        "f8f0318594dcd8875f77dd095017d7637614c5584fc81c1968f88bc7a8debe4e",
+        "0445cfed8cd5b6769e219db70492de35089fe7d13381602ad0ce61c6db0acb62",
+        "b6efeaff57e20230cab839ab7fad514d40773e6121d398713a31ba04aa4af659",
+        "4fc5d5fedf70dfad6ff03eb9c080c241ba6f781624cd0f7a89dd9dac5457fa7c",
+        "6ace827e6789b57e8de56a0937b44dcb2bcad09f930e61664d1826f356813014",
+        "8bb0dfe8d7173bf88cbbb312a6942300489f7b77ef1a810847cfb979b8080001",
+        "e1b1318c3d6f69899fe7a04b134b2d26646a29ef74f757d2b32911609669a1e8",
+        "b86bb897e82ce7239efca928a548909d1fa4274791bd86324d2fdbf606ab5acf"
+      ],
+      "nativeAtlasSHA256": "12204d5f806a79a79cc8705d63792919aef8e7ae14d8e26fd0d3650249ab9e61",
+      "canonicalMatch": true,
+      "binaryAlpha": true,
+      "previewFrames": 8
+    },
+    {
+      "action": "slash-windup",
+      "frames": 5,
+      "distinctFrames": 5,
+      "frameRGBAsha256": [
+        "85904e33318a3f01736d5464ef8a42eee8df0a4019c8a1b032290fd7acfd8336",
+        "0e76c8443bfcac4b93a8eba57c207285a2d96cd7de4254f9c5e3465c358b7fab",
+        "21b40a305bec0ac7f11bc9fa70688eed803a094d43934da50c9904843bafbdef",
+        "0e872f1450b8598c0e2cf7f75760d10e10696310771025ab37900a0e105791ca",
+        "9f4e74f1fa8a6eadb0c3f5f1ec276ae2711596b10c9235ab4ed259881fb89fbf"
+      ],
+      "nativeAtlasSHA256": "a112aa5a12a35f99a62315e5f6528c82e52c7b183141eba873de50fe79104c09",
+      "canonicalMatch": true,
+      "binaryAlpha": true,
+      "previewFrames": 5
+    },
+    {
+      "action": "slash",
+      "frames": 9,
+      "distinctFrames": 9,
+      "frameRGBAsha256": [
+        "bbdccc57f6e26e4fcf39aa88fafa1d39016bddecbe921a0bdf76ed20c2ad72a4",
+        "9198e816bc782f27af5d2e18d6c6f030fc4bbbef07ba00f0ea350ef39165589b",
+        "699194ddcf3cd27292f818113be9cf57339b94b5706591e2d066c8ee78fb92be",
+        "85788cecc80030328c90751542a8d94f4dee3547f23e7f0efc33bb140551af62",
+        "75a994f8cb755f59a10600dbbe2aeff82dce44a2504fd03fbdfc1745ba40a598",
+        "14aef36d0bdb1d4b86da19b2fca32f7d625d345c235acdf2f92e8fef864e8b92",
+        "fdfb75e9fcea574f4c6fc0b2cef62bca65996d0fabd04d2e9d543aa48b6183f8",
+        "3eebaf41548b0ab228a1adfec130faa8d268286c4a716ea41c44a5610b5251c7",
+        "58db4cb45b6052ebb5313c2689a4cd3edbf1a2ccaa774dc7e7ee20a45e53a1b6"
+      ],
+      "nativeAtlasSHA256": "0f58f5d18b711aceecd4a4ab304824b9f76f1f87302d5cd6d79056bc1b6be8c4",
+      "canonicalMatch": true,
+      "binaryAlpha": true,
+      "previewFrames": 9
+    },
+    {
+      "action": "hurt",
+      "frames": 5,
+      "distinctFrames": 5,
+      "frameRGBAsha256": [
+        "85904e33318a3f01736d5464ef8a42eee8df0a4019c8a1b032290fd7acfd8336",
+        "2b90b3588d48e9b296a50368a5bf2b632e974e34e0826c4855d42c5286ed8058",
+        "8f7d3c5c576939ca6a3a7ef92e6de51fbcf72879fbac4460558c41c98f14c56b",
+        "75bc1d3a33bf1feadcdb9320875138a51deb7848ebbe786bbc6563c7c85961a2",
+        "608a43570fe9fb91bfd65346c879602e4efd67b360aa39ed87690cbdccb1dcc8"
+      ],
+      "nativeAtlasSHA256": "6ef58415c8e4bdc1274a9f955a03e6af08e0325a2abda81a644db3293cc1ea9a",
+      "canonicalMatch": true,
+      "binaryAlpha": true,
+      "previewFrames": 5
+    },
+    {
+      "action": "defeat",
+      "frames": 9,
+      "distinctFrames": 9,
+      "frameRGBAsha256": [
+        "bbdccc57f6e26e4fcf39aa88fafa1d39016bddecbe921a0bdf76ed20c2ad72a4",
+        "9a3de2c8964603f981e81c7586e3d6b9f5d26fa467b20156875751c74584016d",
+        "628cff875b1c0704c37e7db727ac958f2f6e0cbdac7b4628edef8d57c681ea09",
+        "db00d6f092da1a1531499ef8c1dddd7e8b4f8640ce108663c9a5ba23a0543990",
+        "06384860b094e47026ecc7a2feaa029220ab2784b059d8b7123c100bb568ae2c",
+        "a5ef6debf98765c912a36f90b460ab558207f06ac8e081239447b2024d9c2ece",
+        "d3ba5afb639999b3faa3e9014d2f2f933f0fb37ab5e00180aca46f747ea3fe41",
+        "359816f991089b95f73c68b5c78142ae4e7b7612969ac997cfb82113adf79fd4",
+        "aa6d60a5a310be6df58db7385067503b7beb145a30500fff9d883869a5014004"
+      ],
+      "nativeAtlasSHA256": "d696d57e6eba949c1903de24cd4d702560cd69302694c730fdc4f98506324d9a",
+      "canonicalMatch": true,
+      "binaryAlpha": true,
+      "previewFrames": 9
+    }
+  ]
+}

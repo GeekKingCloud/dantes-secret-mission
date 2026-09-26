@@ -1,0 +1,112 @@
+{
+  "scope": "Asset artifacts only; not game/browser integration",
+  "atlasSHA256": "e0e0486085807000d52ca7714a15e3c601c4f9666f7eadf2355c5552d0db62b8",
+  "actions": [
+    {
+      "action": "wall-idle",
+      "frames": 4,
+      "distinctFrames": 4,
+      "frameRGBAsha256": [
+        "467fab9eae9a68f6f8a3d574bd3020bb38173a152242167a2a2253b07405fb83",
+        "17a40ce02204138d56644af0d1f999809bfed8104f10762e038334f5ca311f43",
+        "1c509e462c2dabb30f2065b815e228ce6c55483023c070e7eda9b5b2220e26e9",
+        "59d5e5a38900bd85f1df69d8efa8c7f4ce89b9673ae6be7c9e482251197a5dc5"
+      ],
+      "nativeAtlasSHA256": "6ae7436954d1975419be1b82da1a7e2dd5db2f84843323ee3a35663e6ce9f91b",
+      "canonicalMatch": true,
+      "binaryAlpha": true,
+      "previewFrames": 4
+    },
+    {
+      "action": "climb",
+      "frames": 8,
+      "distinctFrames": 8,
+      "frameRGBAsha256": [
+        "467fab9eae9a68f6f8a3d574bd3020bb38173a152242167a2a2253b07405fb83",
+        "2a05b5119cfdb224acbb9351d2f53803184ed9978a2783c87f9c85c2774cde50",
+        "a9596fe34b1d7bdc5a2d3b135986522ab4be9e2d08d496448c9f153bfa563ae2",
+        "287fde628a02ee00247024ab9987a0652c17c5767b340154ad1962be748810a8",
+        "fee9b337794f60f633a5db278b5e0414c55fca1c939e4d5542125e958a681854",
+        "f8f2f02a7ebbd482dd6351d20efa315bbb691bde993fe8a688e59aad6b5a5666",
+        "bc3e5e60130db954cbbb2185d01202ea0f173fea8908b8e477a427ec6823ab8c",
+        "db520c6b2e449e3f5107146f196b340cdc426ff99a9ea92178c84db6816ac2dc"
+      ],
+      "nativeAtlasSHA256": "2c5cee36b078aaea7b5a3ad1afb29f29718ad997aab40369b91c78630d22e48a",
+      "canonicalMatch": true,
+      "binaryAlpha": true,
+      "previewFrames": 8
+    },
+    {
+      "action": "venom-windup",
+      "frames": 5,
+      "distinctFrames": 5,
+      "frameRGBAsha256": [
+        "467fab9eae9a68f6f8a3d574bd3020bb38173a152242167a2a2253b07405fb83",
+        "cf0b14a4469e31d324187cd5d2187c63ed5ddff55317342a1a8bc3362137bb4a",
+        "1823397a5ef9c63484972c1980b2fbf8465b9e12c598b6db39ea53e640dea33a",
+        "6ccde1c5f9d7f357f011fe1d7e33bf73ec7afd145e973aac75e34003893d70da",
+        "455e1a4e38359f00671dd5f0f20c4ae7320c9a551638f438ae4afa3cb5fa825d"
+      ],
+      "nativeAtlasSHA256": "31232a2190285aae13383f6a7691f2c45ef0f75d1f8b6c3878d52e4f8bbf6170",
+      "canonicalMatch": true,
+      "binaryAlpha": true,
+      "previewFrames": 5
+    },
+    {
+      "action": "spit",
+      "frames": 9,
+      "distinctFrames": 9,
+      "frameRGBAsha256": [
+        "ac38e937e8c7594b967513b892823a8b865e18c47fc1b8460b52216c2d3f4831",
+        "a5faa02c04d6b0d61dd4f3bf1d5e56a8526824870a28646a8b70a4e83f363d8b",
+        "8c48c9eca9c107fdc61fc67e9cb041b835e1600eefced8f858b8df3905cc4e5f",
+        "cd1a31a6cf22db6294be687d54683cd3e6f439a741328337169904badc405384",
+        "11060f34e1fdcc8a5743c9b0282d3fad6cc22fd159829880b4da75acc23f6744",
+        "bc94f0fa4fc1ac4aad19230c4bbabd37935ce1c99d3fd6012b453e7ea7f3d163",
+        "f31db07f6979781fc54aaa9403dcb49bf2491c70e69e8d8da5b1356060318e0c",
+        "7735e7841030b97025f60b759f7c1f0d335770fccd5ab0bfd531f92bee622ea7",
+        "a7cc81a14f2c18ead1baf7bd2c25b6a4dc13241a39d6bc96d96f9193983f671f"
+      ],
+      "nativeAtlasSHA256": "f387d759b0ff8f31dc4e6765cd25aa65b830df3f42e065327eef76a334abd02d",
+      "canonicalMatch": true,
+      "binaryAlpha": true,
+      "previewFrames": 9
+    },
+    {
+      "action": "hurt",
+      "frames": 5,
+      "distinctFrames": 5,
+      "frameRGBAsha256": [
+        "467fab9eae9a68f6f8a3d574bd3020bb38173a152242167a2a2253b07405fb83",
+        "3f1fc53e8ea70b786241570cb741f9e5c61c917759e3d3b7cc55219c06f1f5ac",
+        "a658f9b27ced31b0d710093b6ebd0f82f8646890ebfad4f8bc03e6b1553e8de0",
+        "336a55a943184c6d26af960265e1eae47822eb69ef5cc65f388a29561092b03c",
+        "d3c8890e6f205096c4da320ba94bc17a18c4cdf433e88085b9887c44a8827964"
+      ],
+      "nativeAtlasSHA256": "c2ff9493dd11b346c32a510d2bd236266c95e504696b827b7d5a6acba41d226a",
+      "canonicalMatch": true,
+      "binaryAlpha": true,
+      "previewFrames": 5
+    },
+    {
+      "action": "defeat",
+      "frames": 9,
+      "distinctFrames": 9,
+      "frameRGBAsha256": [
+        "913e6775ec3ae6fb438f7fd8b36fa193a1db88f0d084948819da1a43ed12c7ec",
+        "a5a8ec5fe4fd34a7e61792632845197adfe3fc08196a360fc8646dce05411503",
+        "5f99ebfa7f83a0e6152195592085f7d9ca00c01745af72edac112582d111a4e0",
+        "fc58cdd21e129d6c8f30b3f59befeb624ff3f5ad5c3a51f2781b9cb2202c8cd8",
+        "56752adebd6bfc5d5ccc4bbf839a626ecec114d425459df051dc3a36876cdd5c",
+        "652b8e7a1940e4cc3c50feb62d89cc1440fe5c05070175d9b268b0657516d75d",
+        "081738b3f7b5a16ba7abe54de36874c3fe27783353d0c2a416c110382d490384",
+        "cf96f847553422228a794710dba46121287d72b953c14d024f785a84a2e2df5c",
+        "3e0107bc5630e4941005a44722942f972f36f95ddb9933ccf6e85432ef7c6c45"
+      ],
+      "nativeAtlasSHA256": "71f0c68fc87c05a15fa2fe58487f809b931779cd295fbd873c2be77f59c069d2",
+      "canonicalMatch": true,
+      "binaryAlpha": true,
+      "previewFrames": 9
+    }
+  ]
+}

@@ -1,0 +1,4169 @@
+{
+  "version": 1,
+  "assets": {
+    "kagebot": {
+      "src": "kagebot/atlas.png",
+      "width": 1536,
+      "height": 1152,
+      "frameWidth": 192,
+      "frameHeight": 128,
+      "columns": 8,
+      "anchor": [
+        64,
+        104
+      ],
+      "animations": {
+        "idle": {
+          "frames": [
+            0
+          ],
+          "fps": 1,
+          "loop": true,
+          "sourceFrameCount": 1,
+          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
+          "model": "kagebot/model/model.json",
+          "physicalBladeColumns": 40
+        },
+        "run-low": {
+          "frames": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "fps": 20,
+          "loop": true,
+          "sourceFrameCount": 8,
+          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
+          "model": "kagebot/model/model.json",
+          "physicalBladeColumns": 40
+        },
+        "jump-rise": {
+          "frames": [
+            9
+          ],
+          "fps": 1,
+          "loop": false,
+          "sourceFrameCount": 1,
+          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
+          "model": "kagebot/model/model.json",
+          "physicalBladeColumns": 40
+        },
+        "fall": {
+          "frames": [
+            10
+          ],
+          "fps": 1,
+          "loop": false,
+          "sourceFrameCount": 1,
+          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
+          "model": "kagebot/model/model.json",
+          "physicalBladeColumns": 40
+        },
+        "frontflip": {
+          "frames": [
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "fps": 19.047619047619047,
+          "loop": false,
+          "sourceFrameCount": 8,
+          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
+          "model": "kagebot/model/model.json",
+          "physicalBladeColumns": 40
+        },
+        "wall-hold": {
+          "frames": [
+            19
+          ],
+          "fps": 1,
+          "loop": true,
+          "sourceFrameCount": 1,
+          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
+          "model": "kagebot/model/model.json",
+          "physicalBladeColumns": 40
+        },
+        "wall-climb": {
+          "frames": [
+            20,
+            21,
+            22,
+            23
+          ],
+          "fps": 14,
+          "loop": true,
+          "sourceFrameCount": 4,
+          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
+          "model": "kagebot/model/model.json",
+          "physicalBladeColumns": 40
+        },
+        "wall-jump": {
+          "frames": [
+            24
+          ],
+          "fps": 1,
+          "loop": false,
+          "sourceFrameCount": 1,
+          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
+          "model": "kagebot/model/model.json",
+          "physicalBladeColumns": 40
+        },
+        "dash": {
+          "frames": [
+            25,
+            26,
+            27
+          ],
+          "fps": 15,
+          "loop": true,
+          "sourceFrameCount": 3,
+          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
+          "model": "kagebot/model/model.json",
+          "physicalBladeColumns": 40
+        },
+        "sword-1": {
+          "frames": [
+            28,
+            28,
+            28,
+            29,
+            29,
+            29,
+            30,
+            30,
+            30,
+            31,
+            31,
+            32,
+            32,
+            32,
+            33,
+            33,
+            33,
+            34,
+            34,
+            34
+          ],
+          "fps": 83.33333333333334,
+          "loop": false,
+          "activeSlots": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "windupSeconds": 0.035,
+          "activeSeconds": 0.1,
+          "recoverySeconds": 0.10499999999999998,
+          "activeFrames": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "visibleReach": 74,
+          "frameDurationsMs": [
+            35,
+            21.428571428571427,
+            21.428571428571427,
+            14.285714285714286,
+            21.428571428571427,
+            21.428571428571427,
+            104.99999999999999
+          ],
+          "sourceFrameCount": 7,
+          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
+          "model": "kagebot/model/model.json",
+          "physicalBladeColumns": 40,
+          "reachDepiction": "Constant 40-column physical blade plus visibly separate baked generated cyan air-cut swipe during active poses only",
+          "swipeBakedIntoFrames": true,
+          "gripCenters": [
+            [
+              89.09,
+              72.88
+            ],
+            [
+              89.67,
+              74.98
+            ],
+            [
+              89.86,
+              76.46
+            ],
+            [
+              89.95,
+              77.15
+            ],
+            [
+              89.95,
+              78.64
+            ],
+            [
+              89.81,
+              80.12
+            ],
+            [
+              89.16,
+              83.02
+            ]
+          ]
+        },
+        "sword-2": {
+          "frames": [
+            35,
+            35,
+            35,
+            36,
+            36,
+            36,
+            37,
+            37,
+            37,
+            38,
+            38,
+            39,
+            39,
+            39,
+            40,
+            40,
+            40,
+            41,
+            41,
+            41
+          ],
+          "fps": 76.92307692307692,
+          "loop": false,
+          "activeSlots": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "windupSeconds": 0.04,
+          "activeSeconds": 0.11,
+          "recoverySeconds": 0.11,
+          "activeFrames": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "visibleReach": 82,
+          "frameDurationsMs": [
+            40,
+            23.571428571428573,
+            23.571428571428573,
+            15.714285714285714,
+            23.571428571428573,
+            23.571428571428573,
+            110
+          ],
+          "sourceFrameCount": 7,
+          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
+          "model": "kagebot/model/model.json",
+          "physicalBladeColumns": 40,
+          "reachDepiction": "Constant 40-column physical blade plus visibly separate baked generated cyan air-cut swipe during active poses only",
+          "swipeBakedIntoFrames": true,
+          "gripCenters": [
+            [
+              83.92,
+              68.47
+            ],
+            [
+              85.58,
+              70.77
+            ],
+            [
+              86.45,
+              72.75
+            ],
+            [
+              86.82,
+              74.18
+            ],
+            [
+              86.45,
+              72.75
+            ],
+            [
+              85.34,
+              70.02
+            ],
+            [
+              86.45,
+              72.75
+            ]
+          ]
+        },
+        "sword-3": {
+          "frames": [
+            42,
+            42,
+            42,
+            43,
+            43,
+            43,
+            44,
+            44,
+            44,
+            45,
+            45,
+            46,
+            46,
+            46,
+            47,
+            47,
+            47,
+            48,
+            48,
+            48
+          ],
+          "fps": 53.333333333333336,
+          "loop": false,
+          "activeSlots": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "windupSeconds": 0.065,
+          "activeSeconds": 0.13,
+          "recoverySeconds": 0.18,
+          "activeFrames": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "visibleReach": 94,
+          "frameDurationsMs": [
+            65,
+            27.857142857142858,
+            27.857142857142858,
+            18.571428571428573,
+            27.857142857142858,
+            27.857142857142858,
+            180
+          ],
+          "sourceFrameCount": 7,
+          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
+          "model": "kagebot/model/model.json",
+          "physicalBladeColumns": 40,
+          "reachDepiction": "Constant 40-column physical blade plus visibly separate baked generated cyan air-cut swipe during active poses only",
+          "swipeBakedIntoFrames": true,
+          "gripCenters": [
+            [
+              92.35,
+              76.12
+            ],
+            [
+              93.22,
+              78.94
+            ],
+            [
+              93.62,
+              81.08
+            ],
+            [
+              93.74,
+              82.48
+            ],
+            [
+              93.57,
+              84.75
+            ],
+            [
+              93.31,
+              86.21
+            ],
+            [
+              93.16,
+              86.9
+            ]
+          ]
+        },
+        "laser": {
+          "frames": [
+            49,
+            50,
+            51
+          ],
+          "fps": 24,
+          "loop": false,
+          "sourceFrameCount": 3,
+          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
+          "model": "kagebot/model/model.json",
+          "physicalBladeColumns": 40
+        },
+        "hurt": {
+          "frames": [
+            52,
+            53,
+            54,
+            55
+          ],
+          "fps": 24,
+          "loop": false,
+          "sourceFrameCount": 4,
+          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
+          "model": "kagebot/model/model.json",
+          "physicalBladeColumns": 40
+        },
+        "finisher": {
+          "frames": [
+            56,
+            57,
+            58,
+            59
+          ],
+          "fps": 24,
+          "loop": false,
+          "sourceFrameCount": 4,
+          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
+          "model": "kagebot/model/model.json",
+          "physicalBladeColumns": 40
+        },
+        "meditate": {
+          "frames": [
+            60
+          ],
+          "fps": 1,
+          "loop": true,
+          "sourceFrameCount": 1,
+          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
+          "model": "kagebot/model/model.json",
+          "physicalBladeColumns": 40
+        },
+        "startled": {
+          "frames": [
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68
+          ],
+          "fps": 20,
+          "loop": false,
+          "sourceFrameCount": 8,
+          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
+          "model": "kagebot/model/model.json",
+          "physicalBladeColumns": 40
+        },
+        "drone-depart": {
+          "frames": [
+            69,
+            70,
+            71
+          ],
+          "fps": 10,
+          "loop": true,
+          "sourceFrameCount": 3,
+          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
+          "model": "kagebot/model/model.json",
+          "physicalBladeColumns": 40
+        }
+      },
+      "frameMetadata": [
+        {
+          "frame": 0,
+          "bounds": [
+            34,
+            51,
+            81,
+            104
+          ],
+          "opaquePixels": 975,
+          "sha256": "0b24dafd6d0e92c927d67ff0458d4f443cb0262c9efa26ee7d832e3a446ac4ed"
+        },
+        {
+          "frame": 1,
+          "bounds": [
+            41,
+            55,
+            87,
+            104
+          ],
+          "opaquePixels": 765,
+          "sha256": "cc4ef6196c0549b990c4960043e442765591cacbcbe2a654c96dde56625b146f"
+        },
+        {
+          "frame": 2,
+          "bounds": [
+            41,
+            55,
+            86,
+            104
+          ],
+          "opaquePixels": 794,
+          "sha256": "288baf3e08bebd4d67ded50f061c5ea7a5c6029120fd90dd67c8ae1fcb1f652f"
+        },
+        {
+          "frame": 3,
+          "bounds": [
+            41,
+            55,
+            86,
+            104
+          ],
+          "opaquePixels": 784,
+          "sha256": "65fc9874b037cd9348aabcbed3e6af4b4766d4a64b5fb7cddc159033b95acc2b"
+        },
+        {
+          "frame": 4,
+          "bounds": [
+            41,
+            55,
+            86,
+            104
+          ],
+          "opaquePixels": 746,
+          "sha256": "8534f2b8cc4039f2f5d4bc36aa0f111f425de10f2ced7935d73fde16d22cd88e"
+        },
+        {
+          "frame": 5,
+          "bounds": [
+            41,
+            55,
+            87,
+            104
+          ],
+          "opaquePixels": 765,
+          "sha256": "4d5ddbf6614bf1892af42dae339a5e0226d34c0605678d7b9608048b9128df07"
+        },
+        {
+          "frame": 6,
+          "bounds": [
+            41,
+            55,
+            86,
+            104
+          ],
+          "opaquePixels": 794,
+          "sha256": "051f01954511f835c1a6d7093f4a16d73cedc9a806bf06dc3a34daa6cb9d1e2b"
+        },
+        {
+          "frame": 7,
+          "bounds": [
+            41,
+            55,
+            86,
+            104
+          ],
+          "opaquePixels": 784,
+          "sha256": "f7850ccec764444fb105bfd62f023118d50961f8046d4a14922cf90768a21ef2"
+        },
+        {
+          "frame": 8,
+          "bounds": [
+            41,
+            55,
+            86,
+            104
+          ],
+          "opaquePixels": 746,
+          "sha256": "e90068fd9455bb61caa72eb2622832d879eca4a0e5805f187ddb00d9ec1bd2e0"
+        },
+        {
+          "frame": 9,
+          "bounds": [
+            39,
+            72,
+            88,
+            121
+          ],
+          "opaquePixels": 862,
+          "sha256": "27abcf6069f7ec7568b7391a17d669946d4d0929f793e764fb47a598c17e6d3c"
+        },
+        {
+          "frame": 10,
+          "bounds": [
+            36,
+            52,
+            86,
+            104
+          ],
+          "opaquePixels": 986,
+          "sha256": "7e73d4e69c42aacfc9bd823b200d2d1852a958c8dad403144bb1f7f5d32759f6"
+        },
+        {
+          "frame": 11,
+          "bounds": [
+            42,
+            56,
+            87,
+            105
+          ],
+          "opaquePixels": 739,
+          "sha256": "eb2c3a0795a0d72fe311d7ea52887c3a2af9742dffbc83acefc795c7a911e887"
+        },
+        {
+          "frame": 12,
+          "bounds": [
+            32,
+            68,
+            92,
+            96
+          ],
+          "opaquePixels": 734,
+          "sha256": "198b80bd065525814c5497163c2e6755a25ca99beee2d9038cb6315e9ec1acd7"
+        },
+        {
+          "frame": 13,
+          "bounds": [
+            40,
+            58,
+            89,
+            103
+          ],
+          "opaquePixels": 739,
+          "sha256": "061cff1cb4f92a9265624856a1ee6fccd850c2525eefabe91925f959ab4c5a3b"
+        },
+        {
+          "frame": 14,
+          "bounds": [
+            47,
+            48,
+            75,
+            108
+          ],
+          "opaquePixels": 734,
+          "sha256": "0ec32525395b671af4b7c594ca1939aa8f4d063666a383560cb5d1bdc37244b7"
+        },
+        {
+          "frame": 15,
+          "bounds": [
+            42,
+            56,
+            87,
+            105
+          ],
+          "opaquePixels": 739,
+          "sha256": "a5707201dc8732a728ddba3290896f4c333f41b4cb2de0f02ca95e4031efdcdc"
+        },
+        {
+          "frame": 16,
+          "bounds": [
+            35,
+            63,
+            95,
+            91
+          ],
+          "opaquePixels": 734,
+          "sha256": "1342cba9329c463774b20fd9571ace85ccdd173f5bdcefc9c454b25203bccaae"
+        },
+        {
+          "frame": 17,
+          "bounds": [
+            40,
+            58,
+            89,
+            103
+          ],
+          "opaquePixels": 739,
+          "sha256": "559a0f1de49aa35fb4b29069eee6b724d4357d0a369e8b24ddce1d4b2d4fd6af"
+        },
+        {
+          "frame": 18,
+          "bounds": [
+            52,
+            51,
+            80,
+            111
+          ],
+          "opaquePixels": 734,
+          "sha256": "199ef3f73fb641ff8839c6e43daa6b89d958e479908c5c37bf2fdf825bcb5020"
+        },
+        {
+          "frame": 19,
+          "bounds": [
+            32,
+            51,
+            79,
+            104
+          ],
+          "opaquePixels": 880,
+          "sha256": "00f02f8f004870a265b8faee596dd294e128030d577e2adedce4bcca1c2863ef"
+        },
+        {
+          "frame": 20,
+          "bounds": [
+            32,
+            55,
+            79,
+            108
+          ],
+          "opaquePixels": 878,
+          "sha256": "b64546356c931227ef13f8ab3b1c14e57fe3502333eaeecb4faef603e6ec6cf5"
+        },
+        {
+          "frame": 21,
+          "bounds": [
+            32,
+            55,
+            78,
+            108
+          ],
+          "opaquePixels": 866,
+          "sha256": "adfc6bbe71dea7690e92c5c1fb32e1f9ccc8a799a2655400b324de756db92311"
+        },
+        {
+          "frame": 22,
+          "bounds": [
+            32,
+            55,
+            77,
+            108
+          ],
+          "opaquePixels": 861,
+          "sha256": "e0f1fe08ce59c1e9fd7f6b7d5fc6c6bc3aae19de720a5c1d0b4bd73b57b756a3"
+        },
+        {
+          "frame": 23,
+          "bounds": [
+            32,
+            55,
+            78,
+            108
+          ],
+          "opaquePixels": 866,
+          "sha256": "adfc6bbe71dea7690e92c5c1fb32e1f9ccc8a799a2655400b324de756db92311"
+        },
+        {
+          "frame": 24,
+          "bounds": [
+            40,
+            59,
+            88,
+            108
+          ],
+          "opaquePixels": 814,
+          "sha256": "b8a0d4302d5eeffb87d9853ae51ac4787ba441ce13b2d070a1b5e550c2e3d421"
+        },
+        {
+          "frame": 25,
+          "bounds": [
+            42,
+            66,
+            87,
+            115
+          ],
+          "opaquePixels": 771,
+          "sha256": "c920466a0f9b2ea851d4f43e4fbfbc97c6ccde79d6a8647d68533e6dab0d381b"
+        },
+        {
+          "frame": 26,
+          "bounds": [
+            42,
+            66,
+            87,
+            115
+          ],
+          "opaquePixels": 770,
+          "sha256": "6659f08875c5140d2f1fb125a04541ce5c7a6227af1b8ed02c26510c3a9910c5"
+        },
+        {
+          "frame": 27,
+          "bounds": [
+            42,
+            66,
+            87,
+            115
+          ],
+          "opaquePixels": 769,
+          "sha256": "8f54b615da109b9834aa6a87a187846ba00565b24be81c33343879148f77847f"
+        },
+        {
+          "frame": 28,
+          "bounds": [
+            46,
+            56,
+            131,
+            104
+          ],
+          "opaquePixels": 973,
+          "sha256": "28928b670a930f011c3706cb429abde3666e6cdfa07dba920dfcc049bdb71de5"
+        },
+        {
+          "frame": 29,
+          "bounds": [
+            46,
+            56,
+            139,
+            104
+          ],
+          "opaquePixels": 1574,
+          "sha256": "1af6362a8fbfbfe74e3c8d933c394600f70bb77b9372415533b1bebbd582a9ed"
+        },
+        {
+          "frame": 30,
+          "bounds": [
+            46,
+            56,
+            139,
+            104
+          ],
+          "opaquePixels": 1588,
+          "sha256": "898d2c3b59a3ade41bea752797db6050b765325c537d15935d0514063e7fd944"
+        },
+        {
+          "frame": 31,
+          "bounds": [
+            46,
+            56,
+            139,
+            104
+          ],
+          "opaquePixels": 1601,
+          "sha256": "7931c853f644ade19cc4188224ffcacbaa278da059c1d69876f3d8555dcb386d"
+        },
+        {
+          "frame": 32,
+          "bounds": [
+            46,
+            56,
+            139,
+            104
+          ],
+          "opaquePixels": 1604,
+          "sha256": "bc314ca1c6efadaba12228d248d936f2d5473b625db0c7e281f42c1fc8e2708b"
+        },
+        {
+          "frame": 33,
+          "bounds": [
+            46,
+            56,
+            139,
+            104
+          ],
+          "opaquePixels": 1618,
+          "sha256": "4bbc484b9a7da246a674879d0bc00dd0fd2bade2ba38c39e72d4e76c03f3a0d2"
+        },
+        {
+          "frame": 34,
+          "bounds": [
+            46,
+            56,
+            133,
+            104
+          ],
+          "opaquePixels": 1015,
+          "sha256": "e67ed6ca39bc9b6c1fa7ff122ca019083d489852a040b1ed63fc7126795245ed"
+        },
+        {
+          "frame": 35,
+          "bounds": [
+            46,
+            56,
+            126,
+            104
+          ],
+          "opaquePixels": 982,
+          "sha256": "a66eea411943a4f1f3c3f9be99871b55ab762ae1233706751a8cb2e093c2890f"
+        },
+        {
+          "frame": 36,
+          "bounds": [
+            46,
+            56,
+            147,
+            104
+          ],
+          "opaquePixels": 1790,
+          "sha256": "e4fc5e60d33d2e4d2121a828664446acf7ccfa4519f6fc006d6fe8efdb54e0f7"
+        },
+        {
+          "frame": 37,
+          "bounds": [
+            46,
+            56,
+            147,
+            104
+          ],
+          "opaquePixels": 1803,
+          "sha256": "ede141383cb922f1b9622e6c5102d3ae46fd68442ff55261f42b0ccf0c9f49cd"
+        },
+        {
+          "frame": 38,
+          "bounds": [
+            46,
+            56,
+            147,
+            104
+          ],
+          "opaquePixels": 1795,
+          "sha256": "c54b10be5ba8f70ded4ce27721b6d3e8ad3ee9b4f686d6465a76325bb04a93a3"
+        },
+        {
+          "frame": 39,
+          "bounds": [
+            46,
+            56,
+            147,
+            104
+          ],
+          "opaquePixels": 1785,
+          "sha256": "cc6bfb9f9801c29f843b20b65d38639f6c516c09df5b47983d597c3afb62a18b"
+        },
+        {
+          "frame": 40,
+          "bounds": [
+            46,
+            56,
+            147,
+            104
+          ],
+          "opaquePixels": 1801,
+          "sha256": "23ce45c78f735fe6c15026e28b04929cdc9e8c61e08f4389bce4ba4b33cb8e68"
+        },
+        {
+          "frame": 41,
+          "bounds": [
+            46,
+            56,
+            130,
+            104
+          ],
+          "opaquePixels": 1044,
+          "sha256": "ba7cb2a34f0ab5b52e9a9e466172db662a231fb3a6b3c9ba8ac209205b989ea8"
+        },
+        {
+          "frame": 42,
+          "bounds": [
+            51,
+            53,
+            129,
+            104
+          ],
+          "opaquePixels": 926,
+          "sha256": "244124b4bb25f76979fd09f108211a88bbdf59fe9c5f69782ba8f53c2b79fd5d"
+        },
+        {
+          "frame": 43,
+          "bounds": [
+            51,
+            61,
+            159,
+            104
+          ],
+          "opaquePixels": 1916,
+          "sha256": "5dd590cbec2a91f272cff03b9531b8f12f5bbf62c0199c393c397fc03a310b1a"
+        },
+        {
+          "frame": 44,
+          "bounds": [
+            51,
+            61,
+            159,
+            104
+          ],
+          "opaquePixels": 1909,
+          "sha256": "c3033c25c4f65afb8a3d8d96ada62ecc2a44272523a0862c0e53b3bf9fe60093"
+        },
+        {
+          "frame": 45,
+          "bounds": [
+            51,
+            61,
+            159,
+            104
+          ],
+          "opaquePixels": 1902,
+          "sha256": "f2ed5c1e9f602a6b0fd596f640f7099b274d0606febf4e14fde8c05a065e5780"
+        },
+        {
+          "frame": 46,
+          "bounds": [
+            51,
+            61,
+            159,
+            104
+          ],
+          "opaquePixels": 1847,
+          "sha256": "1ebaaaa71958a9f8c6470b03a84ea0e5b8605bac79017f96a2b6a4628107d2a8"
+        },
+        {
+          "frame": 47,
+          "bounds": [
+            51,
+            61,
+            159,
+            104
+          ],
+          "opaquePixels": 1885,
+          "sha256": "4caa85d46a20bc1f427e4c5cdecc7f4253cd1a7fcbeb641de0a40db41e1cbeb6"
+        },
+        {
+          "frame": 48,
+          "bounds": [
+            51,
+            61,
+            136,
+            104
+          ],
+          "opaquePixels": 972,
+          "sha256": "419ae270ecacc6e304f12bec7c9aadc2c4b87617677cb31f62682349b5138620"
+        },
+        {
+          "frame": 49,
+          "bounds": [
+            34,
+            51,
+            90,
+            104
+          ],
+          "opaquePixels": 984,
+          "sha256": "fafec9b117556d0ae8c6a6d053bb0ec78849d4a5127a40250b0db6c6bee22b39"
+        },
+        {
+          "frame": 50,
+          "bounds": [
+            34,
+            51,
+            90,
+            104
+          ],
+          "opaquePixels": 985,
+          "sha256": "9fc7d3f10b8c5ef5dba44ea9296bfc719a1075404da0ba52379661dcab13f535"
+        },
+        {
+          "frame": 51,
+          "bounds": [
+            34,
+            51,
+            90,
+            104
+          ],
+          "opaquePixels": 989,
+          "sha256": "089102261e9598cfb11e7defa112ea89709cbc236462dd9dc30a3c03caa4279b"
+        },
+        {
+          "frame": 52,
+          "bounds": [
+            33,
+            51,
+            83,
+            104
+          ],
+          "opaquePixels": 972,
+          "sha256": "72cef2e4dcb482388e01fec341d6822fcf88a86b6c29a753d5c912f6a1d4a1f3"
+        },
+        {
+          "frame": 53,
+          "bounds": [
+            33,
+            51,
+            83,
+            104
+          ],
+          "opaquePixels": 971,
+          "sha256": "4cf63ca670db324cd5e43ce30377bcb9e4be25e0e51b55b0d5553fcb881e0e0e"
+        },
+        {
+          "frame": 54,
+          "bounds": [
+            32,
+            51,
+            82,
+            104
+          ],
+          "opaquePixels": 978,
+          "sha256": "ba2ac80e395ee327c3f879a41becbd41e6115566aea914c3266bcc611a6a886a"
+        },
+        {
+          "frame": 55,
+          "bounds": [
+            33,
+            51,
+            83,
+            104
+          ],
+          "opaquePixels": 971,
+          "sha256": "4cf63ca670db324cd5e43ce30377bcb9e4be25e0e51b55b0d5553fcb881e0e0e"
+        },
+        {
+          "frame": 56,
+          "bounds": [
+            48,
+            59,
+            134,
+            104
+          ],
+          "opaquePixels": 963,
+          "sha256": "ca4dcc0dbcafc546b7969cc6b165ea888e9b68c80aaf6750d8a527452436a99d"
+        },
+        {
+          "frame": 57,
+          "bounds": [
+            48,
+            59,
+            135,
+            104
+          ],
+          "opaquePixels": 971,
+          "sha256": "1e85f2862e0bc52eb025e52801822f1ca0e44e343246f0e8b81e288bae8e5672"
+        },
+        {
+          "frame": 58,
+          "bounds": [
+            48,
+            59,
+            135,
+            104
+          ],
+          "opaquePixels": 981,
+          "sha256": "1a451dde554280f4d8708006a70b35bc76626f973d7b05ca64d32786b857448e"
+        },
+        {
+          "frame": 59,
+          "bounds": [
+            48,
+            59,
+            135,
+            104
+          ],
+          "opaquePixels": 990,
+          "sha256": "4cc1a5cccc204b3568a9bc091ba4c732b34b7831942e8c3542d3f6f0701e2210"
+        },
+        {
+          "frame": 60,
+          "bounds": [
+            24,
+            67,
+            78,
+            105
+          ],
+          "opaquePixels": 776,
+          "sha256": "96bc54ced38d41082617cd1f7a4e4edaf217ce708678434fdfc93362c48d1980"
+        },
+        {
+          "frame": 61,
+          "bounds": [
+            24,
+            67,
+            78,
+            105
+          ],
+          "opaquePixels": 776,
+          "sha256": "96bc54ced38d41082617cd1f7a4e4edaf217ce708678434fdfc93362c48d1980"
+        },
+        {
+          "frame": 62,
+          "bounds": [
+            24,
+            63,
+            78,
+            104
+          ],
+          "opaquePixels": 810,
+          "sha256": "be065216d8219babe24048a0bbd2458198328202e9b0597141035a2db307154a"
+        },
+        {
+          "frame": 63,
+          "bounds": [
+            33,
+            60,
+            78,
+            109
+          ],
+          "opaquePixels": 840,
+          "sha256": "3372e52184d197f828704332bf52eee5e2131c4dd45c1e3d8874e9cdeac444e1"
+        },
+        {
+          "frame": 64,
+          "bounds": [
+            33,
+            56,
+            78,
+            105
+          ],
+          "opaquePixels": 879,
+          "sha256": "8d8645559428d1cd884b1259f958a4390dedd7caad710261433e09d2a885c894"
+        },
+        {
+          "frame": 65,
+          "bounds": [
+            33,
+            54,
+            79,
+            104
+          ],
+          "opaquePixels": 911,
+          "sha256": "a973f1126e5690fe2658fd47f01cbd48e62aa75dc87786c7eb6b899d8a63a780"
+        },
+        {
+          "frame": 66,
+          "bounds": [
+            33,
+            52,
+            80,
+            104
+          ],
+          "opaquePixels": 920,
+          "sha256": "88cb756131246fc1eadaa293fe289d1c423a14640044b2cc4e217bcb3211e423"
+        },
+        {
+          "frame": 67,
+          "bounds": [
+            33,
+            51,
+            82,
+            104
+          ],
+          "opaquePixels": 928,
+          "sha256": "d36f364fa12a415cb2571ecf2cf1c57923cb6450ee1c2f06c68d47977d57b5c3"
+        },
+        {
+          "frame": 68,
+          "bounds": [
+            33,
+            50,
+            84,
+            104
+          ],
+          "opaquePixels": 935,
+          "sha256": "2864584e04f4bd3dd5dca55deef5d8c157c90f07a5838ad74a193e0fe2830107"
+        },
+        {
+          "frame": 69,
+          "bounds": [
+            32,
+            58,
+            79,
+            108
+          ],
+          "opaquePixels": 866,
+          "sha256": "5c36f8382c937e97ade2f7bb402e1fbfcabf55066373c9b5396f5cc72d94fad1"
+        },
+        {
+          "frame": 70,
+          "bounds": [
+            32,
+            58,
+            79,
+            108
+          ],
+          "opaquePixels": 864,
+          "sha256": "a9f4035c8a384c09863bfd285fbf98974499993311271294b8105a51f0296e11"
+        },
+        {
+          "frame": 71,
+          "bounds": [
+            32,
+            58,
+            79,
+            108
+          ],
+          "opaquePixels": 863,
+          "sha256": "74ffe6787ba33d91e071654f612842a7e28232f8f0195867836caba61c5143e7"
+        }
+      ]
+    },
+    "robot-butler": {
+      "src": "robot-butler/atlas.png",
+      "width": 768,
+      "height": 96,
+      "frameWidth": 96,
+      "frameHeight": 96,
+      "columns": 8,
+      "anchor": [
+        48,
+        80
+      ],
+      "animations": {
+        "idle": {
+          "frames": [
+            0
+          ],
+          "fps": 1,
+          "loop": true,
+          "sourceFrameCount": 1,
+          "provenance": "Naturally static ready hold; hand-cleaned widening eye clusters"
+        },
+        "eyes-widen": {
+          "frames": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fps": 12,
+          "loop": false,
+          "sourceFrameCount": 4,
+          "provenance": "Generated sequence; hand-cleaned widening eye clusters"
+        }
+      },
+      "frameMetadata": [
+        {
+          "frame": 0,
+          "bounds": [
+            39,
+            22,
+            59,
+            80
+          ],
+          "opaquePixels": 662,
+          "sha256": "86a72ae48232dcfa25d3de94a1c576129a1b0fbc1a49329668d8380685e9bcf8"
+        },
+        {
+          "frame": 1,
+          "bounds": [
+            39,
+            23,
+            60,
+            80
+          ],
+          "opaquePixels": 662,
+          "sha256": "aa7a737a605fd1fd3d39ff6037b8ce0e3b19a4ac480c9eb5904495bb18fc7278"
+        },
+        {
+          "frame": 2,
+          "bounds": [
+            35,
+            24,
+            60,
+            80
+          ],
+          "opaquePixels": 681,
+          "sha256": "7b24d5533b16060312a79411e868f51dd2d31293f982311a9f40957e3c8ad37c"
+        },
+        {
+          "frame": 3,
+          "bounds": [
+            33,
+            25,
+            65,
+            80
+          ],
+          "opaquePixels": 730,
+          "sha256": "89c005c666a928cbccd7f3a6f9c5b533fe0c488e6ae3a70e337621daadb37610"
+        },
+        {
+          "frame": 4,
+          "bounds": [
+            33,
+            25,
+            67,
+            80
+          ],
+          "opaquePixels": 747,
+          "sha256": "31d7619fbfeef0d0129077deb959025121fad83351381f66fde03385ea2b7ace"
+        }
+      ]
+    },
+    "jetpack-drone": {
+      "src": "jetpack-drone/atlas.png",
+      "width": 768,
+      "height": 96,
+      "frameWidth": 96,
+      "frameHeight": 96,
+      "columns": 8,
+      "anchor": [
+        48,
+        48
+      ],
+      "animations": {
+        "idle": {
+          "frames": [
+            0
+          ],
+          "fps": 1,
+          "loop": true,
+          "sourceFrameCount": 1,
+          "provenance": "Naturally static ready hold"
+        },
+        "boost": {
+          "frames": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fps": 12,
+          "loop": true,
+          "sourceFrameCount": 4,
+          "provenance": "Generated drone body held stable; authored flame pulse using repeated native generated thruster clusters. Rejected morphing provider boost remains private."
+        }
+      },
+      "frameMetadata": [
+        {
+          "frame": 0,
+          "bounds": [
+            33,
+            32,
+            64,
+            69
+          ],
+          "opaquePixels": 744,
+          "sha256": "9a8ea8d2d658590576e0bb984d8db0cb378b92750e463f5bb2147e71c3449a53"
+        },
+        {
+          "frame": 1,
+          "bounds": [
+            33,
+            32,
+            64,
+            74
+          ],
+          "opaquePixels": 814,
+          "sha256": "89a6a87667eff62f77c99108b9644682ad4b29a10b66c1b40f8f416b0703d351"
+        },
+        {
+          "frame": 2,
+          "bounds": [
+            33,
+            32,
+            64,
+            79
+          ],
+          "opaquePixels": 884,
+          "sha256": "e6a7ab829ee9d2f9019fbfc8ac13f90fef234f6cbbd547f7b2e3444a70ea92ee"
+        },
+        {
+          "frame": 3,
+          "bounds": [
+            33,
+            32,
+            64,
+            84
+          ],
+          "opaquePixels": 954,
+          "sha256": "1acbe4e0f8e194bf9cbe9456642786b0f25d04194f18b04ea00a18348248de8f"
+        },
+        {
+          "frame": 4,
+          "bounds": [
+            33,
+            32,
+            64,
+            79
+          ],
+          "opaquePixels": 884,
+          "sha256": "e6a7ab829ee9d2f9019fbfc8ac13f90fef234f6cbbd547f7b2e3444a70ea92ee"
+        }
+      ]
+    },
+    "zombie": {
+      "src": "zombie/atlas.png",
+      "frameWidth": 96,
+      "frameHeight": 64,
+      "columns": 8,
+      "anchor": [
+        32,
+        60
+      ],
+      "defaultFacing": "right",
+      "mirrorAroundAnchor": true,
+      "animations": {
+        "idle": {
+          "nativeAtlas": "zombie/idle-atlas.png",
+          "nativeFrameWidth": 64,
+          "nativeFrameHeight": 64,
+          "nativeColumns": 4,
+          "sourceFrameCount": 5,
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "frameNames": [
+            "zombie/idle/00.png",
+            "zombie/idle/01.png",
+            "zombie/idle/02.png",
+            "zombie/idle/03.png"
+          ],
+          "fps": 5,
+          "loop": true,
+          "anchor": [
+            32,
+            60
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Breathing/shoulder movement, feet remain planted; no sliding whole-picture substitute.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "walk": {
+          "nativeAtlas": "zombie/walk-atlas.png",
+          "nativeFrameWidth": 64,
+          "nativeFrameHeight": 64,
+          "nativeColumns": 8,
+          "sourceFrameCount": 9,
+          "frames": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "frameNames": [
+            "zombie/walk/00.png",
+            "zombie/walk/01.png",
+            "zombie/walk/02.png",
+            "zombie/walk/03.png",
+            "zombie/walk/04.png",
+            "zombie/walk/05.png",
+            "zombie/walk/06.png",
+            "zombie/walk/07.png"
+          ],
+          "fps": 9,
+          "loop": true,
+          "anchor": [
+            32,
+            60
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Toe drag, alternating legs and hunched torso; fixed right-facing body/feet anchor reviewed at playback cadence.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "attack": {
+          "nativeAtlas": "zombie/attack-atlas.png",
+          "nativeFrameWidth": 72,
+          "nativeFrameHeight": 64,
+          "nativeColumns": 8,
+          "sourceFrameCount": 9,
+          "frames": [
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
+          "frameNames": [
+            "zombie/attack/00.png",
+            "zombie/attack/01.png",
+            "zombie/attack/02.png",
+            "zombie/attack/03.png",
+            "zombie/attack/04.png",
+            "zombie/attack/05.png",
+            "zombie/attack/06.png",
+            "zombie/attack/07.png",
+            "zombie/attack/08.png"
+          ],
+          "fps": 14,
+          "loop": false,
+          "anchor": [
+            32,
+            60
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "pixelCleanup": {
+            "method": "Remove two excessive columns from the distal extended fingers only; do not scale or translate torso/legs.",
+            "frames": {
+              "4": [
+                61,
+                2
+              ],
+              "5": [
+                61,
+                2
+              ],
+              "6": [
+                61,
+                2
+              ]
+            },
+            "expectedMaximumRightPixel": 65
+          },
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Fresh compact strike replaces rejected long-arm take. Two distal finger columns removed in active frames only; exact33px forward reach in all three active frames. Anticipation0-3, active4-6, recovery7-8.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "hurt": {
+          "nativeAtlas": "zombie/hurt-atlas.png",
+          "nativeFrameWidth": 64,
+          "nativeFrameHeight": 64,
+          "nativeColumns": 5,
+          "sourceFrameCount": 5,
+          "frames": [
+            21,
+            22,
+            23,
+            24,
+            25
+          ],
+          "frameNames": [
+            "zombie/hurt/00.png",
+            "zombie/hurt/01.png",
+            "zombie/hurt/02.png",
+            "zombie/hurt/03.png",
+            "zombie/hurt/04.png"
+          ],
+          "fps": 12,
+          "loop": false,
+          "anchor": [
+            32,
+            60
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Brief hunched flinch; body deformation rather than translating an unchanged sprite.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "defeat": {
+          "nativeAtlas": "zombie/defeat-atlas.png",
+          "nativeFrameWidth": 96,
+          "nativeFrameHeight": 64,
+          "nativeColumns": 8,
+          "sourceFrameCount": 9,
+          "frames": [
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34
+          ],
+          "frameNames": [
+            "zombie/defeat/00.png",
+            "zombie/defeat/01.png",
+            "zombie/defeat/02.png",
+            "zombie/defeat/03.png",
+            "zombie/defeat/04.png",
+            "zombie/defeat/05.png",
+            "zombie/defeat/06.png",
+            "zombie/defeat/07.png",
+            "zombie/defeat/08.png"
+          ],
+          "fps": 10,
+          "loop": false,
+          "anchor": [
+            32,
+            60
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              -1
+            ],
+            [
+              0,
+              -1
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Knees buckle and body falls onto its side; no gore; feet/corpse ground baseline stabilized without scaling.",
+            "timedPlaybackAllFrames": true
+          }
+        }
+      },
+      "provenance": "Original PixelLab source and generated animation, pixel cleanup; no franchise assets.",
+      "width": 768,
+      "height": 320,
+      "frameCount": 35,
+      "anchorKind": "feet origin",
+      "combatPhases": {
+        "melee": {
+          "facing": "lock from windup start through recovery end",
+          "notes": "Zombie uses the same attack pose name during windup and active in enemies.mjs. Select these frame subranges by combat state; do not restart/replay the whole attack sheet. Recovery must continue frames7,8 before idle. Committed facing through all phases.",
+          "windup": {
+            "frames": [
+              12,
+              13,
+              14,
+              15
+            ],
+            "frameNames": [
+              "zombie/attack/00.png",
+              "zombie/attack/01.png",
+              "zombie/attack/02.png",
+              "zombie/attack/03.png"
+            ],
+            "durationMs": 480,
+            "fps": 8.333333333333334,
+            "loop": false,
+            "holdLast": true
+          },
+          "active": {
+            "frames": [
+              16,
+              17,
+              18
+            ],
+            "frameNames": [
+              "zombie/attack/04.png",
+              "zombie/attack/05.png",
+              "zombie/attack/06.png"
+            ],
+            "durationMs": 180,
+            "fps": 16.666666666666668,
+            "loop": false,
+            "holdLast": true
+          },
+          "recovery": {
+            "frames": [
+              19,
+              20,
+              0
+            ],
+            "frameNames": [
+              "zombie/attack/07.png",
+              "zombie/attack/08.png",
+              "zombie/idle/00.png"
+            ],
+            "durationMs": 700,
+            "fps": 4.285714285714286,
+            "loop": false,
+            "holdLast": true
+          },
+          "meleeReach": 33,
+          "reachKind": "visible distal claw, matching enemyAttackBox forward extent; padding does not change geometry"
+        }
+      }
+    },
+    "bear": {
+      "src": "bear/atlas.png",
+      "frameWidth": 160,
+      "frameHeight": 96,
+      "columns": 8,
+      "anchor": [
+        48,
+        92
+      ],
+      "defaultFacing": "right",
+      "mirrorAroundAnchor": true,
+      "animations": {
+        "idle": {
+          "nativeAtlas": "bear/idle-atlas.png",
+          "nativeFrameWidth": 96,
+          "nativeFrameHeight": 96,
+          "nativeColumns": 5,
+          "sourceFrameCount": 5,
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "frameNames": [
+            "bear/idle/00.png",
+            "bear/idle/01.png",
+            "bear/idle/02.png",
+            "bear/idle/03.png",
+            "bear/idle/04.png"
+          ],
+          "fps": 5,
+          "loop": true,
+          "anchor": [
+            48,
+            92
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Bulky fur/chest breath with stationary paws at native96 scale.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "walk": {
+          "nativeAtlas": "bear/walk-atlas.png",
+          "nativeFrameWidth": 96,
+          "nativeFrameHeight": 96,
+          "nativeColumns": 8,
+          "sourceFrameCount": 9,
+          "frames": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "frameNames": [
+            "bear/walk/00.png",
+            "bear/walk/01.png",
+            "bear/walk/02.png",
+            "bear/walk/03.png",
+            "bear/walk/04.png",
+            "bear/walk/05.png",
+            "bear/walk/06.png",
+            "bear/walk/07.png"
+          ],
+          "fps": 9,
+          "loop": true,
+          "anchor": [
+            48,
+            92
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Lumbering articulated alternating paws; native body mass retained. Full timed playback inspected, not only static sheet.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "slash-windup": {
+          "nativeAtlas": "bear/slash-windup-atlas.png",
+          "nativeFrameWidth": 96,
+          "nativeFrameHeight": 96,
+          "nativeColumns": 5,
+          "sourceFrameCount": 5,
+          "frames": [
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "frameNames": [
+            "bear/slash-windup/00.png",
+            "bear/slash-windup/01.png",
+            "bear/slash-windup/02.png",
+            "bear/slash-windup/03.png",
+            "bear/slash-windup/04.png"
+          ],
+          "fps": 7,
+          "loop": false,
+          "anchor": [
+            48,
+            92
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Genuine generated transition lifts massive near forepaw above shoulder. Clearly distinct heavy warning, committed right facing and planted native96 feet. Timed phase join into unchanged82px slash and lower/retract recovery reviewed.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "slash": {
+          "nativeAtlas": "bear/slash-atlas.png",
+          "nativeFrameWidth": 160,
+          "nativeFrameHeight": 96,
+          "nativeColumns": 8,
+          "sourceFrameCount": 9,
+          "frames": [
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26
+          ],
+          "frameNames": [
+            "bear/slash/00.png",
+            "bear/slash/01.png",
+            "bear/slash/02.png",
+            "bear/slash/03.png",
+            "bear/slash/04.png",
+            "bear/slash/05.png",
+            "bear/slash/06.png",
+            "bear/slash/07.png",
+            "bear/slash/08.png"
+          ],
+          "fps": 16,
+          "loop": false,
+          "anchor": [
+            48,
+            92
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "pixelCleanup": {
+            "method": "Shorten overlong straight claw shafts by deleting middle columns beyond the body. Preserve native claw tips, all body pixels and baseline.",
+            "frames": {
+              "4": [
+                108,
+                9
+              ],
+              "5": [
+                108,
+                13
+              ],
+              "6": [
+                108,
+                15
+              ],
+              "7": [
+                108,
+                15
+              ]
+            },
+            "expectedMaximumRightPixel": 130
+          },
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Generated forelimb extension and recovery. Excess distal claw shafts shortened9-15 native columns without changing torso/legs; active frames4-7 match82px reach exactly.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "hurt": {
+          "nativeAtlas": "bear/hurt-atlas.png",
+          "nativeFrameWidth": 96,
+          "nativeFrameHeight": 96,
+          "nativeColumns": 5,
+          "sourceFrameCount": 5,
+          "frames": [
+            27,
+            28,
+            29,
+            30,
+            31
+          ],
+          "frameNames": [
+            "bear/hurt/00.png",
+            "bear/hurt/01.png",
+            "bear/hurt/02.png",
+            "bear/hurt/03.png",
+            "bear/hurt/04.png"
+          ],
+          "fps": 12,
+          "loop": false,
+          "anchor": [
+            48,
+            92
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Short shoulder/head recoil with planted paws. A different generated take, not an alias of windup, although poses are too similar for windup acceptance.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "defeat": {
+          "nativeAtlas": "bear/defeat-atlas.png",
+          "nativeFrameWidth": 160,
+          "nativeFrameHeight": 96,
+          "nativeColumns": 8,
+          "sourceFrameCount": 9,
+          "frames": [
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40
+          ],
+          "frameNames": [
+            "bear/defeat/00.png",
+            "bear/defeat/01.png",
+            "bear/defeat/02.png",
+            "bear/defeat/03.png",
+            "bear/defeat/04.png",
+            "bear/defeat/05.png",
+            "bear/defeat/06.png",
+            "bear/defeat/07.png",
+            "bear/defeat/08.png"
+          ],
+          "fps": 10,
+          "loop": false,
+          "anchor": [
+            48,
+            92
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -3
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Heavy crouch/fall and side collapse; no blood; settled corpse groundline stable.",
+            "timedPlaybackAllFrames": true
+          }
+        }
+      },
+      "provenance": "Original PixelLab source and generated animation, pixel cleanup; no franchise assets.",
+      "width": 1280,
+      "height": 576,
+      "frameCount": 41,
+      "anchorKind": "feet origin",
+      "combatPhases": {
+        "melee": {
+          "facing": "lock from windup start through recovery end",
+          "notes": "Loaded raised forepaw is the entire650ms anticipation. Slash4-7 are actual82px active contact. Recovery starts withdrawn slash8 then reverses early extension3-0, lowering/retracting the same generated claw rather than raising the windup arm again. Keep facing committed; drive frames from per-state elapsed time.",
+          "windup": {
+            "frames": [
+              13,
+              14,
+              15,
+              16,
+              17
+            ],
+            "frameNames": [
+              "bear/slash-windup/00.png",
+              "bear/slash-windup/01.png",
+              "bear/slash-windup/02.png",
+              "bear/slash-windup/03.png",
+              "bear/slash-windup/04.png"
+            ],
+            "durationMs": 650,
+            "fps": 7.6923076923076925,
+            "loop": false,
+            "holdLast": true
+          },
+          "active": {
+            "frames": [
+              22,
+              23,
+              24,
+              25
+            ],
+            "frameNames": [
+              "bear/slash/04.png",
+              "bear/slash/05.png",
+              "bear/slash/06.png",
+              "bear/slash/07.png"
+            ],
+            "durationMs": 250,
+            "fps": 16,
+            "loop": false,
+            "holdLast": true
+          },
+          "recovery": {
+            "frames": [
+              26,
+              21,
+              20,
+              19,
+              18
+            ],
+            "frameNames": [
+              "bear/slash/08.png",
+              "bear/slash/03.png",
+              "bear/slash/02.png",
+              "bear/slash/01.png",
+              "bear/slash/00.png"
+            ],
+            "durationMs": 900,
+            "fps": 5.555555555555555,
+            "loop": false,
+            "holdLast": true
+          },
+          "meleeReach": 82,
+          "reachKind": "visible distal claw, matching enemyAttackBox forward extent; padding does not change geometry"
+        }
+      }
+    },
+    "ghost": {
+      "src": "ghost/atlas.png",
+      "frameWidth": 96,
+      "frameHeight": 64,
+      "columns": 8,
+      "anchor": [
+        32,
+        50
+      ],
+      "defaultFacing": "right",
+      "mirrorAroundAnchor": true,
+      "animations": {
+        "hover": {
+          "nativeAtlas": "ghost/hover-atlas.png",
+          "nativeFrameWidth": 64,
+          "nativeFrameHeight": 64,
+          "nativeColumns": 8,
+          "sourceFrameCount": 9,
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "frameNames": [
+            "ghost/hover/00.png",
+            "ghost/hover/01.png",
+            "ghost/hover/02.png",
+            "ghost/hover/03.png",
+            "ghost/hover/04.png",
+            "ghost/hover/05.png",
+            "ghost/hover/06.png",
+            "ghost/hover/07.png"
+          ],
+          "fps": 8,
+          "loop": true,
+          "anchor": [
+            32,
+            50
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Genuinely legless airborne form; tapering tails and claws articulate without grounding or foot-normalization.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "dive-windup": {
+          "nativeAtlas": "ghost/dive-windup-atlas.png",
+          "nativeFrameWidth": 64,
+          "nativeFrameHeight": 64,
+          "nativeColumns": 5,
+          "sourceFrameCount": 5,
+          "frames": [
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "frameNames": [
+            "ghost/dive-windup/00.png",
+            "ghost/dive-windup/01.png",
+            "ghost/dive-windup/02.png",
+            "ghost/dive-windup/03.png",
+            "ghost/dive-windup/04.png"
+          ],
+          "fps": 6,
+          "loop": false,
+          "anchor": [
+            32,
+            50
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Five native frames visibly coil the airborne lower wisps and load head/claws. No regeneration; full timed sequence inspected.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "dive": {
+          "nativeAtlas": "ghost/dive-atlas.png",
+          "nativeFrameWidth": 96,
+          "nativeFrameHeight": 64,
+          "nativeColumns": 8,
+          "sourceFrameCount": 9,
+          "frames": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21
+          ],
+          "frameNames": [
+            "ghost/dive/00.png",
+            "ghost/dive/01.png",
+            "ghost/dive/02.png",
+            "ghost/dive/03.png",
+            "ghost/dive/04.png",
+            "ghost/dive/05.png",
+            "ghost/dive/06.png",
+            "ghost/dive/07.png",
+            "ghost/dive/08.png"
+          ],
+          "fps": 16,
+          "loop": false,
+          "anchor": [
+            32,
+            50
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Retrieved preserved original request first; rejected clipped96px endpoint on64px canvas. One concrete corrective take uses96px canvas and approved endpoint with only excess tail bridge shortened23px, preserving head/arm pixels and scale. Nine timed frames visibly unfold into horizontal forward thrust, complete face/claws and stable floating root32,50. Not translated stills or invisible200px melee.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "hurt": {
+          "nativeAtlas": "ghost/hurt-atlas.png",
+          "nativeFrameWidth": 64,
+          "nativeFrameHeight": 64,
+          "nativeColumns": 5,
+          "sourceFrameCount": 5,
+          "frames": [
+            22,
+            23,
+            24,
+            25,
+            26
+          ],
+          "frameNames": [
+            "ghost/hurt/00.png",
+            "ghost/hurt/01.png",
+            "ghost/hurt/02.png",
+            "ghost/hurt/03.png",
+            "ghost/hurt/04.png"
+          ],
+          "fps": 12,
+          "loop": false,
+          "anchor": [
+            32,
+            50
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Airborne recoil with wisps contracting; no ground snap.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "defeat": {
+          "nativeAtlas": "ghost/defeat-atlas.png",
+          "nativeFrameWidth": 96,
+          "nativeFrameHeight": 64,
+          "nativeColumns": 8,
+          "sourceFrameCount": 9,
+          "frames": [
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35
+          ],
+          "frameNames": [
+            "ghost/defeat/00.png",
+            "ghost/defeat/01.png",
+            "ghost/defeat/02.png",
+            "ghost/defeat/03.png",
+            "ghost/defeat/04.png",
+            "ghost/defeat/05.png",
+            "ghost/defeat/06.png",
+            "ghost/defeat/07.png",
+            "ghost/defeat/08.png"
+          ],
+          "fps": 10,
+          "loop": false,
+          "anchor": [
+            32,
+            50
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Unravels into small separate wisps/specks; no legs, ground fall or gore.",
+            "timedPlaybackAllFrames": true
+          }
+        }
+      },
+      "provenance": "Original PixelLab source and generated animation, pixel cleanup; no franchise assets.",
+      "width": 768,
+      "height": 320,
+      "frameCount": 36,
+      "anchorKind": "floating body origin; no ground contact",
+      "combatPhases": {
+        "dive": {
+          "facing": "lock from windup start through recovery end",
+          "notes": "Current engine700/480/1100ms. Launch at380px/s toward committed target; damage is actual moving30x35 enemyBox overlap, NOT the configured200px reach field. Runtime moves root; the native sequence supplies real pitch, claw extension and streaming wisps. Recover visibly brakes/retracts then returns to hover. Facing remains locked through all phases.",
+          "windup": {
+            "frames": [
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "frameNames": [
+              "ghost/dive-windup/00.png",
+              "ghost/dive-windup/01.png",
+              "ghost/dive-windup/02.png",
+              "ghost/dive-windup/03.png",
+              "ghost/dive-windup/04.png"
+            ],
+            "durationMs": 700,
+            "fps": 7.142857142857143,
+            "loop": false,
+            "holdLast": true
+          },
+          "active": {
+            "frames": [
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ],
+            "frameNames": [
+              "ghost/dive/01.png",
+              "ghost/dive/02.png",
+              "ghost/dive/03.png",
+              "ghost/dive/04.png",
+              "ghost/dive/05.png",
+              "ghost/dive/06.png",
+              "ghost/dive/07.png",
+              "ghost/dive/08.png"
+            ],
+            "durationMs": 480,
+            "fps": 16.666666666666668,
+            "loop": false,
+            "holdLast": true
+          },
+          "recovery": {
+            "frames": [
+              20,
+              19,
+              18,
+              17,
+              16,
+              15,
+              14,
+              13,
+              11,
+              10,
+              9,
+              8,
+              0
+            ],
+            "frameNames": [
+              "ghost/dive/07.png",
+              "ghost/dive/06.png",
+              "ghost/dive/05.png",
+              "ghost/dive/04.png",
+              "ghost/dive/03.png",
+              "ghost/dive/02.png",
+              "ghost/dive/01.png",
+              "ghost/dive/00.png",
+              "ghost/dive-windup/03.png",
+              "ghost/dive-windup/02.png",
+              "ghost/dive-windup/01.png",
+              "ghost/dive-windup/00.png",
+              "ghost/hover/00.png"
+            ],
+            "durationMs": 1100,
+            "fps": 11.818181818181818,
+            "loop": false,
+            "holdLast": true
+          }
+        }
+      }
+    },
+    "spider": {
+      "src": "spider/atlas.png",
+      "frameWidth": 96,
+      "frameHeight": 64,
+      "columns": 8,
+      "anchor": [
+        32,
+        48
+      ],
+      "defaultFacing": "right",
+      "mirrorAroundAnchor": true,
+      "animations": {
+        "wall-idle": {
+          "nativeAtlas": "spider/wall-idle-atlas.png",
+          "nativeFrameWidth": 64,
+          "nativeFrameHeight": 64,
+          "nativeColumns": 4,
+          "sourceFrameCount": 5,
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "frameNames": [
+            "spider/wall-idle/00.png",
+            "spider/wall-idle/01.png",
+            "spider/wall-idle/02.png",
+            "spider/wall-idle/03.png"
+          ],
+          "fps": 5,
+          "loop": true,
+          "anchor": [
+            32,
+            48
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Four genuine frames derived from approved mouth-right vertical-grip source; supporting legs contact localx10 plane. Right mouth, root32,48 fixed; mirrored plane/facing inspected.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "climb": {
+          "nativeAtlas": "spider/climb-atlas.png",
+          "nativeFrameWidth": 64,
+          "nativeFrameHeight": 64,
+          "nativeColumns": 8,
+          "sourceFrameCount": 9,
+          "frames": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "frameNames": [
+            "spider/climb/00.png",
+            "spider/climb/01.png",
+            "spider/climb/02.png",
+            "spider/climb/03.png",
+            "spider/climb/04.png",
+            "spider/climb/05.png",
+            "spider/climb/06.png",
+            "spider/climb/07.png"
+          ],
+          "fps": 10,
+          "loop": true,
+          "anchor": [
+            32,
+            48
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Eight genuine alternating grip/reach frames on vertical plane, not a floor crawl. Root32,48 and wallx10 fixed. Readable opposing support legs in both facings.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "venom-windup": {
+          "nativeAtlas": "spider/venom-windup-atlas.png",
+          "nativeFrameWidth": 64,
+          "nativeFrameHeight": 64,
+          "nativeColumns": 5,
+          "sourceFrameCount": 5,
+          "frames": [
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "frameNames": [
+            "spider/venom-windup/00.png",
+            "spider/venom-windup/01.png",
+            "spider/venom-windup/02.png",
+            "spider/venom-windup/03.png",
+            "spider/venom-windup/04.png"
+          ],
+          "fps": 7,
+          "loop": false,
+          "anchor": [
+            32,
+            48
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Corrected vertical grip, right-facing lime eye/mouth; head and throat extend/brighten before discharge. Fixed wall-local root.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "spit": {
+          "nativeAtlas": "spider/spit-atlas.png",
+          "nativeFrameWidth": 96,
+          "nativeFrameHeight": 64,
+          "nativeColumns": 8,
+          "sourceFrameCount": 9,
+          "frames": [
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25
+          ],
+          "frameNames": [
+            "spider/spit/00.png",
+            "spider/spit/01.png",
+            "spider/spit/02.png",
+            "spider/spit/03.png",
+            "spider/spit/04.png",
+            "spider/spit/05.png",
+            "spider/spit/06.png",
+            "spider/spit/07.png",
+            "spider/spit/08.png"
+          ],
+          "fps": 18,
+          "loop": false,
+          "anchor": [
+            32,
+            48
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Visible lime emission in local1-3, throat retracts4-8. Origin measured at48,25 (offset16,-23); no invisible long melee reach.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "hurt": {
+          "nativeAtlas": "spider/hurt-atlas.png",
+          "nativeFrameWidth": 64,
+          "nativeFrameHeight": 64,
+          "nativeColumns": 5,
+          "sourceFrameCount": 5,
+          "frames": [
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "frameNames": [
+            "spider/hurt/00.png",
+            "spider/hurt/01.png",
+            "spider/hurt/02.png",
+            "spider/hurt/03.png",
+            "spider/hurt/04.png"
+          ],
+          "fps": 12,
+          "loop": false,
+          "anchor": [
+            32,
+            48
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Wall-clinging recoil bends near legs and turns head inward, maintaining opposite grips; no floor stance.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "defeat": {
+          "nativeAtlas": "spider/defeat-atlas.png",
+          "nativeFrameWidth": 96,
+          "nativeFrameHeight": 64,
+          "nativeColumns": 8,
+          "sourceFrameCount": 9,
+          "frames": [
+            31,
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39
+          ],
+          "frameNames": [
+            "spider/defeat/00.png",
+            "spider/defeat/01.png",
+            "spider/defeat/02.png",
+            "spider/defeat/03.png",
+            "spider/defeat/04.png",
+            "spider/defeat/05.png",
+            "spider/defeat/06.png",
+            "spider/defeat/07.png",
+            "spider/defeat/08.png"
+          ],
+          "fps": 10,
+          "loop": false,
+          "anchor": [
+            32,
+            48
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Grips release, legs fold and body tumbles down/right into a non-gory prone shape; genuine changing articulation.",
+            "timedPlaybackAllFrames": true
+          }
+        }
+      },
+      "provenance": "Original PixelLab source and generated animation, pixel cleanup; no franchise assets.",
+      "width": 768,
+      "height": 320,
+      "frameCount": 40,
+      "wallContact": [
+        10,
+        32
+      ],
+      "mouth": [
+        48,
+        25
+      ],
+      "projectileOriginOffset": [
+        16,
+        -23
+      ],
+      "projectileRelease": {
+        "animation": "spit",
+        "localFrame": 1,
+        "oncePerAttack": true,
+        "note": "Tiny sheet droplets are muzzle residue; moving venom projectile belongs to runtime. Origin is the visible right-facing mouth, mirrored around root."
+      },
+      "anchorKind": "wall-local body origin",
+      "combatPhases": {
+        "venom": {
+          "facing": "lock from windup start through recovery end",
+          "notes": "Windup visibly readies throat, active ejects venom, recovery retracts head. Spawn moving venom once at visible mouth[48,25] relative to root[32,48]; mirror offset16,-23. Sheet green droplets are muzzle residue, not a static250px damage beam. Wall-contact plane localx10; do not return to obsolete uncorrected wall idle.",
+          "windup": {
+            "frames": [
+              12,
+              13,
+              14,
+              15,
+              16
+            ],
+            "frameNames": [
+              "spider/venom-windup/00.png",
+              "spider/venom-windup/01.png",
+              "spider/venom-windup/02.png",
+              "spider/venom-windup/03.png",
+              "spider/venom-windup/04.png"
+            ],
+            "durationMs": 600,
+            "fps": 8.333333333333334,
+            "loop": false,
+            "holdLast": true
+          },
+          "active": {
+            "frames": [
+              18,
+              19,
+              20
+            ],
+            "frameNames": [
+              "spider/spit/01.png",
+              "spider/spit/02.png",
+              "spider/spit/03.png"
+            ],
+            "durationMs": 150,
+            "fps": 20,
+            "loop": false,
+            "holdLast": true
+          },
+          "recovery": {
+            "frames": [
+              21,
+              22,
+              23,
+              24,
+              25
+            ],
+            "frameNames": [
+              "spider/spit/04.png",
+              "spider/spit/05.png",
+              "spider/spit/06.png",
+              "spider/spit/07.png",
+              "spider/spit/08.png"
+            ],
+            "durationMs": 1200,
+            "fps": 4.166666666666667,
+            "loop": false,
+            "holdLast": true
+          }
+        }
+      },
+      "projectileVisual": {
+        "src": "spider/venom-projectile.png",
+        "width": 36,
+        "height": 12,
+        "frameWidth": 12,
+        "frameHeight": 12,
+        "columns": 3,
+        "anchor": [
+          6,
+          6
+        ],
+        "animations": {
+          "fly": {
+            "frames": [
+              0,
+              1,
+              2
+            ],
+            "fps": 12,
+            "loop": true
+          }
+        },
+        "frameNames": [
+          "spider/projectile/00.png",
+          "spider/projectile/01.png",
+          "spider/projectile/02.png"
+        ],
+        "provenance": "Native generated venom droplets from spit1-3; transparent crop and integer origin centering, not procedural geometry."
+      }
+    },
+    "masked-mutant-boss": {
+      "src": "masked-mutant-boss/atlas.png",
+      "frameWidth": 192,
+      "frameHeight": 128,
+      "columns": 8,
+      "anchor": [
+        64,
+        120
+      ],
+      "defaultFacing": "right",
+      "mirrorAroundAnchor": true,
+      "animations": {
+        "idle": {
+          "nativeAtlas": "masked-mutant-boss/idle-atlas.png",
+          "nativeFrameWidth": 128,
+          "nativeFrameHeight": 128,
+          "nativeColumns": 4,
+          "sourceFrameCount": 5,
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "frameNames": [
+            "masked-mutant-boss/idle/00.png",
+            "masked-mutant-boss/idle/01.png",
+            "masked-mutant-boss/idle/02.png",
+            "masked-mutant-boss/idle/03.png"
+          ],
+          "fps": 5,
+          "loop": true,
+          "anchor": [
+            64,
+            120
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Original pale angular masked warrior in committed right profile; breathing/mantle movement and stable120px ground anchor, native128.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "move": {
+          "nativeAtlas": "masked-mutant-boss/move-atlas.png",
+          "nativeFrameWidth": 128,
+          "nativeFrameHeight": 128,
+          "nativeColumns": 8,
+          "sourceFrameCount": 9,
+          "frames": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "frameNames": [
+            "masked-mutant-boss/move/00.png",
+            "masked-mutant-boss/move/01.png",
+            "masked-mutant-boss/move/02.png",
+            "masked-mutant-boss/move/03.png",
+            "masked-mutant-boss/move/04.png",
+            "masked-mutant-boss/move/05.png",
+            "masked-mutant-boss/move/06.png",
+            "masked-mutant-boss/move/07.png"
+          ],
+          "fps": 12,
+          "loop": true,
+          "anchor": [
+            64,
+            120
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -3
+            ],
+            [
+              0,
+              -3
+            ],
+            [
+              0,
+              -3
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Alternating knee/foot placements and forward stalking arms, mantle/tail articulation, stable feet baseline and right profile.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "windup": {
+          "nativeAtlas": "masked-mutant-boss/windup-atlas.png",
+          "nativeFrameWidth": 128,
+          "nativeFrameHeight": 128,
+          "nativeColumns": 5,
+          "sourceFrameCount": 5,
+          "frames": [
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "frameNames": [
+            "masked-mutant-boss/windup/00.png",
+            "masked-mutant-boss/windup/01.png",
+            "masked-mutant-boss/windup/02.png",
+            "masked-mutant-boss/windup/03.png",
+            "masked-mutant-boss/windup/04.png"
+          ],
+          "fps": 6,
+          "loop": false,
+          "anchor": [
+            64,
+            120
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Five native128 frames progressively lift near claw above mask, with lowered shoulder then overhead load; obvious anticipation, committed right-facing pale original mask and grounded120px baseline.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "slash": {
+          "nativeAtlas": "masked-mutant-boss/slash-atlas.png",
+          "nativeFrameWidth": 192,
+          "nativeFrameHeight": 128,
+          "nativeColumns": 8,
+          "sourceFrameCount": 9,
+          "frames": [
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25
+          ],
+          "frameNames": [
+            "masked-mutant-boss/slash/00.png",
+            "masked-mutant-boss/slash/01.png",
+            "masked-mutant-boss/slash/02.png",
+            "masked-mutant-boss/slash/03.png",
+            "masked-mutant-boss/slash/04.png",
+            "masked-mutant-boss/slash/05.png",
+            "masked-mutant-boss/slash/06.png",
+            "masked-mutant-boss/slash/07.png",
+            "masked-mutant-boss/slash/08.png"
+          ],
+          "fps": 16,
+          "loop": false,
+          "anchor": [
+            64,
+            120
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              -3
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "pixelCleanup": {
+            "method": "Shorten only distal cutting-crescent span3-4 native columns beyond all anatomy. Preserve curved tips, torso, mask, limbs and feet without scaling.",
+            "frames": {
+              "2": [
+                140,
+                3
+              ],
+              "3": [
+                140,
+                4
+              ],
+              "4": [
+                140,
+                4
+              ]
+            },
+            "expectedMaximumRightPixel": 174
+          },
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Nine genuine articulated frames; raised claw becomes broad pale-violet cutting crescent, then arm retracts. Active2-4 end at localx174/root64 for exact110px reach. Only3-4 distal effect columns shortened, no anatomy scaling. Timed action and normal/enraged phase playback inspected.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "burst": {
+          "nativeAtlas": "masked-mutant-boss/burst-atlas.png",
+          "nativeFrameWidth": 192,
+          "nativeFrameHeight": 128,
+          "nativeColumns": 8,
+          "sourceFrameCount": 9,
+          "frames": [
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34
+          ],
+          "frameNames": [
+            "masked-mutant-boss/burst/00.png",
+            "masked-mutant-boss/burst/01.png",
+            "masked-mutant-boss/burst/02.png",
+            "masked-mutant-boss/burst/03.png",
+            "masked-mutant-boss/burst/04.png",
+            "masked-mutant-boss/burst/05.png",
+            "masked-mutant-boss/burst/06.png",
+            "masked-mutant-boss/burst/07.png",
+            "masked-mutant-boss/burst/08.png"
+          ],
+          "fps": 18,
+          "loop": false,
+          "anchor": [
+            64,
+            120
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -5
+            ],
+            [
+              0,
+              -2
+            ],
+            [
+              0,
+              -2
+            ]
+          ],
+          "pixelCleanup": {
+            "method": "Shorten only distal twin energy-claw trails1-9 native columns beyond all anatomy; preserve tip clusters and all body pixels.",
+            "frames": {
+              "5": [
+                145,
+                9
+              ],
+              "6": [
+                145,
+                5
+              ],
+              "7": [
+                145,
+                5
+              ],
+              "8": [
+                145,
+                1
+              ]
+            },
+            "expectedMaximumRightPixel": 174
+          },
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Nine genuine frames crouch and launch into athletic forward stride with twin extended energy-claw trails, distinct from crescent slash. Active5-8 end at localx174,110px from root. Only1-9 distal trail columns shortened beyond anatomy. Runtime supplies330px/s root movement; no spawned projectile. Timed phase braking/retraction inspected.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "hurt": {
+          "nativeAtlas": "masked-mutant-boss/hurt-atlas.png",
+          "nativeFrameWidth": 128,
+          "nativeFrameHeight": 128,
+          "nativeColumns": 5,
+          "sourceFrameCount": 5,
+          "frames": [
+            35,
+            36,
+            37,
+            38,
+            39
+          ],
+          "frameNames": [
+            "masked-mutant-boss/hurt/00.png",
+            "masked-mutant-boss/hurt/01.png",
+            "masked-mutant-boss/hurt/02.png",
+            "masked-mutant-boss/hurt/03.png",
+            "masked-mutant-boss/hurt/04.png"
+          ],
+          "fps": 12,
+          "loop": false,
+          "anchor": [
+            64,
+            120
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -3
+            ],
+            [
+              0,
+              -3
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Five native128-scale frames visibly hunch/recoil shoulders and mask, maintaining grounded feet and right-facing identity. No gore or tint baked in.",
+            "timedPlaybackAllFrames": true
+          }
+        },
+        "defeat": {
+          "nativeAtlas": "masked-mutant-boss/defeat-atlas.png",
+          "nativeFrameWidth": 192,
+          "nativeFrameHeight": 128,
+          "nativeColumns": 8,
+          "sourceFrameCount": 9,
+          "frames": [
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48
+          ],
+          "frameNames": [
+            "masked-mutant-boss/defeat/00.png",
+            "masked-mutant-boss/defeat/01.png",
+            "masked-mutant-boss/defeat/02.png",
+            "masked-mutant-boss/defeat/03.png",
+            "masked-mutant-boss/defeat/04.png",
+            "masked-mutant-boss/defeat/05.png",
+            "masked-mutant-boss/defeat/06.png",
+            "masked-mutant-boss/defeat/07.png",
+            "masked-mutant-boss/defeat/08.png"
+          ],
+          "fps": 10,
+          "loop": false,
+          "anchor": [
+            64,
+            120
+          ],
+          "pixelOffsets": [
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -4
+            ],
+            [
+              0,
+              -6
+            ],
+            [
+              0,
+              -7
+            ],
+            [
+              0,
+              -6
+            ],
+            [
+              0,
+              -6
+            ]
+          ],
+          "assetReview": {
+            "status": "visual-pass",
+            "notes": "Nine genuine frames stagger, lower to knees and slump as pale-violet spectral residue leaves the mask. Non-gory; stable groundline120 and native body scale, not a static swap.",
+            "timedPlaybackAllFrames": true
+          }
+        }
+      },
+      "provenance": "Original PixelLab source and generated animation, pixel cleanup; no franchise assets.",
+      "width": 1536,
+      "height": 896,
+      "frameCount": 49,
+      "anchorKind": "feet origin",
+      "combatPhases": {
+        "slash": {
+          "facing": "lock from windup start through recovery end",
+          "notes": "Original side-facing pale masked mutant; raised claw →110px pale-violet cutting crescent→arm withdrawal.800/300/850ms per current engine. Damage band is enemyAttackBox, not decorative upper arc. Facing locked throughout.",
+          "windup": {
+            "frames": [
+              12,
+              13,
+              14,
+              15,
+              16,
+              18
+            ],
+            "frameNames": [
+              "masked-mutant-boss/windup/00.png",
+              "masked-mutant-boss/windup/01.png",
+              "masked-mutant-boss/windup/02.png",
+              "masked-mutant-boss/windup/03.png",
+              "masked-mutant-boss/windup/04.png",
+              "masked-mutant-boss/slash/01.png"
+            ],
+            "durationMs": 800,
+            "fps": 7.5,
+            "loop": false,
+            "holdLast": true
+          },
+          "active": {
+            "frames": [
+              19,
+              20,
+              21
+            ],
+            "frameNames": [
+              "masked-mutant-boss/slash/02.png",
+              "masked-mutant-boss/slash/03.png",
+              "masked-mutant-boss/slash/04.png"
+            ],
+            "durationMs": 300,
+            "fps": 10,
+            "loop": false,
+            "holdLast": true
+          },
+          "recovery": {
+            "frames": [
+              22,
+              23,
+              24,
+              25,
+              0
+            ],
+            "frameNames": [
+              "masked-mutant-boss/slash/05.png",
+              "masked-mutant-boss/slash/06.png",
+              "masked-mutant-boss/slash/07.png",
+              "masked-mutant-boss/slash/08.png",
+              "masked-mutant-boss/idle/00.png"
+            ],
+            "durationMs": 850,
+            "fps": 5.882352941176471,
+            "loop": false,
+            "holdLast": true
+          },
+          "meleeReach": 110,
+          "reachKind": "visible distal claw, matching enemyAttackBox forward extent; padding does not change geometry"
+        },
+        "burst": {
+          "facing": "lock from windup start through recovery end",
+          "notes": "Distinct athletic forward rush with twin extended energy-claw trails; runtime translates root330px/s.110px melee reach, NOT a spawned projectile.800/420/850ms. Visible reverse braking/retraction during recovery; facing locked.",
+          "windup": {
+            "frames": [
+              12,
+              13,
+              14,
+              15,
+              16,
+              27,
+              28,
+              29,
+              30
+            ],
+            "frameNames": [
+              "masked-mutant-boss/windup/00.png",
+              "masked-mutant-boss/windup/01.png",
+              "masked-mutant-boss/windup/02.png",
+              "masked-mutant-boss/windup/03.png",
+              "masked-mutant-boss/windup/04.png",
+              "masked-mutant-boss/burst/01.png",
+              "masked-mutant-boss/burst/02.png",
+              "masked-mutant-boss/burst/03.png",
+              "masked-mutant-boss/burst/04.png"
+            ],
+            "durationMs": 800,
+            "fps": 11.25,
+            "loop": false,
+            "holdLast": true
+          },
+          "active": {
+            "frames": [
+              31,
+              32,
+              33,
+              34
+            ],
+            "frameNames": [
+              "masked-mutant-boss/burst/05.png",
+              "masked-mutant-boss/burst/06.png",
+              "masked-mutant-boss/burst/07.png",
+              "masked-mutant-boss/burst/08.png"
+            ],
+            "durationMs": 420,
+            "fps": 9.523809523809524,
+            "loop": false,
+            "holdLast": true
+          },
+          "recovery": {
+            "frames": [
+              30,
+              29,
+              28,
+              27,
+              26,
+              0
+            ],
+            "frameNames": [
+              "masked-mutant-boss/burst/04.png",
+              "masked-mutant-boss/burst/03.png",
+              "masked-mutant-boss/burst/02.png",
+              "masked-mutant-boss/burst/01.png",
+              "masked-mutant-boss/burst/00.png",
+              "masked-mutant-boss/idle/00.png"
+            ],
+            "durationMs": 850,
+            "fps": 7.0588235294117645,
+            "loop": false,
+            "holdLast": true
+          },
+          "meleeReach": 110,
+          "reachKind": "visible distal claw, matching enemyAttackBox forward extent; padding does not change geometry"
+        },
+        "slash-enraged": {
+          "facing": "lock from windup start through recovery end",
+          "notes": "Original side-facing pale masked mutant; raised claw →110px pale-violet cutting crescent→arm withdrawal.800/300/850ms per current engine. Damage band is enemyAttackBox, not decorative upper arc. Facing locked throughout. Enraged at half HP:580ms windup, unchanged active/recovery.",
+          "windup": {
+            "frames": [
+              12,
+              13,
+              14,
+              15,
+              16,
+              18
+            ],
+            "frameNames": [
+              "masked-mutant-boss/windup/00.png",
+              "masked-mutant-boss/windup/01.png",
+              "masked-mutant-boss/windup/02.png",
+              "masked-mutant-boss/windup/03.png",
+              "masked-mutant-boss/windup/04.png",
+              "masked-mutant-boss/slash/01.png"
+            ],
+            "durationMs": 580,
+            "fps": 10.344827586206897,
+            "loop": false,
+            "holdLast": true
+          },
+          "active": {
+            "frames": [
+              19,
+              20,
+              21
+            ],
+            "frameNames": [
+              "masked-mutant-boss/slash/02.png",
+              "masked-mutant-boss/slash/03.png",
+              "masked-mutant-boss/slash/04.png"
+            ],
+            "durationMs": 300,
+            "fps": 10,
+            "loop": false,
+            "holdLast": true
+          },
+          "recovery": {
+            "frames": [
+              22,
+              23,
+              24,
+              25,
+              0
+            ],
+            "frameNames": [
+              "masked-mutant-boss/slash/05.png",
+              "masked-mutant-boss/slash/06.png",
+              "masked-mutant-boss/slash/07.png",
+              "masked-mutant-boss/slash/08.png",
+              "masked-mutant-boss/idle/00.png"
+            ],
+            "durationMs": 850,
+            "fps": 5.882352941176471,
+            "loop": false,
+            "holdLast": true
+          },
+          "meleeReach": 110,
+          "reachKind": "visible distal claw, matching enemyAttackBox forward extent; padding does not change geometry"
+        },
+        "burst-enraged": {
+          "facing": "lock from windup start through recovery end",
+          "notes": "Distinct athletic forward rush with twin extended energy-claw trails; runtime translates root330px/s.110px melee reach, NOT a spawned projectile.800/420/850ms. Visible reverse braking/retraction during recovery; facing locked. Enraged at half HP:580ms windup, unchanged active/recovery.",
+          "windup": {
+            "frames": [
+              12,
+              13,
+              14,
+              15,
+              16,
+              27,
+              28,
+              29,
+              30
+            ],
+            "frameNames": [
+              "masked-mutant-boss/windup/00.png",
+              "masked-mutant-boss/windup/01.png",
+              "masked-mutant-boss/windup/02.png",
+              "masked-mutant-boss/windup/03.png",
+              "masked-mutant-boss/windup/04.png",
+              "masked-mutant-boss/burst/01.png",
+              "masked-mutant-boss/burst/02.png",
+              "masked-mutant-boss/burst/03.png",
+              "masked-mutant-boss/burst/04.png"
+            ],
+            "durationMs": 580,
+            "fps": 15.517241379310345,
+            "loop": false,
+            "holdLast": true
+          },
+          "active": {
+            "frames": [
+              31,
+              32,
+              33,
+              34
+            ],
+            "frameNames": [
+              "masked-mutant-boss/burst/05.png",
+              "masked-mutant-boss/burst/06.png",
+              "masked-mutant-boss/burst/07.png",
+              "masked-mutant-boss/burst/08.png"
+            ],
+            "durationMs": 420,
+            "fps": 9.523809523809524,
+            "loop": false,
+            "holdLast": true
+          },
+          "recovery": {
+            "frames": [
+              30,
+              29,
+              28,
+              27,
+              26,
+              0
+            ],
+            "frameNames": [
+              "masked-mutant-boss/burst/04.png",
+              "masked-mutant-boss/burst/03.png",
+              "masked-mutant-boss/burst/02.png",
+              "masked-mutant-boss/burst/01.png",
+              "masked-mutant-boss/burst/00.png",
+              "masked-mutant-boss/idle/00.png"
+            ],
+            "durationMs": 850,
+            "fps": 7.0588235294117645,
+            "loop": false,
+            "holdLast": true
+          },
+          "meleeReach": 110,
+          "reachKind": "visible distal claw, matching enemyAttackBox forward extent; padding does not change geometry"
+        }
+      }
+    }
+  },
+  "missing": []
+}

@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "id": "controller-fixture",
+  "title": "CONTROLLER LAB — NOT A CAMPAIGN LEVEL",
+  "bounds": {"x": 0, "y": -480, "w": 2400, "h": 1200},
+  "camera": {"x": 0, "y": -480, "w": 2400, "h": 1200},
+  "spawn": {"x": 100, "y": 300, "face": 1},
+  "surfaces": [
+    {"id": "floor", "x": 0, "y": 300, "w": 600, "h": 120, "kind": "solid", "art": "roof-center"},
+    {"id": "upper", "x": 760, "y": 80, "w": 240, "h": 20, "kind": "oneWay", "art": "roof-center"},
+    {"id": "far-floor", "x": 1100, "y": 300, "w": 1300, "h": 120, "kind": "solid", "art": "roof-center"}
+  ],
+  "walls": [{"id": "climb", "x": 740, "y": 80, "w": 20, "h": 420, "climbable": true, "art": "wall"}],
+  "hazards": [{"id": "pit", "x": 600, "y": 620, "w": 500, "h": 100, "type": "pit", "damage": 1}],
+  "enemies": [
+    {"id": "z", "type": "zombie", "x": 400, "y": 300, "face": -1, "patrol": {"min": 340, "max": 540}},
+    {"id": "b", "type": "bear", "x": 1350, "y": 300, "face": -1, "patrol": {"min": 1200, "max": 1460}},
+    {"id": "g", "type": "ghost", "x": 980, "y": 20, "face": -1, "patrol": {"min": 830, "max": 1060}},
+    {"id": "s", "type": "spider", "x": 726, "y": 170, "face": -1, "patrol": {"min": 130, "max": 260}, "wallId": "climb"}
+  ],
+  "checkpoints": [{"id": "cp", "x": 1100, "y": 240, "w": 100, "h": 60, "spawn": {"x": 1150, "y": 300, "face": 1}}],
+  "boss": {"id": "boss", "type": "masked-mutant-boss", "x": 2140, "y": 300, "face": -1, "arena": {"x": 1750, "y": 0, "w": 650, "h": 420}, "trigger": {"x": 1750, "y": 200, "w": 100, "h": 100}},
+  "exit": {"x": 2330, "y": 210, "w": 60, "h": 90, "requiresBoss": true},
+  "background": [
+    {"asset": "sky", "factorX": 0, "factorY": 0, "driftX": 0, "x": 0, "y": 0, "repeatX": true},
+    {"asset": "moon", "factorX": 0.02, "factorY": 0.02, "driftX": 0, "x": 470, "y": 40, "repeatX": false},
+    {"asset": "far-mountains", "factorX": 0.12, "factorY": 0.08, "driftX": 0, "x": 0, "y": 130, "repeatX": true},
+    {"asset": "distant-temples", "factorX": 0.3, "factorY": 0.16, "driftX": 0, "x": 0, "y": 200, "repeatX": true},
+    {"asset": "far-clouds", "factorX": 0.08, "factorY": 0.04, "driftX": 3, "x": 0, "y": 60, "repeatX": true},
+    {"asset": "near-clouds", "factorX": 0.4, "factorY": 0.22, "driftX": 9, "x": 0, "y": 110, "repeatX": true}
+  ],
+  "decor": [],
+  "music": "stage1-approved"
+}

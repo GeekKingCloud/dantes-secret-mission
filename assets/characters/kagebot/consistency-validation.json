@@ -1,0 +1,416 @@
+{
+  "scope": "cross-action consistency correction; standalone, not integrated gameplay",
+  "requiredHeroActions": 18,
+  "completedHeroActions": 18,
+  "missing": [],
+  "checks": [
+    {
+      "action": "idle",
+      "frames": 1,
+      "alphaPaletteHashAtlas": "PASS",
+      "bodyModel": "one shared native parts set",
+      "physicalBladeColumns": 40
+    },
+    {
+      "action": "run-low",
+      "frames": 8,
+      "alphaPaletteHashAtlas": "PASS",
+      "bodyModel": "one shared native parts set",
+      "physicalBladeColumns": 40
+    },
+    {
+      "action": "jump-rise",
+      "frames": 1,
+      "alphaPaletteHashAtlas": "PASS",
+      "bodyModel": "one shared native parts set",
+      "physicalBladeColumns": 40
+    },
+    {
+      "action": "fall",
+      "frames": 1,
+      "alphaPaletteHashAtlas": "PASS",
+      "bodyModel": "one shared native parts set",
+      "physicalBladeColumns": 40
+    },
+    {
+      "action": "frontflip",
+      "frames": 8,
+      "alphaPaletteHashAtlas": "PASS",
+      "bodyModel": "one shared native parts set",
+      "physicalBladeColumns": 40
+    },
+    {
+      "action": "wall-hold",
+      "frames": 1,
+      "alphaPaletteHashAtlas": "PASS",
+      "bodyModel": "one shared native parts set",
+      "physicalBladeColumns": 40
+    },
+    {
+      "action": "wall-climb",
+      "frames": 4,
+      "alphaPaletteHashAtlas": "PASS",
+      "bodyModel": "one shared native parts set",
+      "physicalBladeColumns": 40
+    },
+    {
+      "action": "wall-jump",
+      "frames": 1,
+      "alphaPaletteHashAtlas": "PASS",
+      "bodyModel": "one shared native parts set",
+      "physicalBladeColumns": 40
+    },
+    {
+      "action": "dash",
+      "frames": 3,
+      "alphaPaletteHashAtlas": "PASS",
+      "bodyModel": "one shared native parts set",
+      "physicalBladeColumns": 40
+    },
+    {
+      "action": "sword-1",
+      "frames": 7,
+      "alphaPaletteHashAtlas": "PASS",
+      "bodyModel": "one shared native parts set",
+      "physicalBladeColumns": 40,
+      "visibleActiveSwipeReach": [
+        74,
+        74,
+        74,
+        74,
+        74
+      ],
+      "bladeNeverStretched": true,
+      "timingSeconds": 0.23999999999999996
+    },
+    {
+      "action": "sword-2",
+      "frames": 7,
+      "alphaPaletteHashAtlas": "PASS",
+      "bodyModel": "one shared native parts set",
+      "physicalBladeColumns": 40,
+      "visibleActiveSwipeReach": [
+        82,
+        82,
+        82,
+        82,
+        82
+      ],
+      "bladeNeverStretched": true,
+      "timingSeconds": 0.26
+    },
+    {
+      "action": "sword-3",
+      "frames": 7,
+      "alphaPaletteHashAtlas": "PASS",
+      "bodyModel": "one shared native parts set",
+      "physicalBladeColumns": 40,
+      "visibleActiveSwipeReach": [
+        94,
+        94,
+        94,
+        94,
+        94
+      ],
+      "bladeNeverStretched": true,
+      "timingSeconds": 0.375
+    },
+    {
+      "action": "laser",
+      "frames": 3,
+      "alphaPaletteHashAtlas": "PASS",
+      "bodyModel": "one shared native parts set",
+      "physicalBladeColumns": 40
+    },
+    {
+      "action": "hurt",
+      "frames": 4,
+      "alphaPaletteHashAtlas": "PASS",
+      "bodyModel": "one shared native parts set",
+      "physicalBladeColumns": 40
+    },
+    {
+      "action": "finisher",
+      "frames": 4,
+      "alphaPaletteHashAtlas": "PASS",
+      "bodyModel": "one shared native parts set",
+      "physicalBladeColumns": 40
+    },
+    {
+      "action": "meditate",
+      "frames": 1,
+      "alphaPaletteHashAtlas": "PASS",
+      "bodyModel": "one shared native parts set",
+      "physicalBladeColumns": 40
+    },
+    {
+      "action": "startled",
+      "frames": 8,
+      "alphaPaletteHashAtlas": "PASS",
+      "bodyModel": "one shared native parts set",
+      "physicalBladeColumns": 40
+    },
+    {
+      "action": "drone-depart",
+      "frames": 3,
+      "alphaPaletteHashAtlas": "PASS",
+      "bodyModel": "one shared native parts set",
+      "physicalBladeColumns": 40
+    }
+  ],
+  "canonicalParts": {
+    "nativeScale": 1,
+    "bodySource": "shared generated C-derived slim native pixel parts",
+    "physicalBladeColumns": 40,
+    "katanaPart": "katana.png",
+    "scarf": "one neck collar and exactly two narrow shared 19-column tails",
+    "paletteRGB": [
+      [
+        12,
+        16,
+        22
+      ],
+      [
+        22,
+        29,
+        36
+      ],
+      [
+        34,
+        44,
+        52
+      ],
+      [
+        48,
+        62,
+        72
+      ],
+      [
+        67,
+        83,
+        94
+      ],
+      [
+        92,
+        108,
+        116
+      ],
+      [
+        19,
+        42,
+        47
+      ],
+      [
+        34,
+        66,
+        72
+      ],
+      [
+        54,
+        100,
+        106
+      ],
+      [
+        40,
+        174,
+        190
+      ],
+      [
+        48,
+        226,
+        234
+      ],
+      [
+        152,
+        247,
+        247
+      ],
+      [
+        201,
+        252,
+        252
+      ]
+    ],
+    "parts": {
+      "hood": {
+        "file": "hood.png",
+        "size": [
+          19,
+          19
+        ],
+        "proximal": [
+          7,
+          19
+        ],
+        "distal": [
+          7,
+          0
+        ],
+        "sha256": "436d25c0d2d2c3aa06736101a10a81f5f35c9000db87a5161efe69a779617e05"
+      },
+      "torso": {
+        "file": "torso.png",
+        "size": [
+          14,
+          15
+        ],
+        "proximal": [
+          5,
+          13
+        ],
+        "distal": [
+          8,
+          1
+        ],
+        "sha256": "11efc984150e8eaed25c622077d08f81d43578e097244a55405919e058d9cd68"
+      },
+      "upper-arm": {
+        "file": "upper-arm.png",
+        "size": [
+          9,
+          9
+        ],
+        "proximal": [
+          4,
+          0
+        ],
+        "distal": [
+          3,
+          8
+        ],
+        "sha256": "8cfe48fc9fd0dd827dba7a5f168b6fd56ca432b1c457075b2bfa73f9738a193a"
+      },
+      "gauntlet": {
+        "file": "gauntlet.png",
+        "size": [
+          7,
+          10
+        ],
+        "proximal": [
+          3,
+          0
+        ],
+        "distal": [
+          3,
+          9
+        ],
+        "sha256": "32502c8d4133cad6e3ffcef549a83b5cec0b68683bb612d2958cf753388b406f"
+      },
+      "thigh": {
+        "file": "thigh.png",
+        "size": [
+          13,
+          14
+        ],
+        "proximal": [
+          9,
+          2
+        ],
+        "distal": [
+          4,
+          11
+        ],
+        "sha256": "d113a563578a8b392de2c9cba5039f9609f1cf2ef6a6a2079d2811a3f6bb9c7e"
+      },
+      "shin": {
+        "file": "shin.png",
+        "size": [
+          7,
+          12
+        ],
+        "proximal": [
+          3,
+          1
+        ],
+        "distal": [
+          3,
+          11
+        ],
+        "sha256": "1fb5ea35cd0c137d75ac2e07b7d36cc06b7d623bbf3138ba4bb7170f2d4b7a34"
+      },
+      "boot": {
+        "file": "boot.png",
+        "size": [
+          9,
+          6
+        ],
+        "proximal": [
+          3,
+          1
+        ],
+        "distal": [
+          8,
+          3
+        ],
+        "sha256": "c4d294e4c7d2e5cc21444e380d0a5ecfc99d76f6b96244c2fe23205867a0548e"
+      },
+      "collar": {
+        "file": "collar.png",
+        "size": [
+          9,
+          6
+        ],
+        "proximal": [
+          5,
+          2
+        ],
+        "distal": [
+          2,
+          4
+        ],
+        "sha256": "6a0b862a66c03f3884bf03a68cbde1cb26cfff36dab4d10f4161135edf2b8ff7"
+      },
+      "scarf-tail": {
+        "file": "scarf-tail.png",
+        "size": [
+          20,
+          6
+        ],
+        "proximal": [
+          18,
+          3
+        ],
+        "distal": [
+          0,
+          3
+        ],
+        "sha256": "083839c4ac7f5d73619b4944766a70fbf5f499458c53dcefadab026f0745220e"
+      },
+      "katana": {
+        "file": "katana.png",
+        "size": [
+          50,
+          10
+        ],
+        "proximal": [
+          3,
+          5
+        ],
+        "distal": [
+          48,
+          5
+        ],
+        "sha256": "bfee2ab924f2244087e2ec922ddcc391ac12da65fbc1a0bbe088bab04ed9fc04"
+      },
+      "sheathed-katana": {
+        "file": "sheathed-katana.png",
+        "size": [
+          50,
+          10
+        ],
+        "proximal": [
+          3,
+          5
+        ],
+        "distal": [
+          48,
+          5
+        ],
+        "sha256": "04fa5f6c6a90a4266ad51e76f57bbbc0a863590e11626b36fdd9a460ce44eb44"
+      }
+    },
+    "noRescaling": true
+  },
+  "bladeReachMeaning": "40-column physical katana in every pose; 74/82/94px limits are visibly depicted by separate baked cyan air-cut artwork, not blade scaling",
+  "status": "mechanical checks passed; final visual review and parent integration separate"
+}

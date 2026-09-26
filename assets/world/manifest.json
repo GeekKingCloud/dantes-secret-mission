@@ -1,0 +1,901 @@
+{
+  "schema_version": 2,
+  "status": "asset-inventory-produced; runtime-integration-not-run",
+  "path_base": "assets/",
+  "logical_viewport": [
+    640,
+    360
+  ],
+  "pixel_sampling": "nearest-neighbor only",
+  "provider": "PixelLab",
+  "required_ids": [
+    "sky",
+    "moon",
+    "far-mountains",
+    "distant-temples",
+    "far-clouds",
+    "near-clouds",
+    "roof-left",
+    "roof-center",
+    "roof-right",
+    "roof-ridge",
+    "wall",
+    "wood-beam",
+    "eave",
+    "stone",
+    "spikes-top",
+    "spikes-side",
+    "lantern",
+    "home-interior",
+    "table-candle",
+    "overworld",
+    "boss-arena",
+    "portal-animation"
+  ],
+  "missing_required_ids": [],
+  "assets": [
+    {
+      "id": "roof-left",
+      "path": "world/terrain/roof-left.png",
+      "file": "terrain/roof-left.png",
+      "size": [
+        96,
+        128
+      ],
+      "anchor": [
+        0,
+        40
+      ],
+      "repeat": null,
+      "source_rect": [
+        0,
+        0,
+        96,
+        128
+      ],
+      "frames": 1,
+      "fps": 0,
+      "loop": false,
+      "alpha": "binary",
+      "role": "decoration; collision remains engine-owned",
+      "width": 96,
+      "height": 128,
+      "sha256": "d7a5400824d6d339877d6049fb806e5297334fe25e658bf9f05238d5a3b81d14",
+      "opaque_bbox": [
+        0,
+        12,
+        96,
+        128
+      ]
+    },
+    {
+      "id": "roof-center",
+      "path": "world/terrain/roof-center.png",
+      "file": "terrain/roof-center.png",
+      "size": [
+        64,
+        96
+      ],
+      "anchor": [
+        0,
+        8
+      ],
+      "repeat": "x",
+      "source_rect": [
+        96,
+        32,
+        160,
+        128
+      ],
+      "frames": 1,
+      "fps": 0,
+      "loop": false,
+      "alpha": "binary",
+      "role": "decoration; collision remains engine-owned",
+      "width": 64,
+      "height": 96,
+      "sha256": "71fc4f95c7c5b56cb5c7c28a36e979777b2672516f23a8a1cbf69234fdfe8e36",
+      "opaque_bbox": [
+        0,
+        4,
+        64,
+        96
+      ]
+    },
+    {
+      "id": "roof-right",
+      "path": "world/terrain/roof-right.png",
+      "file": "terrain/roof-right.png",
+      "size": [
+        96,
+        128
+      ],
+      "anchor": [
+        96,
+        40
+      ],
+      "repeat": null,
+      "source_rect": [
+        416,
+        0,
+        512,
+        128
+      ],
+      "frames": 1,
+      "fps": 0,
+      "loop": false,
+      "alpha": "binary",
+      "role": "decoration; collision remains engine-owned",
+      "width": 96,
+      "height": 128,
+      "sha256": "04ce683fe7affd14c36e78d7845998109e6ff47a60ab1b3f3fe2e901ea91349e",
+      "opaque_bbox": [
+        0,
+        12,
+        96,
+        128
+      ]
+    },
+    {
+      "id": "roof-ridge",
+      "path": "world/terrain/roof-ridge.png",
+      "file": "terrain/roof-ridge.png",
+      "size": [
+        64,
+        16
+      ],
+      "anchor": [
+        0,
+        8
+      ],
+      "repeat": "x",
+      "source_rect": [
+        96,
+        32,
+        160,
+        48
+      ],
+      "frames": 1,
+      "fps": 0,
+      "loop": false,
+      "alpha": "binary",
+      "role": "decoration; collision remains engine-owned",
+      "width": 64,
+      "height": 16,
+      "sha256": "20d13ddd7210d9c648de9902eb1386f036b9a3b635d231094e110f9f12e36bb7",
+      "opaque_bbox": [
+        0,
+        4,
+        64,
+        16
+      ]
+    },
+    {
+      "id": "wall",
+      "path": "world/terrain/wall.png",
+      "file": "terrain/wall.png",
+      "size": [
+        64,
+        64
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "repeat": "x",
+      "source_rect": [
+        164,
+        146,
+        228,
+        210
+      ],
+      "frames": 1,
+      "fps": 0,
+      "loop": false,
+      "alpha": "binary",
+      "role": "decoration; collision remains engine-owned",
+      "width": 64,
+      "height": 64,
+      "sha256": "5e1660a0d2d861a5f60c7241cbb51b18ad15190a0d4b0b55684b4988c7e27057",
+      "opaque_bbox": [
+        0,
+        0,
+        64,
+        64
+      ]
+    },
+    {
+      "id": "wood-beam",
+      "path": "world/terrain/wood-beam.png",
+      "file": "terrain/wood-beam.png",
+      "size": [
+        16,
+        64
+      ],
+      "anchor": [
+        8,
+        0
+      ],
+      "repeat": null,
+      "source_rect": [
+        143,
+        146,
+        159,
+        210
+      ],
+      "frames": 1,
+      "fps": 0,
+      "loop": false,
+      "alpha": "binary",
+      "role": "decoration; collision remains engine-owned",
+      "width": 16,
+      "height": 64,
+      "sha256": "2b894f6d0798cc010b201bd2817f4c9fbae9ae4f143c097f9b3ee0e408640bdd",
+      "opaque_bbox": [
+        0,
+        0,
+        16,
+        64
+      ]
+    },
+    {
+      "id": "eave",
+      "path": "world/terrain/eave.png",
+      "file": "terrain/eave.png",
+      "size": [
+        64,
+        24
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "repeat": "x",
+      "source_rect": [
+        96,
+        124,
+        160,
+        148
+      ],
+      "frames": 1,
+      "fps": 0,
+      "loop": false,
+      "alpha": "binary",
+      "role": "decoration; collision remains engine-owned",
+      "width": 64,
+      "height": 24,
+      "sha256": "5b2394776f4b01632641407ad7c4a2b75e1ec8c033c0889aa4202f9926fa9409",
+      "opaque_bbox": [
+        0,
+        0,
+        64,
+        24
+      ]
+    },
+    {
+      "id": "stone",
+      "path": "world/terrain/stone.png",
+      "file": "terrain/stone.png",
+      "size": [
+        64,
+        32
+      ],
+      "anchor": [
+        0,
+        4
+      ],
+      "repeat": "x",
+      "source_rect": [
+        32,
+        208,
+        96,
+        240
+      ],
+      "frames": 1,
+      "fps": 0,
+      "loop": false,
+      "alpha": "binary",
+      "role": "decoration; collision remains engine-owned",
+      "width": 64,
+      "height": 32,
+      "sha256": "566da4b0a88f4459634832a5f1d80b21b08347c02f222d6fac747250c0308602",
+      "opaque_bbox": [
+        0,
+        0,
+        64,
+        31
+      ]
+    },
+    {
+      "id": "shoji-window",
+      "path": "world/terrain/shoji-window.png",
+      "file": "terrain/shoji-window.png",
+      "size": [
+        51,
+        42
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "repeat": null,
+      "source_rect": [
+        93,
+        153,
+        144,
+        195
+      ],
+      "frames": 1,
+      "fps": 0,
+      "loop": false,
+      "alpha": "binary",
+      "role": "decoration; collision remains engine-owned",
+      "width": 51,
+      "height": 42,
+      "sha256": "0bc1916ec76cf1f60d79f1f17b347af01b8646f22e8c338cfdc5fcc1284b8743",
+      "opaque_bbox": [
+        0,
+        0,
+        51,
+        42
+      ]
+    },
+    {
+      "id": "temple-facade",
+      "path": "world/source/temple-facade.png",
+      "file": "source/temple-facade.png",
+      "size": [
+        512,
+        256
+      ],
+      "anchor": [
+        0,
+        40
+      ],
+      "repeat": null,
+      "frames": 1,
+      "fps": 0,
+      "loop": false,
+      "alpha": "binary",
+      "width": 512,
+      "height": 256,
+      "sha256": "ff2cb68913dcd5d6c295543fab2d181dc6268254ffb23ad15c9eeba0e30ffce6",
+      "opaque_bbox": [
+        0,
+        12,
+        512,
+        239
+      ]
+    },
+    {
+      "id": "sky",
+      "path": "world/parallax/sky.png",
+      "width": 160,
+      "height": 90,
+      "anchor": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        0,
+        0,
+        160,
+        90
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "parallax_factor": 0,
+      "drift_px_per_second": 0,
+      "logical_origin": [
+        0,
+        0
+      ],
+      "display_scale": 4,
+      "repeat_x": false,
+      "notes": "Generated starfield only. Camera-fixed full viewport, native 160x90 at 4x NN.",
+      "sha256": "45d951611d24fca872be570ada67724332aad192be8d0437ac9a7eaa40a3ac81"
+    },
+    {
+      "id": "moon",
+      "path": "world/parallax/moon.png",
+      "width": 64,
+      "height": 64,
+      "anchor": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        4,
+        4,
+        60,
+        60
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "parallax_factor": 0.025,
+      "drift_px_per_second": 0,
+      "logical_origin": [
+        432,
+        28
+      ],
+      "display_scale": 1,
+      "repeat_x": false,
+      "notes": "Independent moon; separate from sky and cloud bands.",
+      "sha256": "fce331025b0c276c6154a3fae6e20b8c5ea29b0f2671ab884000fdab0d6e3d3c"
+    },
+    {
+      "id": "far-mountains",
+      "path": "world/parallax/far-mountains.png",
+      "width": 640,
+      "height": 96,
+      "anchor": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        0,
+        16,
+        640,
+        96
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "parallax_factor": 0.12,
+      "drift_px_per_second": 0,
+      "logical_origin": [
+        0,
+        118
+      ],
+      "display_scale": 2,
+      "repeat_x": true,
+      "notes": "Only bottom-connected ridge retained; 511 detached cloud/detail pixels removed. Native strip plus mirrored continuation for exact wrap; dark blue palette grade.",
+      "sha256": "0d3ffddd93cd9536f4a79d79bfbb0fd004c7c2e91869ed513c5f47603bb738c2"
+    },
+    {
+      "id": "far-clouds",
+      "path": "world/parallax/far-clouds.png",
+      "width": 320,
+      "height": 80,
+      "anchor": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        62,
+        27,
+        258,
+        50
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "parallax_factor": 0.055,
+      "drift_px_per_second": 2.5,
+      "logical_origin": [
+        0,
+        24
+      ],
+      "display_scale": 2,
+      "repeat_x": true,
+      "notes": "Native transparent cloud shapes with clear left/right padding. Translate/repeat the whole strip; do not invent clouds in renderer.",
+      "sha256": "c3e034c7e2a58fd30545bf5cf7f50c540effad15d96d58fd8cb0a99764f271b3"
+    },
+    {
+      "id": "near-clouds",
+      "path": "world/parallax/near-clouds.png",
+      "width": 320,
+      "height": 80,
+      "anchor": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        38,
+        20,
+        287,
+        64
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "parallax_factor": 0.2,
+      "drift_px_per_second": 7.0,
+      "logical_origin": [
+        -84,
+        82
+      ],
+      "display_scale": 2,
+      "repeat_x": true,
+      "notes": "Native transparent cloud shapes with clear left/right padding. Translate/repeat the whole strip; do not invent clouds in renderer.",
+      "sha256": "052911d009ece7705f5b78321967150a161d06e42066e509fe8e6ba77f80714c"
+    },
+    {
+      "id": "distant-temples",
+      "path": "world/parallax/distant-temples.png",
+      "width": 640,
+      "height": 128,
+      "anchor": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        24,
+        0,
+        624,
+        128
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "parallax_factor": 0.3,
+      "drift_px_per_second": 0,
+      "logical_origin": [
+        0,
+        86
+      ],
+      "display_scale": 2,
+      "repeat_x": true,
+      "notes": "Real generated pagoda cluster, with smaller mirrored continuation and palette grade. Transparent margins allow wrap; foreground covers bases.",
+      "sha256": "6947db1688f021d97f62df608729c39837f6a1e0d288db8d280cfe2bdfe578e0"
+    },
+    {
+      "id": "home-interior",
+      "path": "world/scenes/home-interior.png",
+      "width": 320,
+      "height": 180,
+      "anchor": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        0,
+        0,
+        320,
+        180
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "display_scale": 2,
+      "notes": "Baked cutscene room only, not a gameplay parallax replacement. Pseudo-writing removed from scroll using adjacent generated paper pixels.",
+      "sha256": "c36e3b511ccbe2f3828e96e8e8544612e7e05554f999fb5e33503e613b4588bd"
+    },
+    {
+      "id": "table-candle",
+      "path": "world/scenes/table-candle.png",
+      "width": 128,
+      "height": 96,
+      "anchor": [
+        64,
+        88
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        22,
+        7,
+        106,
+        88
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "display_scale": 0.5,
+      "notes": "One generated table with candle; display at 64x48 using nearest neighbor in home cutscene.",
+      "sha256": "a441c09be63f52d700e914fbb565ac05b01b7ea6235c09f93bf44d097a656f14"
+    },
+    {
+      "id": "overworld",
+      "path": "world/scenes/overworld.png",
+      "width": 320,
+      "height": 180,
+      "anchor": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        0,
+        0,
+        320,
+        180
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "display_scale": 2,
+      "notes": "Generated bird-eye province map. Suggested node coordinates are separately supplied; labels rendered at runtime.",
+      "sha256": "e3284a070d02f5692f0b9e8f1189320df428b2b94694e0de8fc38e71ef642016"
+    },
+    {
+      "id": "boss-arena",
+      "path": "world/scenes/boss-arena.png",
+      "width": 320,
+      "height": 180,
+      "anchor": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        0,
+        0,
+        320,
+        180
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "display_scale": 2,
+      "notes": "Baked decorative arena backdrop, intentionally not a gameplay parallax layer. Floor is perspective scenery: collision floor must remain level.",
+      "sha256": "e829ca536d913b8037a343b646d67024a2536f0230d4a2f23a57934896f961e9"
+    },
+    {
+      "id": "portal",
+      "path": "world/scenes/portal.png",
+      "width": 64,
+      "height": 64,
+      "anchor": [
+        32,
+        60
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        3,
+        3,
+        61,
+        61
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "notes": "Static generated portal; separate from arena backdrop.",
+      "sha256": "c8e23e71a93c5fe92bf15b83dc4e16da692891a91e6a42d368b4424548331a7c"
+    },
+    {
+      "id": "portal-frame-0",
+      "path": "world/scenes/portal/frame-00.png",
+      "width": 64,
+      "height": 64,
+      "anchor": [
+        32,
+        60
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        3,
+        3,
+        61,
+        61
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "notes": "Generated PixMiniMax output frame; unchanged input excluded.",
+      "sha256": "884afac9c15c70b88aaa394687d4ff0a22048381c993d51db7e47cd1ab46efff"
+    },
+    {
+      "id": "portal-frame-1",
+      "path": "world/scenes/portal/frame-01.png",
+      "width": 64,
+      "height": 64,
+      "anchor": [
+        32,
+        60
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        3,
+        3,
+        61,
+        61
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "notes": "Generated PixMiniMax output frame; unchanged input excluded.",
+      "sha256": "827ac92c1077c43c35e5e32859fd58cd60cdf134525703e73ea6a86c9d86c47f"
+    },
+    {
+      "id": "portal-frame-2",
+      "path": "world/scenes/portal/frame-02.png",
+      "width": 64,
+      "height": 64,
+      "anchor": [
+        32,
+        60
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        3,
+        3,
+        61,
+        61
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "notes": "Generated PixMiniMax output frame; unchanged input excluded.",
+      "sha256": "0bceba141f452c9be194447161a9d49ece00c828bbf5ed63e109e3ea2b33e0d7"
+    },
+    {
+      "id": "portal-frame-3",
+      "path": "world/scenes/portal/frame-03.png",
+      "width": 64,
+      "height": 64,
+      "anchor": [
+        32,
+        60
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        3,
+        3,
+        61,
+        61
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "notes": "Generated PixMiniMax output frame; unchanged input excluded.",
+      "sha256": "3abf0428d612dcceb461e3493930e804c7a6af08cd029e89684da3ca1b8e7b8d"
+    },
+    {
+      "id": "portal-frame-4",
+      "path": "world/scenes/portal/frame-04.png",
+      "width": 64,
+      "height": 64,
+      "anchor": [
+        32,
+        60
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        3,
+        3,
+        61,
+        61
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "notes": "Generated PixMiniMax output frame; unchanged input excluded.",
+      "sha256": "4d5eb5458bc736b6dc3e484720715feaaf9fb467e67239c8f13c8741e843506a"
+    },
+    {
+      "id": "portal-frame-5",
+      "path": "world/scenes/portal/frame-05.png",
+      "width": 64,
+      "height": 64,
+      "anchor": [
+        32,
+        60
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        3,
+        3,
+        61,
+        61
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "notes": "Generated PixMiniMax output frame; unchanged input excluded.",
+      "sha256": "85adc1b1b1033ac551dcd240a0e2a0a8b9e9f7de297a53fe42ba180dc928e2a3"
+    },
+    {
+      "id": "portal-frame-6",
+      "path": "world/scenes/portal/frame-06.png",
+      "width": 64,
+      "height": 64,
+      "anchor": [
+        32,
+        60
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        3,
+        3,
+        61,
+        61
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "notes": "Generated PixMiniMax output frame; unchanged input excluded.",
+      "sha256": "ff4fb172d5db192a930c959099173933ab8ad1c266df06c57de7efa0d6c5a260"
+    },
+    {
+      "id": "portal-frame-7",
+      "path": "world/scenes/portal/frame-07.png",
+      "width": 64,
+      "height": 64,
+      "anchor": [
+        32,
+        60
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        3,
+        3,
+        61,
+        61
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "notes": "Generated PixMiniMax output frame; unchanged input excluded.",
+      "sha256": "ca83d5d91e53be3ab668ef3e6f74aff2fc0f8bfd26efc3021f2dcdfc96652e52"
+    },
+    {
+      "id": "portal-animation",
+      "path": "world/scenes/portal-animation.png",
+      "width": 512,
+      "height": 64,
+      "anchor": [
+        32,
+        60
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        3,
+        3,
+        509,
+        61
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "frame_width": 64,
+      "frame_height": 64,
+      "frame_count": 8,
+      "fps": 8,
+      "loop": true,
+      "notes": "Eight actual generated frames, row-major. Subtle energy flicker/swirl, stationary ring. No synthesized tween frames.",
+      "sha256": "b9f18db4e5a91677ca255471b91b375cc22f613915aba12f37afe907d22b0eea"
+    },
+    {
+      "id": "spikes-top",
+      "path": "world/terrain/spikes-top.png",
+      "width": 64,
+      "height": 32,
+      "anchor": [
+        0,
+        30
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        12,
+        4,
+        52,
+        28
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "notes": "Generated upward spike trap; collision tips must use sprite alpha, not the full canvas.",
+      "sha256": "1a65d351a04d164943e70917d66a098e6ff34ff27fb4d6ecc1e1edf252bbbc41"
+    },
+    {
+      "id": "spikes-side",
+      "path": "world/terrain/spikes-side.png",
+      "width": 32,
+      "height": 64,
+      "anchor": [
+        0,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        4,
+        12,
+        28,
+        52
+      ],
+      "provenance": "90 degree rotation of generated upward spike trap; points right",
+      "notes": "For left-facing spikes use horizontal flip; visual dimensions are 32x64.",
+      "sha256": "e7b6ed2a4b8324c9ee8f770f7a315274b71e0132f3bbd6d1d7d43acd56903329"
+    },
+    {
+      "id": "lantern",
+      "path": "world/terrain/lantern.png",
+      "width": 32,
+      "height": 64,
+      "anchor": [
+        16,
+        0
+      ],
+      "alpha": "binary",
+      "opaque_bbox": [
+        8,
+        0,
+        26,
+        58
+      ],
+      "provenance": "PixelLab generated; non-generative cleanup only",
+      "notes": "Generated paper lantern with hanging cord; warm amber detail.",
+      "sha256": "2ac2fae7076cc1dbd6471f29f0d94d9f451745d446dbaea8c47d9fdcd89cf256"
+    }
+  ],
+  "parallax_draw_order": [
+    "sky",
+    "moon",
+    "far-mountains",
+    "far-clouds",
+    "distant-temples",
+    "near-clouds"
+  ],
+  "limitations": [
+    "Portal animation is a subtle loop, not an opening cinematic.",
+    "Scene backdrops are baked cutscene/map/arena images; six gameplay parallax layers remain independent.",
+    "Collision, UI layout and browser integration are parent-owned and untested here."
+  ]
+}

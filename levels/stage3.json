@@ -1,0 +1,1125 @@
+{
+  "version": 1,
+  "id": "stage3",
+  "title": "Stage 3 — The Mask Above the Bells",
+  "bounds": {
+    "x": 0,
+    "y": -1240,
+    "w": 10800,
+    "h": 2140
+  },
+  "camera": {
+    "x": 0,
+    "y": -1240,
+    "w": 10800,
+    "h": 1980
+  },
+  "spawn": {
+    "x": 96,
+    "y": 300,
+    "face": 1
+  },
+  "surfaces": [
+    {
+      "id": "arrival-roof-left",
+      "x": 0,
+      "y": 300,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-left"
+    },
+    {
+      "id": "arrival-roof-center",
+      "x": 32,
+      "y": 300,
+      "w": 696,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "arrival-roof-right",
+      "x": 728,
+      "y": 300,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-right"
+    },
+    {
+      "id": "bear-court-roof-left",
+      "x": 880,
+      "y": 260,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-left"
+    },
+    {
+      "id": "bear-court-roof-center",
+      "x": 912,
+      "y": 260,
+      "w": 616,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "bear-court-roof-right",
+      "x": 1528,
+      "y": 260,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-right"
+    },
+    {
+      "id": "bell-tower-roof-left",
+      "x": 1560,
+      "y": -160,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-left"
+    },
+    {
+      "id": "bell-tower-roof-center",
+      "x": 1592,
+      "y": -160,
+      "w": 396,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "bell-tower-roof-right",
+      "x": 1988,
+      "y": -160,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-right"
+    },
+    {
+      "id": "ghost-court-roof-left",
+      "x": 2140,
+      "y": -200,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-left"
+    },
+    {
+      "id": "ghost-court-roof-center",
+      "x": 2172,
+      "y": -200,
+      "w": 576,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "ghost-court-roof-right",
+      "x": 2748,
+      "y": -200,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-right"
+    },
+    {
+      "id": "broken-ridge-roof-left",
+      "x": 2900,
+      "y": -160,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-left"
+    },
+    {
+      "id": "broken-ridge-roof-center",
+      "x": 2932,
+      "y": -160,
+      "w": 536,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "broken-ridge-roof-right",
+      "x": 3468,
+      "y": -160,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-right"
+    },
+    {
+      "id": "lower-bell-roof-left",
+      "x": 3620,
+      "y": 0,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-left"
+    },
+    {
+      "id": "lower-bell-roof-center",
+      "x": 3652,
+      "y": 0,
+      "w": 576,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "lower-bell-roof-right",
+      "x": 4228,
+      "y": 0,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-right"
+    },
+    {
+      "id": "venom-tower-roof-left",
+      "x": 4260,
+      "y": -500,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-left"
+    },
+    {
+      "id": "venom-tower-roof-center",
+      "x": 4292,
+      "y": -500,
+      "w": 476,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "venom-tower-roof-right",
+      "x": 4768,
+      "y": -500,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-right"
+    },
+    {
+      "id": "cloud-gallery-roof-left",
+      "x": 4940,
+      "y": -540,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-left"
+    },
+    {
+      "id": "cloud-gallery-roof-center",
+      "x": 4972,
+      "y": -540,
+      "w": 456,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "cloud-gallery-roof-right",
+      "x": 5428,
+      "y": -540,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-right"
+    },
+    {
+      "id": "red-eaves-roof-left",
+      "x": 5580,
+      "y": -400,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-left"
+    },
+    {
+      "id": "red-eaves-roof-center",
+      "x": 5612,
+      "y": -400,
+      "w": 456,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "red-eaves-roof-right",
+      "x": 6068,
+      "y": -400,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-right"
+    },
+    {
+      "id": "moon-tower-roof-left",
+      "x": 6100,
+      "y": -900,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-left"
+    },
+    {
+      "id": "moon-tower-roof-center",
+      "x": 6132,
+      "y": -900,
+      "w": 496,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "moon-tower-roof-right",
+      "x": 6628,
+      "y": -900,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-right"
+    },
+    {
+      "id": "summit-duel-roof-left",
+      "x": 6800,
+      "y": -900,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-left"
+    },
+    {
+      "id": "summit-duel-roof-center",
+      "x": 6832,
+      "y": -900,
+      "w": 556,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "summit-duel-roof-right",
+      "x": 7388,
+      "y": -900,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-right"
+    },
+    {
+      "id": "bell-descent-roof-left",
+      "x": 7540,
+      "y": -720,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-left"
+    },
+    {
+      "id": "bell-descent-roof-center",
+      "x": 7572,
+      "y": -720,
+      "w": 316,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "bell-descent-roof-right",
+      "x": 7888,
+      "y": -720,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-right"
+    },
+    {
+      "id": "spirit-descent-roof-left",
+      "x": 8040,
+      "y": -540,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-left"
+    },
+    {
+      "id": "spirit-descent-roof-center",
+      "x": 8072,
+      "y": -540,
+      "w": 356,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "spirit-descent-roof-right",
+      "x": 8428,
+      "y": -540,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-right"
+    },
+    {
+      "id": "last-guard-roof-left",
+      "x": 8580,
+      "y": -360,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-left"
+    },
+    {
+      "id": "last-guard-roof-center",
+      "x": 8612,
+      "y": -360,
+      "w": 516,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "last-guard-roof-right",
+      "x": 9128,
+      "y": -360,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-right"
+    },
+    {
+      "id": "mask-hall-roof-left",
+      "x": 9280,
+      "y": -500,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-left"
+    },
+    {
+      "id": "mask-hall-roof-center",
+      "x": 9312,
+      "y": -500,
+      "w": 1456,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "mask-hall-roof-right",
+      "x": 10768,
+      "y": -500,
+      "w": 32,
+      "h": 16,
+      "kind": "solid",
+      "art": "roof-right"
+    },
+    {
+      "id": "venom-rest-beam",
+      "x": 4100,
+      "y": -175,
+      "w": 160,
+      "h": 12,
+      "kind": "oneWay",
+      "art": "wood-beam"
+    },
+    {
+      "id": "moon-rest-beam",
+      "x": 5940,
+      "y": -575,
+      "w": 160,
+      "h": 12,
+      "kind": "oneWay",
+      "art": "wood-beam"
+    }
+  ],
+  "walls": [
+    {
+      "id": "arrival-wall",
+      "x": 0,
+      "y": 316,
+      "w": 760,
+      "h": 384,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "bear-court-wall",
+      "x": 880,
+      "y": 276,
+      "w": 680,
+      "h": 424,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "bell-tower-wall",
+      "x": 1560,
+      "y": -144,
+      "w": 460,
+      "h": 844,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "ghost-court-wall",
+      "x": 2140,
+      "y": -184,
+      "w": 640,
+      "h": 884,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "broken-ridge-wall",
+      "x": 2900,
+      "y": -144,
+      "w": 600,
+      "h": 844,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "lower-bell-wall",
+      "x": 3620,
+      "y": 16,
+      "w": 640,
+      "h": 684,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "venom-tower-wall",
+      "x": 4260,
+      "y": -484,
+      "w": 540,
+      "h": 1184,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "cloud-gallery-wall",
+      "x": 4940,
+      "y": -524,
+      "w": 520,
+      "h": 1224,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "red-eaves-wall",
+      "x": 5580,
+      "y": -384,
+      "w": 520,
+      "h": 1084,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "moon-tower-wall",
+      "x": 6100,
+      "y": -884,
+      "w": 560,
+      "h": 1584,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "summit-duel-wall",
+      "x": 6800,
+      "y": -884,
+      "w": 620,
+      "h": 1584,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "bell-descent-wall",
+      "x": 7540,
+      "y": -704,
+      "w": 380,
+      "h": 1404,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "spirit-descent-wall",
+      "x": 8040,
+      "y": -524,
+      "w": 420,
+      "h": 1224,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "last-guard-wall",
+      "x": 8580,
+      "y": -344,
+      "w": 580,
+      "h": 1044,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "mask-hall-wall",
+      "x": 9280,
+      "y": -484,
+      "w": 1520,
+      "h": 1184,
+      "climbable": true,
+      "art": "wall"
+    }
+  ],
+  "hazards": [
+    {
+      "id": "arrival-pit",
+      "x": 760,
+      "y": 520,
+      "w": 120,
+      "h": 380,
+      "type": "pit",
+      "damage": 1
+    },
+    {
+      "id": "bell-tower-pit",
+      "x": 2020,
+      "y": 60,
+      "w": 120,
+      "h": 840,
+      "type": "pit",
+      "damage": 1
+    },
+    {
+      "id": "ghost-court-pit",
+      "x": 2780,
+      "y": 60,
+      "w": 120,
+      "h": 840,
+      "type": "pit",
+      "damage": 1
+    },
+    {
+      "id": "broken-ridge-pit",
+      "x": 3500,
+      "y": 220,
+      "w": 120,
+      "h": 680,
+      "type": "pit",
+      "damage": 1
+    },
+    {
+      "id": "venom-tower-pit",
+      "x": 4800,
+      "y": -280,
+      "w": 140,
+      "h": 1180,
+      "type": "pit",
+      "damage": 1
+    },
+    {
+      "id": "cloud-gallery-pit",
+      "x": 5460,
+      "y": -180,
+      "w": 120,
+      "h": 1080,
+      "type": "pit",
+      "damage": 1
+    },
+    {
+      "id": "moon-tower-pit",
+      "x": 6660,
+      "y": -680,
+      "w": 140,
+      "h": 1580,
+      "type": "pit",
+      "damage": 1
+    },
+    {
+      "id": "summit-duel-pit",
+      "x": 7420,
+      "y": -500,
+      "w": 120,
+      "h": 1400,
+      "type": "pit",
+      "damage": 1
+    },
+    {
+      "id": "bell-descent-pit",
+      "x": 7920,
+      "y": -320,
+      "w": 120,
+      "h": 1220,
+      "type": "pit",
+      "damage": 1
+    },
+    {
+      "id": "spirit-descent-pit",
+      "x": 8460,
+      "y": -140,
+      "w": 120,
+      "h": 1040,
+      "type": "pit",
+      "damage": 1
+    },
+    {
+      "id": "last-guard-pit",
+      "x": 9160,
+      "y": -140,
+      "w": 120,
+      "h": 1040,
+      "type": "pit",
+      "damage": 1
+    },
+    {
+      "id": "ridge-spikes",
+      "x": 3170,
+      "y": -176,
+      "w": 56,
+      "h": 16,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-top"
+    },
+    {
+      "id": "eave-spikes",
+      "x": 5770,
+      "y": -416,
+      "w": 56,
+      "h": 16,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-top"
+    }
+  ],
+  "enemies": [
+    {
+      "id": "gate-scout",
+      "type": "zombie",
+      "x": 440,
+      "y": 300,
+      "face": -1,
+      "patrol": {
+        "min": 380,
+        "max": 560
+      }
+    },
+    {
+      "id": "court-warden",
+      "type": "bear",
+      "x": 1280,
+      "y": 260,
+      "face": -1,
+      "patrol": {
+        "min": 1210,
+        "max": 1390
+      }
+    },
+    {
+      "id": "bell-scout",
+      "type": "zombie",
+      "x": 1850,
+      "y": -160,
+      "face": -1,
+      "patrol": {
+        "min": 1790,
+        "max": 1900
+      }
+    },
+    {
+      "id": "first-spirit",
+      "type": "ghost",
+      "x": 2470,
+      "y": -396,
+      "face": -1,
+      "patrol": {
+        "min": 2440,
+        "max": 2500
+      }
+    },
+    {
+      "id": "ridge-scout",
+      "type": "zombie",
+      "x": 3390,
+      "y": -160,
+      "face": -1,
+      "patrol": {
+        "min": 3340,
+        "max": 3440
+      }
+    },
+    {
+      "id": "lower-warden",
+      "type": "bear",
+      "x": 4010,
+      "y": 0,
+      "face": -1,
+      "patrol": {
+        "min": 3940,
+        "max": 4080
+      }
+    },
+    {
+      "id": "venom-sentry",
+      "type": "spider",
+      "x": 4242,
+      "y": -255,
+      "face": -1,
+      "patrol": {
+        "min": -295,
+        "max": -240
+      },
+      "wallId": "venom-tower-wall"
+    },
+    {
+      "id": "tower-warden",
+      "type": "bear",
+      "x": 4610,
+      "y": -500,
+      "face": -1,
+      "patrol": {
+        "min": 4540,
+        "max": 4640
+      }
+    },
+    {
+      "id": "cloud-spirit",
+      "type": "ghost",
+      "x": 5200,
+      "y": -736,
+      "face": -1,
+      "patrol": {
+        "min": 5180,
+        "max": 5220
+      }
+    },
+    {
+      "id": "eave-scout",
+      "type": "zombie",
+      "x": 5990,
+      "y": -400,
+      "face": -1,
+      "patrol": {
+        "min": 5940,
+        "max": 6030
+      }
+    },
+    {
+      "id": "moon-sentry",
+      "type": "spider",
+      "x": 6082,
+      "y": -655,
+      "face": -1,
+      "patrol": {
+        "min": -695,
+        "max": -640
+      },
+      "wallId": "moon-tower-wall"
+    },
+    {
+      "id": "summit-warden",
+      "type": "bear",
+      "x": 7150,
+      "y": -900,
+      "face": -1,
+      "patrol": {
+        "min": 7080,
+        "max": 7230
+      }
+    },
+    {
+      "id": "descent-scout",
+      "type": "zombie",
+      "x": 7710,
+      "y": -720,
+      "face": -1,
+      "patrol": {
+        "min": 7670,
+        "max": 7730
+      }
+    },
+    {
+      "id": "last-spirit",
+      "type": "ghost",
+      "x": 8250,
+      "y": -736,
+      "face": -1,
+      "patrol": {
+        "min": 8230,
+        "max": 8270
+      }
+    },
+    {
+      "id": "last-warden",
+      "type": "bear",
+      "x": 8900,
+      "y": -360,
+      "face": -1,
+      "patrol": {
+        "min": 8840,
+        "max": 8970
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "court-rest",
+      "x": 936,
+      "y": 196,
+      "w": 48,
+      "h": 64,
+      "spawn": {
+        "x": 960,
+        "y": 260,
+        "face": 1
+      }
+    },
+    {
+      "id": "bell-rest",
+      "x": 1636,
+      "y": -224,
+      "w": 48,
+      "h": 64,
+      "spawn": {
+        "x": 1660,
+        "y": -160,
+        "face": 1
+      }
+    },
+    {
+      "id": "lower-rest",
+      "x": 3676,
+      "y": -64,
+      "w": 48,
+      "h": 64,
+      "spawn": {
+        "x": 3700,
+        "y": 0,
+        "face": 1
+      }
+    },
+    {
+      "id": "tower-rest",
+      "x": 4346,
+      "y": -564,
+      "w": 48,
+      "h": 64,
+      "spawn": {
+        "x": 4370,
+        "y": -500,
+        "face": 1
+      }
+    },
+    {
+      "id": "moon-rest",
+      "x": 6186,
+      "y": -964,
+      "w": 48,
+      "h": 64,
+      "spawn": {
+        "x": 6210,
+        "y": -900,
+        "face": 1
+      }
+    },
+    {
+      "id": "descent-rest",
+      "x": 7541,
+      "y": -784,
+      "w": 48,
+      "h": 64,
+      "spawn": {
+        "x": 7565,
+        "y": -720,
+        "face": 1
+      }
+    },
+    {
+      "id": "mask-rest",
+      "x": 9396,
+      "y": -564,
+      "w": 48,
+      "h": 64,
+      "spawn": {
+        "x": 9420,
+        "y": -500,
+        "face": 1
+      }
+    }
+  ],
+  "boss": {
+    "id": "masked-shadow",
+    "type": "masked-mutant-boss",
+    "x": 9990,
+    "y": -500,
+    "face": -1,
+    "arena": {
+      "x": 9600,
+      "y": -820,
+      "w": 840,
+      "h": 320
+    },
+    "trigger": {
+      "x": 9640,
+      "y": -650,
+      "w": 880,
+      "h": 150
+    }
+  },
+  "exit": {
+    "x": 10520,
+    "y": -580,
+    "w": 64,
+    "h": 80,
+    "requiresBoss": true
+  },
+  "background": [
+    {
+      "asset": "sky",
+      "factorX": 0,
+      "factorY": 0,
+      "driftX": 0,
+      "x": 0,
+      "y": 0,
+      "repeatX": true
+    },
+    {
+      "asset": "moon",
+      "factorX": 0.025,
+      "factorY": 0.015,
+      "driftX": 0,
+      "x": 430,
+      "y": 24,
+      "repeatX": false
+    },
+    {
+      "asset": "far-mountains",
+      "factorX": 0.09,
+      "factorY": 0.025,
+      "driftX": 0,
+      "x": 0,
+      "y": 170,
+      "repeatX": true
+    },
+    {
+      "asset": "distant-temples",
+      "factorX": 0.19,
+      "factorY": 0.04,
+      "driftX": 0,
+      "x": 0,
+      "y": 156,
+      "repeatX": true
+    },
+    {
+      "asset": "far-clouds",
+      "factorX": 0.12,
+      "factorY": 0.02,
+      "driftX": 5,
+      "x": 0,
+      "y": 52,
+      "repeatX": true
+    },
+    {
+      "asset": "near-clouds",
+      "factorX": 0.32,
+      "factorY": 0.06,
+      "driftX": -11,
+      "x": 0,
+      "y": 112,
+      "repeatX": true
+    }
+  ],
+  "decor": [
+    {
+      "asset": "lantern",
+      "x": 56,
+      "y": 252
+    },
+    {
+      "asset": "lantern",
+      "x": 936,
+      "y": 212
+    },
+    {
+      "asset": "lantern",
+      "x": 1616,
+      "y": -208
+    },
+    {
+      "asset": "lantern",
+      "x": 2196,
+      "y": -248
+    },
+    {
+      "asset": "lantern",
+      "x": 2956,
+      "y": -208
+    },
+    {
+      "asset": "lantern",
+      "x": 3676,
+      "y": -48
+    },
+    {
+      "asset": "lantern",
+      "x": 4316,
+      "y": -548
+    },
+    {
+      "asset": "lantern",
+      "x": 4996,
+      "y": -588
+    },
+    {
+      "asset": "lantern",
+      "x": 5636,
+      "y": -448
+    },
+    {
+      "asset": "lantern",
+      "x": 6156,
+      "y": -948
+    },
+    {
+      "asset": "lantern",
+      "x": 6856,
+      "y": -948
+    },
+    {
+      "asset": "lantern",
+      "x": 7596,
+      "y": -768
+    },
+    {
+      "asset": "lantern",
+      "x": 8096,
+      "y": -588
+    },
+    {
+      "asset": "lantern",
+      "x": 8636,
+      "y": -408
+    },
+    {
+      "asset": "lantern",
+      "x": 9336,
+      "y": -548
+    },
+    {
+      "asset": "boss-arena",
+      "x": 10000,
+      "y": -500
+    }
+  ],
+  "music": "stage3"
+}

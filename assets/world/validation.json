@@ -1,0 +1,421 @@
+{
+  "status": "native-assets-verified-runtime-not-run",
+  "assets": [
+    {
+      "id": "roof-left",
+      "path": "world/terrain/roof-left.png",
+      "size": [
+        96,
+        128
+      ],
+      "sha256": "d7a5400824d6d339877d6049fb806e5297334fe25e658bf9f05238d5a3b81d14"
+    },
+    {
+      "id": "roof-center",
+      "path": "world/terrain/roof-center.png",
+      "size": [
+        64,
+        96
+      ],
+      "sha256": "71fc4f95c7c5b56cb5c7c28a36e979777b2672516f23a8a1cbf69234fdfe8e36"
+    },
+    {
+      "id": "roof-right",
+      "path": "world/terrain/roof-right.png",
+      "size": [
+        96,
+        128
+      ],
+      "sha256": "04ce683fe7affd14c36e78d7845998109e6ff47a60ab1b3f3fe2e901ea91349e"
+    },
+    {
+      "id": "roof-ridge",
+      "path": "world/terrain/roof-ridge.png",
+      "size": [
+        64,
+        16
+      ],
+      "sha256": "20d13ddd7210d9c648de9902eb1386f036b9a3b635d231094e110f9f12e36bb7"
+    },
+    {
+      "id": "wall",
+      "path": "world/terrain/wall.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "5e1660a0d2d861a5f60c7241cbb51b18ad15190a0d4b0b55684b4988c7e27057"
+    },
+    {
+      "id": "wood-beam",
+      "path": "world/terrain/wood-beam.png",
+      "size": [
+        16,
+        64
+      ],
+      "sha256": "2b894f6d0798cc010b201bd2817f4c9fbae9ae4f143c097f9b3ee0e408640bdd"
+    },
+    {
+      "id": "eave",
+      "path": "world/terrain/eave.png",
+      "size": [
+        64,
+        24
+      ],
+      "sha256": "5b2394776f4b01632641407ad7c4a2b75e1ec8c033c0889aa4202f9926fa9409"
+    },
+    {
+      "id": "stone",
+      "path": "world/terrain/stone.png",
+      "size": [
+        64,
+        32
+      ],
+      "sha256": "566da4b0a88f4459634832a5f1d80b21b08347c02f222d6fac747250c0308602"
+    },
+    {
+      "id": "shoji-window",
+      "path": "world/terrain/shoji-window.png",
+      "size": [
+        51,
+        42
+      ],
+      "sha256": "0bc1916ec76cf1f60d79f1f17b347af01b8646f22e8c338cfdc5fcc1284b8743"
+    },
+    {
+      "id": "temple-facade",
+      "path": "world/source/temple-facade.png",
+      "size": [
+        512,
+        256
+      ],
+      "sha256": "ff2cb68913dcd5d6c295543fab2d181dc6268254ffb23ad15c9eeba0e30ffce6"
+    },
+    {
+      "id": "sky",
+      "path": "world/parallax/sky.png",
+      "size": [
+        160,
+        90
+      ],
+      "sha256": "45d951611d24fca872be570ada67724332aad192be8d0437ac9a7eaa40a3ac81"
+    },
+    {
+      "id": "moon",
+      "path": "world/parallax/moon.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "fce331025b0c276c6154a3fae6e20b8c5ea29b0f2671ab884000fdab0d6e3d3c"
+    },
+    {
+      "id": "far-mountains",
+      "path": "world/parallax/far-mountains.png",
+      "size": [
+        640,
+        96
+      ],
+      "sha256": "0d3ffddd93cd9536f4a79d79bfbb0fd004c7c2e91869ed513c5f47603bb738c2"
+    },
+    {
+      "id": "far-clouds",
+      "path": "world/parallax/far-clouds.png",
+      "size": [
+        320,
+        80
+      ],
+      "sha256": "c3e034c7e2a58fd30545bf5cf7f50c540effad15d96d58fd8cb0a99764f271b3"
+    },
+    {
+      "id": "near-clouds",
+      "path": "world/parallax/near-clouds.png",
+      "size": [
+        320,
+        80
+      ],
+      "sha256": "052911d009ece7705f5b78321967150a161d06e42066e509fe8e6ba77f80714c"
+    },
+    {
+      "id": "distant-temples",
+      "path": "world/parallax/distant-temples.png",
+      "size": [
+        640,
+        128
+      ],
+      "sha256": "6947db1688f021d97f62df608729c39837f6a1e0d288db8d280cfe2bdfe578e0"
+    },
+    {
+      "id": "home-interior",
+      "path": "world/scenes/home-interior.png",
+      "size": [
+        320,
+        180
+      ],
+      "sha256": "c36e3b511ccbe2f3828e96e8e8544612e7e05554f999fb5e33503e613b4588bd"
+    },
+    {
+      "id": "table-candle",
+      "path": "world/scenes/table-candle.png",
+      "size": [
+        128,
+        96
+      ],
+      "sha256": "a441c09be63f52d700e914fbb565ac05b01b7ea6235c09f93bf44d097a656f14"
+    },
+    {
+      "id": "overworld",
+      "path": "world/scenes/overworld.png",
+      "size": [
+        320,
+        180
+      ],
+      "sha256": "e3284a070d02f5692f0b9e8f1189320df428b2b94694e0de8fc38e71ef642016"
+    },
+    {
+      "id": "boss-arena",
+      "path": "world/scenes/boss-arena.png",
+      "size": [
+        320,
+        180
+      ],
+      "sha256": "e829ca536d913b8037a343b646d67024a2536f0230d4a2f23a57934896f961e9"
+    },
+    {
+      "id": "portal",
+      "path": "world/scenes/portal.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "c8e23e71a93c5fe92bf15b83dc4e16da692891a91e6a42d368b4424548331a7c"
+    },
+    {
+      "id": "portal-frame-0",
+      "path": "world/scenes/portal/frame-00.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "884afac9c15c70b88aaa394687d4ff0a22048381c993d51db7e47cd1ab46efff"
+    },
+    {
+      "id": "portal-frame-1",
+      "path": "world/scenes/portal/frame-01.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "827ac92c1077c43c35e5e32859fd58cd60cdf134525703e73ea6a86c9d86c47f"
+    },
+    {
+      "id": "portal-frame-2",
+      "path": "world/scenes/portal/frame-02.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "0bceba141f452c9be194447161a9d49ece00c828bbf5ed63e109e3ea2b33e0d7"
+    },
+    {
+      "id": "portal-frame-3",
+      "path": "world/scenes/portal/frame-03.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "3abf0428d612dcceb461e3493930e804c7a6af08cd029e89684da3ca1b8e7b8d"
+    },
+    {
+      "id": "portal-frame-4",
+      "path": "world/scenes/portal/frame-04.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "4d5eb5458bc736b6dc3e484720715feaaf9fb467e67239c8f13c8741e843506a"
+    },
+    {
+      "id": "portal-frame-5",
+      "path": "world/scenes/portal/frame-05.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "85adc1b1b1033ac551dcd240a0e2a0a8b9e9f7de297a53fe42ba180dc928e2a3"
+    },
+    {
+      "id": "portal-frame-6",
+      "path": "world/scenes/portal/frame-06.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "ff4fb172d5db192a930c959099173933ab8ad1c266df06c57de7efa0d6c5a260"
+    },
+    {
+      "id": "portal-frame-7",
+      "path": "world/scenes/portal/frame-07.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "ca83d5d91e53be3ab668ef3e6f74aff2fc0f8bfd26efc3021f2dcdfc96652e52"
+    },
+    {
+      "id": "portal-animation",
+      "path": "world/scenes/portal-animation.png",
+      "size": [
+        512,
+        64
+      ],
+      "sha256": "b9f18db4e5a91677ca255471b91b375cc22f613915aba12f37afe907d22b0eea"
+    },
+    {
+      "id": "spikes-top",
+      "path": "world/terrain/spikes-top.png",
+      "size": [
+        64,
+        32
+      ],
+      "sha256": "1a65d351a04d164943e70917d66a098e6ff34ff27fb4d6ecc1e1edf252bbbc41"
+    },
+    {
+      "id": "spikes-side",
+      "path": "world/terrain/spikes-side.png",
+      "size": [
+        32,
+        64
+      ],
+      "sha256": "e7b6ed2a4b8324c9ee8f770f7a315274b71e0132f3bbd6d1d7d43acd56903329"
+    },
+    {
+      "id": "lantern",
+      "path": "world/terrain/lantern.png",
+      "size": [
+        32,
+        64
+      ],
+      "sha256": "2ac2fae7076cc1dbd6471f29f0d94d9f451745d446dbaea8c47d9fdcd89cf256"
+    },
+    {
+      "id": "map-node-home",
+      "path": "ui/map-node-home.png",
+      "size": [
+        64,
+        32
+      ],
+      "sha256": "52630ffbf249117a0be60c14f32201f21eb8f29f0852e40659d8e96f26eb7e23"
+    },
+    {
+      "id": "title-frame",
+      "path": "ui/title-frame.png",
+      "size": [
+        256,
+        128
+      ],
+      "sha256": "c8120df1fdaa75e075904be5b0b74adb48a8b94331c75323608012bb0be842f4"
+    },
+    {
+      "id": "help-bubble",
+      "path": "ui/help-bubble.png",
+      "size": [
+        192,
+        96
+      ],
+      "sha256": "96ce2cb5ea14e12d92757d9bcdb5c86de688d25a2ade1042a464a2be4063e196"
+    },
+    {
+      "id": "map-node-stage",
+      "path": "ui/map-node-stage.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "c9ff65dcc9f523a6a168a5d577da3f594eb0c1cac1d0a6311360868aa1aa8ddc"
+    },
+    {
+      "id": "map-node-locked",
+      "path": "ui/map-node-locked.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "4c38a51002b01ac31675c74ee5353ba011d0c3e720da616c04a4754e131cc99b"
+    },
+    {
+      "id": "map-node-complete",
+      "path": "ui/map-node-complete.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "1deeb846d04bb5c210ceedbe49178ac534e8cfd60f569011ec3defa49b1c8b7a"
+    },
+    {
+      "id": "health",
+      "path": "ui/health.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "ec3785809976db5ab3bfc18379157c1e592ef369e59a8a037006a8ed864cd7c4"
+    },
+    {
+      "id": "ammo",
+      "path": "ui/ammo.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "68437d4d9ebef8151eaad694c2a31201fe2529826a9a140610cb9529045dc5a6"
+    },
+    {
+      "id": "selection",
+      "path": "ui/selection.png",
+      "size": [
+        32,
+        32
+      ],
+      "sha256": "ea2e45b86678d131f14f8557b930b5f5d7094003c1a6442512a32b6537f4c360"
+    },
+    {
+      "id": "world2-tease",
+      "path": "ui/world2-tease.png",
+      "size": [
+        160,
+        90
+      ],
+      "sha256": "7ea58ff5164c2f424276fc3284d20761ae90b1402a47b97109e2ec506bd9005f"
+    },
+    {
+      "id": "menu-button-frame",
+      "path": "ui/menu-button-frame.png",
+      "size": [
+        160,
+        40
+      ],
+      "sha256": "e4831610de9ecc270fa1b96d2bb03206124cebc867e7a4ca19abf79aa3cfa863"
+    }
+  ],
+  "repeat_checks": [
+    {
+      "id": "far-mountains",
+      "exact_rgba_boundary_match": true
+    },
+    {
+      "id": "far-clouds",
+      "exact_rgba_boundary_match": true
+    },
+    {
+      "id": "near-clouds",
+      "exact_rgba_boundary_match": true
+    },
+    {
+      "id": "distant-temples",
+      "exact_rgba_boundary_match": true
+    }
+  ],
+  "manifest_entries": 44,
+  "png_files": 58
+}

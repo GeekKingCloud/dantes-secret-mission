@@ -1,0 +1,15 @@
+{
+  "music/stage1-approved.wav": "2d182f7a8194b231352ee80bbeac0dbefa634b085f0749134a6436dac0dd8a85",
+  "sfx/combo_impact.wav": "c832325aaefd9aed9fb1c7c14fbbb82f9f75ae241d1ced3e3cf1099ebbde7ee6",
+  "sfx/dash.wav": "400493a7494a08422cd37ed5df2642396f83ae336784ca97d1c030ee44854c32",
+  "sfx/defeat.wav": "af88427ac88e232d73c3d2b9f1860ab8d8d7a729f5362a51067d97246619ad34",
+  "sfx/doublejump.wav": "35e0d55ddea5753d04486b77fefb222e0a485bb8303c40b3b27a145ba4f72c7f",
+  "sfx/hurt.wav": "45bc99b7140349dcddeae351837e45699bb0dad5419751ca7bd0f112486a3a4e",
+  "sfx/jump.wav": "7cd1e65bbecdd168c0b4c611dd47d75eaf2339e212b984e46f7be9f7cf73c778",
+  "sfx/laser.wav": "ff48554c66c34f4398e9de046a9a0425626180bfe4e6479f61e2b64e8d724d8d",
+  "sfx/menu.wav": "76622a261cb7ff07cee566b1688e5b65524fc6590637326bfd510e45af487f9e",
+  "sfx/portal.wav": "10f06dda2812b550211632a253173d45a418bc5962dfbd07cc20c484e4cc5d3e",
+  "sfx/sword.wav": "4a2247be41c09098349fdb2cf424f008011a9f35a0ade81de67a75793487e8f8",
+  "sfx/venom.wav": "d1db4a03d7be62e3c40d86e2e1b9e15296d2e4f3d4720b4f69cafda096132417",
+  "sfx/victory.wav": "5423d110e8b5f49e11c555dec83fc2916ff5cb2670623800f1d762cab5a4127c"
+}

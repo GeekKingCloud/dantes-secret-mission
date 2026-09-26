@@ -1,0 +1,879 @@
+{
+  "version": 1,
+  "id": "stage2",
+  "title": "Bellwind Ascent",
+  "bounds": {
+    "x": 0,
+    "y": -2920,
+    "w": 4050,
+    "h": 3440
+  },
+  "camera": {
+    "x": 0,
+    "y": -2860,
+    "w": 4050,
+    "h": 3300
+  },
+  "spawn": {
+    "x": 80,
+    "y": 300,
+    "face": 1
+  },
+  "surfaces": [
+    {
+      "id": "primer-entry-roof",
+      "x": 0,
+      "y": 300,
+      "w": 584,
+      "h": 18,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "primer-entry-facade",
+      "x": 0,
+      "y": 318,
+      "w": 584,
+      "h": 70,
+      "kind": "solid",
+      "art": "wall"
+    },
+    {
+      "id": "primer-anchor-roof",
+      "x": 360,
+      "y": -300,
+      "w": 64,
+      "h": 18,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "primer-terrace-roof",
+      "x": 584,
+      "y": -120,
+      "w": 376,
+      "h": 18,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "primer-terrace-facade",
+      "x": 648,
+      "y": -102,
+      "w": 312,
+      "h": 70,
+      "kind": "solid",
+      "art": "wall"
+    },
+    {
+      "id": "venom-entry-roof",
+      "x": 1080,
+      "y": -120,
+      "w": 484,
+      "h": 18,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "venom-entry-facade",
+      "x": 1080,
+      "y": -102,
+      "w": 484,
+      "h": 70,
+      "kind": "solid",
+      "art": "wall"
+    },
+    {
+      "id": "venom-anchor-roof",
+      "x": 1340,
+      "y": -940,
+      "w": 64,
+      "h": 18,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "venom-terrace-roof",
+      "x": 1564,
+      "y": -760,
+      "w": 356,
+      "h": 18,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "venom-terrace-facade",
+      "x": 1628,
+      "y": -742,
+      "w": 292,
+      "h": 70,
+      "kind": "solid",
+      "art": "wall"
+    },
+    {
+      "id": "belfry-entry-roof",
+      "x": 2040,
+      "y": -760,
+      "w": 532,
+      "h": 18,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "belfry-entry-facade",
+      "x": 2040,
+      "y": -742,
+      "w": 532,
+      "h": 70,
+      "kind": "solid",
+      "art": "wall"
+    },
+    {
+      "id": "belfry-anchor-roof",
+      "x": 2300,
+      "y": -1780,
+      "w": 64,
+      "h": 18,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "belfry-terrace-roof",
+      "x": 2572,
+      "y": -1600,
+      "w": 308,
+      "h": 18,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "belfry-terrace-facade",
+      "x": 2636,
+      "y": -1582,
+      "w": 244,
+      "h": 70,
+      "kind": "solid",
+      "art": "wall"
+    },
+    {
+      "id": "crown-entry-roof",
+      "x": 3000,
+      "y": -1600,
+      "w": 484,
+      "h": 18,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "crown-entry-facade",
+      "x": 3000,
+      "y": -1582,
+      "w": 484,
+      "h": 70,
+      "kind": "solid",
+      "art": "wall"
+    },
+    {
+      "id": "crown-anchor-roof",
+      "x": 3260,
+      "y": -2820,
+      "w": 64,
+      "h": 18,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "crown-terrace-roof",
+      "x": 3484,
+      "y": -2640,
+      "w": 496,
+      "h": 18,
+      "kind": "solid",
+      "art": "roof-center"
+    },
+    {
+      "id": "crown-terrace-facade",
+      "x": 3548,
+      "y": -2622,
+      "w": 432,
+      "h": 70,
+      "kind": "solid",
+      "art": "wall"
+    },
+    {
+      "id": "belfry-rest-beam",
+      "x": 2504,
+      "y": -1190,
+      "w": 68,
+      "h": 12,
+      "kind": "oneWay",
+      "art": "wood-beam"
+    },
+    {
+      "id": "crown-rest-beam",
+      "x": 3416,
+      "y": -1990,
+      "w": 68,
+      "h": 12,
+      "kind": "oneWay",
+      "art": "wood-beam"
+    },
+    {
+      "id": "crown-upper-rest-beam",
+      "x": 3324,
+      "y": -2390,
+      "w": 68,
+      "h": 12,
+      "kind": "oneWay",
+      "art": "wood-beam"
+    }
+  ],
+  "walls": [
+    {
+      "id": "primer-left-wall",
+      "x": 360,
+      "y": -282,
+      "w": 64,
+      "h": 486,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "primer-right-wall",
+      "x": 584,
+      "y": -102,
+      "w": 64,
+      "h": 402,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "venom-left-wall",
+      "x": 1340,
+      "y": -922,
+      "w": 64,
+      "h": 706,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "venom-right-wall",
+      "x": 1564,
+      "y": -742,
+      "w": 64,
+      "h": 622,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "belfry-left-wall",
+      "x": 2300,
+      "y": -1762,
+      "w": 64,
+      "h": 906,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "belfry-right-wall",
+      "x": 2572,
+      "y": -1582,
+      "w": 64,
+      "h": 822,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "crown-left-wall",
+      "x": 3260,
+      "y": -2802,
+      "w": 64,
+      "h": 1106,
+      "climbable": true,
+      "art": "wall"
+    },
+    {
+      "id": "crown-right-wall",
+      "x": 3484,
+      "y": -2622,
+      "w": 64,
+      "h": 1022,
+      "climbable": true,
+      "art": "wall"
+    }
+  ],
+  "hazards": [
+    {
+      "id": "primer-outer-seal",
+      "x": 348,
+      "y": -300,
+      "w": 12,
+      "h": 504,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-side"
+    },
+    {
+      "id": "primer-anchor-cap",
+      "x": 348,
+      "y": -316,
+      "w": 76,
+      "h": 16,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-top"
+    },
+    {
+      "id": "primer-exit-cap",
+      "x": 584,
+      "y": -136,
+      "w": 48,
+      "h": 16,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-top"
+    },
+    {
+      "id": "primer-right-strip-1",
+      "x": 572,
+      "y": 30,
+      "w": 12,
+      "h": 36,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-side"
+    },
+    {
+      "id": "primer-ravine",
+      "x": 960,
+      "y": 25,
+      "w": 120,
+      "h": 120,
+      "type": "pit",
+      "damage": 1
+    },
+    {
+      "id": "venom-outer-seal",
+      "x": 1328,
+      "y": -940,
+      "w": 12,
+      "h": 724,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-side"
+    },
+    {
+      "id": "venom-anchor-cap",
+      "x": 1328,
+      "y": -956,
+      "w": 76,
+      "h": 16,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-top"
+    },
+    {
+      "id": "venom-exit-cap",
+      "x": 1564,
+      "y": -776,
+      "w": 48,
+      "h": 16,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-top"
+    },
+    {
+      "id": "venom-right-strip-1",
+      "x": 1552,
+      "y": -360,
+      "w": 12,
+      "h": 44,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-side"
+    },
+    {
+      "id": "venom-right-strip-2",
+      "x": 1552,
+      "y": -700,
+      "w": 12,
+      "h": 44,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-side"
+    },
+    {
+      "id": "venom-left-strip-1",
+      "x": 1404,
+      "y": -530,
+      "w": 12,
+      "h": 44,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-side"
+    },
+    {
+      "id": "venom-ravine",
+      "x": 1920,
+      "y": -615,
+      "w": 120,
+      "h": 120,
+      "type": "pit",
+      "damage": 1
+    },
+    {
+      "id": "belfry-outer-seal",
+      "x": 2288,
+      "y": -1780,
+      "w": 12,
+      "h": 924,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-side"
+    },
+    {
+      "id": "belfry-anchor-cap",
+      "x": 2288,
+      "y": -1796,
+      "w": 76,
+      "h": 16,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-top"
+    },
+    {
+      "id": "belfry-exit-cap",
+      "x": 2572,
+      "y": -1616,
+      "w": 32,
+      "h": 16,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-top"
+    },
+    {
+      "id": "belfry-right-strip-1",
+      "x": 2560,
+      "y": -1000,
+      "w": 12,
+      "h": 44,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-side"
+    },
+    {
+      "id": "belfry-right-strip-2",
+      "x": 2560,
+      "y": -1340,
+      "w": 12,
+      "h": 44,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-side"
+    },
+    {
+      "id": "belfry-left-strip-1",
+      "x": 2364,
+      "y": -1170,
+      "w": 12,
+      "h": 44,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-side"
+    },
+    {
+      "id": "belfry-left-strip-2",
+      "x": 2364,
+      "y": -1510,
+      "w": 12,
+      "h": 44,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-side"
+    },
+    {
+      "id": "belfry-ravine",
+      "x": 2880,
+      "y": -1455,
+      "w": 120,
+      "h": 120,
+      "type": "pit",
+      "damage": 1
+    },
+    {
+      "id": "crown-outer-seal",
+      "x": 3248,
+      "y": -2820,
+      "w": 12,
+      "h": 1124,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-side"
+    },
+    {
+      "id": "crown-anchor-cap",
+      "x": 3248,
+      "y": -2836,
+      "w": 76,
+      "h": 16,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-top"
+    },
+    {
+      "id": "crown-exit-cap",
+      "x": 3484,
+      "y": -2656,
+      "w": 48,
+      "h": 16,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-top"
+    },
+    {
+      "id": "crown-right-strip-1",
+      "x": 3472,
+      "y": -1840,
+      "w": 12,
+      "h": 44,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-side"
+    },
+    {
+      "id": "crown-right-strip-2",
+      "x": 3472,
+      "y": -2180,
+      "w": 12,
+      "h": 44,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-side"
+    },
+    {
+      "id": "crown-right-strip-3",
+      "x": 3472,
+      "y": -2520,
+      "w": 12,
+      "h": 44,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-side"
+    },
+    {
+      "id": "crown-left-strip-1",
+      "x": 3324,
+      "y": -2010,
+      "w": 12,
+      "h": 44,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-side"
+    },
+    {
+      "id": "crown-left-strip-2",
+      "x": 3324,
+      "y": -2350,
+      "w": 12,
+      "h": 44,
+      "type": "spikes",
+      "damage": 1,
+      "art": "spikes-side"
+    }
+  ],
+  "enemies": [
+    {
+      "id": "gate-watch",
+      "type": "zombie",
+      "x": 240,
+      "y": 300,
+      "face": -1,
+      "patrol": {
+        "min": 190,
+        "max": 285
+      }
+    },
+    {
+      "id": "first-bell-watch",
+      "type": "zombie",
+      "x": 815,
+      "y": -120,
+      "face": -1,
+      "patrol": {
+        "min": 780,
+        "max": 880
+      }
+    },
+    {
+      "id": "mid-bell-watch",
+      "type": "zombie",
+      "x": 1770,
+      "y": -760,
+      "face": -1,
+      "patrol": {
+        "min": 1730,
+        "max": 1820
+      }
+    },
+    {
+      "id": "summit-watch",
+      "type": "zombie",
+      "x": 3740,
+      "y": -2640,
+      "face": -1,
+      "patrol": {
+        "min": 3690,
+        "max": 3780
+      }
+    },
+    {
+      "id": "venom-instructor",
+      "type": "spider",
+      "x": 1418,
+      "y": -260,
+      "face": 1,
+      "patrol": {
+        "min": -276,
+        "max": -248
+      },
+      "wallId": "venom-left-wall"
+    },
+    {
+      "id": "crown-spitter",
+      "type": "spider",
+      "x": 3470,
+      "y": -2055,
+      "face": -1,
+      "patrol": {
+        "min": -2065,
+        "max": -2045
+      },
+      "wallId": "crown-right-wall"
+    },
+    {
+      "id": "ravine-ghost",
+      "type": "ghost",
+      "x": 1980,
+      "y": -960,
+      "face": -1,
+      "patrol": {
+        "min": 1964,
+        "max": 1996
+      }
+    },
+    {
+      "id": "high-bell-ghost",
+      "type": "ghost",
+      "x": 2730,
+      "y": -1800,
+      "face": -1,
+      "patrol": {
+        "min": 2690,
+        "max": 2760
+      }
+    }
+  ],
+  "checkpoints": [
+    {
+      "id": "primer-terrace-checkpoint",
+      "x": 672.0,
+      "y": -184,
+      "w": 96,
+      "h": 64,
+      "spawn": {
+        "x": 720,
+        "y": -120,
+        "face": 1
+      }
+    },
+    {
+      "id": "venom-terrace-checkpoint",
+      "x": 1652.0,
+      "y": -824,
+      "w": 96,
+      "h": 64,
+      "spawn": {
+        "x": 1670,
+        "y": -760,
+        "face": 1
+      }
+    },
+    {
+      "id": "belfry-terrace-checkpoint",
+      "x": 2660,
+      "y": -1664,
+      "w": 96,
+      "h": 64,
+      "spawn": {
+        "x": 2708,
+        "y": -1600,
+        "face": 1
+      }
+    },
+    {
+      "id": "crown-terrace-checkpoint",
+      "x": 3572.0,
+      "y": -2704,
+      "w": 96,
+      "h": 64,
+      "spawn": {
+        "x": 3620,
+        "y": -2640,
+        "face": 1
+      }
+    },
+    {
+      "id": "belfry-rest-checkpoint",
+      "x": 2504,
+      "y": -1254,
+      "w": 66,
+      "h": 64,
+      "spawn": {
+        "x": 2537,
+        "y": -1190,
+        "face": 1
+      }
+    },
+    {
+      "id": "crown-rest-checkpoint",
+      "x": 3416.0,
+      "y": -2054,
+      "w": 66,
+      "h": 64,
+      "spawn": {
+        "x": 3428,
+        "y": -1990,
+        "face": 1
+      }
+    },
+    {
+      "id": "crown-upper-rest-checkpoint",
+      "x": 3325.0,
+      "y": -2454,
+      "w": 66,
+      "h": 64,
+      "spawn": {
+        "x": 3358,
+        "y": -2390,
+        "face": 1
+      }
+    }
+  ],
+  "boss": null,
+  "exit": {
+    "x": 3870,
+    "y": -2704,
+    "w": 64,
+    "h": 64,
+    "requiresBoss": false
+  },
+  "background": [
+    {
+      "asset": "sky",
+      "factorX": 0,
+      "factorY": 0,
+      "driftX": 0,
+      "x": 0,
+      "y": 0,
+      "repeatX": true
+    },
+    {
+      "asset": "moon",
+      "factorX": 0.025,
+      "factorY": 0.006,
+      "driftX": 0,
+      "x": 440,
+      "y": 24,
+      "repeatX": false
+    },
+    {
+      "asset": "far-mountains",
+      "factorX": 0.07,
+      "factorY": 0.014,
+      "driftX": 0,
+      "x": 0,
+      "y": 165,
+      "repeatX": true
+    },
+    {
+      "asset": "distant-temples",
+      "factorX": 0.16,
+      "factorY": 0.022,
+      "driftX": 0,
+      "x": 0,
+      "y": 205,
+      "repeatX": true
+    },
+    {
+      "asset": "far-clouds",
+      "factorX": 0.1,
+      "factorY": 0.008,
+      "driftX": 3.5,
+      "x": 0,
+      "y": 68,
+      "repeatX": true
+    },
+    {
+      "asset": "near-clouds",
+      "factorX": 0.25,
+      "factorY": 0.016,
+      "driftX": -8,
+      "x": 0,
+      "y": 124,
+      "repeatX": true
+    }
+  ],
+  "decor": [
+    {
+      "asset": "lantern",
+      "x": 720,
+      "y": -176
+    },
+    {
+      "asset": "roof-ridge",
+      "x": 804,
+      "y": -138
+    },
+    {
+      "asset": "lantern",
+      "x": 1670,
+      "y": -816
+    },
+    {
+      "asset": "roof-ridge",
+      "x": 1784,
+      "y": -778
+    },
+    {
+      "asset": "lantern",
+      "x": 2708,
+      "y": -1656
+    },
+    {
+      "asset": "roof-ridge",
+      "x": 2792,
+      "y": -1618
+    },
+    {
+      "asset": "lantern",
+      "x": 3620,
+      "y": -2696
+    },
+    {
+      "asset": "roof-ridge",
+      "x": 3704,
+      "y": -2658
+    },
+    {
+      "asset": "lantern",
+      "x": 2527,
+      "y": -1245
+    },
+    {
+      "asset": "lantern",
+      "x": 3428,
+      "y": -2045
+    }
+  ],
+  "music": "stage2"
+}

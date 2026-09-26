@@ -1,0 +1,97 @@
+{
+  "scope": "Asset artifacts only; not game/browser integration",
+  "atlasSHA256": "5d509251117a1b00da7dc47d34339ee90eb0cac12418c9cb810bd8122cb55785",
+  "actions": [
+    {
+      "action": "hover",
+      "frames": 8,
+      "distinctFrames": 8,
+      "frameRGBAsha256": [
+        "6a99db69c92d6a61fdb7a9b127f27bcfc24d1448d676273eed7060307f181442",
+        "f5be5f9783532c099eaa0a1b8cf5d86248aed655c736d5e5533e1087744084e5",
+        "d07461f9211be463f4719cbe3d567f46ca0ea4bad95731d95fb557e2a53af14d",
+        "fcb23fc1944f7fdfb1a3b0fe07e896309580a23d58775f55394223d1b4d99429",
+        "7015dbed962e014bf40d49d8386d174f67bb890c0840a6398df652b005cbd68d",
+        "eca980767470684d5974ccfa3651b5e41913c781c0c5bcd9a0b16e9c6ea82f9a",
+        "a8d3945024ea14dca757e54742b21cac0b2fa7b1d6c399370db567b2e103ba41",
+        "54caa36731d0eb316430447c688db4b77aca1874c1d7ae1939f92bc72bd42190"
+      ],
+      "nativeAtlasSHA256": "e59274ee2756746bfd8713f1c721cd4bad3873e44da3902b6dc3e37c0055a0e8",
+      "canonicalMatch": true,
+      "binaryAlpha": true,
+      "previewFrames": 8
+    },
+    {
+      "action": "dive-windup",
+      "frames": 5,
+      "distinctFrames": 5,
+      "frameRGBAsha256": [
+        "6a99db69c92d6a61fdb7a9b127f27bcfc24d1448d676273eed7060307f181442",
+        "ae97756bba7cf8d1fe3cceea6a0c8f56028e0a4ba4c63bd9940dea5c8a9f6634",
+        "92c578ddc6c31e86ba8223acaefc77773db7dfdc051b779b8b76971e66425dbc",
+        "fe71b1a01d1d76f5f03ef052e7aa9038898f2adf13f84120b087f7afb6f74829",
+        "329200f48a3dc32e238f14c39a0c2ceaa16b05f5e8d5026737473883e8d5ecb8"
+      ],
+      "nativeAtlasSHA256": "4369794cccb0b25cc1e8dd1081b384301385247f4e4395be05cfdd202542b070",
+      "canonicalMatch": true,
+      "binaryAlpha": true,
+      "previewFrames": 5
+    },
+    {
+      "action": "dive",
+      "frames": 9,
+      "distinctFrames": 9,
+      "frameRGBAsha256": [
+        "73b6267bd4246dbc6a70034a52d0a154c688e4e174de750ecffc86b608c12c35",
+        "a13b6cf07406f763707bc111ee58f1fc67dc3fa2396ffa1e84f17c1b298b2376",
+        "725a8bd43187e1747bb80ff31f29b1b2152b495f69a1847645ce97b30072b8a6",
+        "ea55df2ee48342b01081a3147260986189bd18fcd5aebc0a4b3ba8831a46249b",
+        "d90cee0b00e33e33e9677c1babf2c1ac6baeb4879937e563ddf9315da362cbbc",
+        "7e4d9d3d3622cf54c27e729933981a3010330e49c916efca5b62c7b69d56dd23",
+        "11c54a055e7a3c80fd90d2b7053dc693513cedb1099ccadfa847f90ac5075ef9",
+        "3a8430e15432965c0d8a9a15b6acf527885f8380b43dab81d1a0752c24f8bbcd",
+        "ab86687a98abaf6b18c3c719b536f054d77309bf8a3b0ff35a4b90f0b676b581"
+      ],
+      "nativeAtlasSHA256": "ce71f1d19f51335902f1d69a463958d3a2decdc48eca07965bf2c9e2e9bce8ab",
+      "canonicalMatch": true,
+      "binaryAlpha": true,
+      "previewFrames": 9
+    },
+    {
+      "action": "hurt",
+      "frames": 5,
+      "distinctFrames": 5,
+      "frameRGBAsha256": [
+        "6a99db69c92d6a61fdb7a9b127f27bcfc24d1448d676273eed7060307f181442",
+        "d1b3f725fa89c6a038c3e41f542bd86e9402b4162beca7ae1dfe937c583ee6a5",
+        "862ac2e007d8536376e48c8fd1ec120d5da09997eb09d77a170f5a423d7ca50e",
+        "53f95ac6a9a2adc671790ab53626712db72bf0e1c25d288766dbc5b7bb6b52c7",
+        "6afa5cd077531874639d5b9828faec626d875e302d6aa2e4f2b7769b70202601"
+      ],
+      "nativeAtlasSHA256": "d00193db7856da0f54e31cab89b10ec7ed26ec90e4f816312916d01f0d009053",
+      "canonicalMatch": true,
+      "binaryAlpha": true,
+      "previewFrames": 5
+    },
+    {
+      "action": "defeat",
+      "frames": 9,
+      "distinctFrames": 9,
+      "frameRGBAsha256": [
+        "940b38fc8034b2089c38db238dd1fe36b9e785eff6b5f1bf3124976a9340eede",
+        "14fb66a30980b08749149a054f86aded844d7fc6ebb2cf34d43ae7a23f5982ab",
+        "d93b9f004d3eab5dd204ac8d28d9e6901a95e228ded93ff53a3148cdcf4307d0",
+        "99122c04a2990694595bc9650238fb7a79cf0e5605b00caebb736b97740836f4",
+        "93a7bc107040384795d4e31659bfec71267c615054cba4dc76d108e09c5f44c3",
+        "da9448702e479dbb2165c53a70e385d7848a43840894130a63c61119c18e5a8f",
+        "d6d53bcba2edbaf18cae1a2a316bae0fbba84c5d502f543c25d945cce0de8933",
+        "1c2a3c3eed4a6940eda550d270d473d8d909df91dc59466a858e45d748eb8fb0",
+        "28957db70f0812e8c6d3149ffaf03d4661501857010d9abf8e0144c824292b17"
+      ],
+      "nativeAtlasSHA256": "942d0f71bf496433174cca56d03501479a808d0fe5d001fadbff6f5dfc8d8772",
+      "canonicalMatch": true,
+      "binaryAlpha": true,
+      "previewFrames": 9
+    }
+  ]
+}
