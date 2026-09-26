@@ -69,7 +69,8 @@ const g = new LevelSimulation(level);
 const camera = new Camera();
 let ticks = 0, label = 'spawn';
 const seen = new Set(), checkpoints = new Set(), states = new Map();
-const inputs=[],crossings=[],capStarts=[],capClearance=new Map();
+export const inputs=[];
+const crossings=[],capStarts=[],capClearance=new Map();
 let minCameraY=Infinity,maxCameraY=-Infinity,recoveryPrefix,climbPrefix;
 const snapshot = () => ({label, ticks, time:g.time, player:{x:g.p.x,y:g.p.y,vx:g.p.vx,vy:g.p.vy,wall:g.p.wall,on:g.p.on,hp:g.p.hp,ammo:g.p.ammo}, enemies:g.enemies.filter(e=>e.alive).map(e=>({id:e.id,x:e.x,y:e.y,hp:e.hp,state:e.state}))});
 function tick(input = {}) {

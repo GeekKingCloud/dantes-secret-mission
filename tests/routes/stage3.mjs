@@ -57,7 +57,8 @@ const director=new SceneDirector();director.setLevel(level);
 const g=director.game;
 let frames=0,beat='initial',minY=g.p.y,maxY=g.p.y;
 let cameraMinY=director.camera.y,cameraMaxY=director.camera.y;
-const inputs=[],checkpointFrames=new Map(),fightFrames=new Map(),rearExecutions=[];
+export const inputs=[];
+const checkpointFrames=new Map(),fightFrames=new Map(),rearExecutions=[];
 const events=new Map(),poses=new Set(),checkpoints=new Set(),enemyStates=new Map(),milestones=[];
 function snapshot() {
   return {beat,frames,seconds:+(frames*STEP).toFixed(2),p:{x:g.p.x,y:g.p.y,hp:g.p.hp,ammo:g.p.ammo,on:g.p.on,wall:g.p.wall},enemies:g.enemies.filter(e=>e.alive&&Math.abs(e.x-g.p.x)<350).map(e=>({id:e.id,x:e.x,y:e.y,hp:e.hp,state:e.state,face:e.face}))};
@@ -125,7 +126,16 @@ function fight(id,{finish=true,laser=false}={}) {
   } else {
     until(`approach ${id}`,()=>Math.abs(e.x-g.p.x)<80,()=>({right:e.x>g.p.x,left:e.x<g.p.x}),600);
     settle();
-    until(`weaken ${id}`,()=>!e.alive||(finish&&isWeak(e)),n=>({attackPressed:n%12===0,laserPressed:laser&&n===0}),1200);
+    until(`weaken ${id}`,()=>!e.alive||(finish&&isWeak(e)),n=>{
+      const i={attackPressed:n%12===0,laserPressed:laser&&n===0};
+      if(e.type==='masked-mutant-boss'){
+        const dx=e.x-g.p.x;i.right=dx>0;i.left=dx<0;
+        if(Math.abs(dx)<70){i.right=false;i.left=false;}
+        if(g.p.face!==Math.sign(dx)){i.right=dx>0;i.left=dx<0;}
+        if(g.p.on&&!g.p.dashCD&&((e.state==='windup'&&e.timer<.14)||e.state==='attack'))i.dashPressed=true;
+      }
+      return i;
+    },1200);
     if(e.alive) {
       until(`thaw ${id}`,()=>g.hitstop===0,{},30);
       assert(e.weak&&isWeak(e),'weakened actor flag precedes finisher');

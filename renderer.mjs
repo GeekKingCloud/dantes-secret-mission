@@ -36,13 +36,21 @@ export class Renderer {
     for(let x=shape.x;x<shape.x+shape.w;x+=a.frameWidth)this.image('world',shape.art,x+a.anchor[0],shape.y,time);
     c.restore();
   }
-  hazard(h) {
+  hazard(h,level) {
     if(!h.art)return;
     const a=this.assets.get('world',h.art),[x,y,right,bottom]=a.opaqueBounds,c=this.ctx;
     // Fit the delivered opaque art to fixed authored hazards, not vice versa.
-    const width=Math.max(1,Math.round((right-x)*h.h/(bottom-y)));
     c.save();c.imageSmoothingEnabled=false;c.beginPath();c.rect(h.x,h.y,h.w,h.h);c.clip();
-    for(let dx=h.x;dx<h.x+h.w;dx+=width)c.drawImage(a.image,x,y,right-x,bottom-y,Math.round(dx),Math.round(h.y),width,Math.round(h.h));
+    if(h.art==='spikes-side') {
+      // The delivered strip points right. Attachment determines the outward face.
+      const leftFacing=level.walls.some(w=>Math.abs(w.x-(h.x+h.w))<.01&&h.y<w.y+w.h&&h.y+h.h>w.y);
+      const height=Math.max(1,Math.round((bottom-y)*h.w/(right-x)));
+      if(leftFacing){c.translate(h.x*2+h.w,0);c.scale(-1,1);}
+      for(let dy=h.y;dy<h.y+h.h;dy+=height)c.drawImage(a.image,x,y,right-x,bottom-y,Math.round(h.x),Math.round(dy),Math.round(h.w),height);
+    }else {
+      const width=Math.max(1,Math.round((right-x)*h.h/(bottom-y)));
+      for(let dx=h.x;dx<h.x+h.w;dx+=width)c.drawImage(a.image,x,y,right-x,bottom-y,Math.round(dx),Math.round(h.y),width,Math.round(h.h));
+    }
     c.restore();
   }
   panel(id,x,y,lines,time=0) {
@@ -106,11 +114,13 @@ export class Renderer {
       if(layer.repeatX)for(let x=pos.x;x<VIEW.w;x+=width)this.image('world',layer.asset,x,pos.y,g.time,'idle',1,alpha);
       else this.image('world',layer.asset,pos.x,pos.y,g.time);
     }
-    if(g.bossActive)this.image('world','boss-arena',0,0,g.time);
+    // One scene backdrop, not a second giant prop on top of the gameplay floor.
+    // Its perspective ground begins at source row 135 (270 logical pixels).
+    if(g.bossActive)this.image('world','boss-arena',0,Math.round(g.level.boss.y-cam.y-270),g.time);
     c.save();c.translate(-Math.round(cam.x),-Math.round(cam.y));
     for(const s of [...g.level.surfaces,...g.level.walls])this.terrain(s,g.time);
-    for(const h of g.level.hazards)this.hazard(h);
-    for(const prop of g.level.decor)this.image('world',prop.asset,prop.x,prop.y,g.time,prop.animation||'idle');
+    for(const h of g.level.hazards)this.hazard(h,g.level);
+    for(const prop of g.level.decor)if(prop.asset!=='boss-arena')this.image('world',prop.asset,prop.x,prop.y,g.time,prop.animation||'idle');
     if(!g.level.exit.requiresBoss||!g.boss?.alive)this.image('world','portal-animation',g.level.exit.x+g.level.exit.w/2,g.level.exit.y+g.level.exit.h,g.time);
     c.restore();
   }
@@ -140,6 +150,6 @@ export class Renderer {
     this.text(g.level.title,12,20);for(let n=0;n<p.hp;n++)this.image('ui','health',20+n*20,32,0,'idle',1,1,false,.5);
     for(let n=0;n<p.ammo;n++)this.image('ui','ammo',20+n*20,52,0,'idle',1,1,false,.5);
     this.text(`RETRIES ${g.retries}`,520,20,10);
-    if(g.bossActive&&g.boss.alive)this.text(g.boss.hp<=g.boss.maxHp/2?'MASKED SHADOW · ENRAGED':'MASKED SHADOW',220,24,12);
+    if(g.bossActive&&g.boss.alive)this.text(g.boss.hp<=g.boss.maxHp/2?'MASKED SHADOW · ENRAGED':'MASKED SHADOW',12,82,12);
   }
 }

@@ -49,9 +49,14 @@ export class LevelSimulation {
     return true;
   }
   hitEnemy(e,damage) {
-    e.hp=Math.max(0,e.hp-damage);e.stun=.17;e.weak=isWeak(e);
+    e.hp=Math.max(0,e.hp-damage);e.weak=isWeak(e);
     // Hurt interrupts the strike, leaving a real committed-facing rear window.
-    e.state='recover';e.timer=.55;e.turnWait=.45;
+    // One boss stagger per committed pattern: damage always lands, but repeated
+    // buffered hits cannot erase every telegraph and active attack indefinitely.
+    if(e.type!=='masked-mutant-boss'||!e.interrupted){
+      e.stun=.17;e.state='recover';e.timer=.55;e.turnWait=.45;
+      if(e.type==='masked-mutant-boss')e.interrupted=true;
+    }
     this.events.push('combo_impact');this.hitstop=Math.max(this.hitstop,.035);
     if(!e.hp){e.alive=false;e.pose='defeat';e.defeatTime=0;this.events.push('defeat');if(e.type==='masked-mutant-boss')this.events.push('portal-open');}
   }

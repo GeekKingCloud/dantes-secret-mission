@@ -3,8 +3,11 @@
 This branch is an incomplete local integration candidate, not a published full
 campaign. Accepted world/UI PNGs and the full PCM palette are imported and wired.
 Character atlases are still pending: the shipping entry intentionally displays
-an explicit missing-actor error, never a vector actor fallback. Three
-designer-owned shipping levels have not been imported.
+an explicit missing-actor error, never a vector actor fallback. All three
+accepted designer-authored levels now occupy the production loading paths.
+`tests/levels.html` and `tools/levels-smoke.mjs` exercise their actual campaign
+inputs and real PNG scenery without actors. This is not final actor/cinematic
+acceptance. See HANDOFF for the final boss-fix verification still outstanding.
 
 Start a local static server, then open `tests/controller.html` for the explicitly
 labelled controller/collision lab, or `tests/controller.html?scenario=combat` for

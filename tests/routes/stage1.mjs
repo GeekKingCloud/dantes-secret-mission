@@ -64,7 +64,7 @@ function makeRoute(label) {
   const director=new SceneDirector();director.setLevel(level);
   const g=director.game, camera=director.camera;
   let frames=0, phase='start', minHP=4, cameraMin=Infinity, cameraMax=-Infinity;
-  const events={}, states=new Map(g.enemies.map(e=>[e.id,new Set()])), combos=new Set(), checkpoints=new Set(), finishers=[];
+  const inputs=[], events={}, states=new Map(g.enemies.map(e=>[e.id,new Set()])), combos=new Set(), checkpoints=new Set(), finishers=[];
   function obstruction(reason) {
     console.error(JSON.stringify({route:label,phase,reason,frame:frames,player:{x:g.p.x,y:g.p.y,hp:g.p.hp,vx:g.p.vx,vy:g.p.vy,wall:g.p.wall,on:g.p.on},enemies:g.enemies.filter(e=>e.alive).map(e=>({id:e.id,x:e.x,y:e.y,hp:e.hp,state:e.state,face:e.face}))},null,2));
     throw new Error(`${phase}: ${reason}`);
@@ -72,7 +72,7 @@ function makeRoute(label) {
   function tick(input={}) {
     if(++frames>30000) obstruction('global 250-second input budget exhausted');
     const before=g.enemies.filter(e=>canFinish(g.p,e,level)).map(e=>({id:e.id,ammo:g.p.ammo}));
-    director.update(input,STEP);
+    inputs.push({...input});director.update(input,STEP);
     minHP=Math.min(minHP,g.p.hp);
     for(const event of g.events) events[event]=(events[event]||0)+1;
     if(g.attackTime) combos.add(g.combo);
@@ -170,12 +170,13 @@ function makeRoute(label) {
     wait(40);
     console.log(`${label}: ${e.id} intercepted; lasers fired ${(events.laser||0)-lasersBefore}; HP ${g.p.hp}; ammo ${g.p.ammo}`);
   }
-  return {g,director,tick,until,wait,moveTo,jumpTo,approach,telegraph,fight,ranged,states,events,finishers,checkpoints,combos,
+  return {g,director,inputs,tick,until,wait,moveTo,jumpTo,approach,telegraph,fight,ranged,states,events,finishers,checkpoints,combos,
     summary:()=>({frames,seconds:Number((frames*STEP).toFixed(2)),simulationSeconds:Number(g.time.toFixed(2)),minHP,ammo:g.p.ammo,retries:g.retries,defeated:g.enemies.filter(e=>!e.alive).length,finishers,events,checkpoints:[...checkpoints],cameraY:[cameraMin,cameraMax]})};
 }
 
 geometry();
 const r=makeRoute('combat-clear'),{g}=r;
+export const inputs=r.inputs;
 // Spend a real charge away from enemies, making the later +1 refund measurable.
 r.tick({left:true,laserPressed:true});r.wait(40);
 r.moveTo(400);

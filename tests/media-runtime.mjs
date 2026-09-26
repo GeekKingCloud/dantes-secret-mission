@@ -27,7 +27,7 @@ function render(scene,time=0,camera={x:0,y:0}){
  else if(scene==='map-complete'){d.time=time;d.selection=4;d.completed=new Set(['stage1','stage2','stage3']);renderer.map(d);}
  else if(scene==='rooftop'){game.time=time;game.bossActive=false;renderer.stageScenery(game,camera);renderer.hud({p:{hp:4,ammo:3},level:{title:'MEDIA TEST · NO ACTORS'},retries:0,bossActive:false});}
  else if(scene==='arena'){
-   renderer.stageScenery({...game,time,bossActive:true,level:{...game.level,surfaces:[{art:'stone',x:0,y:320,w:640,h:40}],walls:[],hazards:[],decor:[],exit:{x:542,y:248,w:64,h:64,requiresBoss:true}}},camera);
+   renderer.stageScenery({...game,time,bossActive:true,level:{...game.level,boss:{y:320},surfaces:[{art:'stone',x:0,y:320,w:640,h:40}],walls:[],hazards:[],decor:[],exit:{x:542,y:248,w:64,h:64,requiresBoss:true}}},camera);
  }else {d.state=scene==='title'?'title':'world2';d.time=time;renderer.draw(d);}
  c.fillStyle='#080f20dd';c.fillRect(0,342,640,18);renderer.text('ENVIRONMENT / AUDIO TEST — NO ACTORS — NOT FINAL GAME',10,354,10);
  return calls;

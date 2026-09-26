@@ -16,6 +16,12 @@ export function createEnemy(spec) {
 }
 function enter(e,state,duration) {e.state=state;e.timer=duration;e.fired=false;}
 function facePlayer(e,p) {e.face=Math.sign(p.x-e.x)||e.face;}
+// Keep a small air gap at masonry; interrupted dives may begin off their home.
+function fly(e,level,dx,dy) {
+  const t=ENEMY_TYPES.ghost,body={x:e.x,y:e.y+4};
+  const hit=moveBody(body,{w:t.w+8,h:t.h+8},level,dx,dy);
+  e.x=body.x;e.y=body.y-4;return hit;
+}
 export function enemyAttackBox(e) {
   const t=ENEMY_TYPES[e.type];
   return {x:e.face>0?e.x-4:e.x-t.reach,y:e.y-t.h,w:t.reach+4,h:t.h-4};
@@ -76,8 +82,9 @@ export function updateEnemy(e,g,dt) {
       e.pose='spit';
       if(!e.fired){e.fired=true;g.projectiles.push({owner:'enemy',kind:'venom',x:e.x,y:e.y-14,vx:e.vx*.55,vy:e.vy*.55,life:2.5});g.events.push('venom');}
     } else if(e.type==='ghost') {
-      e.pose='dive';e.x+=e.vx*dt;e.y+=e.vy*dt;
+      e.pose='dive';const hit=fly(e,g.level,e.vx*dt,e.vy*dt);
       if(overlap(enemyBox(e),p.box))g.damagePlayer(1,e.x);
+      if(hit.hitX||hit.hitY){enter(e,'recover',t.recover);e.pattern++;return;}
     } else {
       e.pose=boss?(e.pattern%2?'burst':'slash'):e.type==='bear'?'slash':'attack';
       if(boss&&e.pattern%2) {
@@ -86,10 +93,10 @@ export function updateEnemy(e,g,dt) {
       }
       if(overlap(enemyAttackBox(e),p.box))g.damagePlayer(1,e.x);
     }
-    if(!e.timer){enter(e,'recover',t.recover);e.pattern++;}
+    if(!e.timer){enter(e,'recover',t.recover);e.pattern++;if(boss)e.interrupted=false;}
   } else {
     e.pose=e.type==='ghost'?'hover':e.type==='spider'?'wall-idle':'idle';
-    if(e.type==='ghost') {e.x+=(e.homeX-e.x)*Math.min(1,dt*3);e.y+=(e.homeY-e.y)*Math.min(1,dt*3);}
+    if(e.type==='ghost')fly(e,g.level,(e.homeX-e.x)*Math.min(1,dt*3),(e.homeY-e.y)*Math.min(1,dt*3));
     if(!e.timer){enter(e,'patrol',0);e.turnWait=.45;}
   }
 }
