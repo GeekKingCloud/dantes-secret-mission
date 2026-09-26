@@ -1,0 +1,56 @@
+{
+  "frames": [
+    {
+      "sourceFrame": "spider/spit/01.png",
+      "crop": [
+        49,
+        18,
+        61,
+        30
+      ],
+      "originCorrection": [
+        4,
+        -1
+      ],
+      "pngSHA256": "994d05f2918e8cdf8f20513e426aed34761acf0b58d7fb10e617d3d71155c223"
+    },
+    {
+      "sourceFrame": "spider/spit/02.png",
+      "crop": [
+        49,
+        18,
+        61,
+        30
+      ],
+      "originCorrection": [
+        2,
+        0
+      ],
+      "pngSHA256": "4e53acc2fb9ddab20b202ef6ae3bece9680ecf629032acd71eb7e611f7fa44c8"
+    },
+    {
+      "sourceFrame": "spider/spit/03.png",
+      "crop": [
+        49,
+        18,
+        61,
+        30
+      ],
+      "originCorrection": [
+        -1,
+        0
+      ],
+      "pngSHA256": "7d4e33cb837c5fa324193ee7648bc1e60a543ae9ee540a9680d3da0f826f12ae"
+    }
+  ],
+  "atlasSHA256": "4ae50826538843f3eb01180941907844702cf46e89f46d844cfe8770bbae4753",
+  "nativeSize": [
+    12,
+    12
+  ],
+  "origin": [
+    6,
+    6
+  ],
+  "distinctFrames": 3
+}

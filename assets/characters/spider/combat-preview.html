@@ -1,0 +1,33 @@
+<!doctype html><meta charset="utf-8"><title>Enemy animation artifact preview</title>
+<style>body{background:#121827;color:#dde6f2;font:15px monospace;margin:22px}h1{font-size:22px}button{font:inherit}main{display:flex;flex-wrap:wrap;gap:16px}article{background:#202839;padding:12px;border:1px solid #44506a}canvas{image-rendering:pixelated;display:block}small{display:block}a{color:#aee8ff}</style>
+<h1></h1><p>Asset playback only — not game integration. Native pixels, fixed anchors. Gray guide: feet/wall; blue cross: root; red guide: melee reach.</p>
+<p><button id="pause">Pause</button> <button id="mirror">Mirror</button> <button id="step">Step one frame</button></p><main></main>
+<script>
+const data={"actor": "spider", "anchor": [32, 48], "animations": {"venom": {"frameNames": ["spider/venom-windup/00.png", "spider/venom-windup/01.png", "spider/venom-windup/02.png", "spider/venom-windup/03.png", "spider/venom-windup/04.png", "spider/spit/01.png", "spider/spit/02.png", "spider/spit/03.png", "spider/spit/04.png", "spider/spit/05.png", "spider/spit/06.png", "spider/spit/07.png", "spider/spit/08.png"], "durationsMs": [120.0, 120.0, 120.0, 120.0, 120.0, 50.0, 50.0, 50.0, 240.0, 240.0, 240.0, 240.0, 240.0], "phaseNames": ["windup", "windup", "windup", "windup", "windup", "active", "active", "active", "recovery", "recovery", "recovery", "recovery", "recovery"], "fps": 12, "loop": false, "anchor": [32, 48], "nativeFrameWidth": 96, "nativeFrameHeight": 64}}, "wallContact": [10, 32], "reach": null};document.querySelector('h1').textContent=data.actor;
+let paused=false,flip=false,start=performance.now(),elapsed=0,step=0;const cards=[],errors=[];
+for(const [name,a] of Object.entries(data.animations)){
+ const article=document.createElement('article'),label=document.createElement('h2'),canvas=document.createElement('canvas'),info=document.createElement('small');label.textContent=name;
+ const z=a.nativeFrameWidth>96?2:3,width=Math.max(a.anchor[0],a.nativeFrameWidth-a.anchor[0])*2,margin=width/2-a.anchor[0];canvas.width=width*z;canvas.height=a.nativeFrameHeight*z;
+ article.append(label,canvas,info);document.querySelector('main').append(article);
+ const images=a.frameNames.map(p=>{const i=new Image;i.onerror=()=>errors.push(p);i.src=p.split('/').slice(1).join('/');return i});cards.push({name,a,canvas,info,images,index:0,z,margin,width,samples:new Map()});
+}
+function draw(now){
+ if(!paused)elapsed=Math.max(0,now-start);
+ for(const c of cards){
+  const n=c.images.length,durations=c.a.durationsMs,total=durations?durations.reduce((a,b)=>a+b,0):n*1000/c.a.fps,cycle=total+(c.a.loop?0:500);let index=c.index;
+  if(!paused){let t=elapsed%cycle;if(durations){index=0;while(index<n-1&&t>=durations[index]){t-=durations[index];index++}}else index=Math.min(n-1,Math.floor(t*c.a.fps/1000))}
+  index=(index+step)%n;c.index=index;
+  const g=c.canvas.getContext('2d');g.imageSmoothingEnabled=false;g.setTransform(1,0,0,1,0,0);g.fillStyle='#202839';g.fillRect(0,0,c.canvas.width,c.canvas.height);
+  const ax=c.a.anchor[0],ay=c.a.anchor[1];g.scale(c.z,c.z);g.translate(c.margin,0);g.lineWidth=1/c.z;g.strokeStyle='#6b809e';g.beginPath();
+  if(!['ghost','spider'].includes(data.actor)){g.moveTo(-c.margin,ay+.5);g.lineTo(c.width,ay+.5)}else if(data.actor==='spider'){const wx=data.wallContact?.[0]??10;g.moveTo(flip?ax*2-wx:wx,0);g.lineTo(flip?ax*2-wx:wx,c.a.nativeFrameHeight)}g.stroke();
+  if(data.reach&&(['attack','slash','burst'].includes(c.name)||c.a.phaseNames)){g.strokeStyle='#ad6274';g.beginPath();const x=ax+(flip?-1:1)*data.reach;g.moveTo(x,0);g.lineTo(x,ay);g.stroke()}
+  g.save();if(flip){g.translate(ax*2,0);g.scale(-1,1)}if(c.images[index].complete&&c.images[index].naturalWidth)g.drawImage(c.images[index],0,0);g.restore();
+  g.strokeStyle='#74d9ee';g.beginPath();g.moveTo(ax-2,ay);g.lineTo(ax+2,ay);g.moveTo(ax,ay-2);g.lineTo(ax,ay+2);g.stroke();
+  c.info.textContent=`frame ${index}/${n-1} | ${c.a.phaseNames?.[index]??(c.a.fps+'fps')} | ${c.a.anchor} | ${flip?'left':'right'}`;
+  if(window.preview?.recording&&!flip&&c.images[index].naturalWidth&&!c.samples.has(index)){const im=document.createElement('canvas');im.width=c.width;im.height=c.a.nativeFrameHeight;const ig=im.getContext('2d');ig.imageSmoothingEnabled=false;ig.drawImage(c.canvas,0,0,im.width,im.height);c.samples.set(index,{canvas:im,timestamp:now})}
+ }
+ step=0;requestAnimationFrame(draw);
+}
+document.querySelector('#pause').onclick=()=>{paused=!paused;if(!paused)start=performance.now()-elapsed};document.querySelector('#mirror').onclick=()=>flip=!flip;document.querySelector('#step').onclick=()=>{paused=true;step=1};
+window.preview={cards,errors,recording:false,setElapsed(t){paused=false;start=performance.now()-t;elapsed=t},pause(){paused=true},beginCapture(){flip=false;this.recording=true;cards.forEach(c=>c.samples.clear());this.setElapsed(0)},finishCapture(){this.recording=false;const proof=[],strips=[];for(const c of cards){const cols=8,w=c.width,h=c.a.nativeFrameHeight+14,n=c.images.length,strip=document.createElement('canvas');strip.width=w*cols;strip.height=h*Math.ceil(n/cols);const g=strip.getContext('2d');g.fillStyle='#202839';g.fillRect(0,0,strip.width,strip.height);g.fillStyle='#dde6f2';g.font='10px monospace';for(const [i,s] of c.samples){const x=i%cols*w,y=Math.floor(i/cols)*h;g.drawImage(s.canvas,x,y);g.fillText(String(i)+' '+(c.a.phaseNames?.[i]??''),x+2,y+c.a.nativeFrameHeight+11)}proof.push({action:c.name,expected:n,observed:[...c.samples.keys()].sort((a,b)=>a-b),times:[...c.samples].map(([i,s])=>({frame:i,timeMs:s.timestamp})),allLoaded:c.images.every(i=>i.complete&&i.naturalWidth)});strips.push({action:c.name,data:strip.toDataURL('image/png')})}return {actor:data.actor,proof,strips,errors}}};requestAnimationFrame(draw);
+</script>
