@@ -255,6 +255,36 @@ const replay=replayPrefix(inputs.length);
 assert(replay.won && replay.retries===0);
 assert.deepEqual({x:replay.p.x,y:replay.p.y,hp:replay.p.hp,ammo:replay.p.ammo,time:replay.time},{x:g.p.x,y:g.p.y,hp:g.p.hp,ammo:g.p.ammo,time:g.time},'fresh deterministic replay');
 
+// Branch from input-only prefixes, never from injected wall/position state.
+// Preserve the campaign's combat timing while exercising every spike crossing.
+export const wallGraceBranches=[];
+for(const crossing of crossings) {
+  const branch=replayPrefix(crossing.start.tick),sequence=[];
+  const direction={right:crossing.to===1,left:crossing.to===-1};
+  const step=i=>{
+    sequence.push({...i});branch.update(i);
+    assert.equal(branch.p.hp,4,'grace crossing must be damage-free');
+    assert(!spikes.some(h=>overlap(branch.p.box,h)),'grace crossing must clear spikes');
+    assert(!terrain.some(s=>overlap(branch.p.box,s)),'grace crossing stays outside solids');
+  };
+  assert.equal(branch.p.wall,crossing.from);
+  for(let n=0;n<30&&branch.p.wall;n++)step(direction);
+  assert.equal(branch.p.wall,0,'actual away input releases contact (including hitstop)');
+  for(let n=0;n<3;n++)step(direction);
+  step({...direction,jump:true,jumpPressed:true});
+  assert(branch.p.kick>0,'delayed press is a wall kick');
+  assert.equal(branch.p.airJumps,1,'delayed first jump preserves double jump');
+  assert.equal(branch.p.wallSide,0,'grace is consumed');
+  for(let n=0;n<180&&branch.p.wall!==crossing.to;n++) {
+    step({...direction,jump:true,jumpPressed:crossing.flip&&n===30});
+    if(crossing.flip&&n===30)assert(branch.events.includes('doublejump'),'true second jump crosses wide shaft');
+  }
+  assert.equal(branch.p.wall,crossing.to,'lands on opposite real wall');
+  assert.equal(branch.p.wallSide,crossing.to,'fresh opposite contact replaces departure side');
+  wallGraceBranches.push({prefix:crossing.start.tick,from:crossing.from,to:crossing.to,flip:crossing.flip,inputs:sequence});
+}
+console.log('PASS 16 input-only away-delay-wallkick spike crossings, including 5 true double-jump crossings');
+
 // Fresh-prefix branches exercise input timing margin, not injected player state.
 for(const cut of capStarts) for(const offset of [-6,0,6]) {
   const branch=replayPrefix(cut.ticks);

@@ -39,6 +39,7 @@ export class LevelSimulation {
     const p=this.p;
     if(!pit&&(p.inv>0||(!spikes&&p.dashInv>0)))return false;
     p.hp-=amount;this.events.push('hurt');
+    p.wallCoyote=0;p.wallSide=0;
     if(p.hp<=0){this.retry();return true;}
     this.attackTime=0;this.attackQueue=0;p.dash=0;p.dashInv=0;p.hurt=.16;p.inv=1;
     if(pit) {
