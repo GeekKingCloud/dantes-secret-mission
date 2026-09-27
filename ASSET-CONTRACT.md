@@ -15,8 +15,11 @@ duplicate actors; every source and PNG path is relative to `assets/characters`.
 Runtime reads only `assets/characters/manifest.json`, never a second reader or
 action alias.
 
-The revised hero source is `5e4443b69e43a8dd4ef5e534d73fdfa4c633eb2b`:
-Kagebot 18 actions / 72 native frames, butler 2 / 5, drone 2 / 5. Hero cells are
+The corrected Kagebot source is `95d996031ef92ccddbbf1ebab64ce876fbf44aa2`:
+only its entry from `hero-manifest.json` is imported into the canonical manifest,
+preserving every other actor. It selects `kagebot/polish-pilot/atlas.png` without
+a resource override. Kagebot has 18 actions / 72 native frames; the unchanged
+butler has 2 / 5 and drone 2 / 5. Hero cells are
 192×128 at feet [64,104], not rescaled. Enemy source
 `e431a6eb875f55c70f64895de59820d3a1676a27` adds 29 actions / 201 native actor frames.
 The complete assembly has eight actors / 51 required actions; runtime requires
