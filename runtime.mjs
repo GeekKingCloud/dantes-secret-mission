@@ -34,10 +34,11 @@ function menuUI(){
   if(director.state==='error')return;
   const menu=['title','map','world2'].includes(director.state)||director.paused;
   overlay.classList.toggle('hidden',!menu);
-  // Canvas owns the scene imagery; a compact actionable HTML panel owns focus/tap.
-  overlay.classList.add('scene-menu');
-  title.textContent=director.paused?'Mission paused':director.state==='title'?"Kagebot's Secret Mission":director.state==='map'?'Choose your route':'World 2 — Coming soon';
-  message.textContent=director.state==='map'?`${director.selection===0?'Home':director.selection===4?'Portal':`Stage ${director.selection}`} · ${director.unlocked(['home','stage1','stage2','stage3','portal'][director.selection])?'Available':'Locked'}`:'Keyboard, touch and standard controller supported.';
+  // The full cover belongs only to entry; scene menus leave the canvas visible.
+  overlay.classList.toggle('title-menu',director.state==='title');
+  overlay.classList.toggle('scene-menu',director.state!=='title');
+  title.textContent=director.paused?'Mission paused':director.state==='title'?'Kagebot’s Secret Mission':director.state==='map'?'Choose your route':'World 2 — Coming soon';
+  message.textContent=director.state==='title'?'Play in your browser. No install required.':director.state==='map'?`${director.selection===0?'Home':director.selection===4?'Portal':`Stage ${director.selection}`} · ${director.unlocked(['home','stage1','stage2','stage3','portal'][director.selection])?'Available':'Locked'}`:'Keyboard, touch and standard controller supported.';
   start.textContent=director.paused?'RESUME':director.state==='title'?'BEGIN MISSION':director.state==='map'?'PLAY SELECTED':'RETURN TO MAP';
   pause.textContent=director.paused?'RESUME':'PAUSE';
 }
@@ -77,6 +78,6 @@ function frame(ms){
 try {
   for(const group of ['characters','world','ui'])await assets.loadGroup(group,`assets/${group}/manifest.json`);
   assets.requireCharacters();
-  ready=true;status.textContent='WORLD 1 · READY';menuUI();
+  ready=true;start.disabled=false;status.textContent='WORLD 1 · READY';menuUI();
 }catch(error){reportError(error);}
 requestAnimationFrame(frame);

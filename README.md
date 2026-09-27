@@ -1,17 +1,17 @@
 # Kagebot’s Secret Mission
 
+## [Play in your browser](https://geekkingcloud.github.io/kagebots-secret-mission/)
+
+No install or Python required — this is an HTML/JavaScript browser game.
+
+<a href="https://geekkingcloud.github.io/kagebots-secret-mission/"><img src="assets/kagebot-secret-mission-cover.jpg" width="280" alt="Kagebot’s Secret Mission — play in your browser"></a>
+
 A fast, non-gory robot-ninja action platformer. This checkout contains the full
 World 1 campaign: a skippable home opening, unlockable overworld, three distinct
 authored stages, four enemy types, an original masked mutant boss and the portal
 to **World 2 — Coming soon**. World 2 is a teaser, not a playable level.
 
-Run `python3 -m http.server 8000` from this directory and open
-`http://localhost:8000/`. No build, login, runtime credentials or external service
-is needed. All PNG atlases, PCM audio and licensed fonts are local. Deployment
-status is separate from this local checkout; see [HANDOFF.md](HANDOFF.md) for
-candidate verification and review boundaries.
-
-## Play
+## Controls
 
 A/D or ←/→ move; W/↑ climb; Space jumps, double-jumps into a frontflip, or kicks
 away from a wall. J buffers the three-strike sword combo; K starts a grounded
@@ -34,7 +34,17 @@ Physics and fixed hit/hurt shapes are independent of sprite alpha. Enemy attacks
 use explicit windup/active/recovery tracks, including both normal/enraged boss
 patterns. Music starts on player gesture and respects pause, mute and visibility.
 
-## Verification and development
+## Development
+
+### Run locally
+
+For development, serve this directory with a static web server. For example,
+if you have Python installed, run `python3 -m http.server 8000` and open
+`http://localhost:8000/`. Python is only an optional development server, not the
+game runtime. No build, login, runtime credentials or external service is needed.
+All PNG atlases, PCM audio and licensed fonts are local.
+
+### Verification
 
 `node tools/shipping-smoke.mjs /path/to/private/evidence` exercises the actual
 `index.html` loader, actors, renderer, audio, input transports and full campaign.
