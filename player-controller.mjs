@@ -49,8 +49,9 @@ export class PlayerController {
         (this.on ? direction ? FEEL.groundAccel : FEEL.brake : FEEL.airAccel)*dt);
     }
     if (!this.dash) {
-      if (this.wall && !this.hurt && (i.climb || direction === this.wall)) {
-        this.vy = i.climb ? -FEEL.wallClimb : Math.min(0, this.vy);
+      // Neutral contact grips; climb still moves, steering away and hurt still release.
+      if (this.wall && !this.hurt && (i.climb || direction !== -this.wall)) {
+        this.vy = i.climb ? -FEEL.wallClimb : 0;
       } else {
         const gravity = this.vy < 0 ? FEEL.riseGravity : FEEL.fallGravity;
         const apex = i.jump && Math.abs(this.vy) < FEEL.apexBand;

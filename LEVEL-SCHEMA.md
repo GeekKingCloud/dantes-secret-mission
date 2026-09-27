@@ -61,8 +61,10 @@ Art availability is checked separately after asset imports.
 Run 240 px/s; grounded dash 760 px/s for 0.20s (152px unobstructed), 0.65s
 cooldown; dash may leave a ledge but cannot start in air. Full jump initial
 -430 px/s, rising gravity 1350, falling 1900; released jump cuts rise to -175.
-Double jump -390, once until grounded/wall contact. Wall climb 110 px/s,
-wall-slide cap 75, wall kick away 280 and upward -410 with 0.14s forced separation.
+Double jump -390, once until grounded/wall contact. Wall climb 110 px/s;
+neutral wall grip is stationary without held direction or a time limit, including
+during sword attacks. Steering away releases; wall kick away 280 and upward -410
+has 0.14s forced separation. Grip ends when climbable wall contact ends.
 Coyote 0.10s and jump buffer 0.12s. Allow clearance around 42px body and forgiving
 landings. Teach wall regrab before spikes; use meaningful vertical elevations.
 Do not design maximum-range mandatory jumps from equations alone: use the
