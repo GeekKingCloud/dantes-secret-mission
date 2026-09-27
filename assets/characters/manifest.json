@@ -900,11 +900,11 @@
           "bounds": [
             45,
             63,
-            114,
-            115
+            124,
+            104
           ],
-          "opaquePixels": 734,
-          "sha256": "62e7f173cd021c5e778af3ec78761fcb4fd99bb762e52cdbe9e161c1e06aa33d"
+          "opaquePixels": 750,
+          "sha256": "4341ff4f6010e7ddef39763df51232500a52ba7b3343d2fb1fd1d6510b22d141"
         },
         {
           "frame": 36,
