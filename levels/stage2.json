@@ -31,10 +31,10 @@
     },
     {
       "id": "primer-entry-facade",
-      "x": 0,
+      "x": 48,
       "y": 318,
-      "w": 584,
-      "h": 70,
+      "w": 488,
+      "h": 144,
       "kind": "solid",
       "art": "wall"
     },
@@ -58,10 +58,10 @@
     },
     {
       "id": "primer-terrace-facade",
-      "x": 648,
+      "x": 696,
       "y": -102,
-      "w": 312,
-      "h": 70,
+      "w": 216,
+      "h": 112,
       "kind": "solid",
       "art": "wall"
     },
@@ -76,10 +76,10 @@
     },
     {
       "id": "venom-entry-facade",
-      "x": 1080,
+      "x": 1112,
       "y": -102,
-      "w": 484,
-      "h": 70,
+      "w": 420,
+      "h": 96,
       "kind": "solid",
       "art": "wall"
     },
@@ -103,10 +103,10 @@
     },
     {
       "id": "venom-terrace-facade",
-      "x": 1628,
+      "x": 1676,
       "y": -742,
-      "w": 292,
-      "h": 70,
+      "w": 196,
+      "h": 144,
       "kind": "solid",
       "art": "wall"
     },
@@ -121,10 +121,10 @@
     },
     {
       "id": "belfry-entry-facade",
-      "x": 2040,
+      "x": 2088,
       "y": -742,
-      "w": 532,
-      "h": 70,
+      "w": 436,
+      "h": 128,
       "kind": "solid",
       "art": "wall"
     },
@@ -148,10 +148,10 @@
     },
     {
       "id": "belfry-terrace-facade",
-      "x": 2636,
+      "x": 2684,
       "y": -1582,
-      "w": 244,
-      "h": 70,
+      "w": 148,
+      "h": 96,
       "kind": "solid",
       "art": "wall"
     },
@@ -166,10 +166,10 @@
     },
     {
       "id": "crown-entry-facade",
-      "x": 3000,
+      "x": 3032,
       "y": -1582,
-      "w": 484,
-      "h": 70,
+      "w": 420,
+      "h": 144,
       "kind": "solid",
       "art": "wall"
     },
@@ -193,10 +193,10 @@
     },
     {
       "id": "crown-terrace-facade",
-      "x": 3548,
+      "x": 3596,
       "y": -2622,
-      "w": 432,
-      "h": 70,
+      "w": 336,
+      "h": 128,
       "kind": "solid",
       "art": "wall"
     },
@@ -205,16 +205,16 @@
       "x": 2504,
       "y": -1190,
       "w": 68,
-      "h": 12,
+      "h": 8,
       "kind": "oneWay",
       "art": "wood-beam"
     },
     {
       "id": "crown-rest-beam",
-      "x": 3416,
+      "x": 3400,
       "y": -1990,
-      "w": 68,
-      "h": 12,
+      "w": 84,
+      "h": 8,
       "kind": "oneWay",
       "art": "wood-beam"
     },
@@ -222,13 +222,17 @@
       "id": "crown-upper-rest-beam",
       "x": 3324,
       "y": -2390,
-      "w": 68,
-      "h": 12,
+      "w": 84,
+      "h": 8,
       "kind": "oneWay",
       "art": "wood-beam"
     }
   ],
   "walls": [
+    {"id":"belfry-balcony-post","x":2636,"y":-1182,"w":24,"h":64,"climbable":true,"art":"wall"},
+    {"id":"crown-balcony-post","x":3548,"y":-1982,"w":24,"h":64,"climbable":true,"art":"wall"},
+    {"id":"belfry-recess-wall","x":2588,"y":-1270,"w":48,"h":80,"climbable":true,"art":"stone"},
+    {"id":"belfry-lower-wall","x":2572,"y":-1190,"w":64,"h":430,"climbable":true,"art":"wall"},
     {
       "id": "primer-left-wall",
       "x": 360,
@@ -279,7 +283,7 @@
       "x": 2572,
       "y": -1582,
       "w": 64,
-      "h": 822,
+      "h": 312,
       "climbable": true,
       "art": "wall"
     },
@@ -802,15 +806,6 @@
       "driftX": 0,
       "x": 0,
       "y": 205,
-      "repeatX": true
-    },
-    {
-      "asset": "far-clouds",
-      "factorX": 0.1,
-      "factorY": 0.008,
-      "driftX": 3.5,
-      "x": 0,
-      "y": 68,
       "repeatX": true
     },
     {

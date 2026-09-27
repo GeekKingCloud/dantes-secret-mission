@@ -15,8 +15,11 @@ duplicate actors; every source and PNG path is relative to `assets/characters`.
 Runtime reads only `assets/characters/manifest.json`, never a second reader or
 action alias.
 
-The revised hero source is `5e4443b69e43a8dd4ef5e534d73fdfa4c633eb2b`:
-Kagebot 18 actions / 72 native frames, butler 2 / 5, drone 2 / 5. Hero cells are
+The corrected Kagebot source is `95d996031ef92ccddbbf1ebab64ce876fbf44aa2`:
+only its entry from `hero-manifest.json` is imported into the canonical manifest,
+preserving every other actor. It selects `kagebot/polish-pilot/atlas.png` without
+a resource override. Kagebot has 18 actions / 72 native frames; the unchanged
+butler has 2 / 5 and drone 2 / 5. Hero cells are
 192×128 at feet [64,104], not rescaled. Enemy source
 `e431a6eb875f55c70f64895de59820d3a1676a27` adds 29 actions / 201 native actor frames.
 The complete assembly has eight actors / 51 required actions; runtime requires
@@ -97,6 +100,18 @@ boss-arena, portal-animation.
 UI keys: title-frame, map-node-home, map-node-stage, map-node-locked,
 map-node-complete, help-bubble, health, ammo, selection, world2-tease.
 Text rendered by canvas/HTML is allowed; actor/terrain vector fallback is not.
+
+The production world manifest explicitly requires the thirteen native terrain
+modules preserved under `world/terrain/polish-pilot/`: `pilot-roof-{left,center,right}`,
+`pilot-beam-{left,center,right}`, `pilot-facade-{fill,left,right,band}` and
+`pilot-stone-{fill,top,corner}`. All are 16×16 except the 16×8 beams; scale is 1.
+The source directory name records provenance, not an alternate runtime layer.
+Renderer material selection uses the existing level art/kind fields, clips to
+mechanical rectangles, and caps contiguous roofs only at exterior ends. Native
+shoji-window art is sparse recessed decoration on broad walls. A translucent
+shadow tint keeps facade detail behind actors; it never supplies missing art.
+World and UI together have 57 assets. Inventory tests check module metadata,
+PNG dimensions, preserved source hashes, unique IDs, and missing-module errors.
 
 Combat depiction: player body18×42 with feet origin. Sword1 reaches74px forward,
 sword2 82px, sword3 94px, starts 6px behind feet, vertical band y-43..y-5.

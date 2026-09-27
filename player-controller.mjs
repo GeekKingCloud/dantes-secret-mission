@@ -5,20 +5,23 @@ export const FEEL = Object.freeze({
   run:240, groundAccel:2600, brake:3300, airAccel:1800,
   jump:430, doubleJump:390, jumpCut:175, riseGravity:1350, fallGravity:1900,
   apexGravity:900, apexBand:45, terminal:720, coyote:.10, buffer:.12,
-  wallClimb:110, wallSlide:75, wallKick:280, wallJump:410, kickLock:.14,
+  wallClimb:110, wallSlide:75, wallKick:280, wallJump:410, kickLock:.14, wallCoyote:.10,
   dashSpeed:760, dashTime:.20, dashCooldown:.65, dashIframes:.20,
 });
 export class PlayerController {
   constructor(spawn) {
-    Object.assign(this, spawn, {vx:0, vy:0, on:false, wall:0, coyote:0,
+    Object.assign(this, spawn, {vx:0, vy:0, on:false, wall:0, coyote:0, wallSide:0, wallCoyote:0,
       buffer:0, airJumps:1, dash:0, dashCD:0, dashInv:0, inv:0,
       kick:0, flip:0, hurt:0, hp:4, ammo:4, pose:'idle', events:[]});
   }
   get box() { return bodyBox(this, BODY); }
   update(i, level, dt) {
     this.events = [];
-    for (const key of ['coyote','buffer','dashCD','dashInv','inv','kick','flip','hurt'])
+    for (const key of ['coyote','wallCoyote','buffer','dashCD','dashInv','inv','kick','flip','hurt'])
       this[key] = Math.max(0, this[key]-dt);
+    if (this.on || this.hurt || this.kick || this.wallCoyote < 1e-9) {
+      this.wallCoyote = 0; this.wallSide = 0;
+    }
     if (this.on) this.coyote = FEEL.coyote;
     if (i.jumpPressed) this.buffer = FEEL.buffer;
     const direction = Number(!!i.right)-Number(!!i.left);
@@ -36,7 +39,7 @@ export class PlayerController {
       this.vy = 0;
       this.events.push('dash');
     }
-    if (this.buffer && !this.hurt && (this.wall || this.coyote || this.airJumps)) {
+    if (this.buffer && !this.hurt && (this.wall || this.wallCoyote || this.coyote || this.airJumps)) {
       this.jump();
     }
     if (!i.jump && this.vy < -FEEL.jumpCut) this.vy = -FEEL.jumpCut;
@@ -49,8 +52,9 @@ export class PlayerController {
         (this.on ? direction ? FEEL.groundAccel : FEEL.brake : FEEL.airAccel)*dt);
     }
     if (!this.dash) {
-      if (this.wall && !this.hurt && (i.climb || direction === this.wall)) {
-        this.vy = i.climb ? -FEEL.wallClimb : Math.min(0, this.vy);
+      // Neutral contact grips; climb still moves, steering away and hurt still release.
+      if (this.wall && !this.hurt && (i.climb || direction !== -this.wall)) {
+        this.vy = i.climb ? -FEEL.wallClimb : 0;
       } else {
         const gravity = this.vy < 0 ? FEEL.riseGravity : FEEL.fallGravity;
         const apex = i.jump && Math.abs(this.vy) < FEEL.apexBand;
@@ -66,6 +70,13 @@ export class PlayerController {
     else this.dash = Math.max(0, this.dash-dt);
     if (this.dash < 1e-9) this.dash = 0;
     this.wall = this.on || this.kick ? 0 : wallContact(this, BODY, level);
+    // Remember only real, usable airborne contact. Grace never grips or recharges
+    // itself, and a deliberate kick cannot seed another jump during separation.
+    if (this.on || this.hurt || this.kick) {
+      this.wallCoyote = 0; this.wallSide = 0;
+    } else if (this.wall) {
+      this.wallCoyote = FEEL.wallCoyote; this.wallSide = this.wall;
+    }
     if (this.wall && !wasWall) this.events.push('wall-contact');
     if (this.on) {
       this.airJumps = 1; this.flip = 0;
@@ -77,7 +88,7 @@ export class PlayerController {
       !this.on ? this.vy < 0 ? 'jump-rise' : 'fall' : Math.abs(this.vx)>8 ? 'run-low' : 'idle';
   }
   jump() {
-    const wall = this.wall;
+    const wall = this.wall || (this.wallCoyote ? this.wallSide : 0);
     const double = !wall && !this.coyote && !this.on;
     if (wall) {
       this.vx = -wall*FEEL.wallKick; this.vy = -FEEL.wallJump;
@@ -87,6 +98,7 @@ export class PlayerController {
       if (double) { this.airJumps = 0; this.flip = .42; }
     }
     this.buffer = 0; this.coyote = 0; this.on = false; this.wall = 0;
+    this.wallCoyote = 0; this.wallSide = 0;
     this.dash = 0; this.dashInv = 0;
     this.events.push(double ? 'doublejump' : 'jump');
   }

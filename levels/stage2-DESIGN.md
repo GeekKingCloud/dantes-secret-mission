@@ -74,9 +74,10 @@ rear finishers. Weakness uses the engine's weak flag; this level adds no enemy
 healthbars, UI, timing rules or combat overrides. A fresh-input branch also
 provokes and evades a zombie's approach/windup/attack/recovery cycle.
 
-All six backdrop keys are ordered sky, moon, far-mountains, distant-temples,
-far-clouds, near-clouds. Far clouds drift +3.5px/s at factors .10/.008; near clouds
-drift -8px/s at .25/.016. Small vertical parallax factors retain the distant
+Five backdrop entries are ordered sky, moon, far-mountains, distant-temples,
+near-clouds. Repeated far clouds were removed after playtest; source art stays.
+Near clouds drift -8px/s at .25/.016 and stay above play at the ascent crown.
+Small vertical parallax factors retain the distant
 Japanese temple horizon throughout the long climb. Foreground uses roof-center,
 wall, wood-beam, spikes-top/side, lantern and roof-ridge contract keys. Decorative
 ridges sit within terraces, not over critical landing edges. Music key: stage2.

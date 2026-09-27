@@ -20,7 +20,13 @@ integration errors, never substituted with a fixture.
 - `spawn: {x,y,face}`: level start, feet position; face is -1 or 1.
 - `surfaces: [{id,x,y,w,h,kind,art}]`: kind `solid` or `oneWay`. Solid blocks have
   collidable top, sides and underside. One-way ledges only catch falling feet.
-  `art` is world manifest key, e.g. `roof-center`; tiled, never vector-filled.
+  `art` is world manifest key, e.g. `roof-center`. The renderer composes the
+  production 16px architecture modules from these existing material keys:
+  `roof-*` selects a horizontal roof course with exterior end caps, `wall`
+  selects continuous plaster with edge posts and sparse floor bands, and
+  `stone` selects native masonry. One-way surfaces use an 8px beam course.
+  Modules tile/crop at native scale within the authored collision rectangle;
+  no collision is inferred from art and no new terrain layer is required.
 - `walls: [{id,x,y,w,h,climbable,art}]`: solid blocks; climbable boolean. Use full
   physical height, not a line. Surfaces are not climbable: explicit walls own
   wall holding/climbing. Align wall and rooftop faces; avoid overlapping solids.
@@ -61,8 +67,10 @@ Art availability is checked separately after asset imports.
 Run 240 px/s; grounded dash 760 px/s for 0.20s (152px unobstructed), 0.65s
 cooldown; dash may leave a ledge but cannot start in air. Full jump initial
 -430 px/s, rising gravity 1350, falling 1900; released jump cuts rise to -175.
-Double jump -390, once until grounded/wall contact. Wall climb 110 px/s,
-wall-slide cap 75, wall kick away 280 and upward -410 with 0.14s forced separation.
+Double jump -390, once until grounded/wall contact. Wall climb 110 px/s;
+neutral wall grip is stationary without held direction or a time limit, including
+during sword attacks. Steering away releases; wall kick away 280 and upward -410
+has 0.14s forced separation. Grip ends when climbable wall contact ends.
 Coyote 0.10s and jump buffer 0.12s. Allow clearance around 42px body and forgiving
 landings. Teach wall regrab before spikes; use meaningful vertical elevations.
 Do not design maximum-range mandatory jumps from equations alone: use the

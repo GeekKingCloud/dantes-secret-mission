@@ -1,0 +1,280 @@
+{
+  "schema_version": 2,
+  "path_base": "assets/",
+  "status": "13-module pilot, not installed into level geometry",
+  "assets": [
+    {
+      "id": "pilot-roof-center",
+      "path": "world/terrain/polish-pilot/roof-center.png",
+      "width": 16,
+      "height": 16,
+      "anchor": [
+        0,
+        0
+      ],
+      "opaque_bbox": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "alpha": "binary",
+      "repeat": "x",
+      "role": "bounded architectural module pilot; runtime-owned collision and placement",
+      "sha256": "4f92f111803b5bcdf774e8daddbf69a88914a29975021f3ab18a3114042bc949",
+      "provenance": "Native donor material samples from world/source/temple-facade.png plus authored course, joint and edge clusters; no whole-scene rescaling."
+    },
+    {
+      "id": "pilot-roof-left",
+      "path": "world/terrain/polish-pilot/roof-left.png",
+      "width": 16,
+      "height": 16,
+      "anchor": [
+        0,
+        0
+      ],
+      "opaque_bbox": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "alpha": "binary",
+      "repeat": "x",
+      "role": "bounded architectural module pilot; runtime-owned collision and placement",
+      "sha256": "a9b7bf963afbefc91a6114e40020e9f0e2dd9d59b4f1eeb9fd219856c7398232",
+      "provenance": "Native donor material samples from world/source/temple-facade.png plus authored course, joint and edge clusters; no whole-scene rescaling."
+    },
+    {
+      "id": "pilot-roof-right",
+      "path": "world/terrain/polish-pilot/roof-right.png",
+      "width": 16,
+      "height": 16,
+      "anchor": [
+        0,
+        0
+      ],
+      "opaque_bbox": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "alpha": "binary",
+      "repeat": "x",
+      "role": "bounded architectural module pilot; runtime-owned collision and placement",
+      "sha256": "bceafc323096ea465dbf4ac9791238c92f40210580e27ba7962f249005867805",
+      "provenance": "Native donor material samples from world/source/temple-facade.png plus authored course, joint and edge clusters; no whole-scene rescaling."
+    },
+    {
+      "id": "pilot-beam-left",
+      "path": "world/terrain/polish-pilot/beam-left.png",
+      "width": 16,
+      "height": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "opaque_bbox": [
+        0,
+        0,
+        16,
+        8
+      ],
+      "alpha": "binary",
+      "repeat": "x",
+      "role": "bounded architectural module pilot; runtime-owned collision and placement",
+      "sha256": "aa2fa2d989419c0dc6018429565908fc3dbf525b2247b5c0dbddc9006d009c4f",
+      "provenance": "Native donor material samples from world/source/temple-facade.png plus authored course, joint and edge clusters; no whole-scene rescaling."
+    },
+    {
+      "id": "pilot-beam-center",
+      "path": "world/terrain/polish-pilot/beam-center.png",
+      "width": 16,
+      "height": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "opaque_bbox": [
+        0,
+        0,
+        16,
+        8
+      ],
+      "alpha": "binary",
+      "repeat": "x",
+      "role": "bounded architectural module pilot; runtime-owned collision and placement",
+      "sha256": "7b27626415e37cb4b440509ad6bbab51fd13e7464025a414bb35d115e83a4344",
+      "provenance": "Native donor material samples from world/source/temple-facade.png plus authored course, joint and edge clusters; no whole-scene rescaling."
+    },
+    {
+      "id": "pilot-beam-right",
+      "path": "world/terrain/polish-pilot/beam-right.png",
+      "width": 16,
+      "height": 8,
+      "anchor": [
+        0,
+        0
+      ],
+      "opaque_bbox": [
+        0,
+        0,
+        16,
+        8
+      ],
+      "alpha": "binary",
+      "repeat": "x",
+      "role": "bounded architectural module pilot; runtime-owned collision and placement",
+      "sha256": "8b826a1adc0c1a68a28e66ed7bac5423bfc2362597b999ef88fdf461d72f300b",
+      "provenance": "Native donor material samples from world/source/temple-facade.png plus authored course, joint and edge clusters; no whole-scene rescaling."
+    },
+    {
+      "id": "pilot-facade-fill",
+      "path": "world/terrain/polish-pilot/facade-fill.png",
+      "width": 16,
+      "height": 16,
+      "anchor": [
+        0,
+        0
+      ],
+      "opaque_bbox": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "alpha": "binary",
+      "repeat": "xy",
+      "role": "bounded architectural module pilot; runtime-owned collision and placement",
+      "sha256": "160d6ee873922b535c24dad1a96d62a07d1df6f2e9cfd9beba55d5adf6332ffd",
+      "provenance": "Native donor material samples from world/source/temple-facade.png plus authored course, joint and edge clusters; no whole-scene rescaling."
+    },
+    {
+      "id": "pilot-facade-left",
+      "path": "world/terrain/polish-pilot/facade-left.png",
+      "width": 16,
+      "height": 16,
+      "anchor": [
+        0,
+        0
+      ],
+      "opaque_bbox": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "alpha": "binary",
+      "repeat": "xy",
+      "role": "bounded architectural module pilot; runtime-owned collision and placement",
+      "sha256": "f962f06ccb208702cc8471e67dfec7d036e73d5f8992d0999e0fe7931b34fc98",
+      "provenance": "Native donor material samples from world/source/temple-facade.png plus authored course, joint and edge clusters; no whole-scene rescaling."
+    },
+    {
+      "id": "pilot-facade-right",
+      "path": "world/terrain/polish-pilot/facade-right.png",
+      "width": 16,
+      "height": 16,
+      "anchor": [
+        0,
+        0
+      ],
+      "opaque_bbox": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "alpha": "binary",
+      "repeat": "xy",
+      "role": "bounded architectural module pilot; runtime-owned collision and placement",
+      "sha256": "bf8ac54589b513663a43e7b9419a0d411897e2c004e3c5957faac73a52248d4e",
+      "provenance": "Native donor material samples from world/source/temple-facade.png plus authored course, joint and edge clusters; no whole-scene rescaling."
+    },
+    {
+      "id": "pilot-facade-band",
+      "path": "world/terrain/polish-pilot/facade-band.png",
+      "width": 16,
+      "height": 16,
+      "anchor": [
+        0,
+        0
+      ],
+      "opaque_bbox": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "alpha": "binary",
+      "repeat": "xy",
+      "role": "bounded architectural module pilot; runtime-owned collision and placement",
+      "sha256": "525edbe6a97159276f402584e0ce375507323c8f520c314f75554741d3ae7444",
+      "provenance": "Native donor material samples from world/source/temple-facade.png plus authored course, joint and edge clusters; no whole-scene rescaling."
+    },
+    {
+      "id": "pilot-stone-fill",
+      "path": "world/terrain/polish-pilot/stone-fill.png",
+      "width": 16,
+      "height": 16,
+      "anchor": [
+        0,
+        0
+      ],
+      "opaque_bbox": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "alpha": "binary",
+      "repeat": "xy",
+      "role": "bounded architectural module pilot; runtime-owned collision and placement",
+      "sha256": "f0acba36fc803d1c45edce12d9da7bb80119ae26e8bed846baf59da5fe03540e",
+      "provenance": "Native donor material samples from world/source/temple-facade.png plus authored course, joint and edge clusters; no whole-scene rescaling."
+    },
+    {
+      "id": "pilot-stone-top",
+      "path": "world/terrain/polish-pilot/stone-top.png",
+      "width": 16,
+      "height": 16,
+      "anchor": [
+        0,
+        0
+      ],
+      "opaque_bbox": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "alpha": "binary",
+      "repeat": "xy",
+      "role": "bounded architectural module pilot; runtime-owned collision and placement",
+      "sha256": "bde0d1c96df0b65af051ce4ae7944c40f67acb3a0c83f038ae1546196e880b9f",
+      "provenance": "Native donor material samples from world/source/temple-facade.png plus authored course, joint and edge clusters; no whole-scene rescaling."
+    },
+    {
+      "id": "pilot-stone-corner",
+      "path": "world/terrain/polish-pilot/stone-corner.png",
+      "width": 16,
+      "height": 16,
+      "anchor": [
+        0,
+        0
+      ],
+      "opaque_bbox": [
+        0,
+        0,
+        16,
+        16
+      ],
+      "alpha": "binary",
+      "repeat": "xy",
+      "role": "bounded architectural module pilot; runtime-owned collision and placement",
+      "sha256": "31c3e8b61392ca82778002363834a14ce81e191753edfa3b8cd6ebc2415e1212",
+      "provenance": "Native donor material samples from world/source/temple-facade.png plus authored course, joint and edge clusters; no whole-scene rescaling."
+    }
+  ]
+}

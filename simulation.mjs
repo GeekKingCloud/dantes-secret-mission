@@ -4,6 +4,8 @@ import {validateLevel} from './level-schema.mjs';
 import {createEnemy, updateEnemy, enemyBox, isWeak, ENEMY_TYPES} from './enemies.mjs';
 
 export const STEP = 1/120, AMMO = 4;
+export const ACTION_CUE = Object.freeze({laser:.16,finisher:.25});
+export const CHARGE_CUE = .38;
 export const COMBO = Object.freeze([
   {reach:74,windup:.035,active:.10,recovery:.105,damage:1},
   {reach:82,windup:.04,active:.11,recovery:.11,damage:1},
@@ -33,14 +35,17 @@ export class LevelSimulation {
     this.won=false;this.time=0;this.events=[];this.hitstop=0;this.pending=new Set();
     this.combo=0;this.comboWindow=0;this.attackTime=0;this.swing=0;this.attackQueue=0;
     this.laserCD=0;this.actionPose=null;this.actionTime=0;this.bossActive=false;
+    this.chargeTime=0;this.chargePip=-1;
   }
   retry() {this.retries++;this.reset();this.events.push('retry');}
   damagePlayer(amount,sourceX,{pit=false,spikes=false}={}) {
     const p=this.p;
     if(!pit&&(p.inv>0||(!spikes&&p.dashInv>0)))return false;
     p.hp-=amount;this.events.push('hurt');
+    p.wallCoyote=0;p.wallSide=0;
     if(p.hp<=0){this.retry();return true;}
     this.attackTime=0;this.attackQueue=0;p.dash=0;p.dashInv=0;p.hurt=.16;p.inv=1;
+    this.actionTime=0;this.actionPose=null;p.pose='hurt';
     if(pit) {
       Object.assign(p,this.checkpoint,{vx:0,vy:0,on:false,wall:0,airJumps:1,buffer:0,coyote:0,kick:0,flip:0});
     } else {
@@ -71,15 +76,20 @@ export class LevelSimulation {
     this.comboWindow=Math.max(0,this.comboWindow-dt);
     this.attackQueue=Math.max(0,this.attackQueue-dt);
     this.laserCD=Math.max(0,this.laserCD-dt);this.actionTime=Math.max(0,this.actionTime-dt);
+    this.chargeTime=Math.max(0,this.chargeTime-dt);
     if(p.events.includes('dash')) {this.attackTime=0;this.attackQueue=0;this.comboWindow=0;}
     if(i.attackPressed)this.attackQueue=.18;
-    if(p.hurt||p.dash)return;
+    if(p.hurt||p.dash){this.actionTime=0;this.actionPose=null;return;}
     if(i.finishPressed) {
       const e=this.enemies.find(e=>canFinish(p,e,this.level));
-      if(e){this.hitEnemy(e,e.hp);p.ammo=Math.min(AMMO,p.ammo+1);p.inv=Math.max(p.inv,.22);this.actionPose='finisher';this.actionTime=.25;this.attackTime=0;}
+      if(e){
+        this.hitEnemy(e,e.hp);
+        if(p.ammo<AMMO){this.chargePip=p.ammo;p.ammo++;this.chargeTime=CHARGE_CUE;}
+        p.inv=Math.max(p.inv,.22);this.actionPose='finisher';this.actionTime=ACTION_CUE.finisher;this.attackTime=0;
+      }
     }
     if(i.laserPressed&&p.ammo>0&&!this.laserCD) {
-      p.ammo--;this.laserCD=.3;this.actionPose='laser';this.actionTime=.16;
+      p.ammo--;this.laserCD=.3;this.actionPose='laser';this.actionTime=ACTION_CUE.laser;
       this.projectiles.push({owner:'player',kind:'laser',x:p.x+p.face*12,y:p.y-25,vx:p.face*650,vy:0,life:1});
       this.events.push('laser');
     }
@@ -106,7 +116,9 @@ export class LevelSimulation {
     this.time+=dt;
     const p=this.p;p.update(i,this.level,dt);this.events.push(...p.events);
     this.combat(i,dt);
-    p.pose=p.hurt?'hurt':p.dash?'dash':this.attackTime?`sword-${this.combo}`:this.actionTime?this.actionPose:p.pose;
+    // Authored one-shot cues own the short visual window, not the combat clock.
+    // Sword buffering/hits continue underneath; movement is never locked by art.
+    p.pose=p.hurt?'hurt':p.dash?'dash':this.actionTime?this.actionPose:this.attackTime?`sword-${this.combo}`:p.pose;
     for(const cp of this.level.checkpoints)if(overlap(p.box,cp)){if(this.checkpointId!==cp.id)this.events.push('checkpoint');this.checkpoint=cp.spawn;this.checkpointId=cp.id;}
     for(const h of this.level.hazards)if(overlap(p.box,h)) {
       this.damagePlayer(h.damage,h.x+h.w/2,{pit:h.type==='pit',spikes:h.type==='spikes'});

@@ -8,8 +8,20 @@ import {LevelSimulation} from '../simulation.mjs';
 import {updateEnemy} from '../enemies.mjs';
 const json=path=>JSON.parse(readFileSync(new URL(path,import.meta.url)));
 const world=json('../assets/world/manifest.json'),ui=json('../assets/ui/manifest.json'),audio=json('../assets/audio/manifest.json');
-test('accepted environment v2 inventory: all 44 IDs, correct width/height, no legacy shape',()=>{
- const records=[...environmentEntries(world),...environmentEntries(ui)];assert.equal(records.length,44);assert.equal(new Set(records.map(([id])=>id)).size,44);
+test('production environment inventory: 57 unique IDs including 13 verified native modules',()=>{
+ const records=[...environmentEntries(world),...environmentEntries(ui)];assert.equal(records.length,57);assert.equal(new Set(records.map(([id])=>id)).size,57);
+ const modules=json('../assets/world/terrain/polish-pilot/modules.json').assets;
+ assert.equal(modules.length,13);
+ for(const source of modules){
+  const a=world.assets.find(a=>a.id===source.id);assert(a,source.id);
+  assert(world.required_ids.includes(a.id));
+  for(const key of ['path','width','height','anchor','opaque_bbox'])assert.deepEqual(a[key],source[key]);
+  const bytes=readFileSync(new URL('../assets/'+a.path,import.meta.url));
+  assert.equal(bytes.readUInt32BE(16),16);assert.equal(bytes.readUInt32BE(20),a.id.includes('beam')?8:16);
+  assert.equal(createHash('sha256').update(bytes).digest('hex'),source.sha256);
+  const missing=structuredClone(world);missing.assets=missing.assets.filter(v=>v.id!==a.id);
+  assert.throws(()=>environmentEntries(missing),/Missing environment asset/);
+ }
  const altered=structuredClone(world);altered.assets[0].size=[1,1];assert.equal(environmentEntries(altered)[0][1].width,altered.assets[0].width);
  assert.throws(()=>environmentEntries({version:1,assets:{}}));
  const duplicate=structuredClone(world);duplicate.assets.push(duplicate.assets[0]);assert.throws(()=>environmentEntries(duplicate),/Duplicate/);

@@ -1,13 +1,15 @@
 import {VIEW, MAP_NODES, introBlocking} from './scenes.mjs';
 import {clamp} from './geometry.mjs';
-import {canFinish,COMBO} from './simulation.mjs';
+import {canFinish,COMBO,ACTION_CUE,CHARGE_CUE} from './simulation.mjs';
 import {isWeak,ENEMY_TYPES} from './enemies.mjs';
 import {BODY} from './player-controller.mjs';
 import {enemyVisual} from './enemy-animation.mjs';
 export function layerOffset(layer,camera,time,width) {
   let x=layer.x-camera.x*layer.factorX+time*layer.driftX;
   if(layer.repeatX)x=((x%width)+width)%width-width;
-  return {x:Math.round(x),y:Math.round(layer.y-camera.y*layer.factorY)};
+  const y=layer.y-camera.y*layer.factorY;
+  // The retained cloud band belongs above play, even at the ascent's crown.
+  return {x:Math.round(x),y:Math.round(layer.asset==='near-clouds'?Math.min(-35,y):y)};
 }
 export class Renderer {
   constructor(canvas,assets){this.canvas=canvas;this.ctx=canvas.getContext('2d');this.assets=assets;this.clocks=new Map();}
@@ -29,14 +31,47 @@ export class Renderer {
       this.image('world',asset,x+a.anchor[0],y+a.anchor[1],time);
     c.restore();
   }
-  terrain(shape,time) {
-    if(!shape.art.startsWith('roof-')){this.tile(shape.art,shape,time);return;}
-    const c=this.ctx,a=this.assets.get('world',shape.art);
-    // One anchored walk-plane row over full-height wall, not repeated roofs.
-    this.tile('wall',shape,time);
-    c.save();c.beginPath();c.rect(shape.x,shape.y-a.anchor[1],shape.w,Math.max(shape.h,a.frameHeight));c.clip();
-    for(let x=shape.x;x<shape.x+shape.w;x+=a.frameWidth)this.image('world',shape.art,x+a.anchor[0],shape.y,time);
-    c.restore();
+  course(material,shape,time,caps={left:true,right:true}) {
+    const {x,y,w,h}=shape;
+    this.tile(`pilot-${material}-center`,shape,time);
+    if(caps.left)this.tile(`pilot-${material}-left`,{x,y,w:Math.min(16,w/2),h},time);
+    // Right cap is anchored to the physical edge, not the last full tile.
+    if(caps.right)this.tile(`pilot-${material}-right`,{x:x+Math.max(0,w-16),y,w:Math.min(16,w),h},time);
+  }
+  terrain(shape,time,neighbors=[]) {
+    const {x,y,w,h}=shape;
+    if(shape.kind==='oneWay'||['wood-beam','eave'].includes(shape.art)) {
+      this.course('beam',{x,y,w,h:Math.min(8,h)},time);return;
+    }
+    if(shape.art.startsWith('roof-')) {
+      const roofs=neighbors.filter(s=>s!==shape&&s.art.startsWith('roof-')&&s.y===y);
+      this.course('roof',{x,y,w,h:Math.min(16,h)},time,{
+        left:!roofs.some(s=>s.x+s.w===x),right:!roofs.some(s=>s.x===x+w)
+      });
+      if(h>16)this.tile('pilot-facade-band',{x,y:y+16,w,h:h-16},time);
+      return;
+    }
+    if(!['wall','stone'].includes(shape.art)){this.tile(shape.art,shape,time);return;}
+    const stone=shape.art==='stone',c=this.ctx;
+    this.tile(stone?'pilot-stone-fill':'pilot-facade-fill',shape,time);
+    if(stone) {
+      this.tile('pilot-stone-top',{x,y,w,h:Math.min(16,h)},time);
+      this.tile('pilot-stone-corner',{x,y,w:Math.min(16,w),h:Math.min(16,h)},time);
+    }else {
+      // Continuous plaster bays: posts only at building edges, floor bands
+      // sparsely spaced, never another roof silhouette along a climb.
+      for(let dy=y+112;dy<y+h;dy+=144)
+        this.tile('pilot-facade-band',{x,y:dy,w,h:Math.min(16,y+h-dy)},time);
+      this.tile('pilot-facade-left',{x,y,w:Math.min(16,w),h},time);
+      this.tile('pilot-facade-right',{x:x+Math.max(0,w-16),y,w:Math.min(16,w),h},time);
+      // Reuse authored recessed windows only on broad bays, below the roof.
+      // They add no collision or false landing edges.
+      if(w>=144)for(let row=y+40;row+42<y+h;row+=144)
+        for(let column=x+64;column+51<x+w-32;column+=192)
+          this.image('world','shoji-window',column,row,time,'idle',1,.55);
+    }
+    // Recess the material behind combat silhouettes, retaining native detail.
+    c.fillStyle='#07132138';c.fillRect(x,y,w,h);
   }
   hazard(h,level) {
     if(!h.art)return;
@@ -108,10 +143,9 @@ export class Renderer {
     const c=this.ctx;
     for(const layer of g.level.background) {
       const a=this.assets.get('world',layer.asset),width=a.frameWidth*(a.scale??1);
-      const presentation=layer.asset==='near-clouds'?{...layer,y:Math.min(layer.y,-35)}:layer;
       // Quiet the dense distant roof/mountain texture behind the native actors;
       // collision architecture remains fully opaque and unmodified.
-      const pos=layerOffset(presentation,cam,g.time,width),alpha=layer.asset==='near-clouds'?.22:layer.asset==='far-clouds'?.7:layer.asset==='far-mountains'?.4:layer.asset==='distant-temples'?.5:1;
+      const pos=layerOffset(layer,cam,g.time,width),alpha=layer.asset==='near-clouds'?.22:layer.asset==='far-clouds'?.7:layer.asset==='far-mountains'?.4:layer.asset==='distant-temples'?.5:1;
       if(layer.repeatX)for(let x=pos.x;x<VIEW.w;x+=width)this.image('world',layer.asset,x,pos.y,g.time,'idle',1,alpha);
       else this.image('world',layer.asset,pos.x,pos.y,g.time);
     }
@@ -119,7 +153,8 @@ export class Renderer {
     // Its perspective ground begins at source row 135 (270 logical pixels).
     if(g.bossActive)this.image('world','boss-arena',0,Math.round(g.level.boss.y-cam.y-270),g.time);
     c.save();c.translate(-Math.round(cam.x),-Math.round(cam.y));
-    for(const s of [...g.level.surfaces,...g.level.walls])this.terrain(s,g.time);
+    for(const s of [...g.level.surfaces,...g.level.walls])
+      if(s.x+s.w>=cam.x&&s.x<=cam.x+VIEW.w&&s.y+s.h>=cam.y&&s.y<=cam.y+VIEW.h)this.terrain(s,g.time,g.level.surfaces);
     for(const h of g.level.hazards)this.hazard(h,g.level);
     for(const prop of g.level.decor)if(prop.asset!=='boss-arena')this.image('world',prop.asset,prop.x,prop.y,g.time,prop.animation||'idle');
     if(!g.level.exit.requiresBoss||!g.boss?.alive)this.image('world','portal-animation',g.level.exit.x+g.level.exit.w/2,g.level.exit.y+g.level.exit.h,g.time);
@@ -145,8 +180,8 @@ export class Renderer {
       else {c.fillStyle='#c8fff5';c.fillRect(Math.round(b.x)-3,Math.round(b.y)-2,12,4);}
     }
     if(p.dash)for(let n=3;n>0;n--)this.image('characters','kagebot',p.x-p.face*n*16,p.y,g.time,'dash',p.face,.1*(4-n));
-    const swing=g.attackTime?COMBO[g.combo-1]:null;
-    const progress=swing?(g.attackTime<swing.windup?.15*g.attackTime/swing.windup:g.attackTime<swing.windup+swing.active?.15+.7*(g.attackTime-swing.windup)/swing.active:.85+.15*(g.attackTime-swing.windup-swing.active)/swing.recovery):null;
+    const swing=g.attackTime&&p.pose===`sword-${g.combo}`?COMBO[g.combo-1]:null;
+    const progress=g.actionTime&&p.pose===g.actionPose?1-g.actionTime/ACTION_CUE[p.pose]:swing?(g.attackTime<swing.windup?.15*g.attackTime/swing.windup:g.attackTime<swing.windup+swing.active?.15+.7*(g.attackTime-swing.windup)/swing.active:.85+.15*(g.attackTime-swing.windup-swing.active)/swing.recovery):null;
     let x=p.x,face=p.face;
     if(p.wall&&['wall-hold','wall-climb'].includes(p.pose)){
       face=p.wall;
@@ -157,12 +192,22 @@ export class Renderer {
       const right=a.frameMetadata[frame].bounds[2]-1;
       x+=face*(BODY.w/2-(right-a.anchor[0]));
     }
-    this.actor('player','kagebot',p.pose,x,p.y,g.time,face,p.inv&&Math.floor(g.time*18)%2?.4:1,false,progress);
+    const charge=g.chargeTime>0?g.chargeTime/CHARGE_CUE:0;
+    if(charge){c.save();c.shadowColor='#79ffb2';c.shadowBlur=12*charge;}
+    // One fading green silhouette pulse, not the invulnerability alpha blink.
+    this.actor('player','kagebot',p.pose,x,p.y,g.time,face,!charge&&!g.actionTime&&p.inv&&Math.floor(g.time*18)%2?.4:1,false,progress);
+    if(charge)c.restore();
   }
   hud(g) {
     const p=g.p;
     this.text(g.level.title,12,20);for(let n=0;n<p.hp;n++)this.image('ui','health',20+n*20,32,0,'idle',1,1,false,.5);
-    for(let n=0;n<p.ammo;n++)this.image('ui','ammo',20+n*20,52,0,'idle',1,1,false,.5);
+    for(let n=0;n<p.ammo;n++){
+      this.image('ui','ammo',20+n*20,52,0,'idle',1,1,false,.5);
+      if(g.chargeTime>0&&n===g.chargePip){
+        const c=this.ctx;c.save();c.globalAlpha=g.chargeTime/CHARGE_CUE;c.strokeStyle='#79ffb2';c.lineWidth=2;
+        c.strokeRect(18+n*20,50,18,18);c.restore();
+      }
+    }
     this.text(`RETRIES ${g.retries}`,520,20,10);
     if(g.bossActive&&g.boss.alive)this.text(g.boss.hp<=g.boss.maxHp/2?'MASKED SHADOW · ENRAGED':'MASKED SHADOW',12,82,12);
   }

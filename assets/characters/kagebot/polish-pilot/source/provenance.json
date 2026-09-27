@@ -1,0 +1,19 @@
+{
+  "sources": [
+    {
+      "file": "generated-idle.png",
+      "sha256": "7f656c2e5054df4fdad16ae31073d914dd8469a1000f3df5469293ca28c5665f",
+      "origin": "Preserved original prior-task PixelLab output; no new submission",
+      "use": "identity/texture reference"
+    },
+    {
+      "file": "generated-swipe.png",
+      "sha256": "35072cc0098ded16646b7a6a71ae36d630a02e4c176efa788a07ba64b9e94f28",
+      "origin": "Preserved original prior-task PixelLab output; no new submission",
+      "use": "native cropped/recolored sword1 air-cut"
+    }
+  ],
+  "pilotNewGenerationJobs": 0,
+  "pilotIncludedUnits": 0,
+  "pilotCashCharge": 0
+}

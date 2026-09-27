@@ -14,7 +14,8 @@ to **World 2 — Coming soon**. World 2 is a teaser, not a playable level.
 ## Controls
 
 A/D or ←/→ move; W/↑ climb; Space jumps, double-jumps into a frontflip, or kicks
-away from a wall. J buffers the three-strike sword combo; K starts a grounded
+away from a wall. Release movement to grip a wall without sliding, even while
+attacking; steer away to let go. J buffers the three-strike sword combo; K starts a grounded
 dash and can cancel attack recovery. L fires a limited laser. F executes an
 eligible weak enemy from behind and refunds one charge, capped at four. Weak
 enemies turn red; the rear/in-range cue tells you when execution is available.

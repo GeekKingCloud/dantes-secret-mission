@@ -30,7 +30,17 @@ cancels sword, including recovery; no unsolicited air-start dash buffer.
 
 Jump rise430px/s; double390; wall kick280px/s away /410px/s up, .14s separation.
 Coyote .10s; buffer .12s; released rise capped175px/s. Apex band ±45px/s uses
-900px/s² gravity; normal rise1350, fall1900. Wall climb110 and slide cap75px/s.
+900px/s² gravity; normal rise1350, fall1900. Wall climb110px/s; neutral wall
+contact arrests both rise and fall, without holding toward the wall or a time limit.
+Releasing climb stops vertical motion immediately, including during sword attacks.
+Steering away, wall kicks and hurt retain their existing movement/separation;
+the 75px/s contact fall cap applies only while disengaging or hurt, not to a grip.
+Grip is checked against current climbable geometry each step, never latched in air.
+After leaving contact, a separate .10s wall-jump grace remembers the last side:
+an away-then-jump press still kicks and preserves the subsequent air jump.
+This memory never holds the body, expires without contact, and is consumed by
+jumping or cleared by landing, hurt, checkpoint return and reset. Kick lock
+cannot refresh it; another wall jump requires fresh usable contact.
 These are authored constants, not a claim that continuous equations equal the
 integrated trajectory. `node tools/measure-movement.mjs` exercises the actual
 fixed-step controller on diagnostic geometry, without rewriting any constants.
