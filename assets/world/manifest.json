@@ -897,5 +897,10 @@
     "Portal animation is a subtle loop, not an opening cinematic.",
     "Scene backdrops are baked cutscene/map/arena images; six gameplay parallax layers remain independent.",
     "Collision, UI layout and browser integration are parent-owned and untested here."
-  ]
+  ],
+  "architectural_pilot": {
+    "manifest": "world/terrain/polish-pilot/modules.json",
+    "module_count": 13,
+    "status": "separate pilot inventory; not production placement or runtime integration"
+  }
 }

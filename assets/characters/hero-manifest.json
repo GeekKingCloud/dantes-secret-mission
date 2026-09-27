@@ -2,7 +2,7 @@
   "version": 1,
   "assets": {
     "kagebot": {
-      "src": "kagebot/atlas.png",
+      "src": "kagebot/polish-pilot/atlas.png",
       "width": 1536,
       "height": 1152,
       "frameWidth": 192,
@@ -20,8 +20,8 @@
           "fps": 1,
           "loop": true,
           "sourceFrameCount": 1,
-          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
-          "model": "kagebot/model/model.json",
+          "provenance": "Native cluster redrawing from preserved generated model; separately articulated pilot poses. Not independently generated frames.",
+          "model": "kagebot/polish-pilot/model/model.json",
           "physicalBladeColumns": 40
         },
         "run-low": {
@@ -38,8 +38,8 @@
           "fps": 20,
           "loop": true,
           "sourceFrameCount": 8,
-          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
-          "model": "kagebot/model/model.json",
+          "provenance": "Native cluster redrawing from preserved generated model; separately articulated pilot poses. Not independently generated frames.",
+          "model": "kagebot/polish-pilot/model/model.json",
           "physicalBladeColumns": 40
         },
         "jump-rise": {
@@ -78,8 +78,8 @@
           "fps": 19.047619047619047,
           "loop": false,
           "sourceFrameCount": 8,
-          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
-          "model": "kagebot/model/model.json",
+          "provenance": "Native cluster redrawing from preserved generated model; separately articulated pilot poses. Not independently generated frames.",
+          "model": "kagebot/polish-pilot/model/model.json",
           "physicalBladeColumns": 40
         },
         "wall-hold": {
@@ -193,39 +193,39 @@
             104.99999999999999
           ],
           "sourceFrameCount": 7,
-          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
-          "model": "kagebot/model/model.json",
+          "provenance": "Native cluster redrawing from preserved generated model; separately articulated pilot poses. Not independently generated frames.",
+          "model": "kagebot/polish-pilot/model/model.json",
           "physicalBladeColumns": 40,
           "reachDepiction": "Constant 40-column physical blade plus visibly separate baked generated cyan air-cut swipe during active poses only",
           "swipeBakedIntoFrames": true,
           "gripCenters": [
             [
-              89.09,
-              72.88
+              79.38,
+              69.11
             ],
             [
-              89.67,
-              74.98
+              84.06,
+              74.75
             ],
             [
-              89.86,
-              76.46
+              85.13,
+              78.52
             ],
             [
-              89.95,
-              77.15
+              85.4,
+              80.32
             ],
             [
-              89.95,
-              78.64
+              85.24,
+              83.15
             ],
             [
-              89.81,
-              80.12
+              85.44,
+              83.31
             ],
             [
-              89.16,
-              83.02
+              85.15,
+              80.45
             ]
           ]
         },
@@ -434,8 +434,8 @@
           "fps": 24,
           "loop": false,
           "sourceFrameCount": 3,
-          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
-          "model": "kagebot/model/model.json",
+          "provenance": "Native cluster redrawing from preserved generated model; separately articulated pilot poses. Not independently generated frames.",
+          "model": "kagebot/polish-pilot/model/model.json",
           "physicalBladeColumns": 40
         },
         "hurt": {
@@ -462,8 +462,8 @@
           "fps": 24,
           "loop": false,
           "sourceFrameCount": 4,
-          "provenance": "Shared native generated model parts; authored pose cleanup, not independent per-action character generation",
-          "model": "kagebot/model/model.json",
+          "provenance": "Native cluster redrawing from preserved generated model; separately articulated pilot poses. Not independently generated frames.",
+          "model": "kagebot/polish-pilot/model/model.json",
           "physicalBladeColumns": 40
         },
         "meditate": {
@@ -513,101 +513,101 @@
         {
           "frame": 0,
           "bounds": [
-            34,
-            51,
-            81,
-            104
+            49,
+            56,
+            75,
+            105
           ],
-          "opaquePixels": 975,
-          "sha256": "0b24dafd6d0e92c927d67ff0458d4f443cb0262c9efa26ee7d832e3a446ac4ed"
+          "opaquePixels": 541,
+          "sha256": "a79bd6d48d55625c9a1f4b13e42b0fbccbb3451f0c4e78a2d923075d4c942f4f"
         },
         {
           "frame": 1,
           "bounds": [
-            41,
-            55,
-            87,
-            104
+            46,
+            65,
+            85,
+            102
           ],
-          "opaquePixels": 765,
-          "sha256": "cc4ef6196c0549b990c4960043e442765591cacbcbe2a654c96dde56625b146f"
+          "opaquePixels": 533,
+          "sha256": "3f0f8c8f9445df78fa16c24812683ca3197221bcdff83f4f7fc6f4d65ff8a7c5"
         },
         {
           "frame": 2,
           "bounds": [
-            41,
-            55,
-            86,
-            104
+            44,
+            65,
+            85,
+            103
           ],
-          "opaquePixels": 794,
-          "sha256": "288baf3e08bebd4d67ded50f061c5ea7a5c6029120fd90dd67c8ae1fcb1f652f"
+          "opaquePixels": 533,
+          "sha256": "affeb4b802a0031e25afec919bdb63c1a74070add19e04cd4a240cf696ad37a7"
         },
         {
           "frame": 3,
           "bounds": [
-            41,
-            55,
-            86,
+            48,
+            65,
+            85,
             104
           ],
-          "opaquePixels": 784,
-          "sha256": "65fc9874b037cd9348aabcbed3e6af4b4766d4a64b5fb7cddc159033b95acc2b"
+          "opaquePixels": 524,
+          "sha256": "a2c08f324e701dfd5477c03f913b8651daf54285d305d26cc728b334fa4258fa"
         },
         {
           "frame": 4,
           "bounds": [
-            41,
-            55,
-            86,
-            104
+            50,
+            65,
+            85,
+            102
           ],
-          "opaquePixels": 746,
-          "sha256": "8534f2b8cc4039f2f5d4bc36aa0f111f425de10f2ced7935d73fde16d22cd88e"
+          "opaquePixels": 449,
+          "sha256": "cc47477a0b9f9d577389ae5f937b1226d34f6f08f90c56a1cdc6cdb6e060f9ed"
         },
         {
           "frame": 5,
           "bounds": [
-            41,
-            55,
-            87,
-            104
+            49,
+            65,
+            85,
+            102
           ],
-          "opaquePixels": 765,
-          "sha256": "4d5ddbf6614bf1892af42dae339a5e0226d34c0605678d7b9608048b9128df07"
+          "opaquePixels": 508,
+          "sha256": "358b04aa1892569b6c6f90e2a3023bc44fbecb1ae4b6a377d8d96032ba35d786"
         },
         {
           "frame": 6,
           "bounds": [
-            41,
-            55,
-            86,
-            104
+            47,
+            65,
+            85,
+            103
           ],
-          "opaquePixels": 794,
-          "sha256": "051f01954511f835c1a6d7093f4a16d73cedc9a806bf06dc3a34daa6cb9d1e2b"
+          "opaquePixels": 509,
+          "sha256": "b4f33052276222e52f4a609ada28350de3d723f4e453b5658477325b26a3ac1c"
         },
         {
           "frame": 7,
           "bounds": [
-            41,
-            55,
-            86,
+            50,
+            65,
+            85,
             104
           ],
-          "opaquePixels": 784,
-          "sha256": "f7850ccec764444fb105bfd62f023118d50961f8046d4a14922cf90768a21ef2"
+          "opaquePixels": 494,
+          "sha256": "ce8b4546d48dd6c2c569a8855f85ab7d68a5a670d0fc168c6611cde9310634cd"
         },
         {
           "frame": 8,
           "bounds": [
-            41,
-            55,
-            86,
-            104
+            50,
+            65,
+            85,
+            102
           ],
-          "opaquePixels": 746,
-          "sha256": "e90068fd9455bb61caa72eb2622832d879eca4a0e5805f187ddb00d9ec1bd2e0"
+          "opaquePixels": 473,
+          "sha256": "e5261e6b50fb4b5307053d0bdccedc1b400d84133c2352c96931c915def4ce97"
         },
         {
           "frame": 9,
@@ -634,90 +634,90 @@
         {
           "frame": 11,
           "bounds": [
-            42,
-            56,
-            87,
-            105
+            50,
+            60,
+            77,
+            109
           ],
-          "opaquePixels": 739,
-          "sha256": "eb2c3a0795a0d72fe311d7ea52887c3a2af9742dffbc83acefc795c7a911e887"
+          "opaquePixels": 526,
+          "sha256": "ca4656e24ff230a38eaf1848b6e16267877d653d5d1cae417bde2af51d7708b9"
         },
         {
           "frame": 12,
           "bounds": [
-            32,
-            68,
-            92,
-            96
+            44,
+            69,
+            87,
+            98
           ],
-          "opaquePixels": 734,
-          "sha256": "198b80bd065525814c5497163c2e6755a25ca99beee2d9038cb6315e9ec1acd7"
+          "opaquePixels": 435,
+          "sha256": "6588347f3d641600589ae443b8ed43274f21b7d0b685337a60191a7850f4bf24"
         },
         {
           "frame": 13,
           "bounds": [
-            40,
-            58,
-            89,
-            103
+            39,
+            67,
+            84,
+            92
           ],
-          "opaquePixels": 739,
-          "sha256": "061cff1cb4f92a9265624856a1ee6fccd850c2525eefabe91925f959ab4c5a3b"
+          "opaquePixels": 432,
+          "sha256": "0ad8028f8276f84ff160d18a4d665ee1ad9fb82513011aa39820e53d2fa61c6f"
         },
         {
           "frame": 14,
           "bounds": [
-            47,
-            48,
-            75,
-            108
+            54,
+            52,
+            78,
+            100
           ],
-          "opaquePixels": 734,
-          "sha256": "0ec32525395b671af4b7c594ca1939aa8f4d063666a383560cb5d1bdc37244b7"
+          "opaquePixels": 434,
+          "sha256": "d15d37bf8bfb2d800e07615953ea79233f9a7b340e12312a43ebdcb5abddb1b3"
         },
         {
           "frame": 15,
           "bounds": [
-            42,
-            56,
-            87,
-            105
+            49,
+            57,
+            84,
+            93
           ],
-          "opaquePixels": 739,
-          "sha256": "a5707201dc8732a728ddba3290896f4c333f41b4cb2de0f02ca95e4031efdcdc"
+          "opaquePixels": 427,
+          "sha256": "e222b70ce281f63d688a69d78957984e570cc1b7229fc57cda9deeb7ca641f3f"
         },
         {
           "frame": 16,
           "bounds": [
-            35,
-            63,
-            95,
-            91
+            43,
+            70,
+            91,
+            95
           ],
-          "opaquePixels": 734,
-          "sha256": "1342cba9329c463774b20fd9571ace85ccdd173f5bdcefc9c454b25203bccaae"
+          "opaquePixels": 421,
+          "sha256": "d27fb8d65ee779d1595a5933ead66d7725aa9244629d8523d0cf824f242c4928"
         },
         {
           "frame": 17,
           "bounds": [
-            40,
-            58,
-            89,
-            103
+            47,
+            62,
+            81,
+            105
           ],
-          "opaquePixels": 739,
-          "sha256": "559a0f1de49aa35fb4b29069eee6b724d4357d0a369e8b24ddce1d4b2d4fd6af"
+          "opaquePixels": 569,
+          "sha256": "9e8a8db39bb5f70665fe9178236f43b0910c9b098da746ed8b152e9d4479e040"
         },
         {
           "frame": 18,
           "bounds": [
             52,
-            51,
-            80,
-            111
+            56,
+            76,
+            105
           ],
-          "opaquePixels": 734,
-          "sha256": "199ef3f73fb641ff8839c6e43daa6b89d958e479908c5c37bf2fdf825bcb5020"
+          "opaquePixels": 537,
+          "sha256": "e12c02a3190fc3296130a90b89481249eed1277be110e38279b186bcaa6a839c"
         },
         {
           "frame": 19,
@@ -821,79 +821,79 @@
         {
           "frame": 28,
           "bounds": [
-            46,
-            56,
-            131,
+            52,
+            26,
+            90,
             104
           ],
-          "opaquePixels": 973,
-          "sha256": "28928b670a930f011c3706cb429abde3666e6cdfa07dba920dfcc049bdb71de5"
+          "opaquePixels": 654,
+          "sha256": "768dd33a85f1d9f1f0f334b3c896830d83e57239e8e537b655a230fee6b94627"
         },
         {
           "frame": 29,
           "bounds": [
-            46,
-            56,
+            52,
+            48,
             139,
             104
           ],
-          "opaquePixels": 1574,
-          "sha256": "1af6362a8fbfbfe74e3c8d933c394600f70bb77b9372415533b1bebbd582a9ed"
+          "opaquePixels": 1500,
+          "sha256": "15200fe8df833c24206dda67c218fb2a2c54279f2dc4ab87b7ac9a2c898541bb"
         },
         {
           "frame": 30,
           "bounds": [
-            46,
-            56,
+            52,
+            63,
             139,
             104
           ],
-          "opaquePixels": 1588,
-          "sha256": "898d2c3b59a3ade41bea752797db6050b765325c537d15935d0514063e7fd944"
+          "opaquePixels": 1461,
+          "sha256": "5a394e72683a644b894415b301905ef8c0e61f091c9d860e6cb2a937d9f226f9"
         },
         {
           "frame": 31,
           "bounds": [
-            46,
-            56,
+            52,
+            64,
             139,
             104
           ],
-          "opaquePixels": 1601,
-          "sha256": "7931c853f644ade19cc4188224ffcacbaa278da059c1d69876f3d8555dcb386d"
+          "opaquePixels": 1434,
+          "sha256": "2a4d1948553fc6809ff0b0afaaf2fb03c9a07219277a92c7aad21be5f2627062"
         },
         {
           "frame": 32,
           "bounds": [
-            46,
-            56,
+            52,
+            63,
             139,
             104
           ],
-          "opaquePixels": 1604,
-          "sha256": "bc314ca1c6efadaba12228d248d936f2d5473b625db0c7e281f42c1fc8e2708b"
+          "opaquePixels": 1463,
+          "sha256": "c283ea69a1a87521fcead5e3b61937cbd703034e1446227171d93288e81c6601"
         },
         {
           "frame": 33,
           "bounds": [
-            46,
-            56,
+            52,
+            64,
             139,
             104
           ],
-          "opaquePixels": 1618,
-          "sha256": "4bbc484b9a7da246a674879d0bc00dd0fd2bade2ba38c39e72d4e76c03f3a0d2"
+          "opaquePixels": 1461,
+          "sha256": "9f77313cb8804e5100c7281f5dfc58eec21a8c0e821f492545c3aa545c40f74f"
         },
         {
           "frame": 34,
           "bounds": [
-            46,
-            56,
-            133,
+            52,
+            60,
+            124,
             104
           ],
-          "opaquePixels": 1015,
-          "sha256": "e67ed6ca39bc9b6c1fa7ff122ca019083d489852a040b1ed63fc7126795245ed"
+          "opaquePixels": 687,
+          "sha256": "fb3a6d496511007c529b08fa0f71be1f93f76d1da79fa7db00415f307b43b885"
         },
         {
           "frame": 35,
@@ -1052,35 +1052,35 @@
         {
           "frame": 49,
           "bounds": [
-            34,
-            51,
-            90,
-            104
+            50,
+            57,
+            83,
+            106
           ],
-          "opaquePixels": 984,
-          "sha256": "fafec9b117556d0ae8c6a6d053bb0ec78849d4a5127a40250b0db6c6bee22b39"
+          "opaquePixels": 573,
+          "sha256": "8c8114d95ed089ad723f2714588636bfba6188d84dc13162f4e5b30c223c0c4c"
         },
         {
           "frame": 50,
           "bounds": [
-            34,
-            51,
+            52,
+            58,
             90,
-            104
+            107
           ],
-          "opaquePixels": 985,
-          "sha256": "9fc7d3f10b8c5ef5dba44ea9296bfc719a1075404da0ba52379661dcab13f535"
+          "opaquePixels": 593,
+          "sha256": "3210a5c7a4daebf2c4f9ccd1915180d6bfaa3b47999d0184c448dd4bc576cd93"
         },
         {
           "frame": 51,
           "bounds": [
-            34,
-            51,
-            90,
-            104
+            49,
+            56,
+            83,
+            105
           ],
-          "opaquePixels": 989,
-          "sha256": "089102261e9598cfb11e7defa112ea89709cbc236462dd9dc30a3c03caa4279b"
+          "opaquePixels": 541,
+          "sha256": "aa2c862fc4b9717514e3131d06c3cd8cdb593230078a88ccbc6aceb93b0cf1a6"
         },
         {
           "frame": 52,
@@ -1129,46 +1129,46 @@
         {
           "frame": 56,
           "bounds": [
-            48,
-            59,
-            134,
+            53,
+            21,
+            79,
             104
           ],
-          "opaquePixels": 963,
-          "sha256": "ca4dcc0dbcafc546b7969cc6b165ea888e9b68c80aaf6750d8a527452436a99d"
+          "opaquePixels": 642,
+          "sha256": "dd463ae75f3c63fe77e1a904b79203a8eca55281e5663df648ba57fb5821d937"
         },
         {
           "frame": 57,
           "bounds": [
-            48,
-            59,
-            135,
+            54,
+            67,
+            129,
             104
           ],
-          "opaquePixels": 971,
-          "sha256": "1e85f2862e0bc52eb025e52801822f1ca0e44e343246f0e8b81e288bae8e5672"
+          "opaquePixels": 673,
+          "sha256": "a0660c0cf51835920024bb5a2ec1901e3fbcc6ee19e9c51dc8e1589b8c3e078b"
         },
         {
           "frame": 58,
           "bounds": [
-            48,
-            59,
-            135,
+            54,
+            66,
+            131,
             104
           ],
-          "opaquePixels": 981,
-          "sha256": "1a451dde554280f4d8708006a70b35bc76626f973d7b05ca64d32786b857448e"
+          "opaquePixels": 687,
+          "sha256": "7be5a661272b25d246f00fb5756d3eda03ede7bdc1134e2f127df8cebdd681d7"
         },
         {
           "frame": 59,
           "bounds": [
-            48,
-            59,
-            135,
+            50,
+            47,
+            115,
             104
           ],
-          "opaquePixels": 990,
-          "sha256": "4cc1a5cccc204b3568a9bc091ba4c732b34b7831942e8c3542d3f6f0701e2210"
+          "opaquePixels": 685,
+          "sha256": "28d603612e2d26fad77cc48101802f27d042f2636ac37ca95ca65248d76a144e"
         },
         {
           "frame": 60,
@@ -1302,7 +1302,8 @@
           "opaquePixels": 863,
           "sha256": "74ffe6787ba33d91e071654f612842a7e28232f8f0195867836caba61c5143e7"
         }
-      ]
+      ],
+      "pilotStatus": "MIXED SET: only idle, run-low, frontflip, sword-1, laser and finisher corrected; remaining production actions preserved unchanged."
     },
     "robot-butler": {
       "src": "robot-butler/atlas.png",

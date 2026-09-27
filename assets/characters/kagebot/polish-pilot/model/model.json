@@ -1,0 +1,198 @@
+{
+  "status": "bounded art pilot; mixed production set",
+  "nativeScale": 1,
+  "physicalBladeColumns": 40,
+  "cell": [
+    192,
+    128
+  ],
+  "anchor": [
+    64,
+    104
+  ],
+  "bodyCollision": [
+    18,
+    42
+  ],
+  "method": "Source hood internal seam deletion; hand-redrawn native armor clusters informed by preserved generated source; same textured joints re-articulated per pose. No full-frame rescaling.",
+  "parts": {
+    "torso": {
+      "file": "torso.png",
+      "size": [
+        12,
+        14
+      ],
+      "proximal": [
+        5,
+        12
+      ],
+      "distal": [
+        7,
+        1
+      ],
+      "sha256": "b2a2d42af7967ce4ebb77fe1c027b9303ae7f5701563d8e6fd0b873189fc6846"
+    },
+    "upper-arm": {
+      "file": "upper-arm.png",
+      "size": [
+        6,
+        7
+      ],
+      "proximal": [
+        2,
+        1
+      ],
+      "distal": [
+        2,
+        6
+      ],
+      "sha256": "526c55ea3e82cd5bcb0e2a469e8b87b876ebd2802f8114b1ca72116abcc05db5"
+    },
+    "gauntlet": {
+      "file": "gauntlet.png",
+      "size": [
+        6,
+        8
+      ],
+      "proximal": [
+        2,
+        0
+      ],
+      "distal": [
+        2,
+        7
+      ],
+      "sha256": "705192ee7e388aa03ded0b080250d37bf185327cc13eab5eb4cc37d69630e85d"
+    },
+    "thigh": {
+      "file": "thigh.png",
+      "size": [
+        7,
+        10
+      ],
+      "proximal": [
+        3,
+        1
+      ],
+      "distal": [
+        3,
+        9
+      ],
+      "sha256": "ea3e5581a436ef00bc00fff6fd9581bffc741eaae3ed15bc15e5eb3bc9c4fbe2"
+    },
+    "shin": {
+      "file": "shin.png",
+      "size": [
+        5,
+        9
+      ],
+      "proximal": [
+        2,
+        0
+      ],
+      "distal": [
+        2,
+        8
+      ],
+      "sha256": "967d42284459c76ad44b93ad7b0a7a06ee09077cec853cb20883db879ea1bf12"
+    },
+    "boot": {
+      "file": "boot.png",
+      "size": [
+        8,
+        5
+      ],
+      "proximal": [
+        2,
+        1
+      ],
+      "distal": [
+        6,
+        3
+      ],
+      "sha256": "95b0a00c98138a7a1a349d8c0bdbc3fc92d6151b7c36711d3ecf70b5f710bd42"
+    },
+    "hood": {
+      "file": "hood.png",
+      "size": [
+        15,
+        15
+      ],
+      "proximal": [
+        6,
+        14
+      ],
+      "distal": [
+        6,
+        0
+      ],
+      "sha256": "28ae2c44b5d5e8cb87d167dad66faaf05f0a92b12a89178bea6b965b409c33f2"
+    },
+    "collar": {
+      "file": "collar.png",
+      "size": [
+        7,
+        3
+      ],
+      "proximal": [
+        3,
+        1
+      ],
+      "distal": [
+        3,
+        0
+      ],
+      "sha256": "c8270aa861f5e6d2e25559c8a1b1cc512f8b1aff4128147e13f5d11ea0b916a9"
+    },
+    "scarf-tail": {
+      "file": "scarf-tail.png",
+      "size": [
+        18,
+        4
+      ],
+      "proximal": [
+        16,
+        1
+      ],
+      "distal": [
+        0,
+        1
+      ],
+      "sha256": "b1016e70c213825142a6815a9b6c39d0e5a2bb7bf3496c854c49cb8f1cb2e7b6"
+    },
+    "katana": {
+      "file": "katana.png",
+      "size": [
+        50,
+        10
+      ],
+      "proximal": [
+        3,
+        5
+      ],
+      "distal": [
+        48,
+        5
+      ],
+      "sha256": "bfee2ab924f2244087e2ec922ddcc391ac12da65fbc1a0bbe088bab04ed9fc04"
+    },
+    "sheathed-katana": {
+      "file": "sheathed-katana.png",
+      "size": [
+        50,
+        10
+      ],
+      "proximal": [
+        3,
+        5
+      ],
+      "distal": [
+        48,
+        5
+      ],
+      "sha256": "02f8f1f6e69a3d4ba59c7581cd454bc5b28a3c1d638ae2afbe6b511a8d394d70"
+    }
+  },
+  "source": "kagebot/model/model.json (preserved generated-derived native parts); polish-pilot/source/generated-idle.png (preserved generated original)",
+  "scarf": "same collar and two narrow 18-column tails in all pilot poses"
+}
