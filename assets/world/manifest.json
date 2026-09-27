@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "status": "asset-inventory-produced; runtime-integration-not-run",
+  "status": "production inventory including native architectural modules",
   "path_base": "assets/",
   "logical_viewport": [
     640,
@@ -30,10 +30,27 @@
     "table-candle",
     "overworld",
     "boss-arena",
-    "portal-animation"
+    "portal-animation",
+    "pilot-roof-left", "pilot-roof-center", "pilot-roof-right",
+    "pilot-beam-left", "pilot-beam-center", "pilot-beam-right",
+    "pilot-facade-fill", "pilot-facade-left", "pilot-facade-right", "pilot-facade-band",
+    "pilot-stone-fill", "pilot-stone-top", "pilot-stone-corner"
   ],
   "missing_required_ids": [],
   "assets": [
+    {"id":"pilot-roof-left","path":"world/terrain/polish-pilot/roof-left.png","width":16,"height":16,"anchor":[0,0],"opaque_bbox":[0,0,16,16]},
+    {"id":"pilot-roof-center","path":"world/terrain/polish-pilot/roof-center.png","width":16,"height":16,"anchor":[0,0],"opaque_bbox":[0,0,16,16]},
+    {"id":"pilot-roof-right","path":"world/terrain/polish-pilot/roof-right.png","width":16,"height":16,"anchor":[0,0],"opaque_bbox":[0,0,16,16]},
+    {"id":"pilot-beam-left","path":"world/terrain/polish-pilot/beam-left.png","width":16,"height":8,"anchor":[0,0],"opaque_bbox":[0,0,16,8]},
+    {"id":"pilot-beam-center","path":"world/terrain/polish-pilot/beam-center.png","width":16,"height":8,"anchor":[0,0],"opaque_bbox":[0,0,16,8]},
+    {"id":"pilot-beam-right","path":"world/terrain/polish-pilot/beam-right.png","width":16,"height":8,"anchor":[0,0],"opaque_bbox":[0,0,16,8]},
+    {"id":"pilot-facade-fill","path":"world/terrain/polish-pilot/facade-fill.png","width":16,"height":16,"anchor":[0,0],"opaque_bbox":[0,0,16,16]},
+    {"id":"pilot-facade-left","path":"world/terrain/polish-pilot/facade-left.png","width":16,"height":16,"anchor":[0,0],"opaque_bbox":[0,0,16,16]},
+    {"id":"pilot-facade-right","path":"world/terrain/polish-pilot/facade-right.png","width":16,"height":16,"anchor":[0,0],"opaque_bbox":[0,0,16,16]},
+    {"id":"pilot-facade-band","path":"world/terrain/polish-pilot/facade-band.png","width":16,"height":16,"anchor":[0,0],"opaque_bbox":[0,0,16,16]},
+    {"id":"pilot-stone-fill","path":"world/terrain/polish-pilot/stone-fill.png","width":16,"height":16,"anchor":[0,0],"opaque_bbox":[0,0,16,16]},
+    {"id":"pilot-stone-top","path":"world/terrain/polish-pilot/stone-top.png","width":16,"height":16,"anchor":[0,0],"opaque_bbox":[0,0,16,16]},
+    {"id":"pilot-stone-corner","path":"world/terrain/polish-pilot/stone-corner.png","width":16,"height":16,"anchor":[0,0],"opaque_bbox":[0,0,16,16]},
     {
       "id": "roof-left",
       "path": "world/terrain/roof-left.png",

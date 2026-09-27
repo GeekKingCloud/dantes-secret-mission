@@ -31,14 +31,47 @@ export class Renderer {
       this.image('world',asset,x+a.anchor[0],y+a.anchor[1],time);
     c.restore();
   }
-  terrain(shape,time) {
-    if(!shape.art.startsWith('roof-')){this.tile(shape.art,shape,time);return;}
-    const c=this.ctx,a=this.assets.get('world',shape.art);
-    // One anchored walk-plane row over full-height wall, not repeated roofs.
-    this.tile('wall',shape,time);
-    c.save();c.beginPath();c.rect(shape.x,shape.y-a.anchor[1],shape.w,Math.max(shape.h,a.frameHeight));c.clip();
-    for(let x=shape.x;x<shape.x+shape.w;x+=a.frameWidth)this.image('world',shape.art,x+a.anchor[0],shape.y,time);
-    c.restore();
+  course(material,shape,time,caps={left:true,right:true}) {
+    const {x,y,w,h}=shape;
+    this.tile(`pilot-${material}-center`,shape,time);
+    if(caps.left)this.tile(`pilot-${material}-left`,{x,y,w:Math.min(16,w/2),h},time);
+    // Right cap is anchored to the physical edge, not the last full tile.
+    if(caps.right)this.tile(`pilot-${material}-right`,{x:x+Math.max(0,w-16),y,w:Math.min(16,w),h},time);
+  }
+  terrain(shape,time,neighbors=[]) {
+    const {x,y,w,h}=shape;
+    if(shape.kind==='oneWay'||['wood-beam','eave'].includes(shape.art)) {
+      this.course('beam',{x,y,w,h:Math.min(8,h)},time);return;
+    }
+    if(shape.art.startsWith('roof-')) {
+      const roofs=neighbors.filter(s=>s!==shape&&s.art.startsWith('roof-')&&s.y===y);
+      this.course('roof',{x,y,w,h:Math.min(16,h)},time,{
+        left:!roofs.some(s=>s.x+s.w===x),right:!roofs.some(s=>s.x===x+w)
+      });
+      if(h>16)this.tile('pilot-facade-band',{x,y:y+16,w,h:h-16},time);
+      return;
+    }
+    if(!['wall','stone'].includes(shape.art)){this.tile(shape.art,shape,time);return;}
+    const stone=shape.art==='stone',c=this.ctx;
+    this.tile(stone?'pilot-stone-fill':'pilot-facade-fill',shape,time);
+    if(stone) {
+      this.tile('pilot-stone-top',{x,y,w,h:Math.min(16,h)},time);
+      this.tile('pilot-stone-corner',{x,y,w:Math.min(16,w),h:Math.min(16,h)},time);
+    }else {
+      // Continuous plaster bays: posts only at building edges, floor bands
+      // sparsely spaced, never another roof silhouette along a climb.
+      for(let dy=y+112;dy<y+h;dy+=144)
+        this.tile('pilot-facade-band',{x,y:dy,w,h:Math.min(16,y+h-dy)},time);
+      this.tile('pilot-facade-left',{x,y,w:Math.min(16,w),h},time);
+      this.tile('pilot-facade-right',{x:x+Math.max(0,w-16),y,w:Math.min(16,w),h},time);
+      // Reuse authored recessed windows only on broad bays, below the roof.
+      // They add no collision or false landing edges.
+      if(w>=144)for(let row=y+40;row+42<y+h;row+=144)
+        for(let column=x+64;column+51<x+w-32;column+=192)
+          this.image('world','shoji-window',column,row,time,'idle',1,.55);
+    }
+    // Recess the material behind combat silhouettes, retaining native detail.
+    c.fillStyle='#07132138';c.fillRect(x,y,w,h);
   }
   hazard(h,level) {
     if(!h.art)return;
@@ -120,7 +153,8 @@ export class Renderer {
     // Its perspective ground begins at source row 135 (270 logical pixels).
     if(g.bossActive)this.image('world','boss-arena',0,Math.round(g.level.boss.y-cam.y-270),g.time);
     c.save();c.translate(-Math.round(cam.x),-Math.round(cam.y));
-    for(const s of [...g.level.surfaces,...g.level.walls])this.terrain(s,g.time);
+    for(const s of [...g.level.surfaces,...g.level.walls])
+      if(s.x+s.w>=cam.x&&s.x<=cam.x+VIEW.w&&s.y+s.h>=cam.y&&s.y<=cam.y+VIEW.h)this.terrain(s,g.time,g.level.surfaces);
     for(const h of g.level.hazards)this.hazard(h,g.level);
     for(const prop of g.level.decor)if(prop.asset!=='boss-arena')this.image('world',prop.asset,prop.x,prop.y,g.time,prop.animation||'idle');
     if(!g.level.exit.requiresBoss||!g.boss?.alive)this.image('world','portal-animation',g.level.exit.x+g.level.exit.w/2,g.level.exit.y+g.level.exit.h,g.time);

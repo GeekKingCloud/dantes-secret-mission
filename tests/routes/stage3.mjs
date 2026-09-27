@@ -171,7 +171,11 @@ gap(2780,2900,-160);spike(3170,3226);fight('ridge-scout');
 gap(3500,3620,0);move(3700);fight('lower-warden');
 tower(4260,-500);assert(!g.enemies.find(e=>e.id==='venom-sentry').alive,'wall sword defeats sentry');move(4370);fight('tower-warden');
 gap(4800,4940,-540);fight('cloud-spirit',{finish:false});
-gap(5460,5580,-400);spike(5770,5826);fight('eave-scout');
+gap(5460,5580,-400);spike(5770,5826);
+tick({right:true,jump:true,jumpPressed:true});
+until('red-eaves offset bay transfer',()=>g.p.on&&g.p.x>5908&&g.p.y===-400,
+  ()=>({right:g.p.x<5909,jump:true}),180);
+settle();fight('eave-scout');
 tower(6100,-900);assert(!g.enemies.find(e=>e.id==='moon-sentry').alive,'wall sword defeats sentry');move(6210);
 gap(6660,6800,-900);fight('summit-warden');
 gap(7420,7540,-720);move(7565);fight('descent-scout');

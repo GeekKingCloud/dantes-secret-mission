@@ -20,7 +20,13 @@ integration errors, never substituted with a fixture.
 - `spawn: {x,y,face}`: level start, feet position; face is -1 or 1.
 - `surfaces: [{id,x,y,w,h,kind,art}]`: kind `solid` or `oneWay`. Solid blocks have
   collidable top, sides and underside. One-way ledges only catch falling feet.
-  `art` is world manifest key, e.g. `roof-center`; tiled, never vector-filled.
+  `art` is world manifest key, e.g. `roof-center`. The renderer composes the
+  production 16px architecture modules from these existing material keys:
+  `roof-*` selects a horizontal roof course with exterior end caps, `wall`
+  selects continuous plaster with edge posts and sparse floor bands, and
+  `stone` selects native masonry. One-way surfaces use an 8px beam course.
+  Modules tile/crop at native scale within the authored collision rectangle;
+  no collision is inferred from art and no new terrain layer is required.
 - `walls: [{id,x,y,w,h,climbable,art}]`: solid blocks; climbable boolean. Use full
   physical height, not a line. Surfaces are not climbable: explicit walls own
   wall holding/climbing. Align wall and rooftop faces; avoid overlapping solids.

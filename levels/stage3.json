@@ -212,53 +212,53 @@
     {
       "id": "cloud-gallery-roof-left",
       "x": 4940,
-      "y": -540,
+      "y": -524,
       "w": 32,
-      "h": 16,
-      "kind": "solid",
-      "art": "roof-left"
+      "h": 8,
+      "kind": "oneWay",
+      "art": "wood-beam"
     },
     {
       "id": "cloud-gallery-roof-center",
       "x": 4972,
       "y": -540,
       "w": 456,
-      "h": 16,
-      "kind": "solid",
-      "art": "roof-center"
+      "h": 8,
+      "kind": "oneWay",
+      "art": "wood-beam"
     },
     {
       "id": "cloud-gallery-roof-right",
       "x": 5428,
-      "y": -540,
+      "y": -556,
       "w": 32,
-      "h": 16,
-      "kind": "solid",
-      "art": "roof-right"
+      "h": 8,
+      "kind": "oneWay",
+      "art": "wood-beam"
     },
     {
       "id": "red-eaves-roof-left",
       "x": 5580,
       "y": -400,
-      "w": 32,
+      "w": 276,
       "h": 16,
       "kind": "solid",
       "art": "roof-left"
     },
     {
       "id": "red-eaves-roof-center",
-      "x": 5612,
-      "y": -400,
-      "w": 456,
-      "h": 16,
-      "kind": "solid",
-      "art": "roof-center"
+      "x": 5856,
+      "y": -384,
+      "w": 32,
+      "h": 8,
+      "kind": "oneWay",
+      "art": "wood-beam"
     },
     {
       "id": "red-eaves-roof-right",
-      "x": 6068,
+      "x": 5888,
       "y": -400,
-      "w": 32,
+      "w": 212,
       "h": 16,
       "kind": "solid",
       "art": "roof-right"
@@ -430,7 +430,7 @@
       "x": 4100,
       "y": -175,
       "w": 160,
-      "h": 12,
+      "h": 8,
       "kind": "oneWay",
       "art": "wood-beam"
     },
@@ -439,12 +439,18 @@
       "x": 5940,
       "y": -575,
       "w": 160,
-      "h": 12,
+      "h": 8,
       "kind": "oneWay",
       "art": "wood-beam"
     }
   ],
   "walls": [
+    {"id":"cloud-gallery-left-post","x":5004,"y":-532,"w":16,"h":40,"climbable":true,"art":"wall"},
+    {"id":"cloud-gallery-right-post","x":5380,"y":-532,"w":16,"h":40,"climbable":true,"art":"wall"},
+    {"id":"red-eaves-east-wall","x":5888,"y":-384,"w":212,"h":240,"climbable":true,"art":"wall"},
+    {"id":"bell-foot-buttress","x":1544,"y":160,"w":16,"h":100,"climbable":true,"art":"stone"},
+    {"id":"venom-foot-buttress","x":4244,"y":-112,"w":16,"h":112,"climbable":true,"art":"stone"},
+    {"id":"moon-foot-buttress","x":6084,"y":-512,"w":16,"h":112,"climbable":true,"art":"stone"},
     {
       "id": "arrival-wall",
       "x": 0,
@@ -510,10 +516,10 @@
     },
     {
       "id": "cloud-gallery-wall",
-      "x": 4940,
-      "y": -524,
-      "w": 520,
-      "h": 1224,
+      "x": 5004,
+      "y": -492,
+      "w": 392,
+      "h": 160,
       "climbable": true,
       "art": "wall"
     },
@@ -521,8 +527,8 @@
       "id": "red-eaves-wall",
       "x": 5580,
       "y": -384,
-      "w": 520,
-      "h": 1084,
+      "w": 276,
+      "h": 144,
       "climbable": true,
       "art": "wall"
     },
@@ -549,7 +555,7 @@
       "x": 7540,
       "y": -704,
       "w": 380,
-      "h": 1404,
+      "h": 112,
       "climbable": true,
       "art": "wall"
     },
@@ -558,7 +564,7 @@
       "x": 8040,
       "y": -524,
       "w": 420,
-      "h": 1224,
+      "h": 64,
       "climbable": true,
       "art": "wall"
     },
@@ -567,7 +573,7 @@
       "x": 8580,
       "y": -344,
       "w": 580,
-      "h": 1044,
+      "h": 192,
       "climbable": true,
       "art": "wall"
     },

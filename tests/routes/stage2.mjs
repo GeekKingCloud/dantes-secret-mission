@@ -109,7 +109,8 @@ function walkTo(x) {
 }
 function climbTo(y) {
   assert(g.p.wall,`climb needs actual wall: ${JSON.stringify(snapshot())}`);
-  until(`climb to ${y}`,()=>g.p.y<=y,{climb:true},1800);
+  const side=g.p.wall;
+  until(`climb to ${y}`,()=>g.p.y<=y,{climb:true,right:side===1,left:side===-1},1800);
 }
 function crossTo(side,flip=false) {
   const wall=g.p.wall;

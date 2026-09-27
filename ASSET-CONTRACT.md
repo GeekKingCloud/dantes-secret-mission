@@ -98,6 +98,18 @@ UI keys: title-frame, map-node-home, map-node-stage, map-node-locked,
 map-node-complete, help-bubble, health, ammo, selection, world2-tease.
 Text rendered by canvas/HTML is allowed; actor/terrain vector fallback is not.
 
+The production world manifest explicitly requires the thirteen native terrain
+modules preserved under `world/terrain/polish-pilot/`: `pilot-roof-{left,center,right}`,
+`pilot-beam-{left,center,right}`, `pilot-facade-{fill,left,right,band}` and
+`pilot-stone-{fill,top,corner}`. All are 16×16 except the 16×8 beams; scale is 1.
+The source directory name records provenance, not an alternate runtime layer.
+Renderer material selection uses the existing level art/kind fields, clips to
+mechanical rectangles, and caps contiguous roofs only at exterior ends. Native
+shoji-window art is sparse recessed decoration on broad walls. A translucent
+shadow tint keeps facade detail behind actors; it never supplies missing art.
+World and UI together have 57 assets. Inventory tests check module metadata,
+PNG dimensions, preserved source hashes, unique IDs, and missing-module errors.
+
 Combat depiction: player body18×42 with feet origin. Sword1 reaches74px forward,
 sword2 82px, sword3 94px, starts 6px behind feet, vertical band y-43..y-5.
 Blade/effect frames must visibly cover these ranges and keep feet stable.
