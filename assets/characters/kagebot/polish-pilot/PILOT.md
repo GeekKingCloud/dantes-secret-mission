@@ -1,67 +1,85 @@
-# Kagebot native art pilot — mixed action set
+# Kagebot native hero — complete corrected source set
 
-This is a bounded correction pilot, not complete production art or an assembled
-release. The canonical character manifest is intentionally untouched. The hero
-source manifest selects this mixed atlas for parent review and later assembly.
+All 18 actions / 72 physical cells now use the shared lean model. This is a
+complete source-art candidate, not an assembled or published release. Historical
+`polish-pilot` filenames remain to avoid unrelated path migration. The canonical
+character manifest and runtime are intentionally untouched; parent integration
+must consume this exact hero source manifest after both execution owners stop.
 
-## Included corrections
+## Complete physical-frame inventory
 
-- idle: 1 neutral key
-- run-low: 8 low-running phases
-- frontflip: 8 separately articulated gather/tuck/invert/open phases
-- sword-1: 7 physical poses on the existing 20-slot, 240 ms timeline
-- laser: 3 charge/extension/recoil keys
-- finisher: 4 raised-blade/cut/recover keys, non-gory
+| Action | Cells | Atlas indices |
+| --- | ---: | --- |
+| idle | 1 | 0 |
+| run-low | 8 | 1–8 |
+| jump-rise | 1 | 9 |
+| fall | 1 | 10 |
+| frontflip | 8 | 11–18 |
+| wall-hold | 1 | 19 |
+| wall-climb | 4 | 20–23 |
+| wall-jump | 1 | 24 |
+| dash | 3 | 25–27 |
+| sword-1 | 7 | 28–34 |
+| sword-2 | 7 | 35–41 |
+| sword-3 | 7 | 42–48 |
+| laser | 3 | 49–51 |
+| hurt | 4 | 52–55 |
+| finisher | 4 | 56–59 |
+| meditate | 1 | 60 |
+| startled | 8 | 61–68 |
+| drone-depart | 3 | 69–71 |
 
-All cells remain 192 × 128, 8 columns, feet/root anchor [64,104]. The atlas
-contains 72 physical cells: 31 corrected and 41 unchanged production cells.
-The independent collision body remains 18 × 42. No renderer, timing, controller,
-combat, enemy, intro, overworld or level source was edited.
+The missing twelve actions / 41 cells are complete. Each sword still uses seven
+physical poses on its unchanged twenty-slot startup/active/recovery timeline.
+Cells remain 192 × 128, eight columns, native scale 1, root [64,104]. Independent
+collision remains 18 × 42; artwork alpha never defines collision geometry.
 
-## Shared model and provenance
+## Shared model and honest provenance
 
-The generated reference is preserved in `source/generated-idle.png`; the original
-model parts and atlas remain in the parent Kagebot directory, unmodified. The
-hood removes selected internal pixel seams from the existing generated-derived
-19 × 19 hood to produce a 15 × 15 native head, rather than rescaling a full atlas.
-Torso and limb armor are hand-redrawn native clusters informed by that source,
-with common shaded armor planes, cuffs, dark joints and a cyan visor. Every pilot
-pose uses those same parts. These are authored cutout poses, not 31 newly generated
-images and not a primitive/vector stand-in.
+No generation was submitted. Preserved `source/generated-idle.png` and
+`source/generated-swipe.png` are existing generated references. Original model
+parts and atlas in the parent Kagebot directory remain unmodified. The shared
+15 × 15 hood removes internal seams from the generated-derived 19 × 19 source;
+native torso and limb armor clusters are the accepted pilot design. Every action
+uses these same parts, palette, collar and two scarf tails. These are articulated
+cutout poses, not 72 newly generated images or whole-atlas rescaling.
 
-`model/model.json` records dimensions and part hashes. `pose-joints.json` records
-individual hip, neck, knee, ankle, elbow and hand positions. Middle flip frames
-fold the knees toward the chest and the ankles back to the hips; the neck/hip
-axis crosses inversion before opening. They are not rotations of one extended
-standing sprite. The rigid sheathed weapon still extends outside the compact
-body silhouette in some airborne views; it is intentionally a low-contrast,
-narrow matte silhouette rather than the previous paddle-shaped dark prop.
+`model/model.json` records part hashes and dimensions; `pose-joints.json` records
+per-frame hip, neck, knee, ankle, elbow and hand positions. Middle flip keys fold
+knees to chest and ankles back to hips while the neck/hip axis crosses inversion.
+They are not rotations of one straight pose. The rigid narrow sheathed weapon
+still extends outside the compact body in some airborne views by design.
 
-All equipped strikes use the exact original 40-column physical metal blade and
-hilt without scaling. Its stored counterpart keeps the same longitudinal size,
-with a 1–2 pixel matte sheath drawn behind the body. The scarf has one collar and
-two shared narrow tails. Sword 1's darker cyan air-cut reuses preserved generated
-source (`source/generated-swipe.png`), rather than stretching the blade to match
-the existing 74-pixel attack reach. Blade/hilt attachment follows the hand.
+The original katana PNG is byte-identical: forty opaque longitudinal columns
+from guard through tip (two guard columns and 38 blade-only columns), plus hilt.
+It rotates rigidly, never stretches. Sword reach 74/82/94 is supplied by posing
+and a chromatically distinct reused generated air-cut, not a longer metal blade.
+Sword 2 reverses the air-cut sweep for its rising backhand. Each equipped strike
+has one blade attached to its front hand and an empty matte sheath behind it;
+there is no duplicate equipped back blade. Stored weapon length is unchanged.
 
-## Exact remaining production corrections
+Previously accepted action poses changed only for concrete readability/equipment
+cleanup: existing upper-left armor pixels use the same mid-ramp shade (no new
+alpha or thicker limbs), and equipped strikes retain the empty sheath. Scarf,
+hood and articulated tuck design remain consistent across the full set.
 
-Unchanged older model: jump-rise, fall, wall-hold, wall-climb, wall-jump, dash,
-sword-2, sword-3, hurt, meditate, startled, drone-depart. They are deliberately
-preserved, not accepted as matching this pilot. Run-to-sword-2/3 and other mixed
-transitions visibly change models. Laser and execution keys are authored but the
-existing runtime still truncates their display; extending readability, recharge
-cues and final animation dispatch belong to the separate runtime owner.
+## Contact and verification
 
-## Review and integration
+Wall hold/climb face the wall. Their rightmost opaque pixels are the forward
+gauntlet at x=77, rows 67–69, not the boot or scarf. Accurate frame bounds let the
+unchanged renderer apply its four-pixel root correction to place that contact at
+the independent body's wall face. Native drone-depart hand remains [73,61], or
+[9,-43] from the root, preserving the existing drone rail and intro choreography.
 
-The private audition substitutes only HTTP asset resources into the unchanged
-real game and retains real enemies, geometry, combat and root anchors. It exercises
-run and sword 1 through input replay and records normal-speed gameplay. A source
-manifest selecting an atlas is not canonical runtime integration. Parent review
-must accept the full-body silhouette, motion and architectural material pilot
-before completing missing actions and assembling the canonical manifest.
+All 72 cell/atlas hashes, binary alpha, bounds, palette, model references and
+anchors are verified programmatically. Hero/media/contracts tests and an actual
+unchanged-game input replay verify the resource-overridden full set. Private
+evidence includes full inventory, body/reach overlays, baseline/current intro
+contact comparisons and authored motion at a declared 120 Hz sample cadence.
+The 20-second game video uses 600 images, exactly four 120 Hz simulation ticks
+per image, encoded at 30 fps. This reproduces simulation-speed motion; it is
+offline capture, not wall-clock browser-performance proof.
 
-Native and nearest-neighbor comparisons, body/reach overlays, action contacts,
-a timed transition preview, in-game video, schema/alpha/frame checks and detailed
-commands are kept with the private handoff. No new generation units were used.
+The separate runtime owner's laser/execution display and final geometry changes
+are not present in this tree. Assembled integration and independent final review
+remain required; source-art completion must not be mistaken for release approval.

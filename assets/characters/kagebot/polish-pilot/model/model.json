@@ -1,5 +1,5 @@
 {
-  "status": "bounded art pilot; mixed production set",
+  "status": "complete corrected source set: 18 actions / 72 cells; runtime assembly separate",
   "nativeScale": 1,
   "physicalBladeColumns": 40,
   "cell": [
@@ -14,7 +14,7 @@
     18,
     42
   ],
-  "method": "Source hood internal seam deletion; hand-redrawn native armor clusters informed by preserved generated source; same textured joints re-articulated per pose. No full-frame rescaling.",
+  "method": "Preserved generated-derived hood with internal seam removal; native armor clusters; shared rigid parts articulated independently. No whole-frame scaling.",
   "parts": {
     "torso": {
       "file": "torso.png",
@@ -30,7 +30,7 @@
         7,
         1
       ],
-      "sha256": "b2a2d42af7967ce4ebb77fe1c027b9303ae7f5701563d8e6fd0b873189fc6846"
+      "sha256": "04f7bec740231d9d179423c02610b8f42c9a724b091ecb10c225caaa106ceaaf"
     },
     "upper-arm": {
       "file": "upper-arm.png",
@@ -46,7 +46,7 @@
         2,
         6
       ],
-      "sha256": "526c55ea3e82cd5bcb0e2a469e8b87b876ebd2802f8114b1ca72116abcc05db5"
+      "sha256": "f9cf8fca7fb9ac44eba4793b491b6a707c026386d7b6f8e877cc09db53f91eab"
     },
     "gauntlet": {
       "file": "gauntlet.png",
@@ -62,7 +62,7 @@
         2,
         7
       ],
-      "sha256": "705192ee7e388aa03ded0b080250d37bf185327cc13eab5eb4cc37d69630e85d"
+      "sha256": "d3433d77b848c4d76cebc8fec9cad3763c2a6f7214ab0479e43d805208943600"
     },
     "thigh": {
       "file": "thigh.png",
@@ -78,7 +78,7 @@
         3,
         9
       ],
-      "sha256": "ea3e5581a436ef00bc00fff6fd9581bffc741eaae3ed15bc15e5eb3bc9c4fbe2"
+      "sha256": "ba84e1521b3c5f450bf6d02968d992f24f83bfb5fe6479f753ddfaaa139839c9"
     },
     "shin": {
       "file": "shin.png",
@@ -94,7 +94,7 @@
         2,
         8
       ],
-      "sha256": "967d42284459c76ad44b93ad7b0a7a06ee09077cec853cb20883db879ea1bf12"
+      "sha256": "00d32e619932b1475abc9fd1abcf807fac14f2feef3b56be5761fea401ad6722"
     },
     "boot": {
       "file": "boot.png",
@@ -110,7 +110,7 @@
         6,
         3
       ],
-      "sha256": "95b0a00c98138a7a1a349d8c0bdbc3fc92d6151b7c36711d3ecf70b5f710bd42"
+      "sha256": "267e6b11763b4131f5c35c4036d0f8c4e2106c2803ab8955c824e260fbf62c21"
     },
     "hood": {
       "file": "hood.png",
@@ -191,8 +191,25 @@
         5
       ],
       "sha256": "02f8f1f6e69a3d4ba59c7581cd454bc5b28a3c1d638ae2afbe6b511a8d394d70"
+    },
+    "empty-sheath": {
+      "file": "empty-sheath.png",
+      "size": [
+        50,
+        10
+      ],
+      "proximal": [
+        3,
+        5
+      ],
+      "distal": [
+        48,
+        5
+      ],
+      "sha256": "50b9cc2a04aafd28dd29a355569ba34edee13ca8320a3716b5fe8b6ac67b76a7"
     }
   },
-  "source": "kagebot/model/model.json (preserved generated-derived native parts); polish-pilot/source/generated-idle.png (preserved generated original)",
-  "scarf": "same collar and two narrow 18-column tails in all pilot poses"
+  "source": "../../model (preserved original generated-derived native parts)",
+  "scarf": "same collar and two narrow 18-column tails in all poses",
+  "equipment": "One unchanged 40-column metal blade. Empty matte sheath remains during equipped attacks; sheathed weapon elsewhere. Cyan reach effects reuse preserved generated swipe."
 }
