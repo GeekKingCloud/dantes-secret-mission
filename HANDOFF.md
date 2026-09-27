@@ -1,4 +1,46 @@
-# Kagebot’s Secret Mission — full-art World 1 review candidate
+# Kagebot’s Secret Mission — runtime playtest polish
+
+## Current runtime delta
+
+Based on `59d4e19345d7d115aa4f0e89e079ba75b5bcab74`, preserving stationary
+wall grip and 100ms wall-jump grace. Laser and execution now have short authored
+visual priority over the independently running sword combo, with their own
+normalized animation clock. Sword buffering, damage and movement remain live;
+hurt and grounded dash cancel these cues without resurrecting stale animations.
+Execution's actual ammo increment triggers a single 380ms green silhouette fade
+and gained-pip outline. Capped executions do not trigger a charge pulse. One-shot
+actions remain opaque rather than disappearing into the invulnerability blink.
+
+Only `far-clouds` entries were removed from the three production background
+arrays. Original assets and near-cloud horizontal drift remain intact. The upper
+band is clamped after camera offset so it stays upper at the ascent's crown.
+Route assertions and stage notes now describe five layers, not six. The separate
+media inventory fixture still intentionally exercises both original cloud assets.
+
+Fresh local proof: 87 Node tests pass, including existing wall grip/grace tests.
+Baseline-versus-current real-input traces preserve all compared mechanical state
+while previously suppressed laser/queued-execution poses become visible. The
+input-only campaign passes all three stages, with four HP and no retries on the
+browser route. Chromium captured three route camera samples, including stage 2
+crown height, and normal-speed laser+sword, execution+queued sword, and capped
+execution clips. Focused action clips are labeled fixtures, not campaign scenes.
+No physical controller test, asset generation, publication or external write.
+
+## Next ownership boundary
+
+Runtime phase is stopped for parent inspection. Artist retains asset ownership;
+the parent must accept the lean hero/sheath, true tucked flip and action-art pilot
+before assigning remaining integration. Current authored frames are provisional;
+there are no generated replacement poses in this runtime delta. Recheck native
+anchors, frame metadata and short action timing against any accepted new atlas.
+Architecture art and all three stages' geometry remain untouched: still pending
+are actual modular roof/wall tiles, varied ledge thickness, deliberate narrow
+shafts and believable horizontal roofs versus vertical façades. Parent assigns
+one next-stage integration owner, then requests affected route proof and an
+independent assembled visual/gameplay review before any publication. No air-dash
+work is pending or authorized.
+
+## Historical full-art review checkpoint (superseded where noted above)
 
 ## Boundary
 

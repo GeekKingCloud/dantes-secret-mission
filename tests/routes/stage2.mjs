@@ -60,9 +60,8 @@ for(const name of ['primer','venom','belfry','crown']) {
 }
 const worldKeys=new Set(['sky','moon','far-mountains','distant-temples','far-clouds','near-clouds','roof-left','roof-center','roof-right','roof-ridge','wall','wood-beam','eave','stone','spikes-top','spikes-side','lantern','home-interior','table-candle','overworld','boss-arena','portal-animation']);
 for(const key of [...supports.map(s=>s.art),...spikes.map(h=>h.art),...level.background.map(b=>b.asset),...level.decor.map(d=>d.asset)]) assert(worldKeys.has(key),`contract art key ${key}`);
-assert.deepEqual(level.background.map(b=>b.asset),['sky','moon','far-mountains','distant-temples','far-clouds','near-clouds']);
-const [far,near]=level.background.slice(-2);
-assert(far.driftX && near.driftX && far.driftX!==near.driftX && far.factorX!==near.factorX && far.factorY!==near.factorY,'independent cloud layers');
+assert.deepEqual(level.background.map(b=>b.asset),['sky','moon','far-mountains','distant-temples','near-clouds']);
+assert(level.background.at(-1).driftX!==0,'retained upper clouds still drift');
 console.log('PASS schema, geometry, full patrol support, safe spawns, contract keys');
 
 const g = new LevelSimulation(level);

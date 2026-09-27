@@ -61,10 +61,9 @@ or diving immediately out of a floor.
 - Two 56×16 `spikes-top` beds sit exactly on roof tops at x3170 and x5770. Each has
   a clear approach/landing and no overlapping patrol. Both are jumped with ordinary
   held jumps in the route. Spike/art readability is still a browser acceptance item.
-- All six background keys are used back-to-front: sky, moon, far-mountains,
-  distant-temples, far-clouds, near-clouds. Far clouds use factors .12/.02 and +5px/s
-  drift; near clouds use .32/.06 and −11px/s. These are contract references, not a
-  claim that missing assets were imported or seen drifting in a browser.
+- Five background entries remain: sky, moon, far-mountains, distant-temples,
+  near-clouds. Repeated far clouds were removed after playtest; source art stays.
+  Near clouds retain factors .32/.06 and drift −11, clamped above play by renderer.
 - `boss-arena` is a decorative centerpiece at (10000,−500); the collision remains
   the ordinary continuous roof/wall construction. Parent must inspect its actual
   anchor/size and edge occlusion when the manifest arrives.

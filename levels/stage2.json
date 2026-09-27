@@ -805,15 +805,6 @@
       "repeatX": true
     },
     {
-      "asset": "far-clouds",
-      "factorX": 0.1,
-      "factorY": 0.008,
-      "driftX": 3.5,
-      "x": 0,
-      "y": 68,
-      "repeatX": true
-    },
-    {
       "asset": "near-clouds",
       "factorX": 0.25,
       "factorY": 0.016,

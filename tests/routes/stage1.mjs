@@ -48,14 +48,14 @@ function geometry() {
       for(let y=e.patrol.min;y<=e.patrol.max;y++) assert(!blocks.some(s=>overlap(enemyBox({...e,y}),s)),'spider patrol clear');
     }
   }
-  assert.deepEqual(new Set(level.background.map(b=>b.asset)),new Set(['sky','moon','far-mountains','distant-temples','far-clouds','near-clouds']));
+  assert.deepEqual(new Set(level.background.map(b=>b.asset)),new Set(['sky','moon','far-mountains','distant-temples','near-clouds']));
   const clouds=level.background.filter(b=>b.asset.endsWith('clouds'));
-  assert(clouds.every(b=>b.driftX!==0) && clouds[0].factorX!==clouds[1].factorX && clouds[0].driftX!==clouds[1].driftX);
+  assert.deepEqual(clouds.map(b=>b.asset),['near-clouds']);assert(clouds[0].driftX!==0);
   const worldKeys=new Set('sky moon far-mountains distant-temples far-clouds near-clouds roof-left roof-center roof-right roof-ridge wall wood-beam eave stone spikes-top spikes-side lantern home-interior table-candle overworld boss-arena portal-animation'.split(' '));
   for(const key of [...level.surfaces,...level.walls,...level.hazards].map(o=>o.art).filter(Boolean).concat(level.background.map(o=>o.asset),level.decor.map(o=>o.asset))) assert(worldKeys.has(key),`unknown asset ${key}`);
   assert.equal(level.boss,null);assert.equal(level.exit.requiresBoss,false);assert.equal(level.music,'stage1-approved');
   assert.deepEqual(VIEW,{w:640,h:360});
-  console.log('geometry: aligned roof/wall solids, safe spawns, full patrol support, spider clearance, contract keys and six layers PASS');
+  console.log('geometry: aligned roof/wall solids, safe spawns, full patrol support, spider clearance, contract keys and single drifting cloud band PASS');
 }
 
 // The only gameplay writes are input objects passed to update(). No state repair,

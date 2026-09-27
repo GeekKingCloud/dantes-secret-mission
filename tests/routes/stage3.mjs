@@ -44,10 +44,10 @@ function geometryChecks() {
   assert(level.exit.requiresBoss&&inside(level.boss.arena,level.camera));
   assert.equal(level.boss.y,level.boss.arena.y+level.boss.arena.h);
   const clouds=level.background.filter(b=>b.asset.endsWith('clouds'));
-  assert.equal(clouds.length,2);assert(clouds.every(c=>c.driftX!==0));assert.notEqual(clouds[0].factorX,clouds[1].factorX);
-  assert.deepEqual(new Set(level.background.map(b=>b.asset)),new Set(['sky','moon','far-mountains','distant-temples','far-clouds','near-clouds']));
+  assert.deepEqual(clouds.map(c=>c.asset),['near-clouds']);assert(clouds[0].driftX!==0);
+  assert.deepEqual(new Set(level.background.map(b=>b.asset)),new Set(['sky','moon','far-mountains','distant-temples','near-clouds']));
   assert.deepEqual(VIEW,{w:640,h:360});
-  console.log('PASS geometry: supported patrols/spawns, separate aligned roof/wall solids, hazards, roster, camera and six layers');
+  console.log('PASS geometry: supported patrols/spawns, separate aligned roof/wall solids, hazards, roster, camera and single drifting cloud band');
 }
 geometryChecks();
 

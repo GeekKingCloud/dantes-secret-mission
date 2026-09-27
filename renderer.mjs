@@ -1,13 +1,15 @@
 import {VIEW, MAP_NODES, introBlocking} from './scenes.mjs';
 import {clamp} from './geometry.mjs';
-import {canFinish,COMBO} from './simulation.mjs';
+import {canFinish,COMBO,ACTION_CUE,CHARGE_CUE} from './simulation.mjs';
 import {isWeak,ENEMY_TYPES} from './enemies.mjs';
 import {BODY} from './player-controller.mjs';
 import {enemyVisual} from './enemy-animation.mjs';
 export function layerOffset(layer,camera,time,width) {
   let x=layer.x-camera.x*layer.factorX+time*layer.driftX;
   if(layer.repeatX)x=((x%width)+width)%width-width;
-  return {x:Math.round(x),y:Math.round(layer.y-camera.y*layer.factorY)};
+  const y=layer.y-camera.y*layer.factorY;
+  // The retained cloud band belongs above play, even at the ascent's crown.
+  return {x:Math.round(x),y:Math.round(layer.asset==='near-clouds'?Math.min(-35,y):y)};
 }
 export class Renderer {
   constructor(canvas,assets){this.canvas=canvas;this.ctx=canvas.getContext('2d');this.assets=assets;this.clocks=new Map();}
@@ -108,10 +110,9 @@ export class Renderer {
     const c=this.ctx;
     for(const layer of g.level.background) {
       const a=this.assets.get('world',layer.asset),width=a.frameWidth*(a.scale??1);
-      const presentation=layer.asset==='near-clouds'?{...layer,y:Math.min(layer.y,-35)}:layer;
       // Quiet the dense distant roof/mountain texture behind the native actors;
       // collision architecture remains fully opaque and unmodified.
-      const pos=layerOffset(presentation,cam,g.time,width),alpha=layer.asset==='near-clouds'?.22:layer.asset==='far-clouds'?.7:layer.asset==='far-mountains'?.4:layer.asset==='distant-temples'?.5:1;
+      const pos=layerOffset(layer,cam,g.time,width),alpha=layer.asset==='near-clouds'?.22:layer.asset==='far-clouds'?.7:layer.asset==='far-mountains'?.4:layer.asset==='distant-temples'?.5:1;
       if(layer.repeatX)for(let x=pos.x;x<VIEW.w;x+=width)this.image('world',layer.asset,x,pos.y,g.time,'idle',1,alpha);
       else this.image('world',layer.asset,pos.x,pos.y,g.time);
     }
@@ -145,8 +146,8 @@ export class Renderer {
       else {c.fillStyle='#c8fff5';c.fillRect(Math.round(b.x)-3,Math.round(b.y)-2,12,4);}
     }
     if(p.dash)for(let n=3;n>0;n--)this.image('characters','kagebot',p.x-p.face*n*16,p.y,g.time,'dash',p.face,.1*(4-n));
-    const swing=g.attackTime?COMBO[g.combo-1]:null;
-    const progress=swing?(g.attackTime<swing.windup?.15*g.attackTime/swing.windup:g.attackTime<swing.windup+swing.active?.15+.7*(g.attackTime-swing.windup)/swing.active:.85+.15*(g.attackTime-swing.windup-swing.active)/swing.recovery):null;
+    const swing=g.attackTime&&p.pose===`sword-${g.combo}`?COMBO[g.combo-1]:null;
+    const progress=g.actionTime&&p.pose===g.actionPose?1-g.actionTime/ACTION_CUE[p.pose]:swing?(g.attackTime<swing.windup?.15*g.attackTime/swing.windup:g.attackTime<swing.windup+swing.active?.15+.7*(g.attackTime-swing.windup)/swing.active:.85+.15*(g.attackTime-swing.windup-swing.active)/swing.recovery):null;
     let x=p.x,face=p.face;
     if(p.wall&&['wall-hold','wall-climb'].includes(p.pose)){
       face=p.wall;
@@ -157,12 +158,22 @@ export class Renderer {
       const right=a.frameMetadata[frame].bounds[2]-1;
       x+=face*(BODY.w/2-(right-a.anchor[0]));
     }
-    this.actor('player','kagebot',p.pose,x,p.y,g.time,face,p.inv&&Math.floor(g.time*18)%2?.4:1,false,progress);
+    const charge=g.chargeTime>0?g.chargeTime/CHARGE_CUE:0;
+    if(charge){c.save();c.shadowColor='#79ffb2';c.shadowBlur=12*charge;}
+    // One fading green silhouette pulse, not the invulnerability alpha blink.
+    this.actor('player','kagebot',p.pose,x,p.y,g.time,face,!charge&&!g.actionTime&&p.inv&&Math.floor(g.time*18)%2?.4:1,false,progress);
+    if(charge)c.restore();
   }
   hud(g) {
     const p=g.p;
     this.text(g.level.title,12,20);for(let n=0;n<p.hp;n++)this.image('ui','health',20+n*20,32,0,'idle',1,1,false,.5);
-    for(let n=0;n<p.ammo;n++)this.image('ui','ammo',20+n*20,52,0,'idle',1,1,false,.5);
+    for(let n=0;n<p.ammo;n++){
+      this.image('ui','ammo',20+n*20,52,0,'idle',1,1,false,.5);
+      if(g.chargeTime>0&&n===g.chargePip){
+        const c=this.ctx;c.save();c.globalAlpha=g.chargeTime/CHARGE_CUE;c.strokeStyle='#79ffb2';c.lineWidth=2;
+        c.strokeRect(18+n*20,50,18,18);c.restore();
+      }
+    }
     this.text(`RETRIES ${g.retries}`,520,20,10);
     if(g.bossActive&&g.boss.alive)this.text(g.boss.hp<=g.boss.maxHp/2?'MASKED SHADOW · ENRAGED':'MASKED SHADOW',12,82,12);
   }

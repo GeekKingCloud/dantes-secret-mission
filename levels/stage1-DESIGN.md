@@ -52,11 +52,9 @@ but the acceptance route kills all nine instead of dash-skipping the design.
 - Temple roofs use `roof-center`, plaster walls `wall`, courtyard tops `stone`,
   the side ledge `eave`, checkpoint/arrival rhythm `lantern`, and the sole spike
   patch `spikes-top`. All are exact asset-contract keys, not generated substitutes.
-- All six background keys are present in back-to-front order: sky, moon,
-  far-mountains, distant-temples, far-clouds, near-clouds. Far clouds use
-  factorX .025 / factorY .02 / driftX +3; near clouds .2 / .12 / −8. Independent
-  drift is actual level data consumed by the existing renderer, not a still
-  backdrop or a promise to add parallax later.
+- Five background entries remain: sky, moon, far-mountains, distant-temples,
+  near-clouds. Repeated far clouds were removed after playtest; source art stays.
+  Near clouds retain factors .2/.12 and drift −8, clamped above play by renderer.
 - Stage music is `stage1-approved`. No sound generation or asset spending.
 - Enemy healthbars are not authored. Existing engine/renderer own the weak red
   state and actionable behind-only finisher cue. This level gives those cues
